@@ -4,7 +4,7 @@
 		<h2>{{msg}}</h2>
 		<div class="nav-box">
 			<p class="nav-list">
-				<router-link class="nav-item" to="/"></router-link>
+				<router-link class="nav-item" to="/">qqq</router-link>
 				<router-link class="nav-item" to="/about">关于</router-link>
 			</p>
 		</div>
