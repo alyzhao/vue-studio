@@ -23,6 +23,7 @@
 				msg: 'Vue Module development!'
 			}
 		},
+		// 在components中注册组件
 		components: {
 			HeaderTab
 		}
