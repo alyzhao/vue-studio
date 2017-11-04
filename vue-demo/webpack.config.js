@@ -18,7 +18,7 @@ module.exports = {
 			views: path.join(__dirname, 'src/views'),
 			styles: path.join(__dirname, 'src/styles'),
 			store: path.join(__dirname, 'src/store'),
-			'vue': 'vue/dist/vue.js'
+			'vue': 'vue/dist/vue.js'	// 防止报错, 具体细节不知道
 		},
 	    extensions: ['.js', '.vue'],	// 引用js和vue文件可以省略后缀名
 	    // fallback: [path.join(__dirname, 'node_modules')] 	// 1.x 版本用 fallback 高版本用一下替换
