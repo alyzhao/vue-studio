@@ -20,7 +20,7 @@ module.exports = {
 			store: path.join(__dirname, 'src/store'),
 			'vue': 'vue/dist/vue.js'	// 防止报错, 具体细节不知道
 		},
-	    extensions: ['.js', '.vue'],	// 引用js和vue文件可以省略后缀名
+	    extensions: ['.js', '.vue', 'json'],	// 引用js和vue文件可以省略后缀名
 	    // fallback: [path.join(__dirname, 'node_modules')] 	// 1.x 版本用 fallback 高版本用一下替换
 	    modules: [path.join(__dirname, 'node_modules')] 	// 找不到的模块会尝试在这个数组的目录里面再寻找
 	},
@@ -40,6 +40,7 @@ module.exports = {
     },
     devtool: 'source-map', // 用于标记编译后的文件与编译前的文件对应位置，便于调试
     module: {
+    	// 高版本的推荐配置已经不这么写了, 但是还会向下兼容
     	loaders: [
     		{
     			test: /\.vue$/,

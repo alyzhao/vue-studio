@@ -12,9 +12,9 @@
     "vue": "^2.5.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-core": "^6.26.0",    // 解析一些 API 时使用的方法
+    "babel-loader": "^7.1.2",   //  配合 webpack 使用的解析器
+    "babel-plugin-transform-runtime": "^6.23.0",    // 提供一些代码的复用功能, 减少打包的体积 
     "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.7",
     "vue-hot-reload-api": "^1.3.3",
