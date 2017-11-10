@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const serveStatic = require('serve-static');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = express();
 
 const webpack = require('webpack');

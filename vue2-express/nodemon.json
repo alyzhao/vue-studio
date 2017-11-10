@@ -8,7 +8,7 @@
 		".editorconfig",
 		"build/**"
 	],
-	"verbose": true,
+	"verbose": false,
 	"execMap": {
 		"js": "node --harmony"
 	},
