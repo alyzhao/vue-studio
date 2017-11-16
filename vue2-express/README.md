@@ -6,7 +6,8 @@
 	- vue
 	- vue-loader
 	- vue-router
-	- vue-template-compiler, be used to pre-compile Vue 2.0 templates into render functions to avoid runtime-compilation overhead and CSP restrictions. 用来编译 vue 2.0 模板
+	- vue-template-compiler, be used to pre-compile Vue 2.0 templates into render functions to avoid runtime-compilation overhead and CSP restrictions. 用来编译 vue 2.0 模板, 这是必须安装的否则报错.
+	vue-style-loader 是用来解析在 vue 组件中的 css, 好像可以不用安装, 并不会报错; vue-html-loader 是用来解析在 vue 组件中的 html 文件的, 貌似可以不用安装
 
 2. webpack 相关依赖 
 	- css-loader
@@ -39,5 +40,10 @@
 	- morgan 用来监听请求
 	- nodemon 监听文件修改, 自动启动服务, 编码 nodemon.json
 
+6. 使用 scss, 安装 sass-loader, node-sass, 配置正确的 webpack.config.js 之后可以解析出来了, 可以在 style 中以  ```@import 'test.js';``` 的形式引入, 也可以在 script 中以 ```import './test.scss';```
+
+6. 看看还有哪些依赖没有用, 以及优化 webpack 信息等, 以及使用 scss 
+
+6. 以上就是开发 vue 应用所需的基本依赖, 以下是一些优化的依赖
 
 

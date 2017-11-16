@@ -25,7 +25,12 @@ module.exports = {
 					// 把写在 vue 模板里的 css 提取出来
 					loaders: {
 						css: ExtractTextPlugin.extract({
-							use: 'css-loader'
+							use: ['css-loader', 'sass-loader'],
+							fallback: 'style-loader'
+						}),
+						scss: ExtractTextPlugin.extract({
+							use: ['css-loader', 'sass-loader'],
+							fallback: 'style-loader'
 						})
 					}
 				}
@@ -49,9 +54,10 @@ module.exports = {
 				}
 			}
 		}, {
-			test: /\.css/,
+			test: /\.s?css$/,
 			use: ExtractTextPlugin.extract({
-				use: ['css-loader']
+				use: ['css-loader', 'sass-loader'],
+				fallback: 'style-loader'
 			})
 		}]
 	},
