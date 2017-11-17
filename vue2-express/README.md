@@ -42,8 +42,6 @@
 
 6. 使用 scss, 安装 sass-loader, node-sass, 配置正确的 webpack.config.js 之后可以解析出来了, 可以在 style 中以  ```@import 'test.js';``` 的形式引入(但是这样做会有 warning ), 也可以在 script 中以 ```import './test.scss';```
 
-7. 以上就是构建一个 vue + express + webpack 的项目框架, 以下可以做一些优化
-
-6. 以上就是开发 vue 应用所需的基本依赖, 以下是一些优化的依赖
+7. 以上就是构建一个 vue + express + webpack 的项目框架
 
 
