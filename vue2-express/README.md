@@ -40,9 +40,9 @@
 	- morgan 用来监听请求
 	- nodemon 监听文件修改, 自动启动服务, 编码 nodemon.json
 
-6. 使用 scss, 安装 sass-loader, node-sass, 配置正确的 webpack.config.js 之后可以解析出来了, 可以在 style 中以  ```@import 'test.js';``` 的形式引入, 也可以在 script 中以 ```import './test.scss';```
+6. 使用 scss, 安装 sass-loader, node-sass, 配置正确的 webpack.config.js 之后可以解析出来了, 可以在 style 中以  ```@import 'test.js';``` 的形式引入(但是这样做会有 warning ), 也可以在 script 中以 ```import './test.scss';```
 
-6. 看看还有哪些依赖没有用, 以及优化 webpack 信息等, 以及使用 scss 
+7. 以上就是构建一个 vue + express + webpack 的项目框架, 以下可以做一些优化
 
 6. 以上就是开发 vue 应用所需的基本依赖, 以下是一些优化的依赖
 
