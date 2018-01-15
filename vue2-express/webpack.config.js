@@ -12,7 +12,7 @@ module.exports = {
 		filename: '[name].js',
 		publicPath: '/'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
 	},
-	devtool: 'inline-source-map', 
+	devtool: 'source-map', 
 	module: {
 		rules: [{
 			test: /\.js$/,

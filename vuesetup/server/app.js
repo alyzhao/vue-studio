@@ -19,7 +19,7 @@ app.get('/secured/ping', function(req, res) {
 })
 
 let data = [
-  {"id":1, "name":"Project 1", "assignedTo":"Matt B", "priority": "High", "completed": false},
+  {"id":1,"name":"Project 1", "assignedTo":"Matt B", "priority": "High", "completed": false},
   {"id":2,"name":"Project 2", "assignedTo":"Matt B", "priority": "Medium", "completed": true},
   {"id":3,"name":"Project 3", "assignedTo":"Matt B", "priority": "Low", "completed": false}
 ]
