@@ -9,9 +9,10 @@ module.exports = {
   //配置自动刷新,如果打开会使浏览器刷新而不是热替换
   devServer: {
     historyApiFallback: true,
-    hot: false,
+    hot: true,
     inline: true,
-    grogress: true
+    grogress: true,
+    port: 3000
   },
   module: {
     loaders: [

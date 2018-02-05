@@ -16,8 +16,10 @@
 
 <script>
 	import HeaderTab from './components/header.vue';
+	import mixin from 'utils/mixin';
 	export default {
 		name: 'app',
+		mixins: [mixin],
 		data() {
 			return {
 				msg: 'Vue Module development!'
