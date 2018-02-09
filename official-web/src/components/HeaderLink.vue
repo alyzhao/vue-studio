@@ -1,5 +1,5 @@
 <template>
-	<a class="nav-link" target="self" :href="link">
+	<a class="nav-link" :target="target" :href="link">
 		{{name}}
 		<span v-if="btLine" class="bt-line"></span>
 	</a>
@@ -12,7 +12,11 @@
 				type: Boolean,
 				default: false
 			},
-			link: String
+			link: String,
+			target: {
+				type: String,
+				default: 'self'
+			}
 		}
 	}
 </script>

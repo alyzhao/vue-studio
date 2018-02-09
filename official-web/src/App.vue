@@ -2,14 +2,14 @@
 	<div>
 		<Header :top-nav-links="topNavLinks" :nav-links="navLinks" :logo="logo"/>
 		<router-view />
-		<Footer />
+		<Footer :league="league" :address="address" :phones="phones" :wechat="wechat" :email="email" :qrCode="qrCode"/>
 	</div>
 </template>
 <script>
-	import { topNavLinks, navLinks, logoUrl } from 'constants/shukong.js';
 	import cloneDeep from 'lodash/cloneDeep';
-
+	import { topNavLinks, navLinks, logoUrl, league, address, phones, wechat, email} from 'constants/shukong.js';
 	import logo from 'assets/img/logo-sk.png';
+	import qrCode from 'assets/img/qrcode.png';
 
 	import Header from 'components/Header';
 	import Footer from 'components/Footer';
@@ -20,15 +20,15 @@
 			return {
 				topNavLinks: cloneDeep(topNavLinks),
 				navLinks: cloneDeep(navLinks),
-				logo: logo
+				logo: logo,
+				league: cloneDeep(league),
+				address: cloneDeep(address),
+				phones: cloneDeep(phones),
+				wechat: cloneDeep(wechat),
+				email: cloneDeep(email),
+				qrCode: qrCode
 			}
 		},
-		mounted: function(){
-			console.log('-----------')
-			this.$nextTick(function() {
-				console.log(this.logoUrl);				
-			}
-		)},
 		components: {
 			Header,
 			Footer

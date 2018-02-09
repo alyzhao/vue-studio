@@ -1,19 +1,18 @@
 <template>
 	<div class="header">
 		<div class="top-nav">
-			<div class="logo"><img height="30" :src="logo"></div>
+			<div class="logo"><a href="/" target="self"><img height="30" :src="logo"></a></div>
 			<div class="link">
 				<header-link v-for="item in topNavLinks"
-					key="item.name"
 					:name="item.name"
-					:link="item.link">
+					:link="item.link"
+					:target="'_blank'">
 				</header-link>
 			</div>
 		</div>
 		<div class="nav">
 			<div class="nav-wrap clearfix">
 				<header-link class="big" v-for="item in navLinks"
-					key="item.name"
 					:name="item.name"
 					:link="item.link"
 					:bt-line="true">
@@ -35,6 +34,8 @@
 <style lang="scss">
 	.header {
 		transition: all .3s linear;
+		position: relative;
+		z-index: 898;
 		.top-nav {
 			min-height: 40px;
 			border-bottom: 1px solid hsla(0, 0%, 100%, .15);
