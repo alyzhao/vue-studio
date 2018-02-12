@@ -36,6 +36,10 @@
 		transition: all .3s linear;
 		position: relative;
 		z-index: 898;
+		border-bottom: 1px solid hsla(0, 0%, 100%, .15);
+		&:hover {
+			border-bottom: 1px solid transparent;
+		}
 		.top-nav {
 			min-height: 40px;
 			border-bottom: 1px solid hsla(0, 0%, 100%, .15);

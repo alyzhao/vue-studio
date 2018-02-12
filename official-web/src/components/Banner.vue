@@ -10,7 +10,7 @@
 						<a :href="item.link" target="_blank">
 							<h1>{{item.title}}</h1>
 							<p>{{item.subTitle}}</p>
-							<button>查看详情</button>
+							<button class="laybtn">查看详情</button>
 						</a>
 					</div>
 				</div>
@@ -73,7 +73,54 @@
 				position: absolute;
 			}
 			.row {
-
+				position: relative;
+				height: 100%;
+				z-index: 900;
+				min-width: 1000px;
+				max-width: 1200px;
+				margin-left: auto;
+				margin-right: auto;
+				overflow: hidden;
+				.layer {
+					color: #fff;
+					position: absolute;
+					top: 200px;
+					line-height: 50px;
+					a {
+						text-decoration: none;
+						outline: none;
+					}
+					h1, p {
+						margin: 0;
+						color: #fff;
+						text-align: left;
+					}
+					h1 {
+						font-size: 44px;
+						font-weight: 400;
+					}
+					p {
+						font-size: 20px;
+					}
+					.laybtn {
+						color: #fff;
+						border: 1px solid #fff;
+						background-color: transparent;
+						outline: none;
+						cursor: pointer;
+						margin-top: 30px;
+						font-size: 16px;
+						float: left;
+						width: 120px;
+						height: 36px;
+						transition: all .3s ease-in-out;
+						line-height: 36px;
+						&:hover {
+							color: #373d41;
+							background-color: #fff;
+						}
+					}
+				}
 			}
 		}
 	}
