@@ -1,17 +1,17 @@
 export const navLinks = [{
-	name: '论坛日程',
-	link: '/schedule'
+	name: '首页',
+	link: '/index'
 }, {
-	name: '创意空间',
+	name: '探索',
 	link: '/creativity'	
 }, {
-	name: '呐喊',
+	name: '迸发',
 	link: '/5'	
 }, {
-	name: '逐日',
+	name: '新生',
 	link: '/5'
 }, {
-	name: '桂冠',
+	name: '面孔',
 	link: '/5'	
 }, {
 	name: '团聚',
@@ -22,13 +22,10 @@ export const navLinks = [{
 }, {
 	name: '沉淀',
 	link: '/5'	
-}, {
-	name: '热爱',
-	link: '/5'	
 }]
 
 
-import logoImg from 'assets/img/logo.jpg';  
+import logoImg from 'assets/img/logo_2050.png';  
 export const logo = logoImg; 
 
 export const address = [

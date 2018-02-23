@@ -25,16 +25,13 @@
 		display: block;
 		float: left;
 		line-height: 20px;
-		min-width: 95px;
+		min-width: 80px;
 		text-align: center;
-		color: #5c40b1;
+		color: #fff;
 		transition: all .3s linear;
 		position: relative;
 		font-size: 16px;
-		border-right: 1px solid #ddd;
-		&:first-child {
-			border-left: 1px solid #ddd;			
-		}
+		font-weight: 600;
 		&.big {
 			line-height: 60px;
 		}

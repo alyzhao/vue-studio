@@ -6,6 +6,8 @@ Vue.use(Router);
 import Schedule from './containers/Schedule.vue';
 import Creativity from './containers/Creativity.vue';
 
+import Index from './containers/index/Index.vue';
+
 const routes = [
   { path: '/', component: Schedule },
   { path: '/schedule', component: Schedule},

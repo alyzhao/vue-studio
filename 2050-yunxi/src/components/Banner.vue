@@ -18,9 +18,10 @@
 <style lang="scss">
 	.banner {
 		background: url('../assets/img/banner.png');
-		height: 1080px;
-		overflow: hidden;
+		height: 880px;
 		position: relative;
+		margin-top: -80px;
+		width: 100%;
 		.links {
 			height: 314px;
 			width: 880px;
