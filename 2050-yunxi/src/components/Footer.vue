@@ -1,12 +1,9 @@
 <template>
 	<div class="footer">
 		<div class="main clearfix">
-			<div class="fl gt">
-				<p>掌握云栖2050</p> 
-				<p>最新消息</p>
-			</div>
 			<div class="fl qr">
-				<img src="../assets/img/qr.png" width="120">
+				<div style="margin-bottom: 15px;"><img src="/src/assets/img/logo_2050.png"></div>
+				<div><img src="../assets/img/qr.png"></div>
 			</div>
 			<div class="fl contact">
 				<div class="ic">
@@ -44,9 +41,9 @@
 </script>
 <style lang="scss">
 	.footer {
-		background: #fff url('../assets/img/bottom.png') no-repeat;
+		background: #422a8c;
 		.main {
-			width: 1380px;
+			width: 1200px;
 			margin: 0 auto;
 			padding: 65px 0;
 			.fl {
@@ -70,26 +67,18 @@
 					}				
 				}
 				.ic {
-					border-bottom: 1px solid #535353;
 					p {
-						padding: 85px 0 10px;  
-					}
-					.add {
-						background: url('../assets/img/ic2.png') no-repeat 10px 15px;
-					}
-					.us {
-						background: url('../assets/img/ic3.png') no-repeat 10px 15px;                        
-					}
-					.em {
-						background: url('../assets/img/ic1.png') no-repeat 10px 15px;                  
+						padding-bottom: 55px;
+						color: #fff;
+						font-size: 20px;
 					}
 				}
 				.dt {
 					align-items: flex-start;
-					padding-top: 20px;
+					color: #fff;
+					font-size: 16px;
 				}
 			}
-
 		}
 	}
 </style>

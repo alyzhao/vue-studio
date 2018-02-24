@@ -143,6 +143,91 @@
 				</div>
 			</div>
 
+			<div class="cell zy">
+				<p class="tit">志愿</p>
+				<div class="sub-tit clearfix">
+					<p class="tt fl">“志愿”二字凝聚了2050最独特的魅力</p>
+					<a class="bt fr" href="" target="_blank">我想成为志愿者</a>
+				</div>
+				<p class="zyjg">志愿发起机构</p>
+				<div class="c-in">
+					<swiper :options="zySwiperOption">
+						<swiper-slide>
+							<div class="zy-slide">
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zy-slide">
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zy-slide">
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								<div class="mark"><img src="/src/assets/img/org1.png"></div>
+							</div>
+						</swiper-slide>												
+						<div class="swiper-pagination" slot="pagination"></div>
+					</swiper>
+				</div>
+			</div>
 
 		</div>
 	</div>
@@ -155,7 +240,13 @@
 				tjSwiperOption: {
 					slidesPerView: 4,
 					spaceBetween: 20
-				}
+				},
+				zySwiperOption: {
+					pagination: {
+						el: '.swiper-pagination',
+						type: 'bullets'
+					}
+				},
 			}
 		},
 		components: {
@@ -338,6 +429,48 @@
 					.bgc {
 						width: 408px;
 						height: 370px;
+					}
+				}
+			}
+			&.zy {
+				background-color: #5c40b2;
+				.zyjg {
+					font-weight: 400;
+					font-size: 26px;
+					color: #4a15c5;
+				    margin-top: 80px;
+				    margin-bottom: 60px;
+				}
+				.zy-slide {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					.mark {
+						width: 225px;
+						height: 135px;
+						background-color: rgba(255, 255, 255, .1);
+						margin-bottom: 20px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+				}
+				.swiper-container {
+					padding-bottom: 40px;
+				}
+				.swiper-pagination {
+					bottom: 0;
+				}
+				.swiper-pagination-bullet {
+					width: 10px;
+					height: 10px;
+					background: #fff;
+					opacity: 1;
+					transition: all .2s linear;
+					&.swiper-pagination-bullet-active {
+						width: 60px;
+						background: #fff;
+						border-radius: 5px;
 					}
 				}
 			}
