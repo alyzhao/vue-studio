@@ -16,7 +16,6 @@
 </template>
 <script>
 	export default {
-		props: ['link', 'bannerImg'],
 		data() {
 			return {
 				swiperOption: {
