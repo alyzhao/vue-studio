@@ -9,7 +9,7 @@ import Creativity from './containers/Creativity.vue';
 import Index from './containers/index/Index.vue';
 
 const routes = [
-  { path: '/', component: Schedule },
+  { path: '/', component: Index },
   { path: '/schedule', component: Schedule},
   { path: '/creativity', component: Creativity }
 ]
