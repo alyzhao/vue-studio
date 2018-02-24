@@ -18,7 +18,9 @@
 			</div>
 			<div class="purchase">
 				<a class="pur-btn" target="_blank" href="">立即购票</a>
-				<a class="switch">语言切换</a>
+				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
+				<button class="lang">中文</button>
+				<button class="lang">ENG</button>
 			</div>
 		</div>
 	</div>
@@ -57,7 +59,7 @@
 					border-left: 1px solid #fff;
 					p {
 						line-height: 15px;
-						margin-bottom: 10px;
+						margin-bottom: 6px;
 						margin-left: 5px;
 						&:last-child {
 							margin-bottom: 0;
@@ -74,17 +76,48 @@
 			}
 			.purchase {
 				flex-grow: 1;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
 				.pur-btn {
 					color: #fff;
 					font-weight: 800;
 					font-size: 18px;
 					display: inline-block;
-					padding: 10px 52px;
+					padding: 10px 45px;
 					border-radius: 5px;
-					background-color: rgba(0, 0, 0, .2);
+					background-color: rgba(0, 0, 0, .3);
+					margin-right: 20px;
+					position: relative;
+				}
+				.lang {
+					border: 1px solid #fff;
+					color: #fff;
+					background-color: transparent;
+					cursor: pointer;
+					border-radius: 15px;
+					font-size: 14px;
+					margin-left: 8px;
+					transition: all .2s linear;						
+					&:hover, &.active {
+						background-color: #1192ff;
+						border: 1px solid #1192ff;
+					}
+					&:focus {
+						outline: none;
+					}
 				}
 				.switch {
 					color: #fff;
+					cursor: pointer;
+					user-select: none;
+					position: relative;
+					i.fa {
+						position: absolute;
+						top: 3px;
+						right: 0px;
+						font-size: 14px;
+					}
 				}
 			}
 		}
