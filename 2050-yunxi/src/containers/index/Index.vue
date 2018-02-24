@@ -123,12 +123,24 @@
 								<div class="bgc"><img src="/src/assets/img/c2.png"></div>
 							</div>
 						</div>
+						<div class="ptbt">
+							<div class="smc"><img src="/src/assets/img/c3.png"></div>
+							<div class="mgc">呐喊音乐节</div>
+							<div class="smc pp">逐日·晨跑</div>
+						</div>
 					</div>
 					<div class="ptr">
-						
+						<div class="mgc">新生·科技集市</div>
+						<div class="btc">
+							<div>
+								<div class="smc"><img src="/src/assets/img/c5.png"></div>
+							</div>
+							<div>
+								<img src="/src/assets/img/c4.png">
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="more"><a href="" target="_blank">查看更多</a></div>		
 			</div>
 
 
@@ -247,16 +259,16 @@
 				.c-in.pt {
 					display: flex;
 					width: 100%;
-					height: 560px;
+					background-color: #5c40b2;
 					.ptl {
-						background: #ffcc00;
 						padding-right: 10px;
+						width: 800px;
 						.pttop {
-							height: 370px;
+							height: 380px;
 							display: flex;
+							padding-bottom: 10px;
 							.tplf {
-								flex-grow: 1;
-								background: #000;
+								width: 380px;
 								display: flex;
 								flex-wrap: wrap;
 								justify-content: space-between;
@@ -269,17 +281,46 @@
 									text-align: center;
 									line-height: 180px;
 									font-size: 22px;
+								    align-self: flex-end;
 								}
 							}
 							.tprg {
-								flex-grow: 1;
-								background: #fff;
+								width: 410px;
+							}
+						}
+						.ptbt {
+							display: flex;
+							justify-content: space-between;
+							.mgc {
+								width: 410px;
+								height: 180px;
+								background-color: #ffcc00;
+								color: #5732ca;
+								font-size: 22px;
+								text-align: center;
+								line-height: 180px;
 							}
 						}
 					}
 					.ptr {
-						background: #ff0000;
-						width: 400px;
+						width: 34%;
+						display: flex;
+						flex-wrap: wrap;
+						.mgc {
+							width: 100%;
+							height: 180px;
+							background-color: #ffcc00;
+							color: #5732ca;
+							font-size: 22px;
+							text-align: center;
+							line-height: 180px;
+						}
+						.btc {
+							width: 100%;
+							display: flex;
+							justify-content: space-between;
+							padding-top: 10px;
+						}
 					}
 					.smc {
 						height: 180px;
@@ -289,6 +330,10 @@
 						color: #5732ca;
 						overflow: hidden;
 						font-size: 20px;
+						&.pp {
+							background-color: #5732ca;
+							color: #ffcc00;
+						}
 					}
 					.bgc {
 						width: 408px;
