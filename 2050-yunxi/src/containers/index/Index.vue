@@ -1,234 +1,239 @@
 <template>
 	<div>
 		<Banner />
-		<div class="content">
-			<div class="cell ts">
-				<p class="tit">探索</p>
-				<div class="sub-tit clearfix">
-					<p class="tt fl">一句话介绍</p>
-					<a class="bt fr" href="" target="_blank">我想成为出品人</a>
+		<div class="main-content">
+			<div class="content">
+				<div class="cell ts">
+					<p class="tit">探索</p>
+					<div class="sub-tit clearfix">
+						<p class="tt fl">一句话介绍</p>
+						<a class="bt fr" href="" target="_blank">我想成为出品人</a>
+					</div>
+					<div class="c-in clearfix">
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+						<div class="items"></div>
+					</div>
+					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
-				<div class="c-in clearfix">
-					<div class="items"></div>
-					<div class="items"></div>
-					<div class="items"></div>
-					<div class="items"></div>
-					<div class="items"></div>
-					<div class="items"></div>
+				<div class="cell tj">
+					<p class="tit">团聚</p>
+					<div class="sub-tit clearfix">
+						<p class="tt fl">全世界年轻人因科技而团聚</p>
+						<a class="bt fr" href="" target="_blank">我想成为召集人</a>
+					</div>
+					<div class="c-in">
+						<swiper :options="tjSwiperOption">
+							<swiper-slide>
+								<div class="tjslide">
+									<div class="info">
+										<p class="ra">CCF优博论坛</p>
+										<p class="rab">执行委员会</p>
+										<p class="pe0">召集人</p>
+										<p class="team">CCF优博论坛</p>
+									</div>
+									<div class="tjimg">
+										<img src="/src/assets/img/tj.png">
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide>
+								<div class="tjslide">
+									<div class="info">
+										<p class="ra">CCF优博论坛</p>
+										<p class="rab">执行委员会</p>
+										<p class="pe0">召集人</p>
+										<p class="team">CCF优博论坛</p>
+									</div>
+									<div class="tjimg">
+										<img src="/src/assets/img/tj.png">
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide>
+								<div class="tjslide">
+									<div class="info">
+										<p class="ra">CCF优博论坛</p>
+										<p class="rab">执行委员会</p>
+										<p class="pe0">召集人</p>
+										<p class="team">CCF优博论坛</p>
+									</div>
+									<div class="tjimg">
+										<img src="/src/assets/img/tj.png">
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide>
+								<div class="tjslide">
+									<div class="info">
+										<p class="ra">CCF优博论坛</p>
+										<p class="rab">执行委员会</p>
+										<p class="pe0">召集人</p>
+										<p class="team">CCF优博论坛</p>
+									</div>
+									<div class="tjimg">
+										<img src="/src/assets/img/tj.png">
+									</div>
+								</div>
+							</swiper-slide>
+							<swiper-slide>
+								<div class="tjslide">
+									<div class="info">
+										<p class="ra">CCF优博论坛</p>
+										<p class="rab">执行委员会</p>
+										<p class="pe0">召集人</p>
+										<p class="team">CCF优博论坛</p>
+									</div>
+									<div class="tjimg">
+										<img src="/src/assets/img/tj.png">
+									</div>
+								</div>
+							</swiper-slide>																																														
+						</swiper>
+					</div>
+					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
-				<div class="more"><a href="" target="_blank">查看更多</a></div>
-			</div>
-			<div class="cell tj">
-				<p class="tit">团聚</p>
-				<div class="sub-tit clearfix">
-					<p class="tt fl">全世界年轻人因科技而团聚</p>
-					<a class="bt fr" href="" target="_blank">我想成为召集人</a>
-				</div>
-				<div class="c-in">
-					<swiper :options="tjSwiperOption">
-						<swiper-slide>
-							<div class="tjslide">
-								<div class="info">
-									<p class="ra">CCF优博论坛</p>
-									<p class="rab">执行委员会</p>
-									<p class="pe0">召集人</p>
-									<p class="team">CCF优博论坛</p>
-								</div>
-								<div class="tjimg">
-									<img src="/src/assets/img/tj.png">
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div class="tjslide">
-								<div class="info">
-									<p class="ra">CCF优博论坛</p>
-									<p class="rab">执行委员会</p>
-									<p class="pe0">召集人</p>
-									<p class="team">CCF优博论坛</p>
-								</div>
-								<div class="tjimg">
-									<img src="/src/assets/img/tj.png">
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div class="tjslide">
-								<div class="info">
-									<p class="ra">CCF优博论坛</p>
-									<p class="rab">执行委员会</p>
-									<p class="pe0">召集人</p>
-									<p class="team">CCF优博论坛</p>
-								</div>
-								<div class="tjimg">
-									<img src="/src/assets/img/tj.png">
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div class="tjslide">
-								<div class="info">
-									<p class="ra">CCF优博论坛</p>
-									<p class="rab">执行委员会</p>
-									<p class="pe0">召集人</p>
-									<p class="team">CCF优博论坛</p>
-								</div>
-								<div class="tjimg">
-									<img src="/src/assets/img/tj.png">
-								</div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div class="tjslide">
-								<div class="info">
-									<p class="ra">CCF优博论坛</p>
-									<p class="rab">执行委员会</p>
-									<p class="pe0">召集人</p>
-									<p class="team">CCF优博论坛</p>
-								</div>
-								<div class="tjimg">
-									<img src="/src/assets/img/tj.png">
-								</div>
-							</div>
-						</swiper-slide>																																														
-					</swiper>
-				</div>
-				<div class="more"><a href="" target="_blank">查看更多</a></div>
-			</div>
 
-			<div class="cell xs">
-				<p class="tit">新生</p>
-				<div class="sub-tit clearfix">
-					<p class="tt fl">超过100个创意空间的诞生</p>
-					<a class="bt fr" href="" target="_blank">报名加入</a>
-				</div>	
-				<div class="c-in"></div>
-				<div class="more"><a href="" target="_blank">查看更多</a></div>		
-			</div>
+				<div class="cell xs">
+					<p class="tit">新生</p>
+					<div class="sub-tit clearfix">
+						<p class="tt fl">超过100个创意空间的诞生</p>
+						<a class="bt fr" href="" target="_blank">报名加入</a>
+					</div>	
+					<div class="c-in"></div>
+					<div class="more"><a href="" target="_blank">查看更多</a></div>		
+				</div>
 
-			<div class="cell bf">
-				<p class="tit">迸发</p>
-				<div class="sub-tit clearfix">
-					<p class="tt fl">主题论坛、创意空间、音乐节、晨跑，惊喜令人期待</p>
-				</div>	
-				<div class="c-in pt">
-					<div class="ptl">
-						<div class="pttop">
-							<div class="tplf">
-								<div class="smc"><img height="180" src="/src/assets/img/c1.png"></div>
-								<div class="smc" style="background-color: #ffcc00">主题论坛</div>
-								<div class="cykj">创意空间</div>
+				<div class="cell bf">
+					<p class="tit">迸发</p>
+					<div class="sub-tit clearfix">
+						<p class="tt fl">主题论坛、创意空间、音乐节、晨跑，惊喜令人期待</p>
+					</div>	
+					<div class="c-in pt">
+						<div class="ptl">
+							<div class="pttop">
+								<div class="tplf">
+									<div class="smc"><img height="180" src="/src/assets/img/c1.png"></div>
+									<div class="smc" style="background-color: #ffcc00">主题论坛</div>
+									<div class="cykj">创意空间</div>
+								</div>
+								<div class="tprg">
+									<div class="bgc"><img src="/src/assets/img/c2.png"></div>
+								</div>
 							</div>
-							<div class="tprg">
-								<div class="bgc"><img src="/src/assets/img/c2.png"></div>
+							<div class="ptbt">
+								<div class="smc"><img src="/src/assets/img/c3.png"></div>
+								<div class="mgc">呐喊音乐节</div>
+								<div class="smc pp">逐日·晨跑</div>
 							</div>
 						</div>
-						<div class="ptbt">
-							<div class="smc"><img src="/src/assets/img/c3.png"></div>
-							<div class="mgc">呐喊音乐节</div>
-							<div class="smc pp">逐日·晨跑</div>
+						<div class="ptr">
+							<div class="mgc">新生·科技集市</div>
+							<div class="btc">
+								<div>
+									<div class="smc"><img src="/src/assets/img/c5.png"></div>
+								</div>
+								<div>
+									<img src="/src/assets/img/c4.png">
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="ptr">
-						<div class="mgc">新生·科技集市</div>
-						<div class="btc">
-							<div>
-								<div class="smc"><img src="/src/assets/img/c5.png"></div>
-							</div>
-							<div>
-								<img src="/src/assets/img/c4.png">
-							</div>
-						</div>
+				</div>
+
+				<div class="cell zy">
+					<p class="tit">志愿</p>
+					<div class="sub-tit clearfix">
+						<p class="tt fl">"志愿"二字凝聚了2050最独特的魅力</p>
+						<a class="bt fr" href="" target="_blank">我想成为志愿者</a>
+					</div>
+					<p class="zyjg">志愿发起机构</p>
+					<div class="c-in">
+						<swiper :options="zySwiperOption">
+							<swiper-slide>
+								<div class="zy-slide">
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								</div>
+							</swiper-slide>
+							<swiper-slide>
+								<div class="zy-slide">
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								</div>
+							</swiper-slide>
+							<swiper-slide>
+								<div class="zy-slide">
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+								</div>
+							</swiper-slide>												
+							<div class="swiper-pagination" slot="pagination"></div>
+						</swiper>
 					</div>
 				</div>
-			</div>
 
-			<div class="cell zy">
-				<p class="tit">志愿</p>
-				<div class="sub-tit clearfix">
-					<p class="tt fl">“志愿”二字凝聚了2050最独特的魅力</p>
-					<a class="bt fr" href="" target="_blank">我想成为志愿者</a>
-				</div>
-				<p class="zyjg">志愿发起机构</p>
-				<div class="c-in">
-					<swiper :options="zySwiperOption">
-						<swiper-slide>
-							<div class="zy-slide">
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div class="zy-slide">
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-							</div>
-						</swiper-slide>
-						<swiper-slide>
-							<div class="zy-slide">
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								<div class="mark"><img src="/src/assets/img/org1.png"></div>
-							</div>
-						</swiper-slide>												
-						<div class="swiper-pagination" slot="pagination"></div>
-					</swiper>
-				</div>
 			</div>
-
 		</div>
 	</div>
 </template>
@@ -255,10 +260,15 @@
 	}
 </script>
 <style lang="scss">
+	.main-content {
+		background: url('/src/assets/img/bg.png') no-repeat;		
+	}
 	.content {
 		width: 1200px;
 		margin: 0 auto;
+		overflow: hidden;
 		.cell {
+			margin-bottom: 180px;
 			&.ts {
 				margin-top: 90px;
 			}
@@ -283,7 +293,7 @@
 				}
 			}
 			.c-in {
-				margin-top: 90px;
+				margin-top: 60px;
 				width: 100%;
 				.items {
 					float: left;
@@ -340,6 +350,9 @@
 					}
 				}
 			}
+			&.tj .more{
+				margin-top: 70px;
+			}
 			&.xs {
 				.c-in {
 					height: 588px;
@@ -350,7 +363,6 @@
 				.c-in.pt {
 					display: flex;
 					width: 100%;
-					background-color: #5c40b2;
 					.ptl {
 						padding-right: 10px;
 						width: 800px;
@@ -433,13 +445,11 @@
 				}
 			}
 			&.zy {
-				background-color: #5c40b2;
 				.zyjg {
 					font-weight: 400;
 					font-size: 26px;
 					color: #4a15c5;
-				    margin-top: 80px;
-				    margin-bottom: 60px;
+				    margin-top: 70px;
 				}
 				.zy-slide {
 					display: flex;
