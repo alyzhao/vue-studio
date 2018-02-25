@@ -6,6 +6,11 @@ import 'font-awesome/scss/font-awesome.scss';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 
+import store from './vuex';
+import axios from 'axios';
+
+Vue.prototype.axios = axios;
+
 Vue.use(VueAwesomeSwiper);
 
 // import store from './store';
@@ -16,6 +21,6 @@ new Vue({
   el: '#app',
   template: '<App/>',
   router,
-  // store,
+  store,
   components: { App }
 })

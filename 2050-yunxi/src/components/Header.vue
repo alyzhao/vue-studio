@@ -13,23 +13,34 @@
 				<header-link v-for="item in navLinks"
 					:name="item.name"
 					:link="item.link"
+					:key="item.name"
 					:bt-line="true">
 				</header-link>
 			</div>
 			<div class="purchase">
 				<a class="pur-btn" target="_blank" href="">立即购票</a>
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
-				<button class="lang">中文</button>
-				<button class="lang">ENG</button>
+				<button class="lang" @click="setLang('zh')">中文</button>
+				<button class="lang" @click="setLang('en')">ENG</button>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
 	import HeaderLink from 'components/HeaderLink';
+	import { mapState } from 'vuex';
 
 	export default {
 		props: ['logo', 'navLinks'],
+		methods: {
+			setLang(val) {
+				console.log(val);
+				console.log(this.lang);
+			}
+		},
+		computed: mapState([
+			'lang'
+		]),
 		components: {
 			HeaderLink
 		}

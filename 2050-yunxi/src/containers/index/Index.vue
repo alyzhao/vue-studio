@@ -10,15 +10,16 @@
 						<a class="bt fr" href="" target="_blank">我想成为出品人</a>
 					</div>
 					<div class="c-in clearfix">
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
-						<div class="items"></div>
+						<div class="items" v-for="item in exploreList" :key="item.id">
+							<p class="ctt">{{item.title}}</p>
+							<p class="ccon">{{item.describetxt}}</p>
+							<div class="peop">
+								<a href="" target="_blank"><img height="40" :src="item.initiatorphoto"></a>
+								<span class="cp">出品人:  {{item.initiator}}</span>
+								<span class="ct">{{item.time}}</span>
+							</div>
+						</div>
+
 					</div>
 					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
@@ -30,71 +31,21 @@
 					</div>
 					<div class="c-in">
 						<swiper :options="tjSwiperOption">
-							<swiper-slide>
+							<swiper-slide v-for="item in reuniteList">
 								<div class="tjslide">
 									<div class="info">
-										<p class="ra">CCF优博论坛</p>
-										<p class="rab">执行委员会</p>
-										<p class="pe0">召集人</p>
-										<p class="team">CCF优博论坛</p>
+										<p class="ra">{{item.name}}</p>
+										<p class="peo">召集人</p>
+										<p class="team">{{item.introduce}}</p>
 									</div>
 									<div class="tjimg">
-										<img src="/src/assets/img/tj.png">
+										<img width="285" :src="item.photo">
 									</div>
-								</div>
+									<div class="details">
+										<p>{{item.details}}</p>
+									</div>
+								</div>								
 							</swiper-slide>
-							<swiper-slide>
-								<div class="tjslide">
-									<div class="info">
-										<p class="ra">CCF优博论坛</p>
-										<p class="rab">执行委员会</p>
-										<p class="pe0">召集人</p>
-										<p class="team">CCF优博论坛</p>
-									</div>
-									<div class="tjimg">
-										<img src="/src/assets/img/tj.png">
-									</div>
-								</div>
-							</swiper-slide>
-							<swiper-slide>
-								<div class="tjslide">
-									<div class="info">
-										<p class="ra">CCF优博论坛</p>
-										<p class="rab">执行委员会</p>
-										<p class="pe0">召集人</p>
-										<p class="team">CCF优博论坛</p>
-									</div>
-									<div class="tjimg">
-										<img src="/src/assets/img/tj.png">
-									</div>
-								</div>
-							</swiper-slide>
-							<swiper-slide>
-								<div class="tjslide">
-									<div class="info">
-										<p class="ra">CCF优博论坛</p>
-										<p class="rab">执行委员会</p>
-										<p class="pe0">召集人</p>
-										<p class="team">CCF优博论坛</p>
-									</div>
-									<div class="tjimg">
-										<img src="/src/assets/img/tj.png">
-									</div>
-								</div>
-							</swiper-slide>
-							<swiper-slide>
-								<div class="tjslide">
-									<div class="info">
-										<p class="ra">CCF优博论坛</p>
-										<p class="rab">执行委员会</p>
-										<p class="pe0">召集人</p>
-										<p class="team">CCF优博论坛</p>
-									</div>
-									<div class="tjimg">
-										<img src="/src/assets/img/tj.png">
-									</div>
-								</div>
-							</swiper-slide>																																														
 						</swiper>
 					</div>
 					<div class="more"><a href="" target="_blank">查看更多</a></div>
@@ -119,28 +70,28 @@
 						<div class="ptl">
 							<div class="pttop">
 								<div class="tplf">
-									<div class="smc"><img height="180" src="/src/assets/img/c1.png"></div>
-									<div class="smc" style="background-color: #ffcc00">主题论坛</div>
-									<div class="cykj">创意空间</div>
+									<div class="smc"><img height="180" :src="burstList[0].image"></div>
+									<div class="smc" style="background-color: #ffcc00">{{burstList[0].name}}</div>
+									<div class="cykj">{{burstList[1].name}}</div>
 								</div>
 								<div class="tprg">
-									<div class="bgc"><img src="/src/assets/img/c2.png"></div>
+									<div class="bgc"><img :src="burstList[1].image"></div>
 								</div>
 							</div>
 							<div class="ptbt">
-								<div class="smc"><img src="/src/assets/img/c3.png"></div>
-								<div class="mgc">呐喊音乐节</div>
-								<div class="smc pp">逐日·晨跑</div>
+								<div class="smc"><img :src="burstList[2].image"></div>
+								<div class="mgc">{{burstList[2].name}}</div>
+								<div class="smc pp">{{burstList[3].name}}</div>
 							</div>
 						</div>
 						<div class="ptr">
-							<div class="mgc">新生·科技集市</div>
+							<div class="mgc">{{burstList[4].name}}</div>
 							<div class="btc">
 								<div>
-									<div class="smc"><img src="/src/assets/img/c5.png"></div>
+									<div class="smc"><img :src="burstList[3].image"></div>
 								</div>
-								<div>
-									<img src="/src/assets/img/c4.png">
+								<div class="middle-img">
+									<img :src="burstList[4].image">
 								</div>
 							</div>
 						</div>
@@ -156,76 +107,11 @@
 					<p class="zyjg">志愿发起机构</p>
 					<div class="c-in">
 						<swiper :options="zySwiperOption">
-							<swiper-slide>
+							<swiper-slide v-for="(item, index) in volunteerList" :key="index">
 								<div class="zy-slide">
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								</div>
-							</swiper-slide>
-							<swiper-slide>
-								<div class="zy-slide">
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-								</div>
-							</swiper-slide>
-							<swiper-slide>
-								<div class="zy-slide">
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
-									<div class="mark"><img src="/src/assets/img/org1.png"></div>
+									<div class="mark" v-for="vol in item" :key="vol.id">
+										<img :src="vol.logo">
+									</div>
 								</div>
 							</swiper-slide>												
 							<div class="swiper-pagination" slot="pagination"></div>
@@ -252,7 +138,44 @@
 						type: 'bullets'
 					}
 				},
+				exploreList: null,
+				reuniteList: null,
+				burstList: null,
+				volunteerList: []
 			}
+		},
+		mounted: function () {
+			this.$nextTick(function () {
+				console.log('mounted');
+				this.axios.get('http://192.168.1.72:8808/2050/webClient/findexplore.do').then(response => {
+					console.log(response.data);
+					let resData = response.data;
+					this.exploreList = resData;
+				})
+
+				this.axios.get('http://192.168.1.72:8808/2050/webClient//findreunite.do').then(response => {
+					let resData = response.data;
+					this.reuniteList = resData;
+				})
+
+				this.axios.get('http://192.168.1.72:8808/2050/webClient/findburst.do').then(response => {
+					this.burstList = response.data;
+				})
+
+				this.axios.get('http://192.168.1.72:8808/2050/webClient/findvolunteer.do').then(response => {
+					let resData = response.data;
+
+					let volPageCount = Math.ceil(resData.length / 15);
+					console.log('volPageCount', volPageCount);
+					let list = [];
+					for(let i = 0; i < volPageCount; i ++) {
+						list.push(resData.slice(i * 15, (i + 1) * 15));
+					}
+					this.volunteerList = list;
+					// this.volunteerList = [1, 2, 3]
+					console.log(this.volunteerList);
+				})
+			})
 		},
 		components: {
 			Banner
@@ -301,8 +224,33 @@
 					height: 225px;
 					margin: 0 37px 37px 0;
 					background-color: #42a1ff;
+					padding: 15px 20px;
+					color: #5c40b2;
 					&:nth-child(3n) {
 						margin-right: 0;
+					}
+					.peop {
+						display: flex;
+						align-items: center;
+						margin-top: 8px;
+						justify-content: space-between;
+						.ct {
+							flex-grow: 1;
+							text-align: right;
+						}
+					}
+					.cp {
+						margin-left: 10px;
+					}
+					.ctt {
+						font-size: 24px;
+						line-height: 40px;
+					}
+					.ccon {
+						height: 110px;
+						line-height: 28px;
+						font-size: 14px;
+						overflow: hidden;
 					}
 				}
 			}
@@ -326,7 +274,31 @@
 			.tjslide {
 				width: 285px;
 				height: 580px;
-				float: left;
+				position: relative;
+				.details {
+					box-sizing: border-box;
+					position: absolute;
+					top: 0;
+					padding: 35px 17px;
+					overflow: hidden;
+					width: 100%;
+					height: 100%;
+					background: #2d1c5e;
+					background: linear-gradient(0deg, rgba(65, 39, 144, .7), #201444);
+					transition: opacity .2s linear;
+					color: #fff;
+					line-height: 28px;
+					visibility: hidden;
+					opacity: 0;
+					p {
+						height: 100%;
+						overflow: hidden;
+					}
+				}
+				&:hover .details{
+					visibility: visible;
+					opacity: 1;
+				}
 				.info {
 					height: 280px;
 					background-image: linear-gradient(0deg, #412791, #201444);
@@ -340,6 +312,9 @@
 					}
 					.ra {
 						margin-top: 25px;
+						margin-bottom: 15px;
+						height: 85px;
+						overflow: hidden;
 					}
 					.rab {
 						margin: 5px 0 15px;
@@ -347,6 +322,13 @@
 					.team {
 						font-size: 26px;
 						margin-top: 47px;
+					}
+				}
+				.tjimg {
+					overflow: hidden;
+					height: 300px;
+					img {
+						max-height: 300px;
 					}
 				}
 			}
@@ -423,6 +405,10 @@
 							display: flex;
 							justify-content: space-between;
 							padding-top: 10px;
+							.middle-img img{
+								width: 210px;
+								height: 370px;
+							}
 						}
 					}
 					.smc {
@@ -437,10 +423,18 @@
 							background-color: #5732ca;
 							color: #ffcc00;
 						}
+						img {
+							width: 180px;
+							height: 180px;
+						}
 					}
 					.bgc {
-						width: 408px;
+						width: 410px;
 						height: 370px;
+						img {
+							width: 100%;
+							height: 100%;
+						}
 					}
 				}
 			}
@@ -454,15 +448,19 @@
 				.zy-slide {
 					display: flex;
 					flex-wrap: wrap;
-					justify-content: space-between;
 					.mark {
 						width: 225px;
 						height: 135px;
 						background-color: rgba(255, 255, 255, .1);
 						margin-bottom: 20px;
+						margin-right: 15px;
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						img {
+							width: 225px;
+							height: 135px;
+						}
 					}
 				}
 				.swiper-container {
