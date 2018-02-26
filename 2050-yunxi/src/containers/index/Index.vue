@@ -14,7 +14,7 @@
 							<p class="ctt">{{item.title}}</p>
 							<p class="ccon">{{item.describetxt}}</p>
 							<div class="peop">
-								<a href="" target="_blank"><img height="40" :src="item.initiatorphoto"></a>
+								<a href="" target="_blank"><img height="40" width="40" :src="item.initiatorphoto"></a>
 								<span class="cp">出品人:  {{item.initiator}}</span>
 								<span class="ct">{{item.time}}</span>
 							</div>
@@ -67,7 +67,7 @@
 						<p class="tt fl">主题论坛、创意空间、音乐节、晨跑，惊喜令人期待</p>
 					</div>	
 					<div class="c-in pt">
-						<div class="ptl">
+						<div v-if="burstList.length > 0" class="ptl">
 							<div class="pttop">
 								<div class="tplf">
 									<div class="smc"><img height="180" :src="burstList[0].image"></div>
@@ -84,7 +84,7 @@
 								<div class="smc pp">{{burstList[3].name}}</div>
 							</div>
 						</div>
-						<div class="ptr">
+						<div v-if="burstList.length > 0" class="ptr">
 							<div class="mgc">{{burstList[4].name}}</div>
 							<div class="btc">
 								<div>
@@ -129,40 +129,42 @@
 		data() {
 			return {
 				tjSwiperOption: {
+					autoplay: true,
 					slidesPerView: 4,
 					spaceBetween: 20
 				},
 				zySwiperOption: {
+					autoplay: true,
 					pagination: {
 						el: '.swiper-pagination',
 						type: 'bullets'
 					}
 				},
-				exploreList: null,
-				reuniteList: null,
-				burstList: null,
+				exploreList: [],
+				reuniteList: [],
+				burstList: [],
 				volunteerList: []
 			}
 		},
 		mounted: function () {
 			this.$nextTick(function () {
 				console.log('mounted');
-				this.axios.get('http://192.168.1.72:8808/2050/webClient/findexplore.do').then(response => {
+				this.axios.get('http://datav.youlishu.com:8080/2050/webClient/findexplore.do').then(response => {
 					console.log(response.data);
 					let resData = response.data;
 					this.exploreList = resData;
 				})
 
-				this.axios.get('http://192.168.1.72:8808/2050/webClient//findreunite.do').then(response => {
+				this.axios.get('http://datav.youlishu.com:8080/2050/webClient//findreunite.do').then(response => {
 					let resData = response.data;
 					this.reuniteList = resData;
 				})
 
-				this.axios.get('http://192.168.1.72:8808/2050/webClient/findburst.do').then(response => {
+				this.axios.get('http://datav.youlishu.com:8080/2050/webClient/findburst.do').then(response => {
 					this.burstList = response.data;
 				})
 
-				this.axios.get('http://192.168.1.72:8808/2050/webClient/findvolunteer.do').then(response => {
+				this.axios.get('http://datav.youlishu.com:8080/2050/webClient/findvolunteer.do').then(response => {
 					let resData = response.data;
 
 					let volPageCount = Math.ceil(resData.length / 15);
@@ -172,7 +174,6 @@
 						list.push(resData.slice(i * 15, (i + 1) * 15));
 					}
 					this.volunteerList = list;
-					// this.volunteerList = [1, 2, 3]
 					console.log(this.volunteerList);
 				})
 			})

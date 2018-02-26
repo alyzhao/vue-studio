@@ -19,6 +19,7 @@
 		data() {
 			return {
 				swiperOption: {
+					autoplay: true,
 					pagination: {
 						el: '.swiper-pagination',
 						type: 'bullets'
