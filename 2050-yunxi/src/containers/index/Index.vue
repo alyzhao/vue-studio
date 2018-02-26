@@ -50,23 +50,39 @@
 								<div class="details">
 									<a class="kn" href="" target="_blank">查看详情 ></a>
 								</div>
-<!-- 								<div class="info">
-									<p class="ra">{{item.name}}</p>
-									<p class="peo">召集人</p>
-									<p class="team">{{item.introduce}}</p>
-								</div>
-								<div class="tjimg">
-									<img width="285" :src="item.photo">
-								</div>
-								<div class="details">
-									<p>{{item.details}}</p>
-								</div> -->
 							</div>								
 						</swiper-slide>
+						<swiper-slide>
+							<div class="tjslide">
+								<div class="tj-con clearfix">
+									<div class="info">
+										<!-- <p class="ra">{{item.name}}</p> -->
+										<p class="ra">xxxxxx</p>
+										<p class="peo">召集人</p>
+										<!-- <p class="team">{{item.introduce}}</p> -->
+										<p class="team">xxxxx</p>
+										<p class="split"><span></span></p>
+										<div class="intro">
+											<p>TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于</p>
+										</div>
+									</div>
+									<div class="tj-img">
+										<img src="../../assets/img/tj.png">
+									</div>
+								</div>
+								<div class="details">
+									<a class="kn" href="" target="_blank">查看详情 ></a>
+								</div>
+							</div>								
+						</swiper-slide>						
+						<div class="swiper-pagination-tj" slot="pagination"></div>
+						<div class="swiper-button-prev" slot="button-prev">prev</div>
+						<div class="swiper-button-next" slot="button-next">next</div>						
 					</swiper>
 				</div>
 				<div class="more"><a href="" target="_blank">查看更多</a></div>
 			</div>
+
 			<div class="content">
 				<div class="cell xs">
 					<p class="tit">新生</p>
@@ -79,10 +95,10 @@
 				</div>
 
 				<div class="cell bf">
-					<p class="tit">迸发</p>
-					<div class="sub-tit clearfix">
-						<p class="tt fl">主题论坛、创意空间、音乐节、晨跑，惊喜令人期待</p>
-					</div>	
+					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tt1.png"></a></p>
+					<p class="sub-tit">
+						音乐、影像、晨跑、露营……这里没有旁观者，2050的狂欢属于每一位年青人
+					</p>	
 					<div class="c-in pt">
 						<div v-if="burstList.length > 0" class="ptl">
 							<div class="pttop">
@@ -148,6 +164,14 @@
 				tjSwiperOption: {
 					// autoplay: true,
 					// spaceBetween: 20
+					pagination: {
+						el: '.swiper-pagination-tj',
+						type: 'bullets'
+					},
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev',
+					}
 				},
 				zySwiperOption: {
 					autoplay: true,
@@ -307,7 +331,9 @@
 					background-color: #ffcc00;
 					color: #333;
 					font-size: 24px;
-					line-height: 80px;					
+					line-height: 80px;
+					display: inline-block;
+					padding: 0 33px;			
 				}
 			}
 			.info {
@@ -363,6 +389,34 @@
 					height: 425px;
 				}
 			}
+		}
+		.swiper-pagination-tj {
+			text-align: center;
+			.swiper-pagination-bullet {
+				width: 15px;
+				height: 15px;
+				background: #000;
+				border-radius: 0;
+				&.swiper-pagination-bullet-active {
+					background-color: #ffcc00;
+				}
+			}
+		}
+		.swiper-button-prev, .swiper-button-next {
+			width: 120px;
+			height: 240px;
+			background-color: #fff;
+			text-align: center;
+			line-height: 240px;
+			position: absolute;
+			color: #666;
+			background-image: none;
+		}
+		.swiper-button-prev {
+			left: 0;
+		}
+		.swiper-button-next {
+			right: 0;
 		}
 		&.tj .more{
 			margin-top: 70px;
