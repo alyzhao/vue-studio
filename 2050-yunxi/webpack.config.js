@@ -83,18 +83,18 @@ module.exports = {
 		new ExtractTextPlugin({
 			filename: 'style.css'	// 这是提取到 output 中去的, 可以加 '/' 建立一个文件夹
 		}),
-		// new webpack.DefinePlugin({
-		// 	'process.env': {
-		// 		NODE_ENV: '"production"'
-		// 	}
-		// }),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: '"production"'
+			}
+		}),
 		new webpack.HotModuleReplacementPlugin(),
-		// new webpack.optimize.UglifyJsPlugin({
-  //           compress: { 
-  //           	warnings: false,
-  //           	drop_debugger: true,  
-		// 		drop_console: true
-  //       	} 
-  //       })
+		new webpack.optimize.UglifyJsPlugin({
+            compress: { 
+            	warnings: false,
+            	drop_debugger: true,  
+				drop_console: true
+        	} 
+        })
 	]
 }

@@ -1,4 +1,4 @@
-# notes
+## notes
 
 ### vue mixin, component, use 的区别
 
@@ -33,6 +33,6 @@ balabala
 
 入口文件中写入 `Vue.prototype.axios = axios`
 
-# Schedule
+## Schedule
 
 1. vuex 选择语言

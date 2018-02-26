@@ -129,6 +129,11 @@
     margin: 0 auto;
     padding: 65px 0;
 }
+.footer .main .qr-img {
+      width: 350px;
+      height: 150px;
+      background: url("/src/assets/img/qr.png") no-repeat;
+}
 .footer .main .fl {
       float: left;
 }

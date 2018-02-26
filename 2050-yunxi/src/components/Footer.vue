@@ -3,7 +3,7 @@
 		<div class="main clearfix">
 			<div class="fl qr">
 				<div style="margin-bottom: 15px;"><img src="/src/assets/img/logo_2050.png"></div>
-				<div><img src="../assets/img/qr.png"></div>
+				<div class="qr-img"></div>
 			</div>
 			<div class="fl contact">
 				<div class="ic">
@@ -46,6 +46,11 @@
 			width: 1200px;
 			margin: 0 auto;
 			padding: 65px 0;
+			.qr-img {
+				width: 350px;
+				height: 150px;
+				background: url('/src/assets/img/qr.png') no-repeat;
+			}
 			.fl {
 				float: left;
 			}
