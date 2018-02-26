@@ -53,8 +53,8 @@
 		z-index: 999;
 		.top-nav {
 			height: 80px;
-			width: 1200px; 
-			margin: 0 auto;
+			width: 100%; 
+			padding: 0 50px;
 			display: flex;
 			align-items: center;
 			.logo {
@@ -82,11 +82,11 @@
 				height: 100%;
 				display: flex;
 				align-items: center;
-				justify-content: center;
+				justify-content: flex-end;
 				flex-grow: 1;
+				margin-right: 30px;
 			}
 			.purchase {
-				flex-grow: 1;
 				display: flex;
 				justify-content: flex-end;
 				align-items: center;

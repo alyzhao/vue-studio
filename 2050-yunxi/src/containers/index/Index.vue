@@ -4,11 +4,10 @@
 		<div class="main-content">
 			<div class="content">
 				<div class="cell ts">
-					<p class="tit">探索</p>
-					<div class="sub-tit clearfix">
-						<p class="tt fl">一句话介绍</p>
-						<a class="bt fr" href="" target="_blank">我想成为出品人</a>
-					</div>
+					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tt1.png"></a></p>
+					<p class="sub-tit">
+						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
+					</p>
 					<div class="c-in clearfix">
 						<div class="items" v-for="item in exploreList" :key="item.id">
 							<p class="ctt">{{item.title}}</p>
@@ -23,34 +22,52 @@
 					</div>
 					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
-				<div class="cell tj">
-					<p class="tit">团聚</p>
-					<div class="sub-tit clearfix">
-						<p class="tt fl">全世界年轻人因科技而团聚</p>
-						<a class="bt fr" href="" target="_blank">我想成为召集人</a>
-					</div>
-					<div class="c-in">
-						<swiper :options="tjSwiperOption">
-							<swiper-slide v-for="item in reuniteList">
-								<div class="tjslide">
+			</div>
+			<div class="cell tj">
+				<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tt1.png"></a></p>
+				<p class="sub-tit">世界各地的青年人在2050握手团聚，老友重逢，相遇新知，给彼此灵感，给未来答案</p>
+				<div class="c-in">
+					<swiper :options="tjSwiperOption">
+						<!-- v-for="item in reuniteList" -->
+						<swiper-slide>
+							<div class="tjslide">
+								<div class="tj-con clearfix">
 									<div class="info">
-										<p class="ra">{{item.name}}</p>
+										<!-- <p class="ra">{{item.name}}</p> -->
+										<p class="ra">xxxxxx</p>
 										<p class="peo">召集人</p>
-										<p class="team">{{item.introduce}}</p>
+										<!-- <p class="team">{{item.introduce}}</p> -->
+										<p class="team">xxxxx</p>
+										<p class="split"><span></span></p>
+										<div class="intro">
+											<p>TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于</p>
+										</div>
 									</div>
-									<div class="tjimg">
-										<img width="285" :src="item.photo">
+									<div class="tj-img">
+										<img src="../../assets/img/tj.png">
 									</div>
-									<div class="details">
-										<p>{{item.details}}</p>
-									</div>
-								</div>								
-							</swiper-slide>
-						</swiper>
-					</div>
-					<div class="more"><a href="" target="_blank">查看更多</a></div>
+								</div>
+								<div class="details">
+									<a class="kn" href="" target="_blank">查看详情 ></a>
+								</div>
+<!-- 								<div class="info">
+									<p class="ra">{{item.name}}</p>
+									<p class="peo">召集人</p>
+									<p class="team">{{item.introduce}}</p>
+								</div>
+								<div class="tjimg">
+									<img width="285" :src="item.photo">
+								</div>
+								<div class="details">
+									<p>{{item.details}}</p>
+								</div> -->
+							</div>								
+						</swiper-slide>
+					</swiper>
 				</div>
-
+				<div class="more"><a href="" target="_blank">查看更多</a></div>
+			</div>
+			<div class="content">
 				<div class="cell xs">
 					<p class="tit">新生</p>
 					<div class="sub-tit clearfix">
@@ -129,9 +146,8 @@
 		data() {
 			return {
 				tjSwiperOption: {
-					autoplay: true,
-					slidesPerView: 4,
-					spaceBetween: 20
+					// autoplay: true,
+					// spaceBetween: 20
 				},
 				zySwiperOption: {
 					autoplay: true,
@@ -184,216 +200,216 @@
 	}
 </script>
 <style lang="scss">
-	.main-content {
-		background: url('/src/assets/img/bg.png') no-repeat;		
-	}
 	.content {
 		width: 1200px;
 		margin: 0 auto;
-		overflow: hidden;
-		.cell {
-			margin-bottom: 180px;
-			&.ts {
-				margin-top: 90px;
-			}
-			.tit {
+	}
+	.cell {
+		margin-bottom: 180px;
+		&.ts {
+			margin-top: 90px;
+		}
+		.tit {
+			color: #4122a0;
+			text-align: center;
+		}
+		.sub-tit {
+			color: #333;
+			font-size: 26px;
+			text-align: center;
+
+			.tt {
 				color: #4122a0;
-				font-size: 60px;
+				font-size: 26px;
+				font-weight: 400;
 			}
-			.sub-tit {
-				.tt {
-					color: #4122a0;
-					font-size: 26px;
-					font-weight: 400;
-				}
-				.bt {
-					display: block;
-					background-color: #42a1ff;
-					color: #fff;
-					font-size: 22px;
-					font-weight: 400;
-					padding: 5px 20px;
-					border-radius: 5px;
-				}
+			.bt {
+				display: block;
+				background-color: #42a1ff;
+				color: #fff;
+				font-size: 22px;
+				font-weight: 400;
+				padding: 5px 20px;
+				border-radius: 5px;
 			}
-			.c-in {
-				margin-top: 60px;
-				width: 100%;
-				.items {
-					float: left;
-					width: 375px;
-					height: 225px;
-					margin: 0 37px 37px 0;
-					background-color: #42a1ff;
-					padding: 15px 20px;
-					color: #5c40b2;
-					&:nth-child(3n) {
-						margin-right: 0;
-					}
-					.peop {
-						display: flex;
-						align-items: center;
-						margin-top: 8px;
-						justify-content: space-between;
-						.ct {
-							flex-grow: 1;
-							text-align: right;
-						}
-					}
-					.cp {
-						margin-left: 10px;
-					}
-					.ctt {
-						font-size: 24px;
-						line-height: 40px;
-					}
-					.ccon {
-						height: 110px;
-						line-height: 28px;
-						font-size: 14px;
-						overflow: hidden;
-					}
+		}
+		.c-in {
+			margin-top: 60px;
+			width: 100%;
+			.items {
+				float: left;
+				width: 375px;
+				height: 225px;
+				margin: 0 37px 37px 0;
+				background-color: #fff;
+				padding: 15px 20px;
+				color: #555;
+				box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .2);
+				&:nth-child(3n) {
+					margin-right: 0;
 				}
-			}
-			.more {
-				margin-top: 10px;
-				a {
-					display: block;
-					margin: 0 auto;
-					width: 400px;
-					line-height: 70px;
-					background: #4c2baf;
-					color: #fff;
-					font-size: 22px;
-					text-align: center;
-					border-radius: 5px;
-				}
-			}
-			.c-in .swiper-slide {
-				width: 285px;
-			}
-			.tjslide {
-				width: 285px;
-				height: 580px;
-				position: relative;
-				.details {
-					box-sizing: border-box;
-					position: absolute;
-					top: 0;
-					padding: 35px 17px;
-					overflow: hidden;
-					width: 100%;
-					height: 100%;
-					background: #2d1c5e;
-					background: linear-gradient(0deg, rgba(65, 39, 144, .7), #201444);
-					transition: opacity .2s linear;
-					color: #fff;
-					line-height: 28px;
-					visibility: hidden;
-					opacity: 0;
-					p {
-						height: 100%;
-						overflow: hidden;
-					}
-				}
-				&:hover .details{
-					visibility: visible;
-					opacity: 1;
-				}
-				.info {
-					height: 280px;
-					background-image: linear-gradient(0deg, #412791, #201444);
-					overflow: hidden;
-					p {
-						color: #fff;
-						padding-left: 12px;
-					}
-					.ra, .rab{
-						font-size: 28px;
-					}
-					.ra {
-						margin-top: 25px;
-						margin-bottom: 15px;
-						height: 85px;
-						overflow: hidden;
-					}
-					.rab {
-						margin: 5px 0 15px;
-					}
-					.team {
-						font-size: 26px;
-						margin-top: 47px;
-					}
-				}
-				.tjimg {
-					overflow: hidden;
-					height: 300px;
-					img {
-						max-height: 300px;
-					}
-				}
-			}
-			&.tj .more{
-				margin-top: 70px;
-			}
-			&.xs {
-				.c-in {
-					height: 588px;
-					background-color: #ffcc00;
-				}
-			}
-			&.bf {
-				.c-in.pt {
+				.peop {
 					display: flex;
-					width: 100%;
-					.ptl {
-						padding-right: 10px;
-						width: 800px;
-						.pttop {
-							height: 380px;
+					align-items: center;
+					margin-top: 8px;
+					justify-content: space-between;
+					.ct {
+						flex-grow: 1;
+						text-align: right;
+					}
+				}
+				.cp {
+					margin-left: 10px;
+				}
+				.ctt {
+					font-size: 24px;
+					line-height: 40px;
+				}
+				.ccon {
+					height: 110px;
+					line-height: 28px;
+					font-size: 14px;
+					overflow: hidden;
+				}
+			}
+		}
+		.more {
+			margin-top: 10px;
+			a {
+				display: block;
+				margin: 0 auto;
+				width: 400px;
+				line-height: 70px;
+				background: #333;
+				color: #fff;
+				font-size: 22px;
+				text-align: center;
+				border-radius: 5px;
+			}
+		}
+		.c-in .swiper-slide {
+			width: 285px;
+		}
+		&.tj {
+			background-color: #ededed;
+		}
+		.tjslide {
+			width: 100%;
+			position: relative;
+			.tj-con {
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.details {
+				width: 1200px;
+				margin: 0 auto;
+				.kn {
+					background-color: #ffcc00;
+					color: #333;
+					font-size: 24px;
+					line-height: 80px;					
+				}
+			}
+			.info {
+				width: 400px;
+				float: left;
+				background-color: #fff;
+				p {
+					color: #333;
+					padding-left: 25px;
+					padding-right: 25px;
+				}
+				.peo {
+					font-size: 18px;
+				}
+				.ra {
+					font-size: 30px;
+					margin-top: 25px;
+					margin-bottom: 15px;
+					height: 85px;
+					overflow: hidden;
+				}
+				.rab {
+					margin: 5px 0 15px;
+				}
+				.team {
+					font-size: 24px;
+					margin-top: 33px;
+				}
+				.split span {
+					display: inline-block;
+					width: 20px;
+					height: 6px;
+					background-color: #333;
+				}
+				.intro {
+					font-size: 16px;
+					color: #666;
+					text-align: justify;
+					line-height: 30px;
+					padding-top: 20px;
+					padding-bottom: 40px;
+					p {
+						height: 120px;
+						overflow: hidden;
+					}
+				}
+			}
+			.tj-img {
+				float: left;
+				height: 425px;
+				img {
+					width: 800px;
+					height: 425px;
+				}
+			}
+		}
+		&.tj .more{
+			margin-top: 70px;
+		}
+		&.xs {
+			.c-in {
+				height: 588px;
+				background-color: #ffcc00;
+			}
+		}
+		&.bf {
+			.c-in.pt {
+				display: flex;
+				width: 100%;
+				.ptl {
+					padding-right: 10px;
+					width: 800px;
+					.pttop {
+						height: 380px;
+						display: flex;
+						padding-bottom: 10px;
+						.tplf {
+							width: 380px;
 							display: flex;
-							padding-bottom: 10px;
-							.tplf {
-								width: 380px;
-								display: flex;
-								flex-wrap: wrap;
-								justify-content: space-between;
-								padding-right: 10px;
-								.cykj {
-									width: 100%;
-									height: 180px;
-									background-color: #5732ca;
-									color: #ffcc00;
-									text-align: center;
-									line-height: 180px;
-									font-size: 22px;
-								    align-self: flex-end;
-								}
-							}
-							.tprg {
-								width: 410px;
-							}
-						}
-						.ptbt {
-							display: flex;
+							flex-wrap: wrap;
 							justify-content: space-between;
-							.mgc {
-								width: 410px;
+							padding-right: 10px;
+							.cykj {
+								width: 100%;
 								height: 180px;
-								background-color: #ffcc00;
-								color: #5732ca;
-								font-size: 22px;
+								background-color: #5732ca;
+								color: #ffcc00;
 								text-align: center;
 								line-height: 180px;
+								font-size: 22px;
+							    align-self: flex-end;
 							}
 						}
+						.tprg {
+							width: 410px;
+						}
 					}
-					.ptr {
-						width: 34%;
+					.ptbt {
 						display: flex;
-						flex-wrap: wrap;
+						justify-content: space-between;
 						.mgc {
-							width: 100%;
+							width: 410px;
 							height: 180px;
 							background-color: #ffcc00;
 							color: #5732ca;
@@ -401,89 +417,102 @@
 							text-align: center;
 							line-height: 180px;
 						}
-						.btc {
-							width: 100%;
-							display: flex;
-							justify-content: space-between;
-							padding-top: 10px;
-							.middle-img img{
-								width: 210px;
-								height: 370px;
-							}
-						}
-					}
-					.smc {
-						height: 180px;
-						width: 180px;
-						text-align: center;
-						line-height: 180px;
-						color: #5732ca;
-						overflow: hidden;
-						font-size: 20px;
-						&.pp {
-							background-color: #5732ca;
-							color: #ffcc00;
-						}
-						img {
-							width: 180px;
-							height: 180px;
-						}
-					}
-					.bgc {
-						width: 410px;
-						height: 370px;
-						img {
-							width: 100%;
-							height: 100%;
-						}
 					}
 				}
-			}
-			&.zy {
-				.zyjg {
-					font-weight: 400;
-					font-size: 26px;
-					color: #4a15c5;
-				    margin-top: 70px;
-				}
-				.zy-slide {
+				.ptr {
+					width: 34%;
 					display: flex;
 					flex-wrap: wrap;
-					.mark {
-						width: 225px;
-						height: 135px;
-						background-color: rgba(255, 255, 255, .1);
-						margin-bottom: 20px;
-						margin-right: 15px;
+					.mgc {
+						width: 100%;
+						height: 180px;
+						background-color: #ffcc00;
+						color: #5732ca;
+						font-size: 22px;
+						text-align: center;
+						line-height: 180px;
+					}
+					.btc {
+						width: 100%;
 						display: flex;
-						align-items: center;
-						justify-content: center;
-						img {
-							width: 225px;
-							height: 135px;
+						justify-content: space-between;
+						padding-top: 10px;
+						.middle-img img{
+							width: 210px;
+							height: 370px;
 						}
 					}
 				}
-				.swiper-container {
-					padding-bottom: 40px;
+				.smc {
+					height: 180px;
+					width: 180px;
+					text-align: center;
+					line-height: 180px;
+					color: #5732ca;
+					overflow: hidden;
+					font-size: 20px;
+					&.pp {
+						background-color: #5732ca;
+						color: #ffcc00;
+					}
+					img {
+						width: 180px;
+						height: 180px;
+					}
 				}
-				.swiper-pagination {
-					bottom: 0;
-				}
-				.swiper-pagination-bullet {
-					width: 10px;
-					height: 10px;
-					background: #fff;
-					opacity: 1;
-					transition: all .2s linear;
-					&.swiper-pagination-bullet-active {
-						width: 60px;
-						background: #fff;
-						border-radius: 5px;
+				.bgc {
+					width: 410px;
+					height: 370px;
+					img {
+						width: 100%;
+						height: 100%;
 					}
 				}
 			}
 		}
-
+		&.zy {
+			.zyjg {
+				font-weight: 400;
+				font-size: 26px;
+				color: #4a15c5;
+			    margin-top: 70px;
+			}
+			.zy-slide {
+				display: flex;
+				flex-wrap: wrap;
+				.mark {
+					width: 225px;
+					height: 135px;
+					background-color: rgba(255, 255, 255, .1);
+					margin-bottom: 20px;
+					margin-right: 15px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					img {
+						width: 225px;
+						height: 135px;
+					}
+				}
+			}
+			.swiper-container {
+				padding-bottom: 40px;
+			}
+			.swiper-pagination {
+				bottom: 0;
+			}
+			.swiper-pagination-bullet {
+				width: 10px;
+				height: 10px;
+				background: #fff;
+				opacity: 1;
+				transition: all .2s linear;
+				&.swiper-pagination-bullet-active {
+					width: 60px;
+					background: #fff;
+					border-radius: 5px;
+				}
+			}
+		}
 	}
 </style>

@@ -52,7 +52,7 @@
 	}
 	.banner {
 		background: url('../assets/img/banner.png');
-		height: 880px;
+		height: 960px;
 		position: relative;
 		width: 100%;
 	}

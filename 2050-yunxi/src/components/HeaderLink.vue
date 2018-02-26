@@ -25,7 +25,7 @@
 		display: block;
 		float: left;
 		line-height: 20px;
-		min-width: 65px;
+		min-width: 80px;
 		text-align: center;
 		color: #fff;
 		transition: all .3s linear;

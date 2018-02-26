@@ -1,4 +1,4 @@
-## notes
+# notes
 
 ### vue mixin, component, use 的区别
 
@@ -33,6 +33,20 @@ balabala
 
 入口文件中写入 `Vue.prototype.axios = axios`
 
-## Schedule
+### webpack 配置项, production 和 development 环境下的不同配置
+
+可以参考 vue-cli 的配置选项
+
+通过判断 NODE_ENV 分别配置, 在 windows 环境下配置 `set NODE_ENV=production`, linux 环境下配置 `NODE_ENV=production`
+
+### webpack output.publicPath 和 devServer.publicPath 的区别
+
+file-loader 只会替换相对路径下的静态资源路径, 所以 img 和 background 中的静态引用要写相对路径
+
+# Schedule
+
+### 功能
 
 1. vuex 选择语言
+
+2. 写一个 shell 脚本文件自动打包出生产文件

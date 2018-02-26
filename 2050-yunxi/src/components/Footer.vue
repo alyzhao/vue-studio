@@ -2,7 +2,7 @@
 	<div class="footer">
 		<div class="main clearfix">
 			<div class="fl qr">
-				<div style="margin-bottom: 15px;"><img src="/src/assets/img/logo_2050.png"></div>
+				<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
 				<div class="qr-img"></div>
 			</div>
 			<div class="fl contact">
@@ -49,7 +49,7 @@
 			.qr-img {
 				width: 350px;
 				height: 150px;
-				background: url('/src/assets/img/qr.png') no-repeat;
+				background: url('../assets/img/qr.png') no-repeat;
 			}
 			.fl {
 				float: left;

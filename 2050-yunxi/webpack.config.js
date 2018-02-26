@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].js',
-		publicPath: './'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
+		publicPath: '/dist/'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
 	},
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
@@ -75,7 +75,7 @@ module.exports = {
             index:'/index.html'
         },
 		contentBase: './',
-		publicPath: '/',
+		publicPath: '/dist/',
 		hot: true,
 	},
 	plugins: [
@@ -86,7 +86,6 @@ module.exports = {
 }
 
 // UglifyJsPlugin 这是内置插件
-
 if (process.env.NODE_ENV === 'production') {
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({
