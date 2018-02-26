@@ -11,7 +11,6 @@ module.exports = {
 		filename: '[name].js',
 		publicPath: './'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
 	},
-	devtool: 'source-map',
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
 		alias: {
@@ -83,18 +82,34 @@ module.exports = {
 		new ExtractTextPlugin({
 			filename: 'style.css'	// 这是提取到 output 中去的, 可以加 '/' 建立一个文件夹
 		}),
+	]
+}
+
+// UglifyJsPlugin 这是内置插件
+
+if (process.env.NODE_ENV === 'production') {
+	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: '"production"'
 			}
 		}),
-		new webpack.HotModuleReplacementPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
             compress: { 
             	warnings: false,
             	drop_debugger: true,  
 				drop_console: true
-        	} 
-        })
-	]
+        	},
+        	output: {
+                comments: false		// 去掉注释
+            }
+        }),
+	])
+}
+
+if (process.env.NODE_ENV === 'development') {
+	module.exports.devtool = 'eval-source-map',
+	module.exports.plugins = (module.exports.plugins || []).concat([
+		new webpack.HotModuleReplacementPlugin(),
+	])
 }
