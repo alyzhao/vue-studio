@@ -3,14 +3,16 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-import Schedule from './containers/Schedule.vue';
+// import Schedule from './containers/Schedule.vue';
 import Creativity from './containers/Creativity.vue';
+
+// import ScrollContainer from 'components/ScrollContainer';
 
 import Index from './containers/index/Index.vue';
 
 const routes = [
   { path: '/', component: Index },
-  { path: '/schedule', component: Schedule},
+  { path: '/index', component: Index},
   { path: '/creativity', component: Creativity }
 ]
 

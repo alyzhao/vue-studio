@@ -3,8 +3,9 @@
 		<Banner />
 		<div class="main-content">
 			<div class="content">
+				<!-- 探索 -->
 				<div class="cell ts">
-					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tt1.png"></a></p>
+					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-ts.png"></a></p>
 					<p class="sub-tit">
 						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
 					</p>
@@ -23,8 +24,9 @@
 					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
 			</div>
+			<!-- 团聚 -->
 			<div class="cell tj">
-				<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tt1.png"></a></p>
+				<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-tj.png"></a></p>
 				<p class="sub-tit">世界各地的青年人在2050握手团聚，老友重逢，相遇新知，给彼此灵感，给未来答案</p>
 				<div class="c-in">
 					<swiper :options="tjSwiperOption">
@@ -76,14 +78,15 @@
 							</div>								
 						</swiper-slide>						
 						<div class="swiper-pagination-tj" slot="pagination"></div>
-						<div class="swiper-button-prev" slot="button-prev">prev</div>
-						<div class="swiper-button-next" slot="button-next">next</div>						
+						<div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+						<div class="swiper-button-next swiper-button-black" slot="button-next"></div>						
 					</swiper>
 				</div>
 				<div class="more"><a href="" target="_blank">查看更多</a></div>
 			</div>
 
 			<div class="content">
+				<!-- 新生 -->
 				<div class="cell xs">
 					<p class="tit">新生</p>
 					<div class="sub-tit clearfix">
@@ -94,49 +97,104 @@
 					<div class="more"><a href="" target="_blank">查看更多</a></div>		
 				</div>
 
+				<!-- 迸发 -->
 				<div class="cell bf">
-					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tt1.png"></a></p>
+					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-bf.png"></a></p>
 					<p class="sub-tit">
 						音乐、影像、晨跑、露营……这里没有旁观者，2050的狂欢属于每一位年青人
 					</p>	
 					<div class="c-in pt">
-						<div v-if="burstList.length > 0" class="ptl">
-							<div class="pttop">
-								<div class="tplf">
-									<div class="smc"><img height="180" :src="burstList[0].image"></div>
-									<div class="smc" style="background-color: #ffcc00">{{burstList[0].name}}</div>
-									<div class="cykj">{{burstList[1].name}}</div>
-								</div>
-								<div class="tprg">
-									<div class="bgc"><img :src="burstList[1].image"></div>
-								</div>
-							</div>
-							<div class="ptbt">
-								<div class="smc"><img :src="burstList[2].image"></div>
-								<div class="mgc">{{burstList[2].name}}</div>
-								<div class="smc pp">{{burstList[3].name}}</div>
-							</div>
+						<div class="item">
+							<div class="bg"><img src="../../assets/img/c1.png"></div>
+							<div class="con"><a href="" target="_blank">主题论坛</a></div>
 						</div>
-						<div v-if="burstList.length > 0" class="ptr">
-							<div class="mgc">{{burstList[4].name}}</div>
-							<div class="btc">
-								<div>
-									<div class="smc"><img :src="burstList[3].image"></div>
-								</div>
-								<div class="middle-img">
-									<img :src="burstList[4].image">
-								</div>
-							</div>
+						<div class="item">
+							<div class="bg"><img src="../../assets/img/c1.png"></div>
+							<div class="con"><a href="" target="_blank">主题论坛</a></div>
 						</div>
+						<div class="item">
+							<div class="bg"><img src="../../assets/img/c1.png"></div>
+							<div class="con"><a href="" target="_blank">主题论坛</a></div>
+						</div>
+						<div class="item">
+							<div class="bg"><img src="../../assets/img/c1.png"></div>
+							<div class="con"><a href="" target="_blank">主题论坛</a></div>
+						</div>
+						<div class="item">
+							<div class="bg"><img src="../../assets/img/c1.png"></div>
+							<div class="con"><a href="" target="_blank">主题论坛</a></div>
+						</div>
+						<div class="item">
+							<div class="bg"><img src="../../assets/img/c1.png"></div>
+							<div class="con"><a href="" target="_blank">主题论坛</a></div>
+						</div>																								
 					</div>
 				</div>
+			</div>
+			<div class="cell zy">
+				<div class="content">
+					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-bf.png"></a></p>
+					<p class="sub-tit">
+						感谢所有的志愿机构与志愿者，你们用年青人的方式定义了“志愿“，让2050与众不同
+					</p>
+					<p class="zy-tit">志愿发起人</p>
+					<swiper :options="zypSwiperOption">
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>
+						<swiper-slide>
+							<div class="zyp-wrap">
+								<div class="zyp-slide">
+									<div class="zyp-img"><a href="" target="_blank"><img src="../../assets/img/pto.png"></a></div>
+								</div>
+							</div>
+						</swiper-slide>																								
 
-				<div class="cell zy">
-					<p class="tit">志愿</p>
-					<div class="sub-tit clearfix">
-						<p class="tt fl">"志愿"二字凝聚了2050最独特的魅力</p>
-						<a class="bt fr" href="" target="_blank">我想成为志愿者</a>
-					</div>
+					</swiper>
+					<div class="more"><a href="" target="_blank">查看更多</a></div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="cell jg">
 					<p class="zyjg">志愿发起机构</p>
 					<div class="c-in">
 						<swiper :options="zySwiperOption">
@@ -149,9 +207,10 @@
 							</swiper-slide>												
 							<div class="swiper-pagination" slot="pagination"></div>
 						</swiper>
-					</div>
+					</div>					
+					<div class="more"><a href="" target="_blank">查看更多</a></div>					
 				</div>
-
+			</div>
 			</div>
 		</div>
 	</div>
@@ -179,6 +238,10 @@
 						el: '.swiper-pagination',
 						type: 'bullets'
 					}
+				},
+				zypSwiperOption: {
+					autoplay: true,
+					slidesPerView: 5,
 				},
 				exploreList: [],
 				reuniteList: [],
@@ -410,7 +473,6 @@
 			line-height: 240px;
 			position: absolute;
 			color: #666;
-			background-image: none;
 		}
 		.swiper-button-prev {
 			left: 0;
@@ -431,106 +493,83 @@
 			.c-in.pt {
 				display: flex;
 				width: 100%;
-				.ptl {
-					padding-right: 10px;
-					width: 800px;
-					.pttop {
-						height: 380px;
-						display: flex;
-						padding-bottom: 10px;
-						.tplf {
-							width: 380px;
-							display: flex;
-							flex-wrap: wrap;
-							justify-content: space-between;
-							padding-right: 10px;
-							.cykj {
-								width: 100%;
-								height: 180px;
-								background-color: #5732ca;
-								color: #ffcc00;
-								text-align: center;
-								line-height: 180px;
-								font-size: 22px;
-							    align-self: flex-end;
-							}
-						}
-						.tprg {
-							width: 410px;
-						}
-					}
-					.ptbt {
-						display: flex;
-						justify-content: space-between;
-						.mgc {
-							width: 410px;
-							height: 180px;
-							background-color: #ffcc00;
-							color: #5732ca;
-							font-size: 22px;
-							text-align: center;
-							line-height: 180px;
-						}
-					}
-				}
-				.ptr {
-					width: 34%;
-					display: flex;
-					flex-wrap: wrap;
-					.mgc {
-						width: 100%;
-						height: 180px;
-						background-color: #ffcc00;
-						color: #5732ca;
-						font-size: 22px;
-						text-align: center;
-						line-height: 180px;
-					}
-					.btc {
-						width: 100%;
-						display: flex;
-						justify-content: space-between;
-						padding-top: 10px;
-						.middle-img img{
-							width: 210px;
-							height: 370px;
-						}
-					}
-				}
-				.smc {
-					height: 180px;
-					width: 180px;
-					text-align: center;
-					line-height: 180px;
-					color: #5732ca;
+				flex-wrap: wrap;
+				.item {
+					width: 400px;
+					height: 400px;
 					overflow: hidden;
-					font-size: 20px;
-					&.pp {
-						background-color: #5732ca;
-						color: #ffcc00;
-					}
-					img {
-						width: 180px;
-						height: 180px;
-					}
-				}
-				.bgc {
-					width: 410px;
-					height: 370px;
-					img {
+					// flex-grow: 1;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					.bg {
 						width: 100%;
 						height: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						overflow: hidden;
+						img {
+							width: 100%;
+							height: 100%;
+						}
+					}
+					.con {
+						width: 190px;
+						height: 190px;
+						border: 5px solid #fff;
+						text-align: center;
+						position: relative;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						padding: 20px;
+						a {
+							font-size: 26px;
+							color: #fff;
+							word-break: keep-all;
+						}
 					}
 				}
 			}
 		}
 		&.zy {
-			.zyjg {
-				font-weight: 400;
-				font-size: 26px;
-				color: #4a15c5;
-			    margin-top: 70px;
+			background-color: #0a0a0a;
+			.sub-tit {
+				color: #fff;
 			}
+			.zy-tit {
+				color: #fff;
+				font-size: 36px;
+				text-align: center;
+			}
+			.zyp-wrap {
+				width: 230px;
+				height: 230px;				
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.swiper-slide-next + .swiper-slide .zyp-slide {
+				transform: scale(1.25);				
+			}
+			.zyp-slide {
+				width: 180px;
+				height: 180px;
+				border-radius: 100%;
+				overflow: hidden;
+				transition: transform .3s;
+				&:hover {
+					transform: scale(1.25);
+				}
+				.zyp-img, img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+		&.jg {
 			.zy-slide {
 				display: flex;
 				flex-wrap: wrap;
@@ -558,14 +597,19 @@
 			.swiper-pagination-bullet {
 				width: 10px;
 				height: 10px;
-				background: #fff;
+				background: #999;
 				opacity: 1;
 				transition: all .2s linear;
 				&.swiper-pagination-bullet-active {
 					width: 60px;
-					background: #fff;
+					background: #ffcc00;
 					border-radius: 5px;
 				}
+			}
+			.zyjg {
+				text-align: center;
+				font-size: 36px;
+				color: #333;
 			}
 		}
 	}

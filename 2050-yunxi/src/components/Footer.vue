@@ -41,7 +41,7 @@
 </script>
 <style lang="scss">
 	.footer {
-		background: #422a8c;
+		background: #333;
 		.main {
 			width: 1200px;
 			margin: 0 auto;
@@ -68,7 +68,8 @@
 					font-size: 14px;
 					font-weight: 400;
 					.cell {
-						width: 33.33%
+						width: 33.33%;
+						margin-bottom: 0;
 					}				
 				}
 				.ic {
