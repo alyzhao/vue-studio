@@ -1,9 +1,12 @@
 <template>
 	<div class="footer">
 		<div class="main clearfix">
-			<div class="fl qr">
+			<div class="fr qr">
 				<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
-				<div class="qr-img"></div>
+				<div class="qr-img clearfix">
+					<div class="fl"><img src="../assets/img/qr-code.png"></div>
+					<div class="fr"><img src="../assets/img/qr-code.png"></div>		
+				</div>
 			</div>
 			<div class="fl contact">
 				<div class="ic">
@@ -32,6 +35,7 @@
 				</div>
 			</div>
 		</div>
+		<p class="copyright">Copyright © 2050云栖 – 鄂ICP备16005435号-3</p>
 	</div>
 </template>
 <script>
@@ -45,11 +49,11 @@
 		.main {
 			width: 1200px;
 			margin: 0 auto;
-			padding: 65px 0;
+			padding-top: 65px;
 			.qr-img {
 				width: 350px;
 				height: 150px;
-				background: url('../assets/img/qr.png') no-repeat;
+
 			}
 			.fl {
 				float: left;
@@ -60,8 +64,7 @@
 				padding: 150px 180px 0 80px;
 			}
 			.contact {
-				width: 690px;
-				margin-left: 150px;
+				width: 850px;
 				.ic, .dt {
 					display: flex;
 					align-items: center;
@@ -70,13 +73,16 @@
 					.cell {
 						width: 33.33%;
 						margin-bottom: 0;
+						font-size: 14px;
+						color: #c8c8c8;
+						line-height: 30px;
 					}				
 				}
 				.ic {
 					p {
-						padding-bottom: 55px;
+						padding-bottom: 35px;
 						color: #fff;
-						font-size: 20px;
+						font-size: 18px;
 					}
 				}
 				.dt {
@@ -85,6 +91,12 @@
 					font-size: 16px;
 				}
 			}
+		}
+		.copyright {
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			padding: 30px 0 20px;
 		}
 	}
 </style>

@@ -6,6 +6,8 @@
  * 2. Correct the line height in all browsers.
  * 3. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
+
+
 /* Document
    ========================================================================== */
 html {
@@ -497,10 +499,7 @@ p, h1, h2, h3 {
     float: right;
 }
 
-@font-face {
-    font-family: "dinmittelschrift";
-    src: url('../fonts/dinmittelschrift.ttf');
-}
+@charset "UTF-8";
 
 .overh {
     overflow: hidden;

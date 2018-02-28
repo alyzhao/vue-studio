@@ -10,15 +10,13 @@
 						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
 					</p>
 					<div class="c-in clearfix">
-						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt">{{item.forumName}}</p>
-							<p class="ccon">{{item.forumWord}}</p>
+						<div class="items" v-for="item in exploreList" :key="item.id">
+							<p class="ctt">{{item.title}}</p>
+							<p class="ccon">{{item.describetxt}}</p>
 							<div class="peop">
-								<a href="" target="_blank"><img height="60" width="60" :src="publicPath + item.productsImg"></a>
-								<div>
-									<p class="cp">出品人:  {{item.products}}</p>
-									<p class="ct">{{item.productsWord}}</p>									
-								</div>
+								<a href="" target="_blank"><img height="40" width="40" :src="item.initiatorphoto"></a>
+								<span class="cp">出品人:  {{item.initiator}}</span>
+								<span class="ct">{{item.time}}</span>
 							</div>
 						</div>
 
@@ -33,25 +31,52 @@
 				<div class="c-in">
 					<swiper :options="tjSwiperOption">
 						<!-- v-for="item in reuniteList" -->
-						<swiper-slide v-for="item in groupList">
+						<swiper-slide>
 							<div class="tjslide">
 								<div class="tj-con clearfix">
 									<div class="info">
-										<p class="ra">{{item.groupLead}}</p>
+										<!-- <p class="ra">{{item.name}}</p> -->
+										<p class="ra">xxxxxx</p>
 										<p class="peo">召集人</p>
-										<p class="team">{{item.groupName}}</p>
+										<!-- <p class="team">{{item.introduce}}</p> -->
+										<p class="team">xxxxx</p>
 										<p class="split"><span></span></p>
 										<div class="intro">
-											<p>{{item.groupWord}}</p>
+											<p>TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于</p>
 										</div>
 									</div>
 									<div class="tj-img">
-										<img :src="item.groupImg1">
+										<img src="../../assets/img/tj.png">
 									</div>
 								</div>
+<!-- 								<div class="details">
+									<a class="kn" href="" target="_blank">查看详情 ></a>
+								</div> -->
 							</div>								
 						</swiper-slide>
-					
+						<swiper-slide>
+							<div class="tjslide">
+								<div class="tj-con clearfix">
+									<div class="info">
+										<!-- <p class="ra">{{item.name}}</p> -->
+										<p class="ra">xxxxxx</p>
+										<p class="peo">召集人</p>
+										<!-- <p class="team">{{item.introduce}}</p> -->
+										<p class="team">xxxxx</p>
+										<p class="split"><span></span></p>
+										<div class="intro">
+											<p>TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于TGO全称Top Geeks' Organization,是极客邦科技旗下一个聚集高端技术人的组织。其中文名“鲲鹏会”，致力于</p>
+										</div>
+									</div>
+									<div class="tj-img">
+										<img src="../../assets/img/tj.png">
+									</div>
+								</div>
+<!-- 								<div class="details">
+									<a class="kn" href="" target="_blank">查看详情 ></a>
+								</div> -->
+							</div>								
+						</swiper-slide>						
 						<div class="swiper-pagination-tj" slot="pagination"></div>
 						<div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
 						<div class="swiper-button-next swiper-button-black" slot="button-next"></div>						
@@ -72,11 +97,7 @@
 						<div class="item" v-for="item in activityList" :key="item.id">
 							<div class="bg"><img :src="publicPath + item.actImg"></div>
 							<div class="con"><a href="" target="_blank">{{item.actName}}</a></div>
-						</div>
-						<div class="item">
-							<div class="bg"><img src="../../assets/img/c3.png"></div>														
-							<div class="bmore"><a href="" target="_blank">更多精彩 <i class="fa fa-angle-right"></i></a></div>
-						</div>																							
+						</div>																								
 					</div>
 				</div>
 			</div>
@@ -109,38 +130,13 @@
 					<p class="zyjg">志愿发起机构</p>
 					<div class="c-in">
 						<swiper :options="zySwiperOption">
-							<!-- <swiper-slide v-for="(item, index) in volunteerOrgList" :key="index">
+							<swiper-slide v-for="(item, index) in volunteerOrgList" :key="index">
 								<div class="zy-slide">
 									<div class="mark" v-for="vol in item" :key="vol.id">
 										<img :src="vol.logo">
 									</div>
 								</div>
-							</swiper-slide> -->
-							<swiper-slide>
-								<div class="zy-slide">
-									<div class="mark">
-										<img src="../../assets/img/2.png">
-									</div>
-									<div class="mark">
-										<img src="../../assets/img/3.png">
-									</div>
-									<div class="mark">
-										<img src="../../assets/img/4.png">
-									</div>
-									<div class="mark">
-										<img src="../../assets/img/7.png">
-									</div>
-									<div class="mark">
-										<img src="../../assets/img/8.png">
-									</div>
-									<div class="mark">
-										<img src="../../assets/img/9.png">
-									</div>
-									<div class="mark">
-										<img src="../../assets/img/10.png">
-									</div>
-								</div>								
-							</swiper-slide>										
+							</swiper-slide>												
 							<div class="swiper-pagination" slot="pagination"></div>
 						</swiper>
 					</div>					
@@ -157,7 +153,7 @@
 		data() {
 			return {
 				tjSwiperOption: {
-					autoplay: true,
+					// autoplay: true,
 					// spaceBetween: 20
 					pagination: {
 						el: '.swiper-pagination-tj',
@@ -176,34 +172,36 @@
 					}
 				},
 				zypSwiperOption: {
-					autoplay: true,
+					// autoplay: true,
 					slidesPerView: 5,
 				},
-				forumList: [],
-				groupList: [],
+				exploreList: [],
+				reuniteList: [],
 				activityList: [],
 				volunteerList: [],
 				volunteerOrgList: [],
-				publicPath: 'http://47.100.174.9:8081/2050website/img/'
+				publicPath: 'http://192.168.1.40:8080/2050website/img/'
 			}
 		},
 		mounted: function () {
 			this.$nextTick(function () {
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLineFroum/queryFroum').then(response => {
+				console.log('mounted');
+				this.axios.get('http://datav.youlishu.com:8080/2050/webClient/findexplore.do').then(response => {
+					console.log(response.data);
 					let resData = response.data;
-					this.forumList = resData;
+					this.exploreList = resData;
 				})
 
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLineGroup/queryGroup').then(response => {
+				this.axios.get('http://datav.youlishu.com:8080/2050/webClient//findreunite.do').then(response => {
 					let resData = response.data;
-					this.groupList = resData;
+					this.reuniteList = resData;
 				})
 
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLineActivity/queryActivity').then(response => {
+				this.axios.get('http://192.168.1.40:8081/2050webOnline/onLineActivity/queryActivity').then(response => {
 					this.activityList = response.data;
 				})
 
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLinevot/queryVot').then(response => {
+				this.axios.get('http://192.168.1.40:8081/2050webOnline/onLinevot/queryVot').then(response => {
 					let resData = response.data;
 
 					this.volunteerList = resData;
@@ -257,10 +255,11 @@
 			.items {
 				float: left;
 				width: 375px;
+				height: 225px;
 				margin: 0 37px 37px 0;
 				background-color: #fff;
 				padding: 15px 20px;
-				color: #333;
+				color: #555;
 				box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .2);
 				&:nth-child(3n) {
 					margin-right: 0;
@@ -269,28 +268,24 @@
 					display: flex;
 					align-items: center;
 					margin-top: 8px;
+					justify-content: space-between;
+					.ct {
+						flex-grow: 1;
+						text-align: right;
+					}
 				}
 				.cp {
-					font-size: 18px;
-				}
-				.cp, .ct {
 					margin-left: 10px;
-				}
-				.ct {
-					color: #666;
-					font-size: 16px;
 				}
 				.ctt {
 					font-size: 24px;
 					line-height: 40px;
-					color: #333;
 				}
 				.ccon {
 					height: 110px;
 					line-height: 28px;
 					font-size: 14px;
 					overflow: hidden;
-					color: #666;
 				}
 			}
 		}
@@ -396,7 +391,6 @@
 				height: 15px;
 				background: #000;
 				border-radius: 0;
-				opacity: 1;
 				&.swiper-pagination-bullet-active {
 					background-color: #ffcc00;
 				}
@@ -471,27 +465,6 @@
 							word-break: keep-all;
 						}
 					}
-					.bmore {
-					    width: 190px;
-					    height: 190px;
-						text-align: center;
-						position: relative;
-						a {
-							color: #ffcc00;
-							font-size: 30px;
-							font-weight: 600;
-							line-height: 190px;
-							i {
-								margin-left: 5px;
-								display: inline-block;
-								width: 30px;
-								height: 30px;
-								border-radius: 100%;
-								border: 1px solid #ffcc00;
-								line-height: 26px;
-							}
-						}
-					}
 				}
 			}
 		}
@@ -525,10 +498,6 @@
 				position: relative;
 				&:hover {
 					transform: scale(1.25);
-					.intro {
-						visibility: visible;
-						opacity: 1;
-					}
 				}
 				.zyp-img, img {
 					width: 100%;
@@ -542,9 +511,6 @@
 					height: 100%;
 					top: 0;
 					left: 0;
-					opacity: 0;
-					visibility: hidden;
-					transition: all .3s;
 					p {
 						text-align: center;
 						padding: 0 30px;
@@ -581,7 +547,8 @@
 					align-items: center;
 					justify-content: center;
 					img {
-						height: 65px;
+						width: 225px;
+						height: 135px;
 					}
 				}
 			}
@@ -592,13 +559,15 @@
 				bottom: 0;
 			}
 			.swiper-pagination-bullet {
-				width: 15px;
-				height: 15px;
-				background: #000;
-				border-radius: 0;
+				width: 10px;
+				height: 10px;
+				background: #999;
 				opacity: 1;
+				transition: all .2s linear;
 				&.swiper-pagination-bullet-active {
-					background-color: #ffcc00;
+					width: 60px;
+					background: #ffcc00;
+					border-radius: 5px;
 				}
 			}
 			.zyjg {
@@ -606,9 +575,6 @@
 				font-size: 36px;
 				color: #333;
 				margin-top: 65px;
-			}
-			.more {
-				margin-top: 105px;
 			}
 		}
 	}

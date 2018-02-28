@@ -2,15 +2,8 @@
 	<div class="banner-wrap">
 		<swiper :options="swiperOption">
 			<swiper-slide>
-				<div class="banner"></div>				
+				<div class="banner"><img width="100%" height="100%" :src="publicPath + bannerUrl"></div>				
 			</swiper-slide>
-			<swiper-slide>
-				<div class="banner"></div>				
-			</swiper-slide>
-			<swiper-slide>
-				<div class="banner"></div>				
-			</swiper-slide>			
-			<div class="swiper-pagination" slot="pagination"></div>
 		</swiper>
 	</div>
 </template>
@@ -24,8 +17,18 @@
 						el: '.swiper-pagination',
 						type: 'bullets'
 					}
-				}
+				},
+				bannerUrl: null,
+				publicPath: 'http://47.100.174.9:8081/2050website/img/'
 			}
+		},
+		mounted: function () {
+			this.$nextTick(function () {
+				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLinebanner/queryBanner').then(response => {
+					let resData = response.data;
+					this.bannerUrl = resData.imgOne;
+				})
+			})
 		},
 		methods: {
 			bgUrl(img) {
@@ -51,7 +54,7 @@
 		}
 	}
 	.banner {
-		background: url('../assets/img/banner.png');
+		// background: url('../assets/img/banner.png');
 		height: 960px;
 		position: relative;
 		width: 100%;

@@ -25,7 +25,7 @@ export const navLinks = [{
 }]
 
 
-import logoImg from 'assets/img/logo_2050.png';  
+import logoImg from 'assets/img/logo_2050_nav.png';  
 export const logo = logoImg; 
 
 export const address = [

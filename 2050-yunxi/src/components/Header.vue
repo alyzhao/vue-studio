@@ -4,9 +4,9 @@
 			<div class="logo">
 				<a href="/" target="self"><img :src="logo"></a>
 				<div class="info">
-					<p>时间： xxxxxxxxxxxxxxxxxx</p>
-					<p>地址： xxxxxxxxxxxxxxxxxx</p>
-					<p>热线： xxxxxxxxxxxxxxxxxx</p>
+					<p>时间： 2018.5.25 - 2018.5.27</p>
+					<p>地址： 杭州云栖小镇</p>
+					<p>热线： 18500840525</p>
 				</div>
 			</div>
 			<div class="link">
@@ -20,7 +20,8 @@
 			<div class="purchase">
 				<a class="pur-btn" target="_blank" href="">立即购票</a>
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
-				<button class="lang" @click="setLang('zh')">中文</button>
+				<button class="lang active" @click="setLang('zh')">中文</button>
+				<span class="plit"></span>
 				<button class="lang" @click="setLang('en')">ENG</button>
 			</div>
 		</div>
@@ -66,12 +67,14 @@
 				.info {
 					color: #fff;
 					font-size: 12px;
-					margin-left: 10px;
+					margin-left: 30px;
 					border-left: 1px solid #fff;
 					p {
 						line-height: 15px;
 						margin-bottom: 6px;
-						margin-left: 5px;
+						margin-left: 30px;
+						color: #333;
+						font-size: 14px;
 						&:last-child {
 							margin-bottom: 0;
 						}
@@ -95,24 +98,30 @@
 					font-weight: 800;
 					font-size: 18px;
 					display: inline-block;
-					padding: 10px 45px;
+					padding: 10px 64px;
 					border-radius: 5px;
-					background-color: rgba(0, 0, 0, .3);
+					background: #4528a3;
+					background-image: linear-gradient(90deg, #5438ae, #41229e);
 					margin-right: 20px;
 					position: relative;
 				}
+				.plit {
+					height: 40px;
+					background: #eee;
+					width: 2px;
+					transform: rotate(45deg);
+				}
 				.lang {
-					border: 1px solid #fff;
-					color: #fff;
+					border: none;
+					color: #333;
 					background-color: transparent;
 					cursor: pointer;
-					border-radius: 15px;
 					font-size: 14px;
-					margin-left: 8px;
-					transition: all .2s linear;						
+					transition: all .2s linear;
+					width: 50px;					
 					&:hover, &.active {
-						background-color: #1192ff;
-						border: 1px solid #1192ff;
+						font-size: 18px;
+						color: #5c40b1;
 					}
 					&:focus {
 						outline: none;

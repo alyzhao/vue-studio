@@ -1,7 +1,6 @@
 <template>
 	<router-link class="nav-link" :to="link">
 		{{name}}
-		<span v-if="btLine" class="bt-line"></span>
 	</router-link>
 </template>
 <script>
@@ -27,22 +26,20 @@
 		line-height: 20px;
 		min-width: 80px;
 		text-align: center;
-		color: #fff;
+		color: #333;
 		transition: all .3s linear;
 		position: relative;
-		font-size: 16px;
-		font-weight: 600;
+		font-size: 18px;
+		font-weight: 400;
 		&.big {
 			line-height: 60px;
 		}
 		&:hover {
 			cursor: pointer;
-			.bt-line {
-				background-color: #acacac;
-			}
 		}
-		&.router-link-exact-active .bt-line {
-			background-color: #acacac;			
+		&.router-link-exact-active {
+			color: #5c40b1;
+			font-size: 24px;			
 		}
 		.bt-line {
 			position: absolute;
