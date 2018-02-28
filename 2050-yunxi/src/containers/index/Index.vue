@@ -11,13 +11,13 @@
 					</p>
 					<div class="c-in clearfix">
 						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt">{{item.forumName}}</p>
+							<p class="ctt overh">{{item.forumName}}</p>
 							<p class="ccon">{{item.forumWord}}</p>
 							<div class="peop">
-								<a href="" target="_blank"><img height="60" width="60" :src="publicPath + item.productsImg"></a>
+								<a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
 								<div>
 									<p class="cp">出品人:  {{item.products}}</p>
-									<p class="ct">{{item.productsWord}}</p>									
+									<p class="ct overh">{{item.productsWord}}</p>									
 								</div>
 							</div>
 						</div>
@@ -46,7 +46,7 @@
 										</div>
 									</div>
 									<div class="tj-img">
-										<img :src="item.groupImg1">
+										<img :src="staticHost + item.groupImg1">
 									</div>
 								</div>
 							</div>								
@@ -70,7 +70,7 @@
 					</p>	
 					<div class="c-in pt">
 						<div class="item" v-for="item in activityList" :key="item.id">
-							<div class="bg"><img :src="publicPath + item.actImg"></div>
+							<div class="bg"><img :src="staticHost + item.actImg"></div>
 							<div class="con"><a href="" target="_blank">{{item.actName}}</a></div>
 						</div>
 						<div class="item">
@@ -92,7 +92,7 @@
 						<swiper-slide v-for="item in volunteerList" :key="item.id">
 							<div class="zyp-wrap">
 								<div class="zyp-slide">
-									<div class="zyp-img"><a href="" target="_blank"><img :src="publicPath + item.votImg"></a></div>
+									<div class="zyp-img"><a href="" target="_blank"><img :src="staticHost + item.votImg"></a></div>
 									<div class="intro">
 										<p class="vna">{{item.votName}}</p>
 										<p class="vcon">{{item.votWord}}</p>
@@ -153,6 +153,8 @@
 </template>
 <script>
 	import Banner from 'components/Banner';
+	import { prodUrl } from 'constants/config.js';
+
 	export default {
 		data() {
 			return {
@@ -184,26 +186,26 @@
 				activityList: [],
 				volunteerList: [],
 				volunteerOrgList: [],
-				publicPath: 'http://47.100.174.9:8081/2050website/img/'
+				staticHost: prodUrl.staticHost
 			}
 		},
 		mounted: function () {
 			this.$nextTick(function () {
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLineFroum/queryFroum').then(response => {
+				this.axios.get(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum').then(response => {
 					let resData = response.data;
 					this.forumList = resData;
 				})
 
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLineGroup/queryGroup').then(response => {
+				this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup').then(response => {
 					let resData = response.data;
 					this.groupList = resData;
 				})
 
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLineActivity/queryActivity').then(response => {
+				this.axios.get(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity').then(response => {
 					this.activityList = response.data;
 				})
 
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLinevot/queryVot').then(response => {
+				this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot').then(response => {
 					let resData = response.data;
 
 					this.volunteerList = resData;
@@ -269,6 +271,16 @@
 					display: flex;
 					align-items: center;
 					margin-top: 8px;
+					.portrait {
+						display: block;
+						width: 60px;
+						height: 60px;
+						border-radius: 100%;
+						overflow: hidden;
+						img {
+							display: block;
+						}
+					}
 				}
 				.cp {
 					font-size: 18px;
@@ -279,11 +291,13 @@
 				.ct {
 					color: #666;
 					font-size: 16px;
+					width: 265px;
 				}
 				.ctt {
 					font-size: 24px;
 					line-height: 40px;
 					color: #333;
+					width: 335px;
 				}
 				.ccon {
 					height: 110px;

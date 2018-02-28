@@ -24,7 +24,7 @@
 		display: block;
 		float: left;
 		line-height: 20px;
-		min-width: 80px;
+		min-width: 60px;
 		text-align: center;
 		color: #333;
 		transition: all .3s linear;

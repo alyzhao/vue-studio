@@ -55,7 +55,7 @@
 		.top-nav {
 			height: 80px;
 			width: 100%; 
-			padding: 0 50px;
+			padding: 0 30px;
 			display: flex;
 			align-items: center;
 			.logo {
@@ -67,12 +67,13 @@
 				.info {
 					color: #fff;
 					font-size: 12px;
-					margin-left: 30px;
+					margin-left: 15px;
 					border-left: 1px solid #fff;
+					min-width: 220px;
 					p {
 						line-height: 15px;
 						margin-bottom: 6px;
-						margin-left: 30px;
+						margin-left: 15px;
 						color: #333;
 						font-size: 14px;
 						&:last-child {
@@ -85,7 +86,7 @@
 				height: 100%;
 				display: flex;
 				align-items: center;
-				justify-content: flex-end;
+				justify-content: space-between;
 				flex-grow: 1;
 				margin-right: 30px;
 			}
@@ -98,7 +99,9 @@
 					font-weight: 800;
 					font-size: 18px;
 					display: inline-block;
-					padding: 10px 64px;
+					padding: 10px 0;
+					min-width: 175px;
+					text-align: center;
 					border-radius: 5px;
 					background: #4528a3;
 					background-image: linear-gradient(90deg, #5438ae, #41229e);

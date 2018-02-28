@@ -2,12 +2,14 @@
 	<div class="banner-wrap">
 		<swiper :options="swiperOption">
 			<swiper-slide>
-				<div class="banner"><img width="100%" height="100%" :src="publicPath + bannerUrl"></div>				
+				<div class="banner"><img width="100%" height="100%" :src="staticHost + bannerUrl"></div>				
 			</swiper-slide>
 		</swiper>
 	</div>
 </template>
 <script>
+	import { prodUrl } from 'constants/config.js';	
+
 	export default {
 		data() {
 			return {
@@ -19,14 +21,15 @@
 					}
 				},
 				bannerUrl: null,
-				publicPath: 'http://47.100.174.9:8081/2050website/img/'
+				staticHost: prodUrl.staticHost
 			}
 		},
 		mounted: function () {
 			this.$nextTick(function () {
-				this.axios.get('http://47.100.174.9:7001/2050webOnline/onLinebanner/queryBanner').then(response => {
+				this.axios.get(prodUrl.HOST + '/2050webOnline/onLinebanner/queryBanner').then(response => {
 					let resData = response.data;
 					this.bannerUrl = resData.imgOne;
+					console.log(this.staticHost);
 				})
 			})
 		},

@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].js',
-		publicPath: '/dist/'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
+		publicPath: 'http://47.100.174.9:8083/2050web/dist/'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
 	},
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],

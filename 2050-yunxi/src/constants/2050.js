@@ -2,13 +2,13 @@ export const navLinks = [{
 	name: '首页',
 	link: '/index'
 }, {
-	name: '探索',
+	name: '新生',
 	link: '/creativity'	
 }, {
 	name: '迸发',
 	link: '/5'	
 }, {
-	name: '新生',
+	name: '探索',
 	link: '/5'
 }, {
 	name: '面孔',
