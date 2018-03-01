@@ -11,7 +11,7 @@
 					</p>
 					<div class="c-in clearfix">
 						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt overh">{{item.forumName}}</p>
+							<p class="ctt overh"><a href="">{{item.forumName}}</a></p>
 							<p class="ccon">{{item.forumWord}}</p>
 							<div class="peop">
 								<a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
@@ -26,6 +26,7 @@
 					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
 			</div>
+
 			<!-- 团聚 -->
 			<div class="cell tj clearfix">
 				<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-tj.png"></a></p>
@@ -37,9 +38,9 @@
 							<div class="tjslide">
 								<div class="tj-con clearfix">
 									<div class="info">
-										<p class="ra">{{item.groupLead}}</p>
+										<p class="ra">{{item.groupName}}</p>
 										<p class="peo">召集人</p>
-										<p class="team">{{item.groupName}}</p>
+										<p class="team overh">{{item.groupLead}}</p>
 										<p class="split"><span></span></p>
 										<div class="intro">
 											<p>{{item.groupWord}}</p>
@@ -80,6 +81,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="cell zy clearfix">
 				<div class="content">
 					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-zy.png"></a></p>
@@ -93,10 +95,10 @@
 							<div class="zyp-wrap">
 								<div class="zyp-slide">
 									<div class="zyp-img"><a href="" target="_blank"><img :src="staticHost + item.votImg"></a></div>
-									<div class="intro">
+									<a href="" class="intro">
 										<p class="vna">{{item.votName}}</p>
 										<p class="vcon">{{item.votWord}}</p>
-									</div>
+									</a>
 								</div>
 							</div>
 						</swiper-slide>
@@ -104,6 +106,7 @@
 					<div class="more"><a href="" target="_blank">查看更多</a></div>
 				</div>
 			</div>
+
 			<div class="content">
 				<div class="cell jg clearfix">
 					<p class="zyjg">志愿发起机构</p>
@@ -119,25 +122,25 @@
 							<swiper-slide>
 								<div class="zy-slide">
 									<div class="mark">
-										<img src="../../assets/img/2.png">
+										<a href=""><img src="../../assets/img/2.png"></a>
 									</div>
 									<div class="mark">
-										<img src="../../assets/img/3.png">
+										<a href=""><img src="../../assets/img/3.png"></a>
 									</div>
 									<div class="mark">
-										<img src="../../assets/img/4.png">
+										<a href=""><img src="../../assets/img/4.png"></a>
 									</div>
 									<div class="mark">
-										<img src="../../assets/img/7.png">
+										<a href=""><img src="../../assets/img/7.png"></a>
 									</div>
 									<div class="mark">
-										<img src="../../assets/img/8.png">
+										<a href=""><img src="../../assets/img/8.png"></a>
 									</div>
 									<div class="mark">
-										<img src="../../assets/img/9.png">
+										<a href=""><img src="../../assets/img/9.png"></a>
 									</div>
 									<div class="mark">
-										<img src="../../assets/img/10.png">
+										<a href=""><img src="../../assets/img/10.png"></a>
 									</div>
 								</div>								
 							</swiper-slide>										
@@ -153,7 +156,9 @@
 </template>
 <script>
 	import Banner from 'components/Banner';
-	import { prodUrl } from 'constants/config.js';
+	// import { prodUrl } from 'constants/config.js';
+
+	const prodUrl = require('constants/config.js').prodUrl;
 
 	export default {
 		data() {
@@ -209,6 +214,38 @@
 					let resData = response.data;
 
 					this.volunteerList = resData;
+
+					// this.volunteerList =[{
+					// 	id: 1,
+					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
+					// 	votName: 'FUCK',
+					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
+					// }, {
+					// 	id: 2,
+					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
+					// 	votName: 'FUCK',
+					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
+					// }, {
+					// 	id: 3,
+					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
+					// 	votName: 'FUCK',
+					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
+					// }, {
+					// 	id: 4,
+					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
+					// 	votName: 'FUCK',
+					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
+					// }, {
+					// 	id: 5,
+					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
+					// 	votName: 'FUCK',
+					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
+					// }, {
+					// 	id: 6,
+					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
+					// 	votName: 'FUCK',
+					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
+					// }]
 				})
 			})
 		},
@@ -271,6 +308,7 @@
 					display: flex;
 					align-items: center;
 					margin-top: 8px;
+					overflow: hidden;
 					.portrait {
 						display: block;
 						width: 60px;
@@ -298,6 +336,9 @@
 					line-height: 40px;
 					color: #333;
 					width: 335px;
+					a {
+						color: #333;
+					}
 				}
 				.ccon {
 					height: 110px;
@@ -624,6 +665,33 @@
 			.more {
 				margin-top: 105px;
 			}
+		}
+	}
+	@media (max-width: 1200px) {
+		.content {
+			width: 100%;		
+		}
+		.cell .c-in {
+			padding: 0 10px;
+			.items {
+				width: 49%;
+				margin: 0 2% 13px 0;
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+				&:nth-child(3n) {
+					margin-right: 2%;
+				}
+				&:last-child {
+					display: none;
+				}
+			}
+		}
+		.cell .c-in .items .ctt {
+			width: 100%;
+		}
+		.swiper-button-prev, .swiper-button-next {
+			display: none;
 		}
 	}
 </style>

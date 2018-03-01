@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');	// 用这个插件可以把css都提取出来
+const prodUrl = require('./src/constants/config.js').prodUrl;
+
+console.log(prodUrl);
 
 module.exports = {
 	entry: {
@@ -9,7 +12,8 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].js',
-		publicPath: 'http://47.100.174.9:8083/2050web/dist/'		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
+		// publicPath: 'http://47.100.174.9:8083/2050web/dist/',		// public 就是供服务器访问静态资源的的文件夹, 可以随便定义只是一个编码而已
+		// publicPath: '/dist/'
 	},
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
@@ -87,6 +91,7 @@ module.exports = {
 
 // UglifyJsPlugin 这是内置插件
 if (process.env.NODE_ENV === 'production') {
+	module.exports.output.publicPath = prodUrl.staticHost;	
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -107,7 +112,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.NODE_ENV === 'development') {
-	module.exports.devtool = 'eval-source-map',
+	module.exports.devtool = 'eval-source-map';
+	module.exports.output.publicPath = '/dist/';
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.HotModuleReplacementPlugin(),
 	])

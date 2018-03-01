@@ -2,13 +2,16 @@
 	<div class="banner-wrap">
 		<swiper :options="swiperOption">
 			<swiper-slide>
-				<div class="banner"><img width="100%" height="100%" :src="staticHost + bannerUrl"></div>				
+				<div class="banner"><img width="100%" height="100%" :src="bannerUrl && (staticHost + bannerUrl)"></div>				
 			</swiper-slide>
 		</swiper>
 	</div>
 </template>
 <script>
-	import { prodUrl } from 'constants/config.js';	
+	// import { prodUrl } from 'constants/config.js';	
+	const prodUrl = require('constants/config.js').prodUrl;
+
+	console.log(prodUrl)	
 
 	export default {
 		data() {
@@ -29,14 +32,11 @@
 				this.axios.get(prodUrl.HOST + '/2050webOnline/onLinebanner/queryBanner').then(response => {
 					let resData = response.data;
 					this.bannerUrl = resData.imgOne;
-					console.log(this.staticHost);
 				})
 			})
 		},
 		methods: {
-			bgUrl(img) {
-				return 'url(' + img + ')'
-			}
+
 		}
 	}
 </script>
