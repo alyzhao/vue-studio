@@ -4,8 +4,8 @@
 			<div class="fr qr">
 				<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
 				<div class="qr-img clearfix">
-					<div class="fl"><img src="../assets/img/qr-code.png"></div>
-					<div class="fr"><img src="../assets/img/qr-code.png"></div>		
+					<!-- <div class="fl"><img src="../assets/img/qr-code.png"></div>
+					<div class="fr"><img src="../assets/img/qr-code.png"></div> -->		
 				</div>
 			</div>
 			<div class="fl contact">

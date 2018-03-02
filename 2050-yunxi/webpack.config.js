@@ -3,8 +3,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');	// 用这个插件可以把css都提取出来
 const prodUrl = require('./src/constants/config.js').prodUrl;
 
-console.log(prodUrl);
-
 module.exports = {
 	entry: {
 		app: [path.resolve(__dirname, './src/main.js'), path.resolve(__dirname, './src/assets/sass/index.scss')]	// path.resolve 返回绝对路径

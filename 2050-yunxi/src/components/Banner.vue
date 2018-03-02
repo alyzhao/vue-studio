@@ -2,7 +2,8 @@
 	<div class="banner-wrap">
 		<swiper :options="swiperOption">
 			<swiper-slide>
-				<div class="banner"><img width="100%" height="100%" :src="bannerUrl && (staticHost + bannerUrl)"></div>				
+				<div class="banner"><img width="100%" :src="bannerUrl && (staticHost + bannerUrl)"></div>				
+				<!-- <div class="banner"><img width="100%" height="100%" src="../assets/img/banner.png"></div>				 -->
 			</swiper-slide>
 		</swiper>
 	</div>
@@ -24,7 +25,7 @@
 					}
 				},
 				bannerUrl: null,
-				staticHost: prodUrl.staticHost
+				staticHost: prodUrl.imgHost
 			}
 		},
 		mounted: function () {
@@ -58,8 +59,10 @@
 	}
 	.banner {
 		// background: url('../assets/img/banner.png');
-		height: 960px;
 		position: relative;
 		width: 100%;
+		img {
+			display: block;
+		}
 	}
 </style>

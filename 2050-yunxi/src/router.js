@@ -12,7 +12,13 @@ import Index from './containers/index/Index.vue';
 
 const routes = [
   { path: '/', component: Index },
-  { path: '/index', component: Index},
+  { path: '/creativity', component: Index},
+  { path: '/burst', component: Index},
+  { path: '/explore', component: Index},
+  { path: '/face', component: Index},
+  { path: '/reunite', component: Index},
+  { path: '/volunteer', component: Index},
+  { path: '/precipitate', component: Index},
   // { path: '/creativity', component: Creativity }
 ]
 

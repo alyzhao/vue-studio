@@ -1,27 +1,27 @@
 export const navLinks = [{
 	name: '首页',
-	link: '/index'
+	link: '/'
 }, {
 	name: '新生',
 	link: '/creativity'	
 }, {
 	name: '迸发',
-	link: '/5'	
+	link: '/burst'	
 }, {
 	name: '探索',
-	link: '/5'
+	link: '/explore'
 }, {
 	name: '面孔',
-	link: '/5'	
+	link: '/face'	
 }, {
 	name: '团聚',
-	link: '/5'	
+	link: '/reunite'	
 }, {
 	name: '志愿',
-	link: '/5'	
+	link: '/volunteer'	
 }, {
 	name: '沉淀',
-	link: '/5'	
+	link: '/precipitate'	
 }]
 
 

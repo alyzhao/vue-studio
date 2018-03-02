@@ -5,19 +5,19 @@
 			<div class="content">
 				<!-- 探索 -->
 				<div class="cell ts clearfix">
-					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-ts.png"></a></p>
+					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-xs.png"></a></p>
 					<p class="sub-tit">
 						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
 					</p>
 					<div class="c-in clearfix">
 						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt overh"><a href="">{{item.forumName}}</a></p>
-							<p class="ccon">{{item.forumWord}}</p>
+							<p class="ctt overh"><a href="" :title="item.forumName">{{item.forumName}}</a></p>
+							<p class="ccon"><a href="" :title="item.forumWord">{{item.forumWord}}</a></p>
 							<div class="peop">
 								<a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
 								<div>
 									<p class="cp">出品人:  {{item.products}}</p>
-									<p class="ct overh">{{item.productsWord}}</p>									
+									<p class="ct overh"><a href="" :title="item.productsWord">{{item.productsWord}}</a></p>									
 								</div>
 							</div>
 						</div>
@@ -38,9 +38,9 @@
 							<div class="tjslide">
 								<div class="tj-con clearfix">
 									<div class="info">
-										<p class="ra">{{item.groupName}}</p>
+										<p class="ra"><a href="" :title="item.groupName">{{item.groupName}}</a></p>
 										<p class="peo">召集人</p>
-										<p class="team overh">{{item.groupLead}}</p>
+										<p class="team overh"><a href="" :title="item.groupLead">{{item.groupLead}}</a></p>
 										<p class="split"><span></span></p>
 										<div class="intro">
 											<p>{{item.groupWord}}</p>
@@ -75,7 +75,7 @@
 							<div class="con"><a href="" target="_blank">{{item.actName}}</a></div>
 						</div>
 						<div class="item">
-							<div class="bg"><img src="../../assets/img/c3.png"></div>														
+							<div class="bg"></div>														
 							<div class="bmore"><a href="" target="_blank">更多精彩 <i class="fa fa-angle-right"></i></a></div>
 						</div>																							
 					</div>
@@ -95,7 +95,7 @@
 							<div class="zyp-wrap">
 								<div class="zyp-slide">
 									<div class="zyp-img"><a href="" target="_blank"><img :src="staticHost + item.votImg"></a></div>
-									<a href="" class="intro">
+									<a href="" class="intro" :title="item.votWord">
 										<p class="vna">{{item.votName}}</p>
 										<p class="vcon">{{item.votWord}}</p>
 									</a>
@@ -191,7 +191,7 @@
 				activityList: [],
 				volunteerList: [],
 				volunteerOrgList: [],
-				staticHost: prodUrl.staticHost
+				staticHost: prodUrl.imgHost
 			}
 		},
 		mounted: function () {
@@ -307,7 +307,7 @@
 				.peop {
 					display: flex;
 					align-items: center;
-					margin-top: 8px;
+					margin-top: 15px;
 					overflow: hidden;
 					.portrait {
 						display: block;
@@ -330,22 +330,28 @@
 					color: #666;
 					font-size: 16px;
 					width: 265px;
+					a {
+						color: #666;
+					}
 				}
 				.ctt {
 					font-size: 24px;
 					line-height: 40px;
 					color: #333;
 					width: 335px;
+					margin-bottom: 5px;
 					a {
 						color: #333;
 					}
 				}
 				.ccon {
-					height: 110px;
+					height: 85px;
 					line-height: 28px;
 					font-size: 14px;
 					overflow: hidden;
-					color: #666;
+					a {
+						color: #666;						
+					}
 				}
 			}
 		}
@@ -413,7 +419,7 @@
 				}
 				.team {
 					font-size: 24px;
-					margin-top: 33px;
+					margin-top: 5px;
 				}
 				.split span {
 					display: inline-block;
@@ -429,7 +435,7 @@
 					padding-top: 20px;
 					padding-bottom: 40px;
 					p {
-						height: 120px;
+						height: 148px;
 						overflow: hidden;
 					}
 				}
@@ -505,6 +511,7 @@
 						top: 0;
 						left: 0;
 						overflow: hidden;
+						background-color: #333;
 						img {
 							width: 100%;
 							height: 100%;
@@ -523,7 +530,6 @@
 						a {
 							font-size: 26px;
 							color: #fff;
-							word-break: keep-all;
 						}
 					}
 					.bmore {
@@ -551,7 +557,7 @@
 			}
 		}
 		&.zy {
-			background-color: #0a0a0a;
+			background: #0a0a0a url('../../assets/img/zy-bg.png');
 			.sub-tit {
 				color: #fff;
 			}
@@ -637,6 +643,7 @@
 					justify-content: center;
 					img {
 						height: 65px;
+						max-width: 225px;
 					}
 				}
 			}

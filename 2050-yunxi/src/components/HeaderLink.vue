@@ -36,6 +36,8 @@
 		}
 		&:hover {
 			cursor: pointer;
+			color: #5c40b1;
+			font-size: 24px;
 		}
 		&.router-link-exact-active {
 			color: #5c40b1;

@@ -13,17 +13,28 @@
 				<header-link v-for="item in navLinks"
 					:name="item.name"
 					:link="item.link"
-					:key="item.name"
-					:bt-line="true">
+					:key="item.name">
 				</header-link>
 			</div>
 			<div class="purchase">
 				<a class="pur-btn" target="_blank" href="">立即购票</a>
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
 				<button class="lang active" @click="setLang('zh')">中文</button>
-				<span class="plit"></span>
+				<span class="split"></span>
 				<button class="lang" @click="setLang('en')">ENG</button>
+				<i class="mb-bar fa fa-bars"></i>
 			</div>
+		</div>
+		<div class="mb-nav">
+			<ul>
+				<li class="clearfix" v-for="item in navLinks">
+					<header-link 
+						:name="item.name"
+						:link="item.link"
+						:key="item.name">
+					</header-link>
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>
@@ -64,11 +75,14 @@
 				align-items: center;
 				min-height: 40px;
 				flex-grow: 1;
+				a {
+					margin-top: 10px;
+				}
 				.info {
 					color: #fff;
 					font-size: 12px;
 					margin-left: 15px;
-					border-left: 1px solid #fff;
+					border-left: 1px solid #333;
 					min-width: 220px;
 					p {
 						line-height: 15px;
@@ -108,7 +122,7 @@
 					margin-right: 20px;
 					position: relative;
 				}
-				.plit {
+				.split {
 					height: 40px;
 					background: #eee;
 					width: 2px;
@@ -130,6 +144,14 @@
 						outline: none;
 					}
 				}
+				.mb-bar {
+			        transition: all 0.2s ease 0s;
+					font-size: 45px;
+					padding: 10px;
+					color: #333;
+					cursor: pointer;
+					display: none;
+				}
 				.switch {
 					color: #fff;
 					cursor: pointer;
@@ -143,6 +165,30 @@
 					}
 				}
 			}
+		}
+		.mb-nav {
+			position: absolute;
+			top: 80px;
+			width: 100%;
+			background-color: #ffcc00;
+			display: none;
+		}
+	}
+	@media (max-width: 1200px) {
+		.header .top-nav .logo .info {
+			display: none;
+		}
+		.header .top-nav .link {
+			display: none;
+		}
+		.purchase .lang, .purchase .split {
+			display: none;
+		}
+		.header .top-nav .purchase .mb-bar {
+			display: block;
+		}
+		.header .mb-nav {
+			display: none;
 		}
 	}
 </style>
