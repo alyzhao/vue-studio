@@ -22,10 +22,10 @@
 				<button class="lang active" @click="setLang('zh')">中文</button>
 				<span class="split"></span>
 				<button class="lang" @click="setLang('en')">ENG</button>
-				<i class="mb-bar fa fa-bars"></i>
+				<i class="mb-bar fa fa-bars" @click="showMbNav = !showMbNav"></i>
 			</div>
 		</div>
-		<div class="mb-nav">
+		<div class="mb-nav" :style="{show: showMbNav}">
 			<ul>
 				<li class="clearfix" v-for="item in navLinks">
 					<header-link 
@@ -44,6 +44,11 @@
 
 	export default {
 		props: ['logo', 'navLinks'],
+		data() {
+			return {
+				showMbNav: false;
+			}
+		}
 		methods: {
 			setLang(val) {
 				console.log(val);
@@ -172,6 +177,25 @@
 			width: 100%;
 			background-color: #ffcc00;
 			display: none;
+			height: 0;
+			transition: height .3s;
+			&.show {
+				height: 320px;
+			}
+			ul {
+				padding: 0;
+				margin: 0;
+				li {
+					padding: 10px 20px;
+					&:hover {
+						background-color: #dcb001;
+					}
+					a {
+						color: #fff;
+						font-size: 18px;
+					}
+				}
+			}
 		}
 	}
 	@media (max-width: 1200px) {
@@ -188,7 +212,10 @@
 			display: block;
 		}
 		.header .mb-nav {
-			display: none;
+			display: block;
+		}
+		.nav-link.router-link-exact-active {
+
 		}
 	}
 </style>

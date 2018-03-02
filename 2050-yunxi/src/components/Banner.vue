@@ -3,6 +3,7 @@
 		<swiper :options="swiperOption">
 			<swiper-slide>
 				<div class="banner"><img width="100%" :src="bannerUrl && (staticHost + bannerUrl)"></div>				
+				<div class="mb-banner"><img width="100%" src="../assets/img/mb-banner.png"></div>
 				<!-- <div class="banner"><img width="100%" height="100%" src="../assets/img/banner.png"></div>				 -->
 			</swiper-slide>
 		</swiper>
@@ -65,4 +66,16 @@
 			display: block;
 		}
 	}
+	.mb-banner {
+		display: none;
+	}
+	@media (max-width: 1200px) {
+		.mb-banner {
+			display: block;
+		}
+		.banner {
+			display: none;
+		}
+	}
+
 </style>
