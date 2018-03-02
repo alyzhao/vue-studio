@@ -25,7 +25,7 @@
 				<i class="mb-bar fa fa-bars" @click="showMbNav = !showMbNav"></i>
 			</div>
 		</div>
-		<div class="mb-nav" :style="{show: showMbNav}">
+		<div class="mb-nav" :class="{show: showMbNav}">
 			<ul>
 				<li class="clearfix" v-for="item in navLinks">
 					<header-link 
@@ -46,14 +46,15 @@
 		props: ['logo', 'navLinks'],
 		data() {
 			return {
-				showMbNav: false;
+				showMbNav: false
 			}
-		}
+		},
 		methods: {
 			setLang(val) {
 				console.log(val);
 				console.log(this.lang);
-			}
+				console.log(this.showMbNav);
+			},
 		},
 		computed: mapState([
 			'lang'
@@ -179,6 +180,7 @@
 			display: none;
 			height: 0;
 			transition: height .3s;
+			overflow: hidden;
 			&.show {
 				height: 320px;
 			}
@@ -214,8 +216,8 @@
 		.header .mb-nav {
 			display: block;
 		}
-		.nav-link.router-link-exact-active {
-
+		.cell.bf .c-in.pt .item {
+			width: 50% !important;
 		}
 	}
 </style>
