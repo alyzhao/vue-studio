@@ -99,4 +99,12 @@
 			padding: 30px 0 20px;
 		}
 	}
+	@media (max-width: 1200px) {
+		.footer .main {
+			width: 100%;
+			.fr, .fl {
+				display: none;
+			}
+		}
+	}
 </style>
