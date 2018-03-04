@@ -2,8 +2,12 @@
 	<div class="banner-wrap">
 		<swiper :options="swiperOption">
 			<swiper-slide>
-				<div class="banner"><img width="100%" :src="bannerUrl && (staticHost + bannerUrl)"></div>				
-				<div class="mb-banner"><img width="100%" src="../assets/img/mb-banner.png"></div>
+				<div class="banner">
+					<router-link to="/credit"><img width="100%" :src="bannerUrl && (staticHost + bannerUrl)"></router-link>
+				</div>
+				<div class="mb-banner">
+					<router-link to="/credit"><img width="100%" src="../assets/img/mb-banner.png"></router-link>
+				</div>
 				<!-- <div class="banner"><img width="100%" height="100%" src="../assets/img/banner.png"></div>				 -->
 			</swiper-slide>
 		</swiper>

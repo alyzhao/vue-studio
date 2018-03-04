@@ -5,31 +5,30 @@
 			<div class="content">
 				<!-- 探索 -->
 				<div class="cell ts clearfix">
-					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-xs.png"></a></p>
+					<p class="tit"><a href="http://egonetworks.mikecrm.com/BjHVvZo" target="_blank"><img src="../../assets/img/tit-xs.png"></a></p>
 					<p class="sub-tit">
 						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
 					</p>
 					<div class="c-in clearfix">
 						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt overh"><a href="" :title="item.forumName">{{item.forumName}}</a></p>
+							<p class="ctt"><a href="" :title="item.forumName">{{item.forumName}}</a></p>
 							<p class="ccon"><a href="" :title="item.forumWord">{{item.forumWord}}</a></p>
 							<div class="peop">
 								<a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
 								<div>
 									<p class="cp">出品人:  {{item.products}}</p>
-									<p class="ct overh"><a href="" :title="item.productsWord">{{item.productsWord}}</a></p>									
+									<p class="ct overh"><a href="" :title="item.productsWord">{{item.productsWord}}</a></p>
 								</div>
 							</div>
 						</div>
-
 					</div>
-					<div class="more"><a href="" target="_blank">查看更多</a></div>
+					<div class="more"><a target="_blank" v-show="forumList.length>6">查看更多</a></div>
 				</div>
 			</div>
 
 			<!-- 团聚 -->
 			<div class="cell tj clearfix">
-				<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-tj.png"></a></p>
+				<p class="tit"><a href=" http://cn.mikecrm.com/6hWZ5TL" target="_blank"><img src="../../assets/img/tit-tj.png"></a></p>
 				<p class="sub-tit">世界各地的青年人在2050握手团聚，老友重逢，相遇新知，给彼此灵感，给未来答案</p>
 				<div class="c-in">
 					<swiper :options="tjSwiperOption">
@@ -54,18 +53,18 @@
 						</swiper-slide>
 					
 						<div class="swiper-pagination-tj" slot="pagination"></div>
-						<div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-						<div class="swiper-button-next swiper-button-black" slot="button-next"></div>						
+						<!--<div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>-->
+						<!--<div class="swiper-button-next swiper-button-black" slot="button-next"></div>						-->
 					</swiper>
 				</div>
-				<div class="more"><a href="" target="_blank">查看更多</a></div>
+				<div class="more"><a target="_blank">查看更多</a></div>
 			</div>
 
 			<div class="content">
 
 				<!-- 迸发 -->
 				<div class="cell bf clearfix">
-					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-bf.png"></a></p>
+					<p class="tit"><a target="_blank"><img src="../../assets/img/tit-bf.png"></a></p>
 					<p class="sub-tit">
 						音乐、影像、晨跑、露营……这里没有旁观者，2050的狂欢属于每一位年青人
 					</p>	
@@ -76,7 +75,7 @@
 						</div>
 						<div class="item">
 							<div class="bg"></div>														
-							<div class="bmore"><a href="" target="_blank">更多精彩 <i class="fa fa-angle-right"></i></a></div>
+							<div class="bmore"><a target="_blank">更多精彩 <i class="fa fa-angle-right"></i></a></div>
 						</div>																							
 					</div>
 				</div>
@@ -84,26 +83,25 @@
 
 			<div class="cell zy clearfix">
 				<div class="content">
-					<p class="tit"><a href="" target="_blank"><img src="../../assets/img/tit-zy.png"></a></p>
+					<p class="tit"><a target="_blank"><img src="../../assets/img/tit-zy.png"></a></p>
 					<p class="sub-tit">
 						感谢所有的志愿机构与志愿者，你们用年青人的方式定义了“志愿“，让2050与众不同
 					</p>
 					<p class="zy-tit">志愿发起人</p>
 					<swiper :options="zypSwiperOption">
-
 						<swiper-slide v-for="item in volunteerList" :key="item.id">
 							<div class="zyp-wrap">
 								<div class="zyp-slide">
 									<div class="zyp-img"><a href="" target="_blank"><img :src="staticHost + item.votImg"></a></div>
 									<a href="" class="intro" :title="item.votWord">
-										<p class="vna">{{item.votName}}</p>
 										<p class="vcon">{{item.votWord}}</p>
 									</a>
 								</div>
+								<p class="vna">{{item.votName}}</p>
 							</div>
 						</swiper-slide>
 					</swiper>
-					<div class="more"><a href="" target="_blank">查看更多</a></div>
+					<div class="more"><a target="_blank">查看更多</a></div>
 				</div>
 			</div>
 
@@ -147,7 +145,7 @@
 							<div class="swiper-pagination" slot="pagination"></div>
 						</swiper>
 					</div>					
-					<div class="more"><a href="" target="_blank">查看更多</a></div>					
+					<div class="more"><a target="_blank">查看更多</a></div>					
 				</div>
 			</div>
 			</div>
@@ -168,6 +166,7 @@
 					// spaceBetween: 20
 					pagination: {
 						el: '.swiper-pagination-tj',
+						clickable: true,
 						type: 'bullets'
 					},
 					navigation: {
@@ -340,6 +339,8 @@
 					color: #333;
 					width: 335px;
 					margin-bottom: 5px;
+					height: 80px;
+					overflow: hidden;
 					a {
 						color: #333;
 					}
@@ -557,7 +558,7 @@
 			}
 		}
 		&.zy {
-			background: #0a0a0a url('../../assets/img/zy-bg.png');
+			background: #272336 url('../../assets/img/zy-bg.png') no-repeat;
 			.sub-tit {
 				color: #fff;
 			}
@@ -569,10 +570,17 @@
 			}
 			.zyp-wrap {
 				width: 230px;
-				height: 230px;				
+				height: 301px;				
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				flex-wrap: wrap;
+				.vna {
+					width: 100%;
+					color: #fff;
+					text-align: center;
+					font-size: 20px;
+				}
 			}
 			.swiper-slide-next + .swiper-slide .zyp-slide {
 				transform: scale(1.25);				
@@ -618,6 +626,7 @@
 					.vcon {
 						height: 72px;
 						overflow: hidden;
+						margin-top: 50px;
 					}
 				}
 			}

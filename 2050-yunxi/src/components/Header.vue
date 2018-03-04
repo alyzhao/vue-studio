@@ -17,7 +17,7 @@
 				</header-link>
 			</div>
 			<div class="purchase">
-				<a class="pur-btn" target="_blank" href="">立即购票</a>
+				<a class="pur-btn" target="_blank" href="https://store.geekbang.org/yunqi">立即购票</a>
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
 				<button class="lang active" @click="setLang('zh')">中文</button>
 				<span class="split"></span>

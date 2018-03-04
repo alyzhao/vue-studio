@@ -10,18 +10,18 @@
 			</div>
 			<div class="fl contact">
 				<div class="ic">
-					<div class="cell">
+					<div class="cell ">
 						<p class="add">联系地址</p>
 					</div>
 					<div class="cell">
 						<p class="us">联系我们</p>
 					</div>
-					<div class="cell">
+					<div class="cell ">
 						<p class="em">邮箱地址</p>
 					</div>
 				</div>
 				<div class="dt">
-					<div class="cell">
+					<div class="cell ">
 						<p v-for="item in address">{{item}}</p>
 					</div>
 					<div class="cell">
@@ -29,12 +29,28 @@
 							{{item.name}}: {{item.value}}
 						</p>
 					</div>
-					<div class="cell">
+					<div class="cell ">
 						<p v-for="item in email">{{item}}</p>
 					</div>
 				</div>
 			</div>
+			<div class="min-main">
+				<div class="min-l">
+					<p>联系我们</p>
+					<ul>
+						<li v-for="item in phones">{{item.name}}: {{item.value}}</li>
+					</ul>
+				</div>
+				<div class="min-r">
+					<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
+					<div class="qr-img clearfix">
+						<!-- <div class="fl"><img src="../assets/img/qr-code.png"></div>
+                        <div class="fr"><img src="../assets/img/qr-code.png"></div> -->
+					</div>
+				</div>
+			</div>
 		</div>
+
 		<p class="copyright">Copyright © 2050云栖 – 鄂ICP备16005435号-3</p>
 	</div>
 </template>
@@ -91,6 +107,9 @@
 					font-size: 16px;
 				}
 			}
+			.min-main{
+				display: none;
+			}
 		}
 		.copyright {
 			text-align: center;
@@ -104,6 +123,28 @@
 			width: 100%;
 			.fr, .fl {
 				display: none;
+			}
+			.min-main{
+				padding:0 20px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				.min-l{
+					p{
+						padding-bottom: 35px;
+						color: #fff;
+						font-size: 18px;
+						padding-left: 40px;
+					}
+					ul{
+						li{
+							margin-bottom: 0;
+							font-size: 14px;
+							color: #c8c8c8;
+							line-height: 30px;
+						}
+					}
+				}
 			}
 		}
 	}

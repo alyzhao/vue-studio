@@ -9,6 +9,7 @@ Vue.use(Router);
 // import ScrollContainer from 'components/ScrollContainer';
 
 import Index from './containers/index/Index.vue';
+import Credit from './components/Credit.vue'
 
 const routes = [
   { path: '/', component: Index },
@@ -19,11 +20,12 @@ const routes = [
   { path: '/reunite', component: Index},
   { path: '/volunteer', component: Index},
   { path: '/precipitate', component: Index},
+    {path:'/credit',component:Credit}
   // { path: '/creativity', component: Creativity }
 ]
 
 export default new Router({
-  // mode: 'history',		// 以正常的路由显示
+  // mode: 'history',   // 以正常的路由显示
   routes,
-  linkActiveClass: 'is-active'		// 这是链接激活时的class, tells the vue-router what class to add to the navigation to make the menu item active
+  linkActiveClass: 'is-active'    // 这是链接激活时的class, tells the vue-router what class to add to the navigation to make the menu item active
 })
