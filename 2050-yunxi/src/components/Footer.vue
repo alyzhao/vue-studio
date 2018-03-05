@@ -4,8 +4,8 @@
 			<div class="fr qr">
 				<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
 				<div class="qr-img clearfix">
-					<!-- <div class="fl"><img src="../assets/img/qr-code.png"></div>
-					<div class="fr"><img src="../assets/img/qr-code.png"></div> -->		
+					<div class="fl"><img width="150" height="150" src="../assets/img/qr-codel.png"></div>
+					<!-- <div class="fr"><img width="150" height="150" src="../assets/img/qr-code.png"></div>		 -->
 				</div>
 			</div>
 			<div class="fl contact">
@@ -44,8 +44,8 @@
 				<div class="min-r">
 					<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
 					<div class="qr-img clearfix">
-						<!-- <div class="fl"><img src="../assets/img/qr-code.png"></div>
-                        <div class="fr"><img src="../assets/img/qr-code.png"></div> -->
+						<div class="fl"><img width="150" height="150" src="../assets/img/qr-codel.png"></div>
+                        <!-- <div class="fr"><img src="../assets/img/qr-coder.png"></div> -->
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,6 @@
 			.qr-img {
 				width: 350px;
 				height: 150px;
-
 			}
 			.fl {
 				float: left;
@@ -126,17 +125,18 @@
 			}
 			.min-main{
 				padding:0 20px;
-				display: flex;
+				display: block;
 				justify-content: space-around;
 				align-items: center;
 				.min-l{
 					p{
-						padding-bottom: 35px;
 						color: #fff;
-						font-size: 18px;
-						padding-left: 40px;
+						font-size: 22px;
+						text-align: center;
 					}
 					ul{
+						margin: 0;
+						padding: 0;
 						li{
 							margin-bottom: 0;
 							font-size: 14px;

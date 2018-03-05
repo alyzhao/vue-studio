@@ -1,6 +1,6 @@
 exports.prodUrl = {
-	HOST: 'https://www.yunqi2050.org',
-	staticHost: 'https://www.yunqi2050.org/dist/',
-	imgHost: 'https://www.yunqi2050.org/2050website/img/'
+	HOST: 'http://47.100.174.9:7001',
+	staticHost: 'http://47.100.174.9:7001/dist/',
+	imgHost: 'http://47.100.174.9:8081/2050website/img/'
 }
 

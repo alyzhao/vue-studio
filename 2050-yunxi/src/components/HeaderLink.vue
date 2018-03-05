@@ -29,7 +29,7 @@
 		color: #333;
 		transition: all .3s linear;
 		position: relative;
-		font-size: 18px;
+		font-size: 16px;
 		font-weight: 400;
 		&.big {
 			line-height: 60px;
@@ -37,11 +37,12 @@
 		&:hover {
 			cursor: pointer;
 			color: #5c40b1;
-			font-size: 24px;
+			font-size: 20px;
 		}
 		&.router-link-exact-active {
 			color: #5c40b1;
-			font-size: 24px;			
+			font-size: 18px;			
+			font-weight: bold;
 		}
 		.bt-line {
 			position: absolute;

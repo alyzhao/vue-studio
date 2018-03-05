@@ -30,7 +30,7 @@ export const logo = logoImg;
 
 export const address = [
 	'浙江省杭州市西湖区河山路1号',
-	'云溪小镇国际会展中心',
+	'云栖小镇国际会展中心',
 ]
 
 export const phones = [

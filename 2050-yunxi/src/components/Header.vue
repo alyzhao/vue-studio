@@ -6,7 +6,7 @@
 				<div class="info">
 					<p>时间： 2018.5.25 - 2018.5.27</p>
 					<p>地址： 杭州云栖小镇</p>
-					<p>热线： 18500840525</p>
+					<p>热线： +86 18519014746</p>
 				</div>
 			</div>
 			<div class="link">
@@ -20,7 +20,6 @@
 				<a class="pur-btn" target="_blank" href="https://store.geekbang.org/yunqi">立即购票</a>
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
 				<button class="lang active" @click="setLang('zh')">中文</button>
-				<span class="split"></span>
 				<button class="lang" @click="setLang('en')">ENG</button>
 				<i class="mb-bar fa fa-bars" @click="showMbNav = !showMbNav"></i>
 			</div>
@@ -107,7 +106,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				flex-grow: 1;
+				flex-grow: .5;
 				margin-right: 30px;
 			}
 			.purchase {
@@ -193,7 +192,7 @@
 						background-color: #dcb001;
 					}
 					a {
-						color: #fff;
+						color: #333;
 						font-size: 18px;
 					}
 				}

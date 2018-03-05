@@ -11,7 +11,7 @@
 					</p>
 					<div class="c-in clearfix">
 						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt"><a href="" :title="item.forumName">{{item.forumName}}</a></p>
+							<p class="ctt"><a href="" :title="item.forumWord">{{item.forumName}}</a></p>
 							<p class="ccon"><a href="" :title="item.forumWord">{{item.forumWord}}</a></p>
 							<div class="peop">
 								<a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
@@ -101,7 +101,15 @@
 							</div>
 						</swiper-slide>
 					</swiper>
-					<div class="more"><a target="_blank">查看更多</a></div>
+					<div class="mb-zy">
+						<div v-for="item in volunteerList" :key="item.id" class="mb-zy-cell">
+							<div class="img-wrap">
+								<a><img :src="staticHost + item.votImg"></a>
+							</div>
+							<p class="name">{{item.votName}}</p>
+							<p class="tro">{{item.votWord}}</p>
+						</div>																		
+					</div>
 				</div>
 			</div>
 
@@ -142,7 +150,7 @@
 									</div>
 								</div>								
 							</swiper-slide>										
-							<div class="swiper-pagination" slot="pagination"></div>
+							<!-- <div class="swiper-pagination" slot="pagination"></div> -->
 						</swiper>
 					</div>					
 					<div class="more"><a target="_blank">查看更多</a></div>					
@@ -176,10 +184,10 @@
 				},
 				zySwiperOption: {
 					autoplay: true,
-					pagination: {
-						el: '.swiper-pagination',
-						type: 'bullets'
-					}
+					// pagination: {
+					// 	el: '.swiper-pagination',
+					// 	type: 'bullets'
+					// }
 				},
 				zypSwiperOption: {
 					autoplay: true,
@@ -271,9 +279,9 @@
 		}
 		.sub-tit {
 			color: #333;
-			font-size: 26px;
+			font-size: 20px;
 			text-align: center;
-			margin-top: 45px;
+			margin-top: 30px;
 			.tt {
 				color: #4122a0;
 				font-size: 26px;
@@ -290,7 +298,7 @@
 			}
 		}
 		.c-in {
-			margin-top: 80px;
+			margin-top: 60px;
 			width: 100%;
 			.items {
 				float: left;
@@ -343,6 +351,7 @@
 					overflow: hidden;
 					a {
 						color: #333;
+						font-weight: 600;
 					}
 				}
 				.ccon {
@@ -376,6 +385,7 @@
 		}
 		&.tj {
 			background: #ededed url('../../assets/img/tj-bg.png') no-repeat center bottom;
+			background-size: 100%;
 		}
 		.tjslide {
 			width: 100%;
@@ -452,13 +462,14 @@
 		}
 		.swiper-pagination-tj {
 			text-align: center;
-			margin-top: 83px;
+			margin-top: 75px;
 			.swiper-pagination-bullet {
-				width: 15px;
-				height: 15px;
+				width: 12px;
+				height: 12px;
 				background: #000;
 				border-radius: 0;
 				opacity: 1;
+				margin: 0 8px !important;
 				&.swiper-pagination-bullet-active {
 					background-color: #ffcc00;
 				}
@@ -481,7 +492,7 @@
 			right: 0;
 		}
 		&.tj .more{
-			margin-top: 110px;
+			margin-top: 60px;
 		    margin-bottom: 63px;
 		}
 		&.xs {
@@ -531,6 +542,7 @@
 						a {
 							font-size: 26px;
 							color: #fff;
+							font-weight: bold;
 						}
 					}
 					.bmore {
@@ -558,15 +570,16 @@
 			}
 		}
 		&.zy {
-			background: #272336 url('../../assets/img/zy-bg.png') no-repeat;
+			background: #0a0a0a url('../../assets/img/zy-bg.png') no-repeat bottom;
+			padding-bottom: 85px;
 			.sub-tit {
 				color: #fff;
 			}
 			.zy-tit {
 				color: #fff;
-				font-size: 36px;
+				font-size: 30px;
 				text-align: center;
-				margin: 75px 0 58px;
+				margin: 60px 0 58px;
 			}
 			.zyp-wrap {
 				width: 230px;
@@ -634,6 +647,7 @@
 				margin-top: 88px;
 				a {
 					background-color: #fece00;
+					color: #333;
 				}
 			}
 		}
@@ -663,11 +677,12 @@
 				bottom: 0;
 			}
 			.swiper-pagination-bullet {
-				width: 15px;
-				height: 15px;
+				width: 12px;
+				height: 12px;
 				background: #000;
 				border-radius: 0;
 				opacity: 1;
+				margin: 0 8px !important;
 				&.swiper-pagination-bullet-active {
 					background-color: #ffcc00;
 				}
@@ -679,9 +694,44 @@
 				margin-top: 65px;
 			}
 			.more {
-				margin-top: 105px;
+				margin-top: 20px;
 			}
 		}
+	}
+	.mb-zy {
+		display: none;
+		flex-wrap: wrap;
+			.mb-zy-cell {
+				width: 50%;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				margin-bottom: 60px;
+				.img-wrap {
+					width: 200px;
+					height: 200px;
+					overflow: hidden;
+					border-radius: 50%;
+					img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.name {
+					width: 100%;
+					text-align: center;
+					color: #ffc300;
+					font-size: 30px;
+					padding: 10px 0;
+				}
+				.tro {
+					color: #fff;
+					font-size: 24px;
+					padding: 0 100px;
+					height: 145px;
+					overflow: hidden;
+				}
+			}		
 	}
 	@media (max-width: 1200px) {
 		.content {
@@ -695,7 +745,7 @@
 				&:nth-child(2n) {
 					margin-right: 0;
 				}
-				&:nth-child(3n) {
+				&:nth-child(2n - 1) {
 					margin-right: 2%;
 				}
 				&:last-child {
@@ -708,6 +758,36 @@
 		}
 		.swiper-button-prev, .swiper-button-next {
 			display: none;
+		}
+		.cell .tjslide .tj-con {
+			width: 100%;
+		}
+		.cell .tjslide .info {
+			width: 100%;
+		}
+		.cell .tjslide .info .team {
+			white-space: normal;
+			height: 72px;
+			overflow: hidden;
+		}
+		.cell .tjslide .info .intro p {
+			height: 90px;
+			overflow: hidden;
+		}
+		.cell .tjslide .tj-img {
+			height: auto;
+			width: 100%;
+			float: none;
+			img {
+				height: auto;
+				width: 100%;
+			}
+		}
+		.cell.zy .swiper-container {
+			display: none;
+		}
+		.mb-zy {
+			display: flex;
 		}
 	}
 </style>
