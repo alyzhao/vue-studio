@@ -5,7 +5,7 @@
 			<div class="content">
 				<!-- 探索 -->
 				<div class="cell ts clearfix">
-					<p class="tit"><a href="http://egonetworks.mikecrm.com/BjHVvZo" target="_blank"><img src="../../assets/img/tit-xs.png"></a></p>
+					<p class="tit"><a href="http://tgonetworks.mikecrm.com/BjHVvZo" target="_blank"><img src="../../assets/img/tit-xs.png"></a></p>
 					<p class="sub-tit">
 						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
 					</p>

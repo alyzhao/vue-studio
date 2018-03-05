@@ -43,7 +43,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-grow: 1;
+      flex-grow: .5;
       margin-right: 30px;
 }
 .header .top-nav .purchase {
@@ -131,7 +131,7 @@
           background-color: #dcb001;
 }
 .header .mb-nav ul li a {
-          color: #fff;
+          color: #333;
           font-size: 18px;
 }
 @media (max-width: 1200px) {
@@ -164,7 +164,7 @@
   color: #333;
   transition: all .3s linear;
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 .nav-link.big {
@@ -173,11 +173,12 @@
 .nav-link:hover {
     cursor: pointer;
     color: #5c40b1;
-    font-size: 24px;
+    font-size: 20px;
 }
 .nav-link.router-link-exact-active {
     color: #5c40b1;
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: bold;
 }
 .nav-link .bt-line {
     position: absolute;
@@ -254,21 +255,24 @@
 }
 .footer .main .min-main {
       padding: 0 20px;
-      display: flex;
+      display: block;
       justify-content: space-around;
       align-items: center;
 }
 .footer .main .min-main .min-l p {
-        padding-bottom: 35px;
         color: #fff;
-        font-size: 18px;
-        padding-left: 40px;
+        font-size: 22px;
+        text-align: center;
+}
+.footer .main .min-main .min-l ul {
+        margin: 0;
+        padding: 0;
 }
 .footer .main .min-main .min-l ul li {
-        margin-bottom: 0;
-        font-size: 14px;
-        color: #c8c8c8;
-        line-height: 30px;
+          margin-bottom: 0;
+          font-size: 14px;
+          color: #c8c8c8;
+          line-height: 30px;
 }
 }
 
@@ -286,9 +290,9 @@
 }
 .cell .sub-tit {
   color: #333;
-  font-size: 26px;
+  font-size: 20px;
   text-align: center;
-  margin-top: 45px;
+  margin-top: 30px;
 }
 .cell .sub-tit .tt {
     color: #4122a0;
@@ -305,7 +309,7 @@
     border-radius: 5px;
 }
 .cell .c-in {
-  margin-top: 80px;
+  margin-top: 60px;
   width: 100%;
 }
 .cell .c-in .items {
@@ -361,6 +365,7 @@
 }
 .cell .c-in .items .ctt a {
         color: #333;
+        font-weight: 600;
 }
 .cell .c-in .items .ccon {
       height: 85px;
@@ -391,6 +396,7 @@
 }
 .cell.tj {
   background: #ededed url(https://www.yunqi2050.org/dist/images/tj-bg.e42eaac.png) no-repeat center bottom;
+  background-size: 100%;
 }
 .cell .tjslide {
   width: 100%;
@@ -467,14 +473,15 @@
 }
 .cell .swiper-pagination-tj {
   text-align: center;
-  margin-top: 83px;
+  margin-top: 75px;
 }
 .cell .swiper-pagination-tj .swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: #000;
     border-radius: 0;
     opacity: 1;
+    margin: 0 8px !important;
 }
 .cell .swiper-pagination-tj .swiper-pagination-bullet.swiper-pagination-bullet-active {
       background-color: #ffcc00;
@@ -496,7 +503,7 @@
   right: 0;
 }
 .cell.tj .more {
-  margin-top: 110px;
+  margin-top: 60px;
   margin-bottom: 63px;
 }
 .cell.xs .c-in {
@@ -547,6 +554,7 @@
 .cell.bf .c-in.pt .item .con a {
           font-size: 26px;
           color: #fff;
+          font-weight: bold;
 }
 .cell.bf .c-in.pt .item .bmore {
         width: 190px;
@@ -570,16 +578,17 @@
             line-height: 26px;
 }
 .cell.zy {
-  background: #272336 url(https://www.yunqi2050.org/dist/images/zy-bg.6ffade6.png) no-repeat;
+  background: #0a0a0a url(https://www.yunqi2050.org/dist/images/zy-bg.ac4b8dc.png) no-repeat bottom;
+  padding-bottom: 85px;
 }
 .cell.zy .sub-tit {
     color: #fff;
 }
 .cell.zy .zy-tit {
     color: #fff;
-    font-size: 36px;
+    font-size: 30px;
     text-align: center;
-    margin: 75px 0 58px;
+    margin: 60px 0 58px;
 }
 .cell.zy .zyp-wrap {
     width: 230px;
@@ -648,6 +657,7 @@
 }
 .cell.zy .more a {
       background-color: #fece00;
+      color: #333;
 }
 .cell.jg .zy-slide {
   display: flex;
@@ -674,11 +684,12 @@
   bottom: 0;
 }
 .cell.jg .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   background: #000;
   border-radius: 0;
   opacity: 1;
+  margin: 0 8px !important;
 }
 .cell.jg .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: #ffcc00;
@@ -690,7 +701,42 @@
   margin-top: 65px;
 }
 .cell.jg .more {
-  margin-top: 105px;
+  margin-top: 20px;
+}
+.mb-zy {
+  display: none;
+  flex-wrap: wrap;
+}
+.mb-zy .mb-zy-cell {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+.mb-zy .mb-zy-cell .img-wrap {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 50%;
+}
+.mb-zy .mb-zy-cell .img-wrap img {
+        width: 100%;
+        height: 100%;
+}
+.mb-zy .mb-zy-cell .name {
+      width: 100%;
+      text-align: center;
+      color: #ffc300;
+      font-size: 30px;
+      padding: 10px 0;
+}
+.mb-zy .mb-zy-cell .tro {
+      color: #fff;
+      font-size: 24px;
+      padding: 0 100px;
+      height: 145px;
+      overflow: hidden;
 }
 @media (max-width: 1200px) {
 .content {
@@ -706,7 +752,7 @@
 .cell .c-in .items:nth-child(2n) {
         margin-right: 0;
 }
-.cell .c-in .items:nth-child(3n) {
+.cell .c-in .items:nth-child(2n - 1) {
         margin-right: 2%;
 }
 .cell .c-in .items:last-child {
@@ -717,6 +763,36 @@
 }
 .swiper-button-prev, .swiper-button-next {
     display: none;
+}
+.cell .tjslide .tj-con {
+    width: 100%;
+}
+.cell .tjslide .info {
+    width: 100%;
+}
+.cell .tjslide .info .team {
+    white-space: normal;
+    height: 72px;
+    overflow: hidden;
+}
+.cell .tjslide .info .intro p {
+    height: 90px;
+    overflow: hidden;
+}
+.cell .tjslide .tj-img {
+    height: auto;
+    width: 100%;
+    float: none;
+}
+.cell .tjslide .tj-img img {
+      height: auto;
+      width: 100%;
+}
+.cell.zy .swiper-container {
+    display: none;
+}
+.mb-zy {
+    display: flex;
 }
 }
 
