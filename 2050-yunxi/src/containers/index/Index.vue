@@ -153,7 +153,7 @@
 							<!-- <div class="swiper-pagination" slot="pagination"></div> -->
 						</swiper>
 					</div>					
-					<div class="more"><a target="_blank">查看更多</a></div>					
+					<!-- <div class="more"><a target="_blank">查看更多</a></div>					 -->
 				</div>
 			</div>
 			</div>

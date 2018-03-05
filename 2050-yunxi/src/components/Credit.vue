@@ -104,6 +104,9 @@
     .min-bg{
         display: none;
     }
+    .max-bg {
+        display: block;
+    }
     @media (min-width: 1200px) {
         .container {
             max-width: 1526px;
