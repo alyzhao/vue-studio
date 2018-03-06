@@ -1,25 +1,31 @@
 <template>
 	<div class="banner-wrap">
-		<swiper :options="swiperOption">
-			<swiper-slide>
+		<swiper :options="swiperOption">			
+ 			<swiper-slide v-for="item in bannerList">
 				<div class="banner">
-					<router-link to="/credit"><img width="100%" :src="bannerUrl && (staticHost + bannerUrl)"></router-link>
+					<router-link :to="item.router"><img width="100%" :src="item.pcBanner"></router-link>					
 				</div>
 				<div class="mb-banner">
-					<router-link to="/credit"><img width="100%" src="../assets/img/mb-banner.png"></router-link>
+					<router-link :to="item.router"><img width="100%" :src="item.mbBanner"></router-link>
 				</div>
-				<!-- <div class="banner"><img width="100%" height="100%" src="../assets/img/banner.png"></div>				 -->
 			</swiper-slide>
 		</swiper>
 	</div>
 </template>
 <script>
-	// import { prodUrl } from 'constants/config.js';	
 	const prodUrl = require('constants/config.js').prodUrl;
 
-	console.log(prodUrl)	
-
 	export default {
+		props: {
+			bannerList: {
+				type: Array,
+				// default: [{
+				// 	router: '',
+				// 	pcBanner: '',
+				// 	mbBanner: ''
+				// }]
+			}
+		},
 		data() {
 			return {
 				swiperOption: {
@@ -41,9 +47,6 @@
 				})
 			})
 		},
-		methods: {
-
-		}
 	}
 </script>
 <style lang="scss">
@@ -81,5 +84,4 @@
 			display: none;
 		}
 	}
-
 </style>
