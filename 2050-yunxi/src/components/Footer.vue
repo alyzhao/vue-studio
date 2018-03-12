@@ -44,24 +44,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="description">
-				<p>2050是由杭州市云栖科技创新基金会与志愿者共同发起的非营利活动，全部收入用于大会，获通过基金会支持更多青年创新项目。</p>
-				<p>2050将提供中、英、法、德、西、日、韩、阿8种语言服务，如您需更多语言服务，超过30人以上，即可申请团体预约。</p>
-			</div>
 			<div class="min-main">
 				<div class="min-l">
 					<p>联系我们</p>
 					<ul>
 						<li v-for="item in phones">{{item.name}}: {{item.value}}</li>
+						<li>联系地址: 浙江省杭州市西湖区河山路1号云栖小镇国际会展中心</li>
+						<li>邮箱地址: yilia@geekbang.org</li>
 					</ul>
 				</div>
 				<div class="min-r">
-					<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
-					<div class="qr-img clearfix">
-						<div class="fl"><img width="150" height="150" src="../assets/img/qr-codel.png"></div>
-                        <!-- <div class="fr"><img src="../assets/img/qr-coder.png"></div> -->
-					</div>
+					<div class="logo"><img src="../assets/img/logo_2050.png"></div>
+					<div class="qr"><img width="150" height="150" src="../assets/img/qr-codel.png"></div>					
 				</div>
+			</div>
+			<div class="description">
+				<p>2050是由杭州市云栖科技创新基金会与志愿者共同发起的非营利活动，全部收入用于大会，获通过基金会支持更多青年创新项目。</p>
+				<p>2050将提供中、英、法、德、西、日、韩、阿8种语言服务，如您需更多语言服务，超过30人以上，即可申请团体预约。</p>
 			</div>
 		</div>
 
@@ -79,7 +78,7 @@
 		.about {
 			height: 250px;
 			width: 100%;
-			background: url('../assets/img/footer-bg.png') no-repeat center center;
+			background: #5c40b1 url('../assets/img/footer-bg.png') no-repeat center center;
 			overflow: hidden;
 			.content {
 				margin-top: 25px;
@@ -157,6 +156,16 @@
 			color: #666;
 			padding: 10px 0 15px;
 		}
+		.min-r {
+			display: flex;
+			align-items: center;
+			.logo {
+				flex-grow: 1;
+			}
+			.qr {
+				flex-grow: 1;
+			}
+		}
 	}
 	@media (max-width: 1200px) {
 		.footer .main {
@@ -184,8 +193,14 @@
 							color: #c8c8c8;
 							line-height: 30px;
 						}
-					}
+					} 
 				}
+			}
+		}
+		.footer .about {
+			height: auto;
+			.content {
+				padding: 0 15px;
 			}
 		}
 	}
