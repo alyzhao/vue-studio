@@ -23,16 +23,31 @@
 				</div>
 				<Split :height="'.08vw'" :color="'#3c3c3c'" />
 				<div class="flex-center">
-					<div class="process">
-						<div class="pcc">申请阶段</div>
-						<Triangle class="on-tri" :triangle-width="'1.5vw'" :triangle-color="'#28d5f3'" :triangle-direction="'left'"/>
-					</div>
-					<div class="process">
-						<div class="pcc">审批</div>
-						<Triangle class="on-tri" :triangle-width="'1.5vw'" :triangle-color="'#28d5f3'" :triangle-direction="'left'"/>						
-					</div>
-					<div class="process"></div>
+					<ProcessFirst :text="'申请阶段'" :height="3" :has-done="true"/>
+					<ProcessMiddle :text="'审批'" :height="3" :has-done="false"/>
+					<ProcessEnd :text="'生产阶段'" :height="3" :has-done="false"/>
 				</div>
+				<div class="flex-center approve">
+					<div>
+						<div>账号: xxxx</div>
+						<div>申请人: xxxx</div>
+						<div>联系电话: xxxx</div>
+						<div>账号类型: <span class="ob">xxxx</span></div>
+						<div>申请部门: xxxx</div>
+						<div>申请内容: xxxx</div>
+					</div>
+					<div>
+						<div>审批人：xxxxx</div>
+						<div>申请时间：2018-02-05 14:22:22</div>
+						<div>审批时长：xxxxx</div>
+						<div>审批结果：<span class="ob">通过</span></div>
+					</div>
+					<div>
+						<div>生产时间：2018-02-05 14:22:22</div>
+						<div>生产时长：xxxxx</div>
+					</div>
+				</div>
+				<Split :height="'.08vw'" :color="'#3c3c3c'" />
 			</div>
 		</div>
 	</div>
@@ -40,7 +55,9 @@
 <script>
 	import Split from 'components/Split';
 	import Triangle from 'components/Triangle';
-
+	import ProcessFirst from 'components/ProcessFirst';
+	import ProcessMiddle from 'components/ProcessMiddle';
+	import ProcessEnd from 'components/ProcessEnd';
 
 	export default {
 		name: 'app',
@@ -91,6 +108,9 @@
 		components: {
 			Split,
 			Triangle,
+			ProcessFirst,
+			ProcessMiddle,
+			ProcessEnd
 		}
 	}
 </script>
@@ -114,6 +134,9 @@
 	html, body {
 		width: 100%;
 		height: 100%;
+	}
+	.ob {
+		color: #28d5f3;
 	}
 	.main {
 		width: 100%;
@@ -205,23 +228,21 @@
 				    font-size: 1.5vw;
 				    font-weight: bold;
 				}
-				.process {
-					height: 3vw;
-					padding-right: 3vw;
-					position: relative;
-					.pcc {
-					    line-height: 3vw;
-					    background-color: #28d5f3;
-					    color: #000;
-					    font-size: 1.25vw;
-					    font-weight: bold;
-					    padding-left: 1.5vw;
-					}
-					.on-tri {
-						right: 0;
-						top: 0;
-					}
+				.approve {
+					align-items: flex-start;
 				}
+			}
+		}
+		.process {
+			&.first {
+				z-index: 13;				
+			}
+			&.middle {
+				z-index: 12;
+				margin-left: -2.5vw;
+			}
+			&.end {
+				margin-left: -2.5vw;
 			}
 		}
 	}
