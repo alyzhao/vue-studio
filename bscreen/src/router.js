@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
 Vue.use(Router);
 
+import Order from './containers/order/Order.vue';
+import Warning from './containers/warning/Warning.vue';
+
 const routes = [
-    
+	{path: '/', redirect: '/order'},
+    {path: '/order', component: Order},
+    {path: '/warning', component: Warning},
 ]
 
 export default new Router({

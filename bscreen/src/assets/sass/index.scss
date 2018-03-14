@@ -1,4 +1,4 @@
-// @import "./icon";
+@import "./icon";
 
 /*! normalize.css v4.2.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -524,4 +524,9 @@ a {
     * {
         flex-grow: 1;
     }
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
 }
