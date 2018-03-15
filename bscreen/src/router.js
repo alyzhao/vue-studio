@@ -4,11 +4,16 @@ Vue.use(Router);
 
 import Order from './containers/order/Order.vue';
 import Warning from './containers/warning/Warning.vue';
+import Resource from './containers/resource/Resource.vue';
+import Topology from './containers/topology/Topology.vue';
 
 const routes = [
-	{path: '/', redirect: '/order'},
-    {path: '/order', component: Order},
-    {path: '/warning', component: Warning},
+	{ path: '/', redirect: '/order' },
+    { path: '/order', component: Order },
+    { path: '/warning', component: Warning },
+    { path: '/resource', component: Resource },
+    { path: '/topology', component: Topology },
+
 ]
 
 export default new Router({
