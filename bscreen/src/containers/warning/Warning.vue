@@ -21,13 +21,24 @@
 				</div>
 				<div class="warning-view" style="margin-top: 2vw;">预警事件 : <span class="ob">库存不足</span></div>
 				<Split :height="'.08vw'" :color="'#3c3c3c'" style="margin-top: 2vw"/>				
+				<div class="c-title" style="margin-top: 2vw;">预警增长率</div>
+				<div class="charts" ref="charts">
+					<div class="charts-dom"></div>
+					<div class="charts-dom"></div>
+					<div class="charts-dom"></div>
+					<div class="charts-dom"></div>
+				</div>
 			</div>
 		</div>		
 	</div>
 </template>
 <script>
 	import SubTitle from 'components/SubTitle';
-	import Split from 'components/Split';	
+	import Split from 'components/Split';
+	import echarts from 'echarts';
+	import cloneDeep from 'lodash/cloneDeep';
+
+	import { warningOption } from 'constants/charts.js';
 
 	export default {
 		data() {
@@ -79,8 +90,32 @@
 						name: '4',
 						value: 'SLB'
 					}]
-				}								
+				},
+				serverCharts: [],
+				serverChartsOption: [{
+					title: 'CPU',
+				}, {
+					title: 'CPU',
+				}, {
+					title: 'IOPS'
+				}, {
+					title: '网络'
+				}]
 			}
+		},
+		mounted: function(){
+			this.$nextTick(function() {
+				let element = this.$refs.charts;
+				let serverChartsDom = element.querySelectorAll('.charts-dom');
+				console.log(serverChartsDom);
+				for (let i = 0; i < serverChartsDom.length; i ++) {
+					this.serverCharts[i] = echarts.init(serverChartsDom[i])
+					let option = cloneDeep(warningOption);
+					option.title.text = this.serverChartsOption[i].title;
+					this.serverCharts[i].setOption(option);
+				}
+
+			})
 		},
 		components: {
 			SubTitle,
@@ -123,6 +158,18 @@
 			.warning-view {
 				font-size: 1.35vw;
 			}
+			.c-title {
+				color: #28d5f3;
+				font-size: 1.5vw;
+			}
+		}
+	}
+	.charts {
+		display: flex;
+		flex-wrap: wrap;
+		.charts-dom {
+			width: 50%;
+			height: 25vw;
 		}
 	}
 </style>
