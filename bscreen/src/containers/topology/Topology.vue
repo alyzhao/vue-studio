@@ -1,6 +1,6 @@
 <template>
 	<div class="topology">
-		<router-view path="">
+		<!-- <router-view path=""> -->
 
 		<TopologyBrand :width="228" :top="268" :left="145">互联网</TopologyBrand>
 		<TopologyBrand :width="435" :top="268" :left="509">电子政务外网</TopologyBrand>

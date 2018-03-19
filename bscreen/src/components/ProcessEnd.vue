@@ -7,7 +7,7 @@
 			:style="middleFirTriangleStyle"/>
 		<Triangle class="on-tri front" v-if="!hasDone"
 			:triangle-width="height / 2 + 0.08 + 'vw'" 
-			:triangle-color="'#808080'" 
+			:triangle-color="'#20265b'" 
 			:triangle-direction="'left'"/>				
 		<div class="pcc" :class="{nodone: !hasDone}" :style="{lineHeight: height + 'vw', paddingLeft: height + 0.16 + 'vw'}">{{text}}</div>
 	</div>
@@ -22,7 +22,7 @@
 		},
 		computed: {
 			triangleColor() {
-				return this.hasDone ? '#28d5f3' : '#000';
+				return this.hasDone ? '#3b015c' : '#0a092b';
 			},
 			firTriangleWidth() {
 				return this.hasDone ? this.height / 2 + 0.08 + 'vw' : this.height / 2 + 'vw';

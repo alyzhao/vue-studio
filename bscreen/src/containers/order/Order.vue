@@ -1,10 +1,10 @@
 <template>
 	<div class="main">
-		<div class="title">工单监控</div>
+		<div class="title"><img style="margin-left: 20px;" src="../../assets/img/logo-cj.png"></div>
 		<div class="main-content clearfix">
 			<div class="left">
 				<div class="tit-wrap">	
-					<div class="tit">工单</div>
+					<div class="tit">工单监控</div>
 				</div>
 				<div class="order">
 					<ul>
@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<div class="right">
-				<div class="sub-title">xx工单详情</div>
+				<div class="sub-title ob">xx工单详情</div>
 				<div class="flex-center" style="margin-top: 1vw;">
 					<span>工单编号: 1111111</span>
 					<span>工单类型: 1111111</span>
@@ -203,7 +203,6 @@
 	    background-color: rgba(40,213,243,0.05);
 	}
 	html, body {
-		width: 100%;
 		height: 100%;
 	}
 	.ob {
@@ -212,16 +211,17 @@
 	.main {
 		width: 100%;
 		height: 100%;
+		background: #000 url('../../assets/img/gzbg.png') no-repeat center center;
 		background-color: #000;
-		padding: 2.5vw 2vw;
+		background-size: 100% 100%;
+		padding: .8vw 2vw 2.5vw;
 		color: #ccc;
 		font-size: 1.25vw;
 		.title {
 	        height: 4vw;
 		    color: #28d5f3;
 		    font-size: 3vw;
-		    border-left: .3vw solid #28d5f3;
-		    border-bottom: .08vw solid #28d5f3;
+		    border-bottom: .08vw solid #20265b;
 		    padding-left: 1.2vw;
 		    line-height: 4vw;
 		}
@@ -239,12 +239,12 @@
 				}
 				.tit {
 					line-height: 5vw;
-					border-left: .08vw solid #28d5f3;
-					border-right: .08vw solid #28d5f3;
+					border-left: .08vw solid #20265b;
+					border-right: .08vw solid #20265b;
 					color: #28d5f3;
 					text-align: center;
 					font-size: 1.5vw;
-					background-color: #171a21;
+					background-color: #020a2f;
 					z-index: 998;
 					position: relative;
 				}
@@ -276,15 +276,16 @@
 						line-height: 3.3vw;
 						text-align: center;
 						color: #f3f3f3;
-						border-left: .08vw solid #28d5f3;
-						border-right: .08vw solid #28d5f3;						
-						&:nth-child(odd) {
-							background-color: #030a10;
+						border-left: .08vw solid #20265b;
+						border-right: .08vw solid #20265b;						
+						&:nth-child(even) {
+							background-color: #070a25;
 						}
 						&.active, &:hover {
 							border-right: none;
-							border-top: .08vw solid #28d5f3;
-							border-bottom: .08vw solid #28d5f3;
+							border-top: .08vw solid #20265b;
+							border-bottom: .08vw solid #20265b;
+							background-color: #000;
 							color: #28d5f3;
 						}
 					}
@@ -296,7 +297,6 @@
 				height: 100%;
 				padding: 2vw 0 2vw 3vw;
 				.sub-title {
-				    color: #fff;
 				    font-size: 1.5vw;
 				    font-weight: bold;
 				}

@@ -167,9 +167,12 @@
 	.charts {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: space-between;
 		.charts-dom {
-			width: 50%;
-			height: 25vw;
+			width: 395px;
+			height: 250px;
+			background-color: #0a092b;
+			margin-bottom: 30px;
 		}
 	}
 </style>

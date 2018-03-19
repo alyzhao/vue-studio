@@ -8,7 +8,7 @@
 			:triangle-direction="'left'"/>
 		<Triangle class="on-tri" v-if="!hasDone"
 			:triangle-width="height / 2 + 0.08 + 'vw'" 
-			:triangle-color="'#808080'" 
+			:triangle-color="'#20265b'" 
 			:triangle-direction="'left'"/>	
 	</div>
 </template>
@@ -22,7 +22,7 @@
 		},
 		computed: {
 			triangleColor() {
-				return this.hasDone ? '#28d5f3' : '#000';
+				return this.hasDone ? '#3b015c' : '#0a092b';
 			},
 			firTriangleWidth() {
 				return this.hasDone ? this.height / 2 + 0.08 + 'vw' : this.height / 2 + 'vw';
@@ -43,11 +43,14 @@
 	    font-size: 1.25vw;
 	    font-weight: bold;
 	    padding-left: 1.5vw;
-	    border: .08vw solid #28d5f3;
+	    border: .08vw solid transparent;
+	    background-image: linear-gradient(90deg, #36acbb, #140b5c, #3a015c);
+	    border-right: none;
 		&.nodone {
-			background-color: #000;
-			border: .08vw solid #808080;
+			background-color: #0a092b;
+			border: .08vw solid #20265b;
 			color: #808080;
+			background-image: none;
 		}
 	}
 	.on-tri {

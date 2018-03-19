@@ -9,7 +9,7 @@ exports.warningOption = {
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: ['01/01', '01/02', '01/03', '01/04', '01/05', '01/06', '01/07'],
+        data: ['01/01', '01/02', '01/03', '01/04', '01/05', '01/06', '01/07', '01/08', '01/09'],
         axisLabel: {
             color: '#fff'
         },
@@ -31,12 +31,12 @@ exports.warningOption = {
         },     
         splitLine: {
             lineStyle: {
-                color: ['#070707']
+                color: ['#1d2358']
             }
         },
     },
     series: [{
-        data: [820, 932, 901, 300, 1290, 1330, 1320],
+        data: [80, 50, 10, 30, 20, 40, 90, 60, 70],
         type: 'line',
         itemStyle: {
             color: '#78ffff'
@@ -52,9 +52,9 @@ exports.warningOption = {
                 x2: 0,
                 y2: 1,
                 colorStops: [{
-                    offset: 0, color: 'rgba(21, 122, 140, 1)' // 0% 处的颜色
+                    offset: 0, color: '#310352' // 0% 处的颜色
                 }, {
-                    offset: 1, color: 'rgba(21, 122, 140, .2)' // 100% 处的颜色
+                    offset: 1, color: '#0b0b34' // 100% 处的颜色
                 }],
             }
         }
