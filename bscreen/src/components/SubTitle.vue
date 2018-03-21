@@ -25,7 +25,7 @@
 <style>
 	.sub-tab {
 		.tp {
-			background-color: #14151a;
+			background-color: #020a2f;
 			line-height: 3.5vw;
 			color: #28d5f3;
 			cursor: pointer;
@@ -36,7 +36,7 @@
 		ul li {
 			line-height: 3.3vw;
 			color: #f3f3f3;
-			&:nth-child(even) {
+			&:nth-child(odd) {
 				background-color: #030a10;	
 			}
 		}

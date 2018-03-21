@@ -92,7 +92,6 @@
 	import ProcessEnd from 'components/ProcessEnd';
 
 	export default {
-		name: 'app',
 		data() {
 			return {
 				workOrderList: [{
@@ -207,6 +206,9 @@
 	}
 	.ob {
 		color: #28d5f3;
+		&.big {
+			font-size: 30px;
+		}
 	}
 	.main {
 		width: 100%;
@@ -224,6 +226,25 @@
 		    border-bottom: .08vw solid #20265b;
 		    padding-left: 1.2vw;
 		    line-height: 4vw;
+		    position: relative;
+			.top-tab {
+				position: absolute;
+				left: 25%;
+				display: flex;
+				top: 0;
+				margin-left: 80px;
+				.tab-cell {
+					font-size: 24px;
+					padding: 0 20px;
+					margin: 0 20px;
+					color: #fff;
+					&.active {
+						border-bottom: 3px solid #28d5f3;
+						color: #28d5f3;
+					}
+				}
+			}
+
 		}
 		.main-content {
 			width: 100%;

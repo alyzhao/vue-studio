@@ -6,6 +6,7 @@ import Order from './containers/order/Order.vue';
 import Warning from './containers/warning/Warning.vue';
 import Resource from './containers/resource/Resource.vue';
 import Topology from './containers/topology/Topology.vue';
+import Safe from './containers/safe/Safe.vue';
 
 const routes = [
 	{ path: '/', redirect: '/order' },
@@ -13,7 +14,7 @@ const routes = [
     { path: '/warning', component: Warning },
     { path: '/resource', component: Resource },
     { path: '/topology', component: Topology },
-
+    { path: '/safe', component: Safe }
 ]
 
 export default new Router({

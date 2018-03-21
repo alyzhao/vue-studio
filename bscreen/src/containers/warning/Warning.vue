@@ -1,13 +1,21 @@
 <template>
 	<div class="main warning">
-		<div class="title">预警监控</div>
+		<div class="title">
+			<img style="margin-left: 20px;" src="../../assets/img/logo-cj.png">
+			<div class="top-tab">
+				<div class="tab-cell active">节点一</div>
+				<div class="tab-cell">节点二</div>
+			</div>
+		</div>
 		<div class="main-content clearfix">
 			<div class="left">
+				<!--
 				<div class="flex-center left-tab">
 					<div class="tab active">节点一</div>
 					<div class="tab">节点二</div>
 				</div>
-				<div class="warning-tit">预警对象</div>
+				-->
+				<div class="warning-tit">预警监控</div>
 				<SubTitle :tab-title="internetTab.title" :tab-list="internetTab.tabList" :on-active-default="true"/>
 				<SubTitle :tab-title="goverTab.title" :tab-list="goverTab.tabList" :on-active-default="false"/>
 				<SubTitle :tab-title="privateTab.title" :tab-list="privateTab.tabList" :on-active-default="false"/>
@@ -15,8 +23,8 @@
 			<div class="right">
 				<div class="sub-title">ESC预警详情</div>
 				<div class="flex-center warning-view" style="margin-top: 1vw;">
-					<span>故障总数 : <span class="ob">4</span></span>
-					<span>涉及实例数 : <span class="ob">4</span></span>
+					<span>故障总数 : <span class="ob big">4</span></span>
+					<span>涉及实例数 : <span class="ob big">4</span><span class="ob">(实例1，实例2，实例3，实例4)</span></span>
 					<span>预警时间 : 2018.02.01 10:20:29</span>
 				</div>
 				<div class="warning-view" style="margin-top: 2vw;">预警事件 : <span class="ob">库存不足</span></div>
@@ -107,7 +115,6 @@
 			this.$nextTick(function() {
 				let element = this.$refs.charts;
 				let serverChartsDom = element.querySelectorAll('.charts-dom');
-				console.log(serverChartsDom);
 				for (let i = 0; i < serverChartsDom.length; i ++) {
 					this.serverCharts[i] = echarts.init(serverChartsDom[i])
 					let option = cloneDeep(warningOption);
@@ -126,9 +133,9 @@
 <style lang="scss">
 	.warning {
 		.left {
-			border-right: .08vw solid #28d5f3;
-		    border-bottom: .08vw solid #28d5f3;			
-		    border-left: .08vw solid #28d5f3;			
+			border-right: .08vw solid #20265b;
+		    border-bottom: .08vw solid #20265b;			
+		    border-left: .08vw solid #20265b;			
 		    .left-tab {
 			    border-bottom: .08vw solid #28d5f3;
 			    .tab {
@@ -148,9 +155,10 @@
 				color: #28d5f3;
 				text-align: center;
 				font-size: 1.5vw;
-				background-color: #171a21;
+				background-color: #020a2f;
 				z-index: 998;
-				position: relative;		    	
+				position: relative;		
+			    border-bottom: .08vw solid #20265b;			
 		    }
 
 		}
