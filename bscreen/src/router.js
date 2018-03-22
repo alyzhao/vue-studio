@@ -9,11 +9,21 @@ import Topology from './containers/topology/Topology.vue';
 import Safe from './containers/safe/Safe.vue';
 
 const routes = [
-	{ path: '/', redirect: '/order' },
+	{ path: '/', redirect: '/topology' },
+    { 
+    	path: '/topology', component: Topology,
+    	children: [
+    		{
+    			path: 'warning/:warningId',
+    			component: Warning,
+    			props: true
+    		},
+
+    	]
+    },
     { path: '/order', component: Order },
     { path: '/warning', component: Warning },
     { path: '/resource', component: Resource },
-    { path: '/topology', component: Topology },
     { path: '/safe', component: Safe }
 ]
 

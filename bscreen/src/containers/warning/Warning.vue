@@ -1,10 +1,10 @@
 <template>
-	<div class="main warning">
+	<div class="main warning" :class="{intopology: intopology}">
 		<div class="title">
 			<img style="margin-left: 20px;" src="../../assets/img/logo-cj.png">
 			<div class="top-tab">
-				<div class="tab-cell active">节点一</div>
-				<div class="tab-cell">节点二</div>
+				<div class="tab-cell" :class="{active: netNodeChecked == 0}" @click="netNodeChecked = 0">节点一</div>
+				<div class="tab-cell" :class="{active: netNodeChecked == 1}" @click="netNodeChecked = 1">节点二</div>
 			</div>
 		</div>
 		<div class="main-content clearfix">
@@ -22,14 +22,13 @@
 			</div>
 			<div class="right">
 				<div class="sub-title">ESC预警详情</div>
-				<div class="flex-center warning-view" style="margin-top: 1vw;">
-					<span>故障总数 : <span class="ob big">4</span></span>
-					<span>涉及实例数 : <span class="ob big">4</span><span class="ob">(实例1，实例2，实例3，实例4)</span></span>
-					<span>预警时间 : 2018.02.01 10:20:29</span>
+				<div class="flex-center warning-view" style="margin-top: 12px;">
+					<span>今日告警总数 : <span class="ob big">4</span></span>
+					<span>预警事件 : <span class="ob">库存不足</span></span>
 				</div>
-				<div class="warning-view" style="margin-top: 2vw;">预警事件 : <span class="ob">库存不足</span></div>
-				<Split :height="'.08vw'" :color="'#3c3c3c'" style="margin-top: 2vw"/>				
-				<div class="c-title" style="margin-top: 2vw;">预警增长率</div>
+				<div class="warning-view" style="margin-top: 24px;">涉及实例 : <span class="ob big">4</span><span class="ob">(实例1， 实例2， 实例3， 实例4)</span></div>
+				<Split :height="'1px'" :color="'#z20265b'" style="margin-top: 24px"/>				
+				<div class="c-title" style="margin-top: 24px;">历史预警数量</div>
 				<div class="charts" ref="charts">
 					<div class="charts-dom"></div>
 					<div class="charts-dom"></div>
@@ -49,6 +48,19 @@
 	import { warningOption } from 'constants/charts.js';
 
 	export default {
+		props: {
+			intopology: {
+				type: Boolean,
+				default: false
+			},
+			warningId: {
+				type: String
+			},
+			checkedNode: {
+				type: Number,
+				default: 0
+			}
+		},
 		data() {
 			return {
 				internetTab: {
@@ -108,11 +120,15 @@
 					title: 'IOPS'
 				}, {
 					title: '网络'
-				}]
+				}],
+				netNodeChecked: 0	
 			}
 		},
 		mounted: function(){
 			this.$nextTick(function() {
+				console.log(this.checkedNode);
+				this.netNodeChecked = this.checkedNode;
+
 				let element = this.$refs.charts;
 				let serverChartsDom = element.querySelectorAll('.charts-dom');
 				for (let i = 0; i < serverChartsDom.length; i ++) {
@@ -122,6 +138,7 @@
 					this.serverCharts[i].setOption(option);
 				}
 
+				console.log(this.warningId);
 			})
 		},
 		components: {
@@ -151,24 +168,24 @@
 			    }
 		    }
 		    .warning-tit {
-				line-height: 5vw;
+				line-height: 60px;
 				color: #28d5f3;
 				text-align: center;
-				font-size: 1.5vw;
+				font-size: 26px;
 				background-color: #020a2f;
 				z-index: 998;
 				position: relative;		
-			    border-bottom: .08vw solid #20265b;			
+			    border-bottom: 3px solid #20265b;			
 		    }
 
 		}
 		.right {
 			.warning-view {
-				font-size: 1.35vw;
+				font-size: 16px;
 			}
 			.c-title {
 				color: #28d5f3;
-				font-size: 1.5vw;
+				font-size: 18px;
 			}
 		}
 	}
@@ -177,7 +194,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		.charts-dom {
-			width: 395px;
+			width: 48%;
 			height: 250px;
 			background-color: #0a092b;
 			margin-bottom: 30px;

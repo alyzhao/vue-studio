@@ -52,7 +52,6 @@ exports.pieChartsOption = {
             	// color: ['#121165', '#2e65c1', '#1e9dd0', '#31ebf5', '#92faff']
             	// color: '#121165'
             	color: function({seriesIndex, dataIndex, data, value}) {
-            		console.log(...[seriesIndex, dataIndex, data, value]);
             		let arrColor = ['#121165', '#2e65c1', '#1e9dd0', '#31ebf5', '#92faff'];
             		return arrColor[dataIndex];
             	}
@@ -84,7 +83,7 @@ exports.lineChartsOption = {
     legend: {
         orient: 'horizontal',
         // x: 'left',
-        bottom: 10,
+        top: 10,
         itemGap: 20,
         data:['cpu','内存','oss'],
         textStyle: {
@@ -94,9 +93,6 @@ exports.lineChartsOption = {
     },    
     tooltip: {
         trigger: 'axis'
-    },
-    legend: {
-        data:['cpu','内存','oss']
     },
     grid: {
         left: '3%',

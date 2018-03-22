@@ -87,6 +87,8 @@ module.exports = {
 	]
 }
 
+
+
 // UglifyJsPlugin 这是内置插件
 if (process.env.NODE_ENV === 'production') {
 	module.exports.output.publicPath = prodUrl.staticHost;	

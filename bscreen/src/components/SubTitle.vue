@@ -16,7 +16,7 @@
 		},
 		computed: {
 			tabHeight() {
-				let height = this.onActive ? this.tabList.length * 3.3 + 'vw' : '0vw';
+				let height = this.onActive ? this.tabList.length * 35 + 'px' : '0px';
 				return {height: height}
 			}
 		}
@@ -26,7 +26,7 @@
 	.sub-tab {
 		.tp {
 			background-color: #020a2f;
-			line-height: 3.5vw;
+			line-height: 40px;
 			color: #28d5f3;
 			cursor: pointer;
 		}
@@ -34,7 +34,7 @@
 			overflow: hidden;
 		}
 		ul li {
-			line-height: 3.3vw;
+			line-height: 35px;
 			color: #f3f3f3;
 			&:nth-child(odd) {
 				background-color: #030a10;	

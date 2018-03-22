@@ -1,5 +1,5 @@
 <template>
-	<div class="main">
+	<div class="main safe">
 		<div class="title">
 			<img style="margin-left: 20px;" src="../../assets/img/logo-cj.png">
 			<ul>
@@ -16,7 +16,7 @@
 				</div>
 				<div class="order">
 					<ul>
-						<li v-for="item in workOrderList" :key="item.id">{{item.value}}</li>
+						<li v-for="item in safeList" :key="item.id">{{item.value}}</li>
 					</ul>
 					<div class="split"></div>					
 				</div>
@@ -40,17 +40,24 @@
 				<div class="tit-thing">	
 					<div class="tit">故障趋势</div>
 				</div>
-				
+				<div class="charts">
+					<div ref="chartsDom" class="charts-dom"></div>
+				</div>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
+	import {lineChartsOption} from './chartsOption';
+	import echarts from 'echarts';
+	import cloneDeep from 'lodash/cloneDeep';
+
+
 	export default {
 		data() {
 			return {
 				tabCheckedIndex: 0,
-				workOrderList: [{
+				safeList: [{
 					id: 1,
 					value: 'i-35031ts5o'
 				}, {
@@ -81,21 +88,26 @@
 				}, {
 					id: 6,
 					value: 'i-35031ts5o'
-				}]
+				}, ],
+				lineCharts: null,
 			}
 		},
-		
-		methods: {
+		mounted:function(){
+			this.$nextTick(function() {
+				let lineChartsDom = this.$refs.chartsDom;
+				this.lineCharts = echarts.init(lineChartsDom);
+				let chartsOption = cloneDeep(lineChartsOption);
+				this.lineCharts.setOption(chartsOption);
 
+			})
 		}
 	}
 </script>
-<style scoped>
+<style>
 	html, body {
 		height: 100%;
-
 	}
-	.main{
+	.safe{
 		font-size:1vw;
 		.title{
 			ul {
@@ -109,42 +121,46 @@
 			}
 			ul li {
 			    &.active {
-				    border-bottom: 3px solid #28d5f3;	
+				    border-bottom: 3px solid #28d5f3;
+				    a {
 
+				    	color: #28d5f3;
+				    }	
+				    
 			    }			
 			}
 			ul li a {  
 			    color: white;
 			    text-decoration: none;  
-			    font-size: 1.25vw;
+			    font-size: 1.5vw;
 				vertical-align: middle;
 			}
 			
 		}
 		.tit-wrap #fonts{
-			font-size: 1.25vw;
+			font-size: 1.45vw;
 		}
 		.listItem{
 			width: 100%;
 			padding-bottom: 0.5vw;
-			border-bottom: 3px solid #020a2f;
+			border-bottom: 1px solid #20265b;
 
 			p{
 				color: white;
-				font-size: 1.2vw;
+				font-size: 1.4vw;
 			}
 		}
 		.tit-thing .tit{
-			line-height: 3vw;
+			line-height: 4vw;
 			color: #28d5f3;
 			z-index: 998;
 			position: relative;
-			font-size: 1.25vw;
+			font-size: 1.4vw;
 		}
 		.thing {
 			height: 19vw;
 			width: 100%;
-			border: 3px solid #020a2f;
+			border: 1px solid #20265b;
 			ul {
 				margin-botton: 3px;
 				padding: 0;
@@ -171,11 +187,15 @@
 
 		}
 		.tit-line {
-			border-bottom: 3px solid #020a2f;
+			border-bottom: 1px solid #20265b;
 			.line {
 				display: inline;
 			}
 		}
-		
+		.charts-dom {
+			width: 100%;
+			background-color: #0a092b;
+			height: 18vw;
+		}
 	}
 </style>

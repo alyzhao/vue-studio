@@ -1,6 +1,6 @@
 <template>
-	<div class="topology">
-		<!-- <router-view path=""> -->
+	<div class="topology" @click.self="clearRouter($event)">
+		<router-view :intopology="true" class="topology-bg" :checked-node="checkedNode"/>
 
 		<TopologyBrand :width="228" :top="268" :left="145">互联网</TopologyBrand>
 		<TopologyBrand :width="435" :top="268" :left="509">电子政务外网</TopologyBrand>
@@ -9,29 +9,29 @@
 		<TopologyBrand :width="450" :top="268" :left="1818">互联网</TopologyBrand>
 		<TopologyBrand :width="225" :top="268" :left="2316">互联网</TopologyBrand>
 		<div class="topology-group" style="left: 335px;top: 538px;z-index: 15;">
-			<TopologyBtn :type="'eip'" :status="'default'">EIP</TopologyBtn>
-			<TopologyBtn :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
-			<TopologyBtn :type="'mq'" :status="'default'">MQ</TopologyBtn>
-			<TopologyBtn :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'eip'" :status="'default'">EIP</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'mq'" :status="'default'">MQ</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
 		</div>
 		<div class="topology-group" style="left: 360px;top: 500px;z-index: 14;">
-			<TopologyBtn :type="'ecs'" :status="'default'">ECS</TopologyBtn>
-			<TopologyBtn :type="'rds'" :status="'default'">RDS</TopologyBtn>
-			<TopologyBtn :type="'oss'" :status="'default'">OSS</TopologyBtn>
-			<TopologyBtn :type="'slb'" :status="'default'">SLB</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'ecs'" :status="'default'">ECS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'rds'" :status="'default'">RDS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'oss'" :status="'default'">OSS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'slb'" :status="'default'">SLB</TopologyBtn>			
 		</div>
 
 		<div class="topology-group" style="left: 454px;top: 397px;z-index: 15;">
-			<TopologyBtn :type="'eip'" :status="'default'">EIP</TopologyBtn>
-			<TopologyBtn :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
-			<TopologyBtn :type="'mq'" :status="'default'">MQ</TopologyBtn>
-			<TopologyBtn :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'eip'" :status="'default'">EIP</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'mq'" :status="'default'">MQ</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
 		</div>
 		<div class="topology-group" style="left: 475px;top: 358px;z-index: 14;">
-			<TopologyBtn :type="'ecs'" :status="'default'">ECS</TopologyBtn>
-			<TopologyBtn :type="'rds'" :status="'default'">RDS</TopologyBtn>
-			<TopologyBtn :type="'oss'" :status="'default'">OSS</TopologyBtn>
-			<TopologyBtn :type="'slb'" :status="'default'">SLB</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'ecs'" :status="'default'">ECS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'rds'" :status="'default'">RDS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'oss'" :status="'default'">OSS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'slb'" :status="'default'">SLB</TopologyBtn>			
 		</div>		
 
 		<div class="more" style="top: 403px;left: 817px;">更多+</div>
@@ -41,51 +41,51 @@
 
 		<div class="domain" style="top: 406px;left: 900px;">
 			<div class="row" style="margin-left: 55px;">
-				<TopologyBtn :type="'slb'" :status="'default'">SLB</TopologyBtn>			
-				<TopologyBtn :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
+				<TopologyBtn @click.native="goWarning(1, 0)" :type="'slb'" :status="'default'">SLB</TopologyBtn>			
+				<TopologyBtn @click.native="goWarning(1, 0)" :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
 			</div>
 			<div class="row">
-				<TopologyBtn :type="'eip'" :status="'default'">EIP</TopologyBtn>
-				<TopologyBtn :type="'ecs'" :status="'default'">ECS</TopologyBtn>			
+				<TopologyBtn @click.native="goWarning(1, 0)" :type="'eip'" :status="'default'">EIP</TopologyBtn>
+				<TopologyBtn @click.native="goWarning(1, 0)" :type="'ecs'" :status="'default'">ECS</TopologyBtn>			
 			</div>
 		</div>
 
 		<div class="domain" style="top: 406px;left: 1438px;">
 			<div class="row" style="margin-left: 55px;">
-				<TopologyBtn :type="'slb'" :status="'default'">SLB</TopologyBtn>			
-				<TopologyBtn :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
+				<TopologyBtn @click.native="goWarning(1, 1)" :type="'slb'" :status="'default'">SLB</TopologyBtn>			
+				<TopologyBtn @click.native="goWarning(1, 1)" :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
 			</div>
 			<div class="row">
-				<TopologyBtn :type="'eip'" :status="'default'">EIP</TopologyBtn>
-				<TopologyBtn :type="'ecs'" :status="'default'">ECS</TopologyBtn>			
+				<TopologyBtn @click.native="goWarning(1, 1)" :type="'eip'" :status="'default'">EIP</TopologyBtn>
+				<TopologyBtn @click.native="goWarning(1, 1)" :type="'ecs'" :status="'default'">ECS</TopologyBtn>			
 			</div>
 		</div>
 
 		<!--  -->
 		<div class="topology-group" style="left: 1689px;top: 538px;z-index: 15;">
-			<TopologyBtn :type="'eip'" :status="'default'">EIP</TopologyBtn>
-			<TopologyBtn :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
-			<TopologyBtn :type="'mq'" :status="'default'">MQ</TopologyBtn>
-			<TopologyBtn :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'eip'" :status="'default'">EIP</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'mq'" :status="'default'">MQ</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
 		</div>
 		<div class="topology-group" style="left: 1712px;top: 500px;z-index: 14;">
-			<TopologyBtn :type="'ecs'" :status="'default'">ECS</TopologyBtn>
-			<TopologyBtn :type="'rds'" :status="'default'">RDS</TopologyBtn>
-			<TopologyBtn :type="'oss'" :status="'default'">OSS</TopologyBtn>
-			<TopologyBtn :type="'slb'" :status="'default'">SLB</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'ecs'" :status="'default'">ECS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'rds'" :status="'default'">RDS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'oss'" :status="'default'">OSS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'slb'" :status="'default'">SLB</TopologyBtn>			
 		</div>
 
 		<div class="topology-group" style="left: 1786px;top: 397px;z-index: 15;">
-			<TopologyBtn :type="'eip'" :status="'default'">EIP</TopologyBtn>
-			<TopologyBtn :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
-			<TopologyBtn :type="'mq'" :status="'default'">MQ</TopologyBtn>
-			<TopologyBtn :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'eip'" :status="'default'">EIP</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'clouddisk'" :status="'default'">云磁盘</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'mq'" :status="'default'">MQ</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'drds'" :status="'default'">DRDS</TopologyBtn>			
 		</div>
 		<div class="topology-group" style="left: 1810px;top: 358px;z-index: 14;">
-			<TopologyBtn :type="'ecs'" :status="'default'">ECS</TopologyBtn>
-			<TopologyBtn :type="'rds'" :status="'default'">RDS</TopologyBtn>
-			<TopologyBtn :type="'oss'" :status="'default'">OSS</TopologyBtn>
-			<TopologyBtn :type="'slb'" :status="'default'">SLB</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'ecs'" :status="'default'">ECS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'rds'" :status="'default'">RDS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'oss'" :status="'default'">OSS</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'slb'" :status="'default'">SLB</TopologyBtn>			
 		</div>		
 
 		<div class="more" style="top: 403px;left: 2161px;">更多+</div>
@@ -96,28 +96,28 @@
 		<!--  -->
 
 		<div class="topology-group bt" style="top: 865px;left: 380px;">
-			<TopologyBtn :type="'exchange'" :status="'default'">交换机</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">路由器</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">防火墙</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'exchange'" :status="'default'">交换机</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'exchange'" :status="'default'">路由器</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'exchange'" :status="'default'">防火墙</TopologyBtn>			
 		</div>
 
 		<div class="topology-group bt" style="top: 910px;left: 345px;">
-			<TopologyBtn :type="'exchange'" :status="'default'">服务器</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">数据库</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">存储</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'exchange'" :status="'default'">服务器</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'exchange'" :status="'default'">数据库</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 0)" :type="'exchange'" :status="'default'">存储</TopologyBtn>			
 		</div>
 		<div class="oob" style="position: absolute;top: 941px;left: 775px;">节点一(观山湖机房)</div>
 
 		<div class="topology-group bt" style="top: 865px;left: 1342px;">
-			<TopologyBtn :type="'exchange'" :status="'default'">交换机</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">路由器</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">防火墙</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'exchange'" :status="'default'">交换机</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'exchange'" :status="'default'">路由器</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'exchange'" :status="'default'">防火墙</TopologyBtn>			
 		</div>
 
 		<div class="topology-group bt" style="top: 910px;left: 1313px;">
-			<TopologyBtn :type="'exchange'" :status="'default'">服务器</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">数据库</TopologyBtn>
-			<TopologyBtn :type="'exchange'" :status="'default'">存储</TopologyBtn>			
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'exchange'" :status="'default'">服务器</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'exchange'" :status="'default'">数据库</TopologyBtn>
+			<TopologyBtn @click.native="goWarning(1, 1)" :type="'exchange'" :status="'default'">存储</TopologyBtn>			
 		</div>
 		<div class="oob" style="position: absolute;top: 941px;left: 1742px;">节点二(贵安新区机房)</div>
 
@@ -127,7 +127,7 @@
 			<span class="oob">政务外网</span>
 		</div>
 		<div class="bt-con" style="bottom: 100px;left: 1185px;">
-			<span class="oob">互联网</span>
+			<span class="oob" >互联网</span>
 			<span class="oob">专网</span>
 			<span class="oob">政务外网</span>
 		</div>
@@ -139,6 +139,29 @@
 
 
 	export default {
+		data() {
+			return {
+				checkedNode: 0
+			}
+		},
+		methods: {
+			goWarning(id, node) {
+				this.checkedNode = node;
+				this.$router.push({path: `/topology/warning/${id}`});
+			},
+			clearRouter(e) {
+				// if (this.inSubRouter) {
+				// 	this.$router.push({path: `/topology/`});
+				// }
+				this.$router.push({path: `/topology/`});
+			},
+		},
+		computed: {
+			inSubRouter() {
+				let routePath = this.$route.path;
+				return routePath.match(/\/topology\/warning\/(\d+)/i) ? true : false;
+			}
+		},
 		components: {
 			TopologyBrand,
 			TopologyBtn,
@@ -147,6 +170,17 @@
 	
 </script>
 <style lang="scss">
+	.intopology {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 999;
+	}
+	.warning.intopology {
+		width: 1200px;
+		height: 845px;
+	}
 	.topology {
 		width: 2551px;
 		height: 1390px;

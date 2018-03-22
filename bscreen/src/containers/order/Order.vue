@@ -8,43 +8,47 @@
 				</div>
 				<div class="order">
 					<ul>
-						<li v-for="item in workOrderList" :key="item.id">{{item.value}}</li>
+						<li v-for="item in workOrderList" 
+							:key="item.order_id"
+							@click="showDetail(item)">
+							{{item.order_id}}
+						</li>
 					</ul>
 					<div class="split"><div class="con"></div></div>					
 				</div>
 			</div>
 			<div class="right">
-				<div class="sub-title ob">xx工单详情</div>
+				<div class="sub-title ob">{{workOrderDetail.order_id}}工单详情</div>
 				<div class="flex-center" style="margin-top: 1vw;">
-					<span>工单编号: 1111111</span>
-					<span>工单类型: 1111111</span>
-					<span>状态: 1111111</span>
-					<span>提交时间: 2018.02.01 10:20:29</span>
+					<span>工单编号: {{workOrderDetail.order_id}}</span>
+					<span>工单类型: {{workOrderDetail.type}}</span>
+					<span>状态: 进行中</span>
+					<span>提交时间: {{workOrderDetail.createdtime}}</span>
 				</div>
 				<Split :height="'.08vw'" :color="'#3c3c3c'" style="margin-top: 0.8vw"/>
 				<div class="flex-center" style="margin-top: 2vw;">
-					<ProcessFirst :text="'申请阶段'" :height="3" :has-done="true"/>
+					<ProcessFirst :text="'发起阶段'" :height="3" :has-done="true"/>
 					<ProcessMiddle :text="'审批'" :height="3" :has-done="false"/>
 					<ProcessEnd :text="'生产阶段'" :height="3" :has-done="false"/>
 				</div>
 				<div class="flex-center approve" style="margin-top: 2vw;">
 					<div class="cell">
-						<div>账号: xxxx</div>
-						<div>申请人: xxxx</div>
-						<div>联系电话: xxxx</div>
-						<div>账号类型: <span class="ob">xxxx</span></div>
-						<div>申请部门: xxxx</div>
-						<div>申请内容: xxxx</div>
+						<div>账号: {{Math.floor(Math.random() * 100000000)}}</div>
+						<div>申请人: 运维人员</div>
+						<div>联系电话: 183{{Math.floor(Math.random() * 100000000)}}</div>
+						<div>账号类型: <span class="ob">政府客户</span></div>
+						<div>申请部门: 运维</div>
+						<div>申请内容: conten.txt</div>
 					</div>
 					<div class="cell">
-						<div>审批人：xxxxx</div>
-						<div>申请时间：2018-02-05 14:22:22</div>
-						<div>审批时长：xxxxx</div>
+						<div>审批人：运维主管</div>
+						<div>申请时间：{{workOrderDetail.finishedtime}}</div>
+						<div>审批时长：{{workOrderDetail.fieldtime}}</div>
 						<div>审批结果：<span class="ob">通过</span></div>
 					</div>
 					<div class="cell">
-						<div>生产时间：2018-02-05 14:22:22</div>
-						<div>生产时长：xxxxx</div>
+						<div>生产时间：{{workOrderDetail.pecomfired}}</div>
+						<div>生产时长：{{workOrderDetail.totaltime}}</div>
 					</div>
 				</div>
 				<Split :height="'.08vw'" :color="'#3c3c3c'" style="margin-top: 2vw"/>
@@ -65,13 +69,13 @@
 								<i class="iconfont icon-server ob"></i> 云服务器ECS
 							</td>
 							<td class="fff">
-								<p>地域 : xxxxxx</p>
+								<p>地域 : Cn-guizhou</p>
 								<p><span>CPU : 4核</span><span>内存 : 8G</span></p>
-								<p><span>系统盘 : xxxxx</span><span>40G</span></p>
+								<p><span>系统盘 : 高效云盘</span><span>40G</span></p>
 								<p><span>数据盘 : 普通云盘</span><span>500G</span></p>
-								<p class="flex-center"><span>所属网络 : </span><span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></p>
-								<p class="ob">阿里云化堡垒机</p>
-								<p><span>数据盘 : 普通云盘</span><span>500G</span></p>
+								<p class="flex-center"><span>所属网络 : </span><span>VPC 专有网络</span></p>
+								<!-- <p class="ob">阿里云化堡垒机</p>
+								<p><span>数据盘 : 普通云盘</span><span>500G</span></p> -->
 							</td>
 							<td>1</td>
 							<td class="ob">申请资源</td>
@@ -94,85 +98,27 @@
 	export default {
 		data() {
 			return {
-				workOrderList: [{
-					id: 1,
-					value: 222222
-				}, {
-					id: 2,
-					value: 222222
-				}, {
-					id: 3,
-					value: 222222
-				}, {
-					id: 4,
-					value: 222222
-				}, {
-					id: 5,
-					value: 222222
-				}, {
-					id: 6,
-					value: 222222
-				}, {
-					id: 7,
-					value: 222222
-				}, {
-					id: 8,
-					value: 222222
-				}, {
-					id: 9,
-					value: 222222
-				}, {
-					id: 10,
-					value: 222222
-				}, {
-					id: 11,
-					value: 222222
-				}, {
-					id: 12,
-					value: 222222
-				}, {
-					id: 13,
-					value: 222222
-				}, {
-					id: 1,
-					value: 222222
-				}, {
-					id: 2,
-					value: 222222
-				}, {
-					id: 3,
-					value: 222222
-				}, {
-					id: 4,
-					value: 222222
-				}, {
-					id: 5,
-					value: 222222
-				}, {
-					id: 6,
-					value: 222222
-				}, {
-					id: 7,
-					value: 222222
-				}, {
-					id: 8,
-					value: 222222
-				}, {
-					id: 9,
-					value: 222222
-				}, {
-					id: 10,
-					value: 222222
-				}, {
-					id: 11,
-					value: 222222
-				}, {
-					id: 12,
-					value: 222222
-				}, {
-					id: 13,
-					value: 222222
-				}]
+				workOrderList: [],
+				workOrderDetail: {}
+			}
+		},
+		mounted: function() {
+			this.$nextTick(function() {
+				this.loadData();
+			})
+		},
+		methods: {
+			loadData() {
+				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
+				this.axios.get(proxy + 'http://datam.youlishu.com/dataset/json?oid=1369').then(res => {
+					let resData = res.data;
+					console.log(resData);
+					this.workOrderList = resData;
+					this.workOrderDetail = workOrderList[0];
+				})
+			},
+			showDetail(item) {
+				this.workOrderDetail = item;
 			}
 		},
 		components: {
@@ -216,16 +162,16 @@
 		background: #000 url('../../assets/img/gzbg.png') no-repeat center center;
 		background-color: #000;
 		background-size: 100% 100%;
-		padding: .8vw 2vw 2.5vw;
+		padding: 10px 25px 30px;
 		color: #ccc;
-		font-size: 1.25vw;
+		font-size: 16px;
 		.title {
-	        height: 4vw;
+	        height: 62px;
 		    color: #28d5f3;
-		    font-size: 3vw;
-		    border-bottom: .08vw solid #20265b;
-		    padding-left: 1.2vw;
-		    line-height: 4vw;
+		    font-size: 30px;
+		    border-bottom: 1px solid #20265b;
+		    padding-left: 20px;
+		    line-height: 62px;
 		    position: relative;
 			.top-tab {
 				position: absolute;
@@ -238,6 +184,7 @@
 					padding: 0 20px;
 					margin: 0 20px;
 					color: #fff;
+					cursor: pointer;
 					&.active {
 						border-bottom: 3px solid #28d5f3;
 						color: #28d5f3;
@@ -249,8 +196,8 @@
 		.main-content {
 			width: 100%;
 			height: 100%;
-			margin-top: -4vw;
-			padding-top: 4vw;
+			margin-top: -65px;
+			padding-top: 65px;
 			.left {
 				float: left;
 				width: 25%;
@@ -316,10 +263,11 @@
 				float: left;
 				width: 75%;
 				height: 100%;
-				padding: 2vw 0 2vw 3vw;
+				padding: 25px 0 25px 35px;
 				.sub-title {
-				    font-size: 1.5vw;
+				    font-size: 22px;
 				    font-weight: bold;
+				    color: #fff;
 				}
 				.approve {
 					align-items: flex-start;
