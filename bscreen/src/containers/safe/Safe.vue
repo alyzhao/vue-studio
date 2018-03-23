@@ -4,7 +4,7 @@
 			<img style="margin-left: 20px;" src="../../assets/img/logo-cj.png">
 			<ul>
 				<li :class="{active: tabCheckedIndex == 0}" @click="tabCheckedIndex = 0"><a>攻击事件</a></li>
-				<li :class="{active: tabCheckedIndex == 1}" @click="tabCheckedIndex = 1"><a>主机安全事件</a></li>
+				<li :class="{active: tabCheckedIndex == 1390}" @click="tabCheckedIndex = 1390"><a>主机安全事件</a></li>
 				<li :class="{active: tabCheckedIndex == 2}" @click="tabCheckedIndex = 2"><a>网络状态</a></li>
 				<li :class="{active: tabCheckedIndex == 3}" @click="tabCheckedIndex = 3"><a>安全威胁</a></li>
 			</ul>
@@ -23,10 +23,7 @@
 			</div>
 			<div class="right">
 				<div class="listItem">
-					<p>针对资产{{checkedIp}}的攻击事件</p>
-				</div>
-				<div class="tit-thing">	
-					<div class="tit">历史攻击趋势</div>
+					<p class="ob">针对资产{{checkedIp}}的攻击事件</p>
 				</div>
 				<div class="order thing">
 					<table class="scr-table">
@@ -62,7 +59,7 @@
 					</p>
 				</div>
 				<div class="tit-thing">	
-					<div class="tit">故障趋势</div>
+					<div class="tit">攻击趋势</div>
 				</div>
 				<div class="charts">
 					<div ref="chartsDom" class="charts-dom"></div>
@@ -193,8 +190,7 @@
 			padding-bottom: 0.5vw;
 			border-bottom: 1px solid #20265b;
 
-			p{
-				color: white;
+			p {
 				font-size: 1.4vw;
 			}
 		}
