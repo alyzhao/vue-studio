@@ -16,26 +16,50 @@
 				</div>
 				<div class="order">
 					<ul>
-						<li v-for="item in safeList" :key="item.id">{{item.value}}</li>
+						<li v-for="item in vmIpList" @click="switchIP(item)" :key="item">{{item}}</li>
 					</ul>
 					<div class="split"></div>					
 				</div>
 			</div>
 			<div class="right">
 				<div class="listItem">
-					<p>i-35031ts50</p>
+					<p>针对资产{{checkedIp}}的攻击事件</p>
 				</div>
 				<div class="tit-thing">	
-					<div class="tit">事件列表</div>
+					<div class="tit">历史攻击趋势</div>
 				</div>
 				<div class="order thing">
-					<ul>
-						<li v-for="item in thingList" :key="item.id">{{item.value}}</li>
-					</ul>										
+					<table class="scr-table">
+						<thead>
+							<tr>
+								<th width="12%">资产IP</th>
+								<th width="12%">攻击日期</th>
+								<th width="12%">攻击者IP</th>
+								<th width="15%">攻击者所在区域</th>
+								<th width="10%">攻击类型</th>
+								<th width="15%">攻击手法</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="item in caseList" @click="showDetail(item)">
+								<td>{{item.vm_ip}}</td>
+								<td>{{item.attack_date}}</td>
+								<td>{{item.source_ip}}</td>
+								<td>{{item.source_location}}</td>
+								<td>{{item.attack_type}}</td>
+								<td>{{item.note}}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 				<div class="tit-thing tit-line" >	
-					<div class="tit line">事件详情:</div>
-					<p class='line' style="margin-left:2vw;">20170518 xxx实例发生PHP远程multipart/form-data DOS.</p>
+					<div class="tit line">事件详情: </div>
+					<p class='line' style="margin-left:2vw;">
+						{{checkedAttack.attack_date}}, 
+						{{checkedAttack.source_ip}} 对资产 {{checkedAttack.vm_ip}} 发起 {{checkedAttack.note}} 类型攻击
+						<br/>
+						具体信息: {{checkedAttack.url}}
+					</p>
 				</div>
 				<div class="tit-thing">	
 					<div class="tit">故障趋势</div>
@@ -57,56 +81,80 @@
 		data() {
 			return {
 				tabCheckedIndex: 0,
-				safeList: [{
-					id: 1,
-					value: 'i-35031ts5o'
-				}, {
-					id: 2,
-					value: 'i-35031ts5o'
-				}, {
-					id: 3,
-					value: 'i-35031ts5o'
-				}, {
-					id: 4,
-					value: 'i-35031ts5o'
-				}],
-				thingList: [{
-					id: 1,
-					value: 'i-35031ts5o'
-				}, {
-					id: 2,
-					value: 'i-35031ts5o'
-				}, {
-					id: 3,
-					value: 'i-35031ts5o'
-				}, {
-					id: 4,
-					value: 'i-35031ts5o'
-				}, {
-					id: 5,
-					value: 'i-35031ts5o'
-				}, {
-					id: 6,
-					value: 'i-35031ts5o'
-				}, ],
+				data: [],
+				vmIpList: [],
+				caseList: [],
+				checkedIp: '',
+				checkedAttack: {},
 				lineCharts: null,
+				lineChartsOption: cloneDeep(lineChartsOption),
 			}
 		},
 		mounted:function(){
 			this.$nextTick(function() {
-				let lineChartsDom = this.$refs.chartsDom;
-				this.lineCharts = echarts.init(lineChartsDom);
-				let chartsOption = cloneDeep(lineChartsOption);
-				this.lineCharts.setOption(chartsOption);
+				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
+				this.axios.get(proxy + 'http://datam.youlishu.com/dataset/json?oid=1376').then(res => {
+					let resData = res.data;
+					this.data = resData;
+					let vm_ipList = resData.map(item => item.vm_ip);
+					vm_ipList = [...new Set(vm_ipList)];
+					this.vmIpList = vm_ipList;
 
+					this.switchIP(vm_ipList[0]);
+					this.checkedAttack = this.caseList[0];
+				})				
 			})
+		},
+		methods: {
+			switchIP(ip) {
+				this.caseList = this.data.filter(item => item.vm_ip == ip);
+				this.checkedIp = ip;
+				this.renderLineCharts(ip);
+			},
+			showDetail(item) {
+				this.checkedAttack = item;
+			},
+			renderLineCharts(ip) {
+				var proxy = 'http://service.datav.aliyun.com/transparentProxy/proxy?url=';
+				this.axios.get(proxy + 'http://datam.youlishu.com/dataset/json?oid=1377&filters=vm_ip', {
+					params: {
+						vm_ip: ip
+					}
+				}).then(res => {
+					let resData = res.data;
+					this.lineChartsOption.xAxis.data = resData.map(item => item.x);
+					this.lineChartsOption.series[0].data = resData.map(item => item.y);
+					if (!this.lineCharts) {
+						let lineChartsDom = this.$refs.chartsDom;
+						this.lineCharts = echarts.init(lineChartsDom);
+					}
+					this.lineCharts.setOption(this.lineChartsOption);
+				})
+			}
 		}
 	}
 </script>
-<style>
+<style lang="scss">
 	html, body {
 		height: 100%;
 	}
+	.scr-table {
+		width: 100%;
+		border-collapse: collapse;
+		td, th {
+			padding: 10px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		tbody tr:hover {
+			background-color: #347caf;
+		}
+		&.scroll {
+			height: 100%;
+			overflow-y: scroll;
+		}
+	}
+
 	.safe{
 		font-size:1vw;
 		.title{
@@ -161,6 +209,7 @@
 			height: 19vw;
 			width: 100%;
 			border: 1px solid #20265b;
+			overflow-y: scroll;
 			ul {
 				margin-botton: 3px;
 				padding: 0;
