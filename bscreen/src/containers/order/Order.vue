@@ -114,7 +114,7 @@
 					let resData = res.data;
 					console.log(resData);
 					this.workOrderList = resData;
-					this.workOrderDetail = workOrderList[0];
+					this.workOrderDetail = this.workOrderList[0];
 				})
 			},
 			showDetail(item) {
