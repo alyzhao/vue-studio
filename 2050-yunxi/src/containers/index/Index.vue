@@ -1,45 +1,58 @@
 <template>
 	<div>
-		<Banner />
+		<Banner :banner-list="indexBannerList" />
 		<div class="main-content">
 			<div class="content">
-				<!-- 探索 -->
+				<!-- 新生 -->
 				<div class="cell ts clearfix">
-					<p class="tit"><a href="http://tgonetworks.mikecrm.com/BjHVvZo" target="_blank"><img src="../../assets/img/tit-xs.png"></a></p>
+					<p class="tit"><a href="http://tgonetworks.mikecrm.com/BjHVvZo" target="_blank"><img :src="content.subTitleImg[0]"></a></p>
 					<p class="sub-tit">
-						科学与技术、艺术与设计，近百场主题论坛，期待你全身心的参与，激发思考与创意
+						{{content.subTitle[0]}}
 					</p>
 					<div class="c-in clearfix">
-						<div class="items" v-for="item in forumList" :key="item.id">
-							<p class="ctt"><a href="" :title="item.forumWord">{{item.forumName}}</a></p>
-							<p class="ccon"><a href="" :title="item.forumWord">{{item.forumWord}}</a></p>
+						<div class="items" v-for="item in forumList" :key="item.id" @click="goForumDetail(item.id)">
+							<p class="ctt"><a @click="goForumDetail(item.id)" :title="item.forumWord">{{item.forumName}}</a></p>
+							<p class="ccon"><a :title="item.forumWord">{{item.forumWord}}</a></p>
 							<div class="peop">
-								<a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
-								<div>
+								<a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
+								<div class="productor">
 									<p class="cp">出品人:  {{item.products}}</p>
-									<p class="ct overh"><a href="" :title="item.productsWord">{{item.productsWord}}</a></p>
+									<p class="ct overh"><a :title="item.productsWord">{{item.productsPosition}}</a></p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="more"><a target="_blank" v-show="forumList.length>6">查看更多</a></div>
+					<div class="more"><router-link to="/forum" v-show="forumList.length>6">{{content.more}}</router-link></div>
 				</div>
 			</div>
 
+            <!-- 探索 -->
+            <div class="cell tss">
+                <p class="tit"><a href="http://explorerapplication.mikecrm.com/MMfpWv7" target="_blank"><img
+                        :src="content.subTitleImg[1]"></a></p>
+                <p class="sub-tit">{{content.subTitle[1]}}</p>
+                <div class="c-in">
+                    <div class="tss-con">
+                        <p v-for="(item, index) in content.exploreContent" :key="index">{{item}}</p>
+                        <p class="invite">{{content.exploreInvite}}</p>
+                    </div>
+                </div>
+            </div>
+
 			<!-- 团聚 -->
 			<div class="cell tj clearfix">
-				<p class="tit"><a href=" http://cn.mikecrm.com/6hWZ5TL" target="_blank"><img src="../../assets/img/tit-tj.png"></a></p>
-				<p class="sub-tit">世界各地的青年人在2050握手团聚，老友重逢，相遇新知，给彼此灵感，给未来答案</p>
+				<p class="tit"><a href=" http://cn.mikecrm.com/6hWZ5TL" target="_blank"><img :src="content.subTitleImg[2]"></a></p>
+				<p class="sub-tit">{{content.subTitle[2]}}</p>
 				<div class="c-in">
 					<swiper :options="tjSwiperOption">
 						<!-- v-for="item in reuniteList" -->
 						<swiper-slide v-for="item in groupList">
 							<div class="tjslide">
-								<div class="tj-con clearfix">
+								<div class="tj-con clearfix" @click="goReuniteDetail(item.id)">
 									<div class="info">
-										<p class="ra"><a href="" :title="item.groupName">{{item.groupName}}</a></p>
+										<p class="ra"><a :title="item.groupName">{{item.groupName}}</a></p>
 										<p class="peo">召集人</p>
-										<p class="team overh"><a href="" :title="item.groupLead">{{item.groupLead}}</a></p>
+										<p class="team"><a :title="item.convenerPosition + item.convenerName">{{item.convenerPosition + ' ' + item.convenerName}}</a></p>
 										<p class="split"><span></span></p>
 										<div class="intro">
 											<p>{{item.groupWord}}</p>
@@ -57,214 +70,350 @@
 						<!--<div class="swiper-button-next swiper-button-black" slot="button-next"></div>						-->
 					</swiper>
 				</div>
-				<div class="more"><a target="_blank">查看更多</a></div>
+				<div class="more"><router-link :to="'/reunite'" >{{content.more}}</router-link></div>
 			</div>
 
-			<div class="content">
+            <div class="content">
 
-				<!-- 迸发 -->
-				<div class="cell bf clearfix">
-					<p class="tit"><a target="_blank"><img src="../../assets/img/tit-bf.png"></a></p>
-					<p class="sub-tit">
-						音乐、影像、晨跑、露营……这里没有旁观者，2050的狂欢属于每一位年青人
-					</p>	
-					<div class="c-in pt">
-						<div class="item" v-for="item in activityList" :key="item.id">
-							<div class="bg"><img :src="staticHost + item.actImg"></div>
-							<div class="con"><a href="" target="_blank">{{item.actName}}</a></div>
-						</div>
-						<div class="item">
-							<div class="bg"></div>														
-							<div class="bmore"><a target="_blank">更多精彩 <i class="fa fa-angle-right"></i></a></div>
-						</div>																							
-					</div>
-				</div>
-			</div>
+                <!-- 迸发 -->
+                <div class="cell bf clearfix">
+                    <p class="tit"><a target="_blank"><img :src="content.subTitleImg[3]"></a></p>
+                    <p class="sub-tit">
+                        {{content.subTitle[3]}}
+                    </p>
+                    <div class="c-in pt">
+                        <div class="item" v-for="item in activityList" :key="item.id">
+                            <div class="bg"><img :src="staticHost + item.actImg"></div>
+                            <div class="con"><a target="_blank">{{item.actName}}</a></div>
+                        </div>
+                        <div class="item">
+                            <div class="bg"></div>
+                            <div class="bmore">
+                                <router-link :to="'/activity'">{{content.more}} <i class="fa fa-angle-right"></i></router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<div class="cell zy clearfix">
-				<div class="content">
-					<p class="tit"><a target="_blank"><img src="../../assets/img/tit-zy.png"></a></p>
-					<p class="sub-tit">
-						感谢所有的志愿机构与志愿者，你们用年青人的方式定义了“志愿“，让2050与众不同
-					</p>
-					<p class="zy-tit">志愿发起人</p>
-					<swiper :options="zypSwiperOption">
-						<swiper-slide v-for="item in volunteerList" :key="item.id">
-							<div class="zyp-wrap">
-								<div class="zyp-slide">
-									<div class="zyp-img"><a href="" target="_blank"><img :src="staticHost + item.votImg"></a></div>
-									<a href="" class="intro" :title="item.votWord">
-										<p class="vcon">{{item.votWord}}</p>
-									</a>
-								</div>
-								<p class="vna">{{item.votName}}</p>
-							</div>
-						</swiper-slide>
-					</swiper>
-					<div class="mb-zy">
-						<div v-for="item in volunteerList" :key="item.id" class="mb-zy-cell">
-							<div class="img-wrap">
-								<a><img :src="staticHost + item.votImg"></a>
-							</div>
-							<p class="name">{{item.votName}}</p>
-							<p class="tro">{{item.votWord}}</p>
-						</div>																		
-					</div>
-				</div>
-			</div>
+            <div class="cell zy clearfix">
+                <div class="content">
+                    <p class="tit"><a target="_blank"><img :src="content.subTitleImg[4]"></a></p>
+                    <p class="sub-tit">
+                        {{content.subTitle[4]}}
+                    </p>
+                    <p class="zy-tit">{{content.volPeople}}</p>
+                    <swiper :options="zypSwiperOption">
+                        <swiper-slide v-for="item in volunteerList" :key="item.id">
+                            <div class="zyp-wrap">
+                                <div class="zyp-slide">
+                                    <div class="zyp-img"><a target="_blank"><img
+                                            :src="staticHost + item.votImg"></a></div>
+                                    <a class="intro" :title="item.votWord">
+                                        <p class="vcon">{{item.votWord}}</p>
+                                    </a>
+                                </div>
+                                <p class="vna">{{item.votName}}</p>
+                            </div>
+                        </swiper-slide>
+                    </swiper>
+                    <div class="mb-zy">
+                        <div v-for="item in volunteerList" :key="item.id" class="mb-zy-cell">
+                            <div class="img-wrap">
+                                <a><img :src="staticHost + item.votImg"></a>
+                            </div>
+                            <p class="name">{{item.votName}}</p>
+                            <p class="tro">{{item.votWord}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<div class="content">
-				<div class="cell jg clearfix">
-					<p class="zyjg">志愿发起机构</p>
-					<div class="c-in">
-						<swiper :options="zySwiperOption">
-							<!-- <swiper-slide v-for="(item, index) in volunteerOrgList" :key="index">
-								<div class="zy-slide">
-									<div class="mark" v-for="vol in item" :key="vol.id">
-										<img :src="vol.logo">
-									</div>
-								</div>
-							</swiper-slide> -->
-							<swiper-slide>
-								<div class="zy-slide">
-									<div class="mark">
-										<a href=""><img src="../../assets/img/2.png"></a>
-									</div>
-									<div class="mark">
-										<a href=""><img src="../../assets/img/3.png"></a>
-									</div>
-									<div class="mark">
-										<a href=""><img src="../../assets/img/4.png"></a>
-									</div>
-									<div class="mark">
-										<a href=""><img src="../../assets/img/7.png"></a>
-									</div>
-									<div class="mark">
-										<a href=""><img src="../../assets/img/8.png"></a>
-									</div>
-									<div class="mark">
-										<a href=""><img src="../../assets/img/9.png"></a>
-									</div>
-									<div class="mark">
-										<a href=""><img src="../../assets/img/10.png"></a>
-									</div>
-								</div>								
-							</swiper-slide>										
-							<!-- <div class="swiper-pagination" slot="pagination"></div> -->
-						</swiper>
-					</div>					
-					<!-- <div class="more"><a target="_blank">查看更多</a></div>					 -->
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
+            <div class="content">
+                <div class="cell jg clearfix">
+                    <p class="zyjg">{{content.volOrganization}}</p>
+                    <div class="c-in">
+                        <swiper :options="zySwiperOption" class="zyjg-swiper">
+                            <swiper-slide>
+                                <div class="zy-slide">
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo1.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo2.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo3.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo17.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo4.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo5.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo6.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo7.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo8.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo9.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo10.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo11.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo12.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo13.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo14.png"></a>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="zy-slide">
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo16.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo15.png"></a>
+                                    </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo18.png"></a>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <div class="swiper-pagination swpagination" slot="pagination"></div>
+                        </swiper>
+                        <div class="zy-slide mb">
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo1.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo2.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo3.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo4.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo5.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo6.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo7.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo8.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo9.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo10.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo11.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo12.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo13.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo14.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo16.png"></a>
+                            </div>                            
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo15.png"></a>
+                            </div>
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo18.png"></a>
+                            </div>                            
+                        </div>
+                    </div>
+                    <!-- <div class="more"><a target="_blank">查看更多</a></div>					 -->
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
+
 <script>
-	import Banner from 'components/Banner';
-	// import { prodUrl } from 'constants/config.js';
+    import Banner from 'components/Banner';
+    // import { prodUrl } from 'constants/config.js';
+    import indexMbBanner from 'assets/img/mb-banner.png'
 
-	const prodUrl = require('constants/config.js').prodUrl;
+    import {contentZh, contentEn} from 'constants/index.js';
 
-	export default {
-		data() {
-			return {
-				tjSwiperOption: {
-					autoplay: true,
-					// spaceBetween: 20
-					pagination: {
-						el: '.swiper-pagination-tj',
-						clickable: true,
-						type: 'bullets'
-					},
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					}
-				},
-				zySwiperOption: {
-					autoplay: true,
-					// pagination: {
-					// 	el: '.swiper-pagination',
-					// 	type: 'bullets'
-					// }
-				},
-				zypSwiperOption: {
-					autoplay: true,
-					slidesPerView: 5,
-				},
-				forumList: [],
-				groupList: [],
-				activityList: [],
-				volunteerList: [],
-				volunteerOrgList: [],
-				staticHost: prodUrl.imgHost
-			}
-		},
-		mounted: function () {
-			this.$nextTick(function () {
-				this.axios.get(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum').then(response => {
-					let resData = response.data;
-					this.forumList = resData;
-				})
+    const prodUrl = require('constants/config.js').prodUrl;
 
-				this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup').then(response => {
-					let resData = response.data;
-					this.groupList = resData;
-				})
+    export default {
+        data() {
+            return {
+                tjSwiperOption: {
+                    autoplay: true,
+                    // spaceBetween: 20
+                    pagination: {
+                        el: '.swiper-pagination-tj',
+                        clickable: true,
+                        type: 'bullets'
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }
+                },
+                zySwiperOption: {
+                    autoplay: true,
+                    pagination: {
+                        el: '.swpagination',
+                        clickable: true,
+                        type: 'bullets'
+                    }
+                },
+                zypSwiperOption: {
+                    autoplay: true,
+                    slidesPerView: 5,
+                },
+                forumList: [],
+                groupList: [],
+                activityList: [],
+                volunteerList: [],
+                volunteerOrgList: [],
+                staticHost: prodUrl.imgHost,
+                indexBannerList: [{
+                    mbBanner: indexMbBanner,
+                    router: '/credit',
+                    pcBanner: ''
+                }],
 
-				this.axios.get(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity').then(response => {
-					this.activityList = response.data;
-				})
+            }
+        },
+        mounted: function () {
+            this.$nextTick(function () {
+                this.loadData();
+            })
+        },
+        methods: {
+            goForumDetail(id) {
+                this.$router.push({path: `/forum/${id}`})
+            },
+            goReuniteDetail(id) {
+                this.$router.push({path: `/reunite/${id}`})
+            },
+            loadData() {
+                var params = new URLSearchParams();
+                params.append('pageNumber', 0);
+                params.append('pageSize', 9);
+                params.append('Language', this.$store.state.lang)
 
-				this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot').then(response => {
-					let resData = response.data;
 
-					this.volunteerList = resData;
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', params).then(response => {
+                    let resData = response.data;
+                    this.forumList = resData;
+                })
 
-					// this.volunteerList =[{
-					// 	id: 1,
-					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
-					// 	votName: 'FUCK',
-					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
-					// }, {
-					// 	id: 2,
-					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
-					// 	votName: 'FUCK',
-					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
-					// }, {
-					// 	id: 3,
-					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
-					// 	votName: 'FUCK',
-					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
-					// }, {
-					// 	id: 4,
-					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
-					// 	votName: 'FUCK',
-					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
-					// }, {
-					// 	id: 5,
-					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
-					// 	votName: 'FUCK',
-					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
-					// }, {
-					// 	id: 6,
-					// 	votImg: 'Activity20180228193913éè²åé£æ ¼-3.jpg',
-					// 	votName: 'FUCK',
-					// 	votWord: 'You are running Vue in development mode.Make sure to turn on production mode when deploying for production.See more tips at https://vuejs.org/guide/deployment.htmlclient?1a6c:77 [WDS] Hot Module Replacement enabled.'
-					// }]
-				})
-			})
-		},
-		components: {
-			Banner
-		}
-	}
+                this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup', {params: {
+                    Language: this.$store.state.lang
+                }}).then(response => {
+                    let resData = response.data;
+                    this.groupList = resData;
+                })
+
+                var paramsActivity = new URLSearchParams();
+                paramsActivity.append('Language', this.$store.state.lang);
+
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', paramsActivity).then(response => {
+                    this.activityList = response.data;
+                })
+
+                this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot', {params: {
+                    Language: this.$store.state.lang
+                }}).then(response => {
+                    let resData = response.data;
+                    this.volunteerList = resData;
+                })
+
+                this.axios.get(prodUrl.HOST + '/2050webOnline/onLinebanner/queryBanner', {params: {
+                    Language: this.$store.state.lang
+                }}).then(response => {
+                    let resData = response.data;
+                    this.indexBannerList[0].pcBanner = this.staticHost + resData.imgOne;
+                })
+            }
+        },
+        computed: {
+            isZh() {
+                return this.$store.state.lang == 'zh';
+            },
+            content() {
+                return this.isZh ? contentZh : contentEn;
+            }
+        },
+        watch: {
+            isZh() {
+                this.loadData();
+            }
+        },
+        components: {
+            Banner
+        }
+    }
 </script>
 <style lang="scss">
 	.content {
 		width: 1200px;
 		margin: 0 auto;
+	}
+	.cell.tss {
+		background: url('../../assets/img/ts-bg.png') no-repeat center center;
+		overflow: hidden;
+        background-size: auto 100%;
+		.sub-tit {
+			color: #fff;
+		}
+		.tss-con {
+			padding: 38px;
+		    background-color: rgba(151, 116, 231, 0.2);
+		    width: 1075px;
+		    margin: 0 auto;
+		    box-shadow: inset 0px 0px 55px rgba(246, 202, 253, 0.3);
+			p {
+			    color: #fff;
+			    font-size: 18px;
+			    line-height: 38px;
+			    text-align: justify;
+			    &.invite {
+				    font-size: 20px;
+				    font-weight: bold;
+				    margin-top: 15px;			    	
+			    }
+			}
+		}
+        .c-in {
+            padding-bottom: 85px;
+        }
 	}
 	.cell {
 		&.ts {
@@ -276,6 +425,9 @@
 			margin-top: 80px;			
 			height: 95px;
 			text-align: center;
+			img {
+				height: 75px;
+			}
 		}
 		.sub-tit {
 			color: #333;
@@ -308,6 +460,7 @@
 				padding: 15px 20px;
 				color: #333;
 				box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .2);
+				cursor: pointer;
 				&:nth-child(3n) {
 					margin-right: 0;
 				}
@@ -349,6 +502,7 @@
 					margin-bottom: 5px;
 					height: 80px;
 					overflow: hidden;
+					cursor: pointer;
 					a {
 						color: #333;
 						font-weight: 600;
@@ -393,6 +547,7 @@
 			.tj-con {
 				width: 1200px;
 				margin: 0 auto;
+				cursor: pointer;
 			}
 			.details {
 				width: 1200px;
@@ -408,6 +563,8 @@
 			}
 			.info {
 				width: 400px;
+				height: 425px;
+				overflow: hidden;
 				float: left;
 				background-color: #fff;
 				p {
@@ -424,6 +581,7 @@
 					margin-bottom: 15px;
 					height: 85px;
 					overflow: hidden;
+					word-break: keep-all;
 				}
 				.rab {
 					margin: 5px 0 15px;
@@ -443,7 +601,7 @@
 					color: #666;
 					text-align: justify;
 					line-height: 30px;
-					padding-top: 20px;
+					padding-top: 15px;
 					padding-bottom: 40px;
 					p {
 						height: 148px;
@@ -463,6 +621,7 @@
 		.swiper-pagination-tj {
 			text-align: center;
 			margin-top: 75px;
+			margin-bottom: 30px;
 			.swiper-pagination-bullet {
 				width: 12px;
 				height: 12px;
@@ -539,6 +698,7 @@
 						align-items: center;
 						justify-content: center;
 						padding: 20px;
+						word-break: keep-all;
 						a {
 							font-size: 26px;
 							color: #fff;
@@ -577,7 +737,7 @@
 			}
 			.zy-tit {
 				color: #fff;
-				font-size: 30px;
+				font-size: 26px;
 				text-align: center;
 				margin: 60px 0 58px;
 			}
@@ -629,17 +789,20 @@
 					transition: all .3s;
 					p {
 						text-align: center;
-						padding: 0 30px;
+						padding: 0 15px;
 						color: #333;
+						font-size: 12px;
+						display: flex;
+						align-items: center;
 					}
 					.vna {
 						font-size: 22px;
 						margin-top: 30px;
 					}
 					.vcon {
-						height: 72px;
+						height: 110px;
 						overflow: hidden;
-						margin-top: 50px;
+						margin-top: 35px;
 					}
 				}
 			}
@@ -652,6 +815,12 @@
 			}
 		}
 		&.jg {
+            .c-in {
+                margin-top: 35px;
+            }
+			.zyjg-swiper {
+				display: block;
+			}
 			.zy-slide {
 				display: flex;
 				flex-wrap: wrap;
@@ -668,6 +837,9 @@
 						height: 65px;
 						max-width: 225px;
 					}
+				}
+				&.mb {
+					display: none;
 				}
 			}
 			.swiper-container {
@@ -689,12 +861,15 @@
 			}
 			.zyjg {
 				text-align: center;
-				font-size: 36px;
+				font-size: 26px;
 				color: #333;
 				margin-top: 65px;
 			}
 			.more {
 				margin-top: 20px;
+			}
+			.swpagination {
+				margin-bottom: 20px;
 			}
 		}
 	}
@@ -748,9 +923,6 @@
 				&:nth-child(2n - 1) {
 					margin-right: 2%;
 				}
-				&:last-child {
-					display: none;
-				}
 			}
 		}
 		.cell .c-in .items .ctt {
@@ -767,7 +939,6 @@
 		}
 		.cell .tjslide .info .team {
 			white-space: normal;
-			height: 72px;
 			overflow: hidden;
 		}
 		.cell .tjslide .info .intro p {
@@ -788,6 +959,161 @@
 		}
 		.mb-zy {
 			display: flex;
+		}
+		.cell.bf .c-in.pt .item {
+			height: 50vw;
+		}
+	}
+	@media (max-width: 768px) {
+		.cell.bf .c-in.pt .item .con {
+			width: 12rem;
+			height: 12rem;
+		}
+		.mb-zy .mb-zy-cell .tro {
+			padding: 0 1rem;
+		    font-size: 1.2rem;
+		    height: 5rem;
+		}
+		.cell.jg .zy-slide .mark {
+			width: 50%;
+			margin: 0;
+			a {
+				padding: 10px;
+			}
+			img {
+				height: auto;
+				width: 100%;
+			}
+		}
+		.cell .c-in .items .peop .portrait {
+			display: block;
+			margin-right: 15px;
+		}
+		.cell .c-in .items .cp, .cell .c-in .items .ct {
+			margin-left: 0;
+		}
+		.cell .sub-tit {
+			padding: 0 .8rem;
+		}
+		.cell.bf .c-in.pt .item .bmore a {
+			font-size: 1.5rem;
+		}
+		.cell .more a {
+			width: 95%;
+		}
+		.mb-zy .mb-zy-cell .img-wrap {
+			height: 50vw;
+			width: 100%;
+			padding: .8rem;
+		}
+		.cell.jg .zyjg-swiper {
+			display: none;
+		}
+		.cell.jg .zy-slide.mb {
+			display: flex;
+		}
+		.cell.tss {
+			background: #295176;
+			padding-bottom: 20px;
+		}
+		.cell.tss .tss-con p {
+			font-size: 16px;
+		}
+		.cell.tss .tss-con p.invite {
+			font-size: 18px;
+			text-indent: 0;
+		}
+		.cell.tss .tss-con {
+			width: 100%;
+		}
+		.cell.tss {
+			height: auto;
+		}
+		.cell .tit img {
+			margin-left: 35px;
+		}
+		.cell .tit{
+			margin-top: 20px;
+		}
+		.cell .sub-tit {
+			margin-top: 0;
+		}
+		.cell .c-in {
+			margin-top: 10px;
+		}
+		.cell .c-in .items {
+			width: 100%;
+		    margin: 0 0 10px;
+		}
+		.cell .c-in .items:nth-child(2n - 1) {
+			margin-right: 0;
+		}
+		.cell .c-in .items .ctt {
+			max-height: 80px;
+			height: auto;
+			font-size: 22px;
+		}
+		.cell .c-in .items .ct {
+			width: 100%;
+		}
+		.productor {
+			max-width: 240px;
+		}
+		.cell .more {
+			margin-bottom: 40px;
+		}
+		.cell.tss .tss-con {
+			padding: 25px;
+		}
+		.cell.tss .tss-con p {
+			line-height: 30px;
+		}
+		.cell .sub-tit {
+			font-size: 18px;
+		}
+		.cell .tjslide .info .ra {
+			height: 75px;
+			font-size: 26px;
+		}
+		.cell .tjslide .info .team {
+			font-size: 22px;
+		}
+		.cell .swiper-pagination-tj {
+		    margin-top: 35px;
+		    margin-bottom: 0px;
+		}
+		.cell.tj .more {
+			margin-top: 30px;
+		}
+		.cell.zy .zy-tit {
+		    font-size: 22px;
+		    margin: 30px 0 35px;
+    	}
+		.mb-zy .mb-zy-cell .name {
+			font-size: 20px;
+			padding-bottom: 5px;
+		}
+		.mb-zy .mb-zy-cell .tro {
+			font-size: 14px;
+		}
+		.mb-zy .mb-zy-cell {
+			margin-bottom: 0;
+		}
+		.cell.zy {
+			padding-bottom: 35px;
+		}
+		.cell.jg .zyjg {
+			font-size: 28px;
+			margin-top: 35px;
+		}
+		.cell.jg .zy-slide .mark {
+			height: 95px;
+		}
+		.footer .main {
+			padding-top: 20px;
+		}
+		.footer .main .min-main .min-l ul {
+			margin: 10px 0;
 		}
 	}
 </style>

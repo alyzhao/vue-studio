@@ -3,10 +3,12 @@
 		<swiper :options="swiperOption">			
  			<swiper-slide v-for="item in bannerList">
 				<div class="banner">
-					<router-link :to="item.router"><img width="100%" :src="item.pcBanner"></router-link>					
+					<router-link v-if="item.router" :to="item.router"><img width="100%" :src="item.pcBanner"></router-link>					
+					<a v-if="item.link" :href="item.link" target="_blank"><img width="100%" :src="item.pcBanner"></a>
 				</div>
 				<div class="mb-banner">
-					<router-link :to="item.router"><img width="100%" :src="item.mbBanner"></router-link>
+					<router-link v-if="item.router" :to="item.router"><img width="100%" :src="item.mbBanner"></router-link>
+					<a v-if="item.link" :href="item.link" target="_blank"><img width="100%" :src="item.mbBanner"></a>					
 				</div>
 			</swiper-slide>
 		</swiper>
@@ -20,7 +22,7 @@
 			bannerList: {
 				type: Array,
 				// default: [{
-				// 	router: '',
+				// 	router-linkr: '',
 				// 	pcBanner: '',
 				// 	mbBanner: ''
 				// }]
@@ -30,10 +32,10 @@
 			return {
 				swiperOption: {
 					autoplay: true,
-					pagination: {
-						el: '.swiper-pagination',
-						type: 'bullets'
-					}
+					// pagination: {
+					// 	el: '.swiper-pagination',
+					// 	type: 'bullets'
+					// }
 				},
 				bannerUrl: null,
 				staticHost: prodUrl.imgHost

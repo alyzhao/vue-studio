@@ -1,8 +1,8 @@
 <template>
     <div class="message">
-        <div class="">
-            <img class="max-bg" src="../assets/img/max-bg.png" alt="">
-            <img class="min-bg" src="../assets/img/min-bg.png" alt="">
+        <!--<div class="m">-->
+            <!--<img class="max-bg" src="../assets/img/max-bg.png" alt="">-->
+            <!--<img class="min-bg" src="../assets/img/min-bg.png" alt="">-->
             <div class="container">
                 <div class="message-box">
                     <h1 class="message-box-t">致2050志愿者的感谢信</h1>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <!--</div>-->
     </div>
 </template>
 <script>
@@ -47,6 +47,11 @@
     }
 </script>
 <style lang="scss">
+.message{
+    width: 100%;
+    padding: 170px 0;
+    background: url("../assets/img/mid-bg.png");
+    background-size: 100% 100%;
     .message-box-t{
         font-size: 48px;
     }
@@ -55,28 +60,13 @@
         font-size: 24px;
         line-height: 40px;
     }
-    .container-fluid{
-        height: 100%;
-        position: relative;
-        padding: 0;
-    }
-    .container-fluid img{
-        position: absolute;
-        width: 100%;
-        height: auto;
-    }
     .container{
-        height: 2600px;
-        position: absolute;
         background: #fff;
-        left: 0;
-        right: 0;
-        top: 188px;
-        margin:auto;
-        box-shadow:0 0 65px 4px #818181;
+        box-shadow:0 0 65px 4px rgba(129,129,129,0.2);
+        margin:0 9.8%;
     }
     .message-box{
-        padding: 70px 144px 114px 144px;
+        padding: 70px 144px 114px;
     }
     .message-box-t:after{
         content: "";
@@ -98,8 +88,11 @@
         height: auto;
         display: block;
     }
-    .message-name span:nth-child(2){
-        margin-top: 124px;
+    .message-name span{
+        font-size: 24px;
+        &:nth-child(2){
+            margin-top: 77px;
+        }
     }
     .min-bg{
         display: none;
@@ -107,56 +100,52 @@
     .max-bg {
         display: block;
     }
-    @media (min-width: 1200px) {
-        .container {
-            max-width: 1526px;
-        }
-    }
-    @media (max-width: 768px) {
-        .message-box-t{
-            font-size: 18px;
-            padding-left: 5px;
-        }
-        .message-para p{
-            margin-bottom:10px;
-            font-size: 12px;
-            line-height: 20px;
-            padding: 0 7px;
-        }
-        .message-name span{
-            font-size: 14px;
-        }
-        .container-fluid .min-bg{
-            display: block;
-        }
-        .max-bg{
-            display: none;
-        }
-        .message-box{
-            padding:20px 0 0;
-        }
+    @media  screen and (max-width: 1200px){
         .container{
-            width: 300px;
-            height:1875px;
-            top:70px
+            .message-box{
+                padding: 62px 57px 56px;
+            }
+        }
+        .message{
+            padding: 88px 0;
+            background: url("../assets/img/min-bg.png") no-repeat;
+            background-size: 100% 100%;
         }
         .message-box-t:after{
-            width: 28px;
-            height: 6px;
-            margin-top: 15px;
-            margin-bottom: 23px;
+            margin-top: 27px;
+            margin-bottom: 40px;
         }
-        .message-name img{
-            width: 105px;
-            height: auto;
-            margin-top: 12px;
-        }
-        .message-name span:nth-child(2){
-            margin-top: 74px;
-        }
-        .message-name {
-            padding-top: 20px;
-            padding-right: 5px;
+        .message-name span:nth-child(2) {
+            margin-top: 2rem;
         }
     }
+}
+@media (max-width: 768px) {
+    .message {
+        padding: 2rem 1.5rem;
+        .container {
+            margin: 0;
+        }
+    }
+    .message .container .message-box {
+        padding: 2rem 1.5rem;
+    }
+    .message .message-box-t {
+        font-size: 32px;
+    }
+    .message .message-para p {
+        margin-bottom: 1rem;
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .message .message-name {
+        margin-top: 3rem;
+    }
+    .message .message-name img {
+        width: 12rem;
+    }
+    .message .message-name span {
+        font-size: 18px;
+    }
+}
 </style>

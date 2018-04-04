@@ -2,11 +2,11 @@
 	<div class="header">
 		<div class="top-nav">
 			<div class="logo">
-				<a href="/" target="self"><img :src="logo"></a>
+				<router-link to="/" class="logo-wrap"><img :src="logo"></router-link>
 				<div class="info">
-					<p>时间： 2018.5.25 - 2018.5.27</p>
-					<p>地址： 杭州云栖小镇</p>
-					<p>热线： +86 18519014746</p>
+					<p>{{headInfo.time}}</p>
+					<p>{{headInfo.location}}</p>
+					<p>{{headInfo.hotline}}</p>
 				</div>
 			</div>
 			<div class="link">
@@ -17,17 +17,18 @@
 				</header-link>
 			</div>
 			<div class="purchase">
-				<a class="pur-btn" target="_blank" href="https://store.geekbang.org/yunqi">立即购票</a>
+				<router-link class="pur-btn" to="/purchase">立即购票</router-link>
+				<!-- <a class="pur-btn" @click="fff()">立即购票</a> -->
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
-				<button class="lang active" @click="setLang('zh')">中文</button>
-				<button class="lang" @click="setLang('en')">ENG</button>
+				<button class="lang" :class="{active: lang == 'zh'}" @click="setLang('zh')">中文</button>
+				<button class="lang" :class="{active: lang =='en'}" @click="setLang('en')">ENG</button>
 				<i class="mb-bar fa fa-bars" @click="showMbNav = !showMbNav"></i>
 			</div>
 		</div>
 		<div class="mb-nav" :class="{show: showMbNav}">
 			<ul>
-				<li class="clearfix" v-for="item in navLinks">
-					<header-link 
+				<li class="clearfix" v-for="item in navLinks" @click="showMbNav = !showMbNav">
+					<header-link
 						:name="item.name"
 						:link="item.link"
 						:key="item.name">
@@ -42,7 +43,7 @@
 	import { mapState } from 'vuex';
 
 	export default {
-		props: ['logo', 'navLinks'],
+		props: ['logo', 'navLinks', 'headInfo'],
 		data() {
 			return {
 				showMbNav: false
@@ -50,9 +51,7 @@
 		},
 		methods: {
 			setLang(val) {
-				console.log(val);
-				console.log(this.lang);
-				console.log(this.showMbNav);
+				this.$store.dispatch('SET_LANG', val);
 			},
 		},
 		computed: mapState([
@@ -80,7 +79,10 @@
 				align-items: center;
 				min-height: 40px;
 				flex-grow: 1;
-				a {
+				img {
+					height: 65px;
+				}
+				.logo-wrap {
 					margin-top: 10px;
 				}
 				.info {
@@ -141,6 +143,7 @@
 					font-size: 14px;
 					transition: all .2s linear;
 					width: 50px;					
+					padding: 0 5px;
 					&:hover, &.active {
 						font-size: 18px;
 						color: #5c40b1;
@@ -152,7 +155,6 @@
 				.mb-bar {
 			        transition: all 0.2s ease 0s;
 					font-size: 45px;
-					padding: 10px;
 					color: #333;
 					cursor: pointer;
 					display: none;
@@ -187,13 +189,15 @@
 				padding: 0;
 				margin: 0;
 				li {
-					padding: 10px 20px;
 					&:hover {
 						background-color: #dcb001;
 					}
 					a {
+						padding: 10px 30px;
+						text-align: left;
 						color: #333;
 						font-size: 18px;
+						width: 100%;
 					}
 				}
 			}
@@ -206,9 +210,9 @@
 		.header .top-nav .link {
 			display: none;
 		}
-		.purchase .lang, .purchase .split {
-			display: none;
-		}
+		// .purchase .lang, .purchase .split {
+		// 	display: none;
+		// }
 		.header .top-nav .purchase .mb-bar {
 			display: block;
 		}
@@ -218,5 +222,29 @@
 		.cell.bf .c-in.pt .item {
 			width: 50% !important;
 		}
+	}
+	@media (max-width: 768px) {
+		.header .top-nav{
+		    padding: 0 5px;
+		}
+		.header .top-nav .logo img {
+			width: 8.5rem;
+			height: auto;
+		}
+		.header .top-nav .purchase .pur-btn {
+	        min-width: 7rem;
+		    padding: .5rem 0;
+		    margin-right: 0;
+		    font-size: 14px;
+		}
+		.header .top-nav .purchase {
+			flex-grow: 1;
+		}
+		.header .top-nav .purchase .lang {
+			width: auto;
+		}
+	}
+	a[title="站长统计"] {
+		display: none;
 	}
 </style>

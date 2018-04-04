@@ -428,6 +428,9 @@ body {
     word-break            : break-all;
     line-height: 1.5;
 }
+body {
+    word-break: break-word;
+}
 body.no-scroll {
     overflow: hidden;
     position: relative;
@@ -509,4 +512,10 @@ p, h1, h2, h3 {
 
 a {
     color: inherit;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
 }

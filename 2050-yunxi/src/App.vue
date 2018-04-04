@@ -1,15 +1,14 @@
 <template>
 	<div>
-		<Header :nav-links="navLinks" :logo="logo"/>
+		<Header :nav-links="navLinks" :logo="logo" :head-info="headInfo"/>
 		<router-view />
-		<Footer :address="address" :phones="phones" :email="email"/>
+		<Footer :footer-info="footerInfo"/>
 	</div>
 </template>
 <script>
 	import cloneDeep from 'lodash/cloneDeep';
-	import { navLinks, logo, address, phones, email} from 'constants/2050.js';
-	// import logo from 'assets/img/logo.jpg';
-	// import qrCode from 'assets/img/qrcode.png';
+	import { navLinks, logo, headInfo, footerInfo} from 'constants/2050.js';
+	import { navLinks_en, headInfo_en, footerInfo_en } from 'constants/2050_en.js';
 
 	import Header from 'components/Header';
 	import Footer from 'components/Footer';
@@ -18,15 +17,31 @@
 		name: 'app',
 		data() {
 			return {
-				navLinks: cloneDeep(navLinks),
+				navLinks: navLinks,
 				logo: logo,
-				address: cloneDeep(address),
-				phones: cloneDeep(phones),
-				email: cloneDeep(email),
+				headInfo: headInfo,
+				footerInfo: footerInfo
 			}
 		},
-		mounted() {
-			console.log(this.logo);
+		computed: {
+			isZh() {
+				return this.$store.state.lang == 'zh';
+			},
+		},
+		watch: {
+			isZh(val) {
+				if (val) {
+					this.navLinks = navLinks;
+					this.headInfo = headInfo;
+					this.footerInfo = footerInfo;
+
+					this.logo = logo;
+				} else {
+					this.headInfo = headInfo_en;
+					this.navLinks = navLinks_en;
+					this.footerInfo = footerInfo_en;
+				}
+			}
 		},
 		components: {
 			Header,

@@ -8,6 +8,7 @@ import 'swiper/dist/css/swiper.css';
 
 import store from './vuex';
 import axios from 'axios';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 Vue.prototype.axios = axios;
 

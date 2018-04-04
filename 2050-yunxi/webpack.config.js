@@ -72,7 +72,7 @@ module.exports = {
 		}]
 	},
 	devServer: {
-		port: 3000,
+		port: 3001,
 		historyApiFallback:{
             index:'/index.html'
         },
@@ -89,7 +89,7 @@ module.exports = {
 
 // UglifyJsPlugin 这是内置插件
 if (process.env.NODE_ENV === 'production') {
-	module.exports.output.publicPath = prodUrl.staticHost;	
+	module.exports.output.publicPath = prodUrl.staticHost;
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -116,3 +116,5 @@ if (process.env.NODE_ENV === 'development') {
 		new webpack.HotModuleReplacementPlugin(),
 	])
 }
+
+console.log(process.env.NODE_ENV);

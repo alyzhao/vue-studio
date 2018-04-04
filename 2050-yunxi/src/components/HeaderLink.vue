@@ -39,8 +39,8 @@
 			color: #5c40b1;
 			font-size: 20px;
 		}
-		&.router-link-exact-active {
-			color: #5c40b1;
+		&.is-active {
+			color: #5c40b1 !important;
 			font-size: 18px;			
 			font-weight: bold;
 		}
