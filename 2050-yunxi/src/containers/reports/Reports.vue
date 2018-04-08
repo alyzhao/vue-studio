@@ -25,7 +25,7 @@
 </template>
 <script>
     import volunteerPcBanner from 'assets/img/cd-banner.png';
-    import volunteerMbBanner from 'assets/img/cd-banner.png';
+    import volunteerMbBanner from 'assets/img/cd-mb-banner.png';
     const prodUrl = require('constants/config.js').prodUrl;
 
     import Banner from 'components/Banner';

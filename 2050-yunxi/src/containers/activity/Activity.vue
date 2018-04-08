@@ -27,7 +27,7 @@
 
     import activityPcBanner from 'assets/img/bf-banner.png';
     import activityMbBanner from 'assets/img/bf-mb-banner.png';
-
+    import qs from 'qs';
 
 	export default {
 		data() {
@@ -50,10 +50,9 @@
 		},
 		methods: {
 			loadData() {
-				var params = new URLSearchParams();
-                params.append('Language', this.$store.state.lang)
-
-				this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivityList', params).then(response => {
+				this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivityList', qs.stringify({
+					Language: this.$store.state.lang
+				})).then(response => {
 					let resData = response.data;
 
 					this.runList = resData.map((v,i)=>{

@@ -52,6 +52,7 @@
 </template>
 <script>
     const prodUrl = require('constants/config.js').prodUrl;
+    import qs from 'qs';
 
     export default {
         props: ['id'],
@@ -73,11 +74,10 @@
                 this.$router.push({path: `/forum/${this.id}/${topicId}`})
             },
             loadData() {
-                var params = new URLSearchParams();
-                params.append('froumId', this.id);
-                params.append('Language', this.$store.state.lang)
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryByFroumId', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryByFroumId', qs.stringify({
+                    froumId: this.id,
+                    Language: this.$store.state.lang
+                })).then(response => {
                     this.forumInfo = response.data;
                 })
 

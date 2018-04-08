@@ -31,6 +31,8 @@
 </template>
 <script>
     const prodUrl = require('constants/config').prodUrl;
+    import qs from 'qs';
+
     export default{
         data(){
             return {
@@ -46,11 +48,10 @@
         },
         methods: {
             loadData() {
-                var params = new URLSearchParams();
-                params.append('groupId', this.id);
-                params.append('Language', this.$store.state.lang)
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroupById', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroupById', qs.stringify({
+                    groupId: this.id,
+                    Language: this.$store.state.lang
+                })).then(response => {
                     let resData = response.data;
                     this.reuniteDetail = resData;
                 })                

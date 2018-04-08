@@ -15,7 +15,7 @@
                                         <div class="peop">
                                             <a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
                                             <div class="productor">
-                                                <p class="cp">出品人:  {{item.products}}</p>
+                                                <p class="cp overh">出品人:  {{item.products}}</p>
                                                 <p class="ct overh"><a href="" :title="item.productsWord">{{item.productsPosition}}</a></p>
                                             </div>
                                         </div>
@@ -36,7 +36,7 @@
     import forumMbBanner from 'assets/img/xs-mb-banner.png';
 
     import Banner from 'components/Banner';
-
+    import qs from 'qs';
 
     const prodUrl = require('constants/config.js').prodUrl;
     export default {
@@ -76,12 +76,12 @@
         methods: {
             loadData(page = this.page, size = this.size) {
                 this.loadingData = true;
-                var params = new URLSearchParams();
-                params.append('pageNumber', page * this.size);
-                params.append('pageSize', size);
-                params.append('Language', this.$store.state.lang)
 
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
+                    pageNumber: page * this.size,
+                    pageSize: size,
+                    Language: this.$store.state.lang
+                })).then(response => {
                     this.loadingData = false
                     let resData = response.data;
                     if (resData < this.size) {

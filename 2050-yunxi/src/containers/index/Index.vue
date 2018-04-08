@@ -16,7 +16,7 @@
 							<div class="peop">
 								<a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
 								<div class="productor">
-									<p class="cp">出品人:  {{item.products}}</p>
+									<p class="cp overh">出品人:  {{item.products}}</p>
 									<p class="ct overh"><a :title="item.productsWord">{{item.productsPosition}}</a></p>
 								</div>
 							</div>
@@ -266,6 +266,8 @@
 
     import {contentZh, contentEn} from 'constants/index.js';
 
+    import qs from 'qs';
+
     const prodUrl = require('constants/config.js').prodUrl;
 
     export default {
@@ -323,13 +325,11 @@
                 this.$router.push({path: `/reunite/${id}`})
             },
             loadData() {
-                var params = new URLSearchParams();
-                params.append('pageNumber', 0);
-                params.append('pageSize', 9);
-                params.append('Language', this.$store.state.lang)
-
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
+                    pageNumber: 0,
+                    pageSize: 9,
+                    Language: this.$store.state.lang
+                })).then(response => {
                     let resData = response.data;
                     this.forumList = resData;
                 })
@@ -341,10 +341,9 @@
                     this.groupList = resData;
                 })
 
-                var paramsActivity = new URLSearchParams();
-                paramsActivity.append('Language', this.$store.state.lang);
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', paramsActivity).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', qs.stringify({
+                    Language: this.$store.state.lang
+                })).then(response => {
                     this.activityList = response.data;
                 })
 
@@ -472,6 +471,7 @@
 					.portrait {
 						display: block;
 						width: 60px;
+                        min-width: 60px;
 						height: 60px;
 						border-radius: 100%;
 						overflow: hidden;
@@ -986,7 +986,6 @@
 			}
 		}
 		.cell .c-in .items .peop .portrait {
-			display: block;
 			margin-right: 15px;
 		}
 		.cell .c-in .items .cp, .cell .c-in .items .ct {
@@ -1055,9 +1054,6 @@
 		}
 		.cell .c-in .items .ct {
 			width: 100%;
-		}
-		.productor {
-			max-width: 240px;
 		}
 		.cell .more {
 			margin-bottom: 40px;

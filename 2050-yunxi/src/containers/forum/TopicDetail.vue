@@ -16,11 +16,11 @@
                     <h3>所属论坛</h3>
                     <p>{{topicInfo && topicInfo.froumName}}</p>
                 </div>
-                <div>
+<!--                 <div>
                     <h3>时间</h3>
                     <p>{{topicInfo && (new Date(topicInfo.saddTime)).toLocaleString()}}</p>
                 </div>
-                <div>
+ -->                <div>
                     <h3>内容介绍</h3>
                     <p class="forum-con">{{topicInfo && topicInfo.shareThemeWord}}</p>
                 </div>
@@ -30,7 +30,8 @@
 </template>
 <script>
     const prodUrl = require('constants/config.js').prodUrl; 
-
+    import qs from 'qs';
+    
     export default{
         name:'detail',
         props:{
@@ -47,11 +48,10 @@
         },
         methods: {
             loadData() {
-                var params = new URLSearchParams();
-                params.append('shareId', this.topicId);
-                params.append('Language', this.$store.state.lang)            
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryShareById', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryShareById', qs.stringify({
+                    shareId: this.topicId,
+                    Language: this.$store.state.lang
+                })).then(response => {
                     this.topicInfo = response.data;
                 })                
             }

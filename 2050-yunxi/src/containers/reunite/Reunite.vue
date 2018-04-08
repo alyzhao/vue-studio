@@ -5,7 +5,7 @@
             <Banner :banner-list="forumBannerList"/>
             <div class="tj-list">
                 <ul>
-                    <li v-for="item in tjList" :key="item.id">
+                    <li v-for="item in reuniteList" :key="item.id">
                         <router-link :to="'/reunite/' + item.id">
                             <div class="img-box">
                                 <div class="img">
@@ -31,6 +31,7 @@
 <script>
     import reunitePcBanner from 'assets/img/tj-banner.png';
     import reuniteMbBanner from 'assets/img/tj-mb-banner.png';
+    import qs from 'qs';
 
     const prodUrl=require('constants/config').prodUrl;
     import Banner from 'components/Banner';
@@ -44,7 +45,7 @@
                     router: '',
                     link: 'http://cn.mikecrm.com/6hWZ5TL'
                 }],
-                tjList:[],
+                reuniteList:[],
                 staticImg:prodUrl.imgHost,
                 page: 0,
                 size: 8,
@@ -72,23 +73,22 @@
         methods: {
             loadData(page = this.page, size = this.size) {
                 this.loadingData = true;
-                var params = new URLSearchParams();
-                params.append('pageNumber', page * this.size);
-                params.append('pageSize', size);
-                params.append('Language', this.$store.state.lang)
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroupList', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroupList', qs.stringify({
+                    pageNumber: page * this.size,
+                    pageSize: size,
+                    Language: this.$store.state.lang
+                })).then(response => {
                     this.loadingData = false
                     let resData = response.data;
                     if (resData < this.size) {
                         this.loadAll = true;
                     }
-                    this.tjList.push(...resData);
+                    this.reuniteList.push(...resData);
                     this.page = page;
                 })
             },
             reLoad() {
-                this.forumList = [];
+                this.reuniteList = [];
                 this.loadAll = false;
                 this.loadData(0);
             }

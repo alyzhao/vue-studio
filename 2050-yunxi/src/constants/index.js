@@ -36,7 +36,7 @@ export const contentZh = {
         '现在，我们邀请年轻大胆的你，登上“探索号”飞船，也认识更多的探索者，让世界看到你们最具活力的艺术设计，最有吸引力的互动光芒，和最天马行空的科技创新！',
         '你，愿意成为下一位登上"探索号"的探索者吗？'
     ],
-    exploreInvite: '邀请时间: 2018.3.5 -- 2018.4.5'
+    exploreInvite: '邀请时间: 邀请持续发放中'
 }
 
 export const contentEn = {
@@ -63,6 +63,6 @@ export const contentEn = {
         'Young people with converging interests will gather to create a variety of cabins on this ship: aesthetic cabin, future cabin, fun cabin and world cabin. At 2050, you will have a brainstorm with someone who thinks outside of the box. You will meet with someone who approaches problems totally different from you. You will face off against someone who is uniquely talented. Boarding “Explorer” is the same as boarding a ship to the future.',
         'Now we invite you to be bold and get on board. You’ll meet more explorers, show the world your most arresting artistic designs, most appealing interactions, and most fantastical innovations. Do you want to be an explorer aboard “Explorer”?'
     ],
-    exploreInvite: 'Registration is open from March 5, 2018 to April 5, 2018.'
+    exploreInvite: 'Invitation time: Invitation distribution is still in process.'
 }
 
