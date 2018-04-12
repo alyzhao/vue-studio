@@ -1,21 +1,21 @@
 export const navLinks_en = [{
 	name: 'Index',
 	link: '/index'
+},  {
+	name: 'Gathering',
+	link: '/reunite'	
 }, {
 	name: 'Next Gen',
 	link: '/forum'	
 }, {
-	name: 'Launch',
-	link: '/activity'	
-}, {
 	name: 'Explore',
 	link: '/explore'
 }, {
+	name: 'Launch',
+	link: '/activity'	
+}, {
 	name: 'Face',
 	link: '/people'	
-}, {
-	name: 'Gathering',
-	link: '/reunite'	
 }, {
 	name: 'Volunteerism',
 	link: '/volunteer'	

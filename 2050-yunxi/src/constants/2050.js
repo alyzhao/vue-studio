@@ -2,20 +2,20 @@ export const navLinks = [{
 	name: '首页',
 	link: '/index'
 }, {
+	name: '团聚',
+	link: '/reunite'	
+}, {
 	name: '新生',
 	link: '/forum'	
-}, {
-	name: '迸发',
-	link: '/activity'	
 }, {
 	name: '探索',
 	link: '/explore'
 }, {
+	name: '迸发',
+	link: '/activity'	
+}, {
 	name: '面孔',
 	link: '/people'	
-}, {
-	name: '团聚',
-	link: '/reunite'	
 }, {
 	name: '志愿',
 	link: '/volunteer'	

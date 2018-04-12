@@ -27,6 +27,8 @@ import Reports from './containers/reports/Reports.vue';
 
 import People from './containers/people/People.vue';
 
+import Guide from './containers/guide/Guide.vue';
+
 
 const routes = [
     {path: '/', redirect: '/index'},
@@ -48,7 +50,7 @@ const routes = [
     },
     {path: '/activity', component: Activity},
     {path: '/explore', component: ExploreDetail},
-    {path: '/people', component: Index},
+    {path: '/people', component: People},
     {
         path: '/reunite', component: Reunite,
         children: [
@@ -64,6 +66,7 @@ const routes = [
     {path: '/credit', component: Credit},
     {path: '/purchase', component: PurchaseTickets},
     {path: '/reunitdetail', component: ReunitDetail},
+    {path: '/guide', component: Guide}
 ]
 
 export default new Router({

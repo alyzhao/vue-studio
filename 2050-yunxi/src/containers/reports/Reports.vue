@@ -5,7 +5,7 @@
 			<div class="content">
 				<div v-for="item in reports" class="report clearfix" :key="item.id">
 					<div class="report-img">
-						<a href="" target="_blank" title=""><img :src="staticHost + item.newsImg"></a>
+						<a :href="item.newsChaining" target="_blank" title=""><img :src="staticHost + item.newsImg"></a>
 					</div>
 					<div class="report-info">
 						<div class="title">
@@ -36,8 +36,8 @@
                 bannerList: [{
                     pcBanner: volunteerPcBanner,
                     mbBanner: volunteerMbBanner,
-                    link: 'http://tgonetworks.mikecrm.com/BjHVvZo',
-                    router: ''
+                    link: '',
+                    router: '/reports'
                 }],
                 staticHost: prodUrl.imgHost,
                 reports: []

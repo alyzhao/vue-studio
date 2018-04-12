@@ -2,53 +2,32 @@
 	<div class="people">
         <Banner :banner-list="bannerList"/>
 		<div class="main-content">
-			<div class="side-nav-bar">
+<!-- 			<div class="side-nav-bar">
 				<ul class="side-nav">
-                    <li class="active">A</li>
-                    <li>A</li>
-                    <li>A</li>
-                    <li>A</li>
-                    <li>A</li>
-                    <li>A</li>
-                    <li>A</li>
+                    <li v-for="(item, key) in peopleList" :key="key">{{key}}</li>
                 </ul>
 			</div>
-			<div class="face">
-                <p class="initials">A</p>				
+ -->			<div class="face" v-for="(item, key) in peopleList" :key="key">
+                <p class="initials">{{key}}</p>
                 <div class="con">
                 	<div class="content">
-                		<div class="face-cell" v-for="n in reportList" :key="n">
-                			<div class="avatar"><img src="../../assets/img/test-report-header.png" /></div>
+                		<div class="face-cell" v-for="people in item" :key="people.id">
+                			<div class="avatar"><img :src="staticHost + people.faceImg" /></div>
                 			<div class="info">
-                				<p class="name">唐文斌</p>
-                				<p class="intro">GO 全称 Top Geeks’ Organization，是极客邦科技旗下一个聚集技术领导者的组织。“大鹏一日同风起，扶摇直上九万里”</p>
+                				<p class="name">{{people.faceName}}</p>
+                				<p class="intro">{{people.facePer}}</p>
                 			</div>
                 		</div>
                 	</div>
                 </div>
 			</div>
-
-			<div class="face">
-                <p class="initials">A</p>				
-                <div class="con">
-                	<div class="content">
-                		<div class="face-cell" v-for="n in reportList" :key="n">
-                			<div class="avatar"><img src="../../assets/img/test-report-header.png" /></div>
-                			<div class="info">
-                				<p class="name">唐文斌</p>
-                				<p class="intro">GO 全称 Top Geeks’ Organization，是极客邦科技旗下一个聚集技术领导者的组织。“大鹏一日同风起，扶摇直上九万里”</p>
-                			</div>
-                		</div>
-                	</div>
-                </div>
-			</div>
-
 		</div>
 	</div>
 </template>
 <script>
-    import volunteerPcBanner from 'assets/img/zy-banner.png';
-    import volunteerMbBanner from 'assets/img/zy-mb-banner.png';
+    import volunteerPcBanner from 'assets/img/mk-banner.png';
+    import volunteerMbBanner from 'assets/img/mk-mb-banner.png';
+    const prodUrl = require('constants/config.js').prodUrl;
 
     import Banner from 'components/Banner';
 
@@ -58,12 +37,47 @@
                 bannerList: [{
                     pcBanner: volunteerPcBanner,
                     mbBanner: volunteerMbBanner,
-                    link: 'http://tgonetworks.mikecrm.com/BjHVvZo',
-                    router: ''
+                    link: '',
+                    router: '/people',
                 }],
+                peopleList: {},
+                staticHost: prodUrl.imgHost,
                 reportList: 5
             }
         },
+        mounted: function () {
+            this.$nextTick(function () {
+                this.loadData();
+            })
+        },
+        methods: {
+            loadData() {
+                this.axios.get(prodUrl.HOST + '/2050webOnline/onLineFace/queryFace', { params: {
+                    Language: this.$store.state.lang
+                }}).then(response => {
+                    console.log(response.data);
+                    let resData = response.data;
+                    let data = {};
+                    for ( let p in resData) {
+                        if (resData[p].length) {
+                            data[p] = resData[p]
+                        }
+                    }
+                    console.log(data);
+                    this.peopleList = data;
+                })
+            }
+        },
+        computed: {
+            isZh() {
+                return this.$store.state.lang == 'zh';
+            },
+        },
+        watch: {
+            isZh() {
+                this.loadData();
+            }
+        },        
         components: {
             Banner
         }
@@ -102,6 +116,7 @@
             }
 		}
 		.face {
+            margin-top: 50px;
             .initials {
                 background-color: #f6f6f6;
                 text-align: center;
@@ -126,7 +141,11 @@
 					    }
             			.avatar {
             				border-radius: 100%;
-            				flex-grow: 1;
+                            overflow: hidden;
+                            min-width: 130px;
+                            min-height: 130px;
+                            width: 130px;
+                            height: 130px;
             				img {
 	            				width: 130px;
 	            				height: 130px;
@@ -136,12 +155,14 @@
             				flex-grow: 1;
             				padding-left: 12px;
             				.name {
-            					font-size: 24px;
+            					font-size: 20px;
             					font-weight: bold;
             				}
             				.intro {
             					height: 96px;
             					overflow: hidden;
+                                font-size: 14px;
+                                margin-top: 10px;
             				}
             			}
             		}

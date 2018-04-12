@@ -78,6 +78,9 @@
                         <li class="mark">
                             <a><img src="../../assets/img/logo18.png"></a>
                         </li>
+                        <li class="mark">
+                            <a><img src="../../assets/img/logo19.png"></a>
+                        </li>
                     </ul>
                 </div>
 
@@ -119,8 +122,8 @@
                 bannerList: [{
                     pcBanner: volunteerPcBanner,
                     mbBanner: volunteerMbBanner,
-                    link: 'http://tgonetworks.mikecrm.com/BjHVvZo',
-                    router: ''
+                    link: '',
+                    router: '/volunteer'
                 }],
                 staticHost: prodUrl.imgHost,
                 volunteerNames: {},
@@ -321,7 +324,8 @@
                     overflow: hidden;
                     img {
                         max-width: 200px;
-                        max-height: 60px;
+                        max-height: 110px;
+                        display: block;
                     }
                 }
             }

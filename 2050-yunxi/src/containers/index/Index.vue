@@ -194,6 +194,9 @@
                                     <div class="mark">
                                         <a><img src="../../assets/img/logo18.png"></a>
                                     </div>
+                                    <div class="mark">
+                                        <a><img src="../../assets/img/logo19.png"></a>
+                                    </div>
                                 </div>
                             </swiper-slide>
                             <div class="swiper-pagination swpagination" slot="pagination"></div>
@@ -249,6 +252,9 @@
                             </div>
                             <div class="mark">
                                 <a><img src="../../assets/img/logo18.png"></a>
+                            </div>                            
+                            <div class="mark">
+                                <a><img src="../../assets/img/logo19.png"></a>
                             </div>                            
                         </div>
                     </div>
@@ -834,7 +840,7 @@
 					align-items: center;
 					justify-content: center;
 					img {
-						height: 65px;
+						max-height: 135px;
 						max-width: 225px;
 					}
 				}

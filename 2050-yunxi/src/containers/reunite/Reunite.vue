@@ -108,7 +108,7 @@
         }
     }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
     .banner-wrap {
         margin-top: 0;
     }
@@ -116,69 +116,69 @@
         .re-detail + .tj-box {
             display: none;
         }
-    }
-    .tj-list {
-        width: 100%;
-        overflow: hidden;
-        ul{
-            width: 1200px;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 0 auto;
-            margin-top: 70px;
-            li {
-                width: 45%;
-                /*height: 360px;*/
-                border-radius:10px;
-                overflow: hidden;
-                position: relative;
-                margin-bottom: 45px;
-                box-shadow: 0 0 10px #ccc;
-                .img-box {
-                    width: 100%;
-                    height: 100%;
+        .tj-list {
+            width: 100%;
+            overflow: hidden;
+            ul{
+                width: 1200px;
+                padding: 0 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin: 0 auto;
+                margin-top: 70px;
+                li {
+                    width: 45%;
+                    /*height: 360px;*/
+                    border-radius:10px;
+                    overflow: hidden;
                     position: relative;
-                    .img {
+                    margin-bottom: 45px;
+                    box-shadow: 0 0 10px #ccc;
+                    .img-box {
                         width: 100%;
-                        height: calc(100% - 72px);
-                        &:hover .mask {
-                            opacity: 1;
-                        }
-                        img {
+                        height: 100%;
+                        position: relative;
+                        .img {
                             width: 100%;
-                            height: 100%;
-                            display: block;
-                        }
-                        .mask {
-                            border-radius:10px;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            bottom: 0;
-                            background: rgba(255, 204, 0, 0.9);
-                            padding: 20px;
-                            opacity: 0;
-                            transition: all 0.6s;
-                            p {
-                                font-size: 16px;
+                            height: calc(100% - 72px);
+                            &:hover .mask {
+                                opacity: 1;
+                            }
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                            }
+                            .mask {
+                                border-radius:10px;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                bottom: 0;
+                                background: rgba(255, 204, 0, 0.9);
+                                padding: 20px;
+                                opacity: 0;
+                                transition: all 0.6s;
+                                p {
+                                    font-size: 16px;
+                                }
                             }
                         }
-                    }
-                    .tj-title {
-                        width: 100%;
-                        height: 72px;
-                        padding: 0 20px;
-                        h3 {
-                            padding: 5px 0;
-                        }
-                        span {
-                            display: block;
-                            padding-bottom: 10px;
-                            overflow: hidden;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
+                        .tj-title {
+                            width: 100%;
+                            height: 72px;
+                            padding: 0 20px;
+                            h3 {
+                                padding: 5px 0;
+                            }
+                            span {
+                                display: block;
+                                padding-bottom: 10px;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
                         }
                     }
                 }
