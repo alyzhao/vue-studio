@@ -1,33 +1,36 @@
 export const navLinks_en = [{
-	name: 'Index',
+	name: 'Home',
 	link: '/index'
-},  {
-	name: 'Gathering',
+}, {
+	name: 'Reunion',
 	link: '/reunite'	
 }, {
-	name: 'Next Gen',
+	name: 'Forums',
 	link: '/forum'	
 }, {
-	name: 'Explore',
+	name: 'Expo',
 	link: '/explore'
 }, {
-	name: 'Launch',
+	name: 'Events',
 	link: '/activity'	
 }, {
-	name: 'Face',
+	name: 'People',
 	link: '/people'	
 }, {
-	name: 'Volunteerism',
+	name: 'Volunteer',
 	link: '/volunteer'	
 }, {
-	name: 'Reports',
+	name: 'Media',
 	link: '/reports'	
+}, {
+	name: 'Info',
+	link: '/guide'
 }]
 
 export const headInfo_en = {
-	time: 'time： 2018.5.25 - 2018.5.27',
-	location: 'location： Hangzhou Yunqi Town',
-	hotline: 'hotline： +86 18519014746'
+	time: 'Date: 2018.5.25 - 2018.5.27',
+	location: 'Adr.: Hangzhou Yunqi Town',
+	hotline: 'Tel.: +86 18519014746'
 }
 
 export const footerInfo_en = {
@@ -67,3 +70,6 @@ export const footerInfo_en = {
     weChat: 'WeChat Official Account',
     weibo: 'weibo'
 }
+
+import logoImg from 'assets/img/logo_2050_nav_en.png';  
+export const logo_en = logoImg; 

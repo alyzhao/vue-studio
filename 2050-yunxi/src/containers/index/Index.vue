@@ -16,7 +16,7 @@
 							<div class="peop">
 								<a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
 								<div class="productor">
-									<p class="cp overh">出品人:  {{item.products}}</p>
+									<p class="cp overh">{{content.producer}}:  {{item.products}}</p>
 									<p class="ct overh"><a :title="item.productsWord">{{item.productsPosition}}</a></p>
 								</div>
 							</div>
@@ -51,8 +51,9 @@
 								<div class="tj-con clearfix" @click="goReuniteDetail(item.id)">
 									<div class="info">
 										<p class="ra"><a :title="item.groupName">{{item.groupName}}</a></p>
-										<p class="peo">召集人</p>
-										<p class="team"><a :title="item.convenerPosition + item.convenerName">{{item.convenerPosition + ' ' + item.convenerName}}</a></p>
+										<p class="peo">{{content.convener}}</p>
+                                        <p class="team"><a :title="item.convenerName">{{item.convenerName}}</a></p>
+										<p class="team position"><a :title="item.convenerPosition">{{item.convenerPosition}}</a></p>
 										<p class="split"><span></span></p>
 										<div class="intro">
 											<p>{{item.groupWord}}</p>
@@ -67,7 +68,7 @@
 					
 						<div class="swiper-pagination-tj" slot="pagination"></div>
 						<!--<div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>-->
-						<!--<div class="swiper-button-next swiper-button-black" slot="button-next"></div>						-->
+						<!--<div class="swiper-button-next swiper-button-black" slot="button-next"></div>-->
 					</swiper>
 				</div>
 				<div class="more"><router-link :to="'/reunite'" >{{content.more}}</router-link></div>
@@ -194,9 +195,6 @@
                                     <div class="mark">
                                         <a><img src="../../assets/img/logo18.png"></a>
                                     </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo19.png"></a>
-                                    </div>
                                 </div>
                             </swiper-slide>
                             <div class="swiper-pagination swpagination" slot="pagination"></div>
@@ -253,9 +251,6 @@
                             <div class="mark">
                                 <a><img src="../../assets/img/logo18.png"></a>
                             </div>                            
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo19.png"></a>
-                            </div>                            
                         </div>
                     </div>
                     <!-- <div class="more"><a target="_blank">查看更多</a></div>					 -->
@@ -268,7 +263,14 @@
 <script>
     import Banner from 'components/Banner';
     // import { prodUrl } from 'constants/config.js';
-    import indexMbBanner from 'assets/img/mb-banner.png'
+    import indexMbBanner from 'assets/img/mb-banner.png';
+    import indexMbBanner_en from 'assets/img/mb-banner-en.png'
+
+    import faqBanner from 'assets/img/faq-banner.png';
+    import faqMbBanner from 'assets/img/faq-mb-banner.png';
+
+    import faqBanner_en from 'assets/img/faq-banner-en.png';
+    import faqMbBanner_en from 'assets/img/faq-mb-banner-en.png';
 
     import {contentZh, contentEn} from 'constants/index.js';
 
@@ -314,6 +316,10 @@
                     mbBanner: indexMbBanner,
                     router: '/credit',
                     pcBanner: ''
+                }, {
+                    mbBanner: faqMbBanner,
+                    router: '/faq',
+                    pcBanner: faqBanner
                 }],
 
             }
@@ -366,6 +372,16 @@
                     let resData = response.data;
                     this.indexBannerList[0].pcBanner = this.staticHost + resData.imgOne;
                 })
+
+                if (this.isZh) {
+                    this.indexBannerList[0].mbBanner = indexMbBanner;
+                    this.indexBannerList[1].pcBanner = faqBanner;
+                    this.indexBannerList[1].mbBanner = faqMbBanner;
+                } else {
+                    this.indexBannerList[0].mbBanner = indexMbBanner_en;                    
+                    this.indexBannerList[1].pcBanner = faqBanner_en;
+                    this.indexBannerList[1].mbBanner = faqMbBanner_en;                    
+                }
             }
         },
         computed: {
@@ -595,6 +611,9 @@
 				.team {
 					font-size: 24px;
 					margin-top: 5px;
+                    &.position {
+                        font-size: 20px;
+                    }
 				}
 				.split span {
 					display: inline-block;
@@ -892,10 +911,10 @@
 					width: 200px;
 					height: 200px;
 					overflow: hidden;
-					border-radius: 50%;
 					img {
 						width: 100%;
 						height: 100%;
+                        border-radius: 50%;
 					}
 				}
 				.name {
@@ -985,10 +1004,6 @@
 			margin: 0;
 			a {
 				padding: 10px;
-			}
-			img {
-				height: auto;
-				width: 100%;
 			}
 		}
 		.cell .c-in .items .peop .portrait {
@@ -1117,5 +1132,9 @@
 		.footer .main .min-main .min-l ul {
 			margin: 10px 0;
 		}
+        .cell.jg .zy-slide .mark img {
+            max-height: 95px;
+            max-width: 100%;
+        }
 	}
 </style>

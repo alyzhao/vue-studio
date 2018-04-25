@@ -19,7 +19,7 @@ import TopicDetail from './containers/forum/TopicDetail.vue';
 
 import PurchaseTickets from './containers/tickets/PurchaseTickets.vue';
 import ReunitDetail from './containers/reunite/ReuniteDetail.vue';
-import ExploreDetail from './containers/explore/ExploreDetail.vue'
+import Explore from './containers/explore/Explore.vue'
 
 import Volunteer from './containers/volunteer/Volunteer.vue';
 
@@ -28,7 +28,11 @@ import Reports from './containers/reports/Reports.vue';
 import People from './containers/people/People.vue';
 
 import Guide from './containers/guide/Guide.vue';
+import Notice from './containers/guide/Notice.vue';
+import Trip from './containers/guide/Trip.vue';
+import Schedule from './containers/guide/schedule.vue';
 
+import Faq from './containers/faq/Faq.vue';
 
 const routes = [
     {path: '/', redirect: '/index'},
@@ -49,7 +53,7 @@ const routes = [
         ]
     },
     {path: '/activity', component: Activity},
-    {path: '/explore', component: ExploreDetail},
+    {path: '/explore', component: Explore},
     {path: '/people', component: People},
     {
         path: '/reunite', component: Reunite,
@@ -66,7 +70,21 @@ const routes = [
     {path: '/credit', component: Credit},
     {path: '/purchase', component: PurchaseTickets},
     {path: '/reunitdetail', component: ReunitDetail},
-    {path: '/guide', component: Guide}
+    {path: '/guide', redirect: '/guide/notice'},
+    {
+        path: '/guide', component: Guide,
+        children: [{
+            path: 'notice',
+            component: Notice
+        }, {
+            path: 'trip',
+            component: Trip
+        }, {
+            path: 'schedule',
+            component: Schedule
+        }]
+    },
+    {path: '/faq', component: Faq}
 ]
 
 export default new Router({

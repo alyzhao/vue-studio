@@ -30,10 +30,14 @@
 </template>
 <script>
     import reunitePcBanner from 'assets/img/tj-banner.png';
+    import reunitePcBanner_en from 'assets/img/tj-banner_en.png';
     import reuniteMbBanner from 'assets/img/tj-mb-banner.png';
+    import reuniteMbBanner_en from 'assets/img/tj-mb-banner_en.png';
+
+
     import qs from 'qs';
 
-    const prodUrl=require('constants/config').prodUrl;
+    const prodUrl = require('constants/config').prodUrl;
     import Banner from 'components/Banner';
     export default{
         name: 'tuanju',
@@ -45,8 +49,8 @@
                     router: '',
                     link: 'http://cn.mikecrm.com/6hWZ5TL'
                 }],
-                reuniteList:[],
-                staticImg:prodUrl.imgHost,
+                reuniteList: [],
+                staticImg: prodUrl.imgHost,
                 page: 0,
                 size: 8,
                 loadingData: false,
@@ -86,6 +90,13 @@
                     this.reuniteList.push(...resData);
                     this.page = page;
                 })
+                if (this.isZh) {
+                    this.forumBannerList[0].pcBanner = reunitePcBanner;
+                    this.forumBannerList[0].mbBanner = reuniteMbBanner;
+                } else {
+                    this.forumBannerList[0].pcBanner = reunitePcBanner_en;
+                    this.forumBannerList[0].mbBanner = reuniteMbBanner_en;                    
+                }
             },
             reLoad() {
                 this.reuniteList = [];
@@ -104,7 +115,7 @@
             }
         },        
         components:{
-            Banner
+            Banner,
         }
     }
 </script>
@@ -184,30 +195,30 @@
                 }
             }
         }
-    }
-
-    @media (max-width: 1200px) {
-        .tj-list {
-            ul {
-                width: 100%;
-                li {
-                    width: 45%;
+        @media (max-width: 1200px) {
+            .tj-list {
+                ul {
+                    width: 100%;
+                    li {
+                        width: 45%;
+                    }
                 }
             }
         }
-    }
 
-    @media (max-width: 768px) {
-        .tj-list {
-            ul {
-                width: 100%;
-                li {
-                    width: 90%;
-                    .img-box .img .mask p {
-                        font-size: 14px;
+        @media (max-width: 768px) {
+            .tj-list {
+                ul {
+                    width: 100%;
+                    li {
+                        width: 90%;
+                        .img-box .img .mask p {
+                            font-size: 14px;
+                        }
                     }
                 }
             }
         }
     }
+
 </style>

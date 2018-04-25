@@ -17,7 +17,8 @@
 				</header-link>
 			</div>
 			<div class="purchase">
-				<router-link class="pur-btn" to="/purchase">立即购票</router-link>
+				<!-- <router-link class="pur-btn" to="/purchase">{{purchase}}</router-link> -->
+				<a class="pur-btn" href="https://7e.7-event.cn/d/ci/7e/reg/index/9" target="_blank">{{purchase}}</a>
 				<!-- <a class="pur-btn" @click="fff()">立即购票</a> -->
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
 				<button class="lang" :class="{active: lang == 'zh'}" @click="setLang('zh')">中文</button>
@@ -46,17 +47,36 @@
 		props: ['logo', 'navLinks', 'headInfo'],
 		data() {
 			return {
-				showMbNav: false
+				showMbNav: false,
+				purchase: '立即购票'
 			}
 		},
+		mounted: function () {
+            this.$nextTick(function () {
+                this.loadData();
+            })
+        },
 		methods: {
 			setLang(val) {
 				this.$store.dispatch('SET_LANG', val);
 			},
+			loadData() {
+				this.purchase = this.isZh ? '立即购票' : 'Buy Ticket';
+			}
 		},
-		computed: mapState([
-			'lang'
-		]),
+		computed: {
+			isZh() {
+				return this.$store.state.lang == 'zh';
+			},
+			lang() {
+				return this.$store.state.lang;	
+			}
+		},
+		watch: {
+			isZh() {
+				this.loadData();
+			}
+		},
 		components: {
 			HeaderLink
 		}
@@ -70,7 +90,7 @@
 		.top-nav {
 			height: 80px;
 			width: 100%; 
-			padding: 0 30px;
+			padding: 0 10px;
 			display: flex;
 			align-items: center;
 			.logo {
@@ -80,7 +100,7 @@
 				min-height: 40px;
 				flex-grow: 1;
 				img {
-					height: 65px;
+					width: 155px;
 				}
 				.logo-wrap {
 					margin-top: 10px;
@@ -109,7 +129,7 @@
 				align-items: center;
 				justify-content: space-between;
 				flex-grow: .5;
-				margin-right: 30px;
+				margin-right: 10px;
 			}
 			.purchase {
 				display: flex;
@@ -120,13 +140,13 @@
 					font-weight: 800;
 					font-size: 18px;
 					display: inline-block;
-					padding: 10px 0;
-					min-width: 175px;
+					padding: 8px 0;
+					min-width: 145px;
 					text-align: center;
 					border-radius: 5px;
 					background: #4528a3;
 					background-image: linear-gradient(90deg, #5438ae, #41229e);
-					margin-right: 20px;
+					margin-right: 10px;
 					position: relative;
 				}
 				.split {
@@ -142,10 +162,8 @@
 					cursor: pointer;
 					font-size: 14px;
 					transition: all .2s linear;
-					width: 50px;					
 					padding: 0 5px;
 					&:hover, &.active {
-						font-size: 18px;
 						color: #5c40b1;
 					}
 					&:focus {
@@ -154,7 +172,7 @@
 				}
 				.mb-bar {
 			        transition: all 0.2s ease 0s;
-					font-size: 45px;
+					font-size: 32px;
 					color: #333;
 					cursor: pointer;
 					display: none;

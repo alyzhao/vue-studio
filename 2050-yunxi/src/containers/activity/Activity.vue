@@ -26,7 +26,9 @@
     import Banner from 'components/Banner';
 
     import activityPcBanner from 'assets/img/bf-banner.png';
+    import activityPcBanner_en from 'assets/img/bf-banner_en.png';
     import activityMbBanner from 'assets/img/bf-mb-banner.png';
+    import activityMbBanner_en from 'assets/img/bf-mb-banner_en.png';
     import qs from 'qs';
 
 	export default {
@@ -64,6 +66,13 @@
 					});
 
 				})
+				if (this.isZh) {
+					this.activityBannerList[0].pcBanner = activityPcBanner;
+					this.activityBannerList[0].mbBanner = activityMbBanner;
+				} else {
+					this.activityBannerList[0].pcBanner = activityPcBanner_en;
+					this.activityBannerList[0].mbBanner = activityMbBanner_en;
+				}
 			}
 		},
 		computed: {

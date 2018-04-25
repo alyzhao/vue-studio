@@ -1,6 +1,15 @@
 {
-	'presets': [
-		['env', { 'modules': false }]
+	"presets": [
+		["env", { "modules": false }]
 	],
-	'comments': false	
+	"plugins": [
+		[
+			"component",
+			{
+				"libraryName": "element-ui",
+				"styleLibraryName": "theme-chalk"
+			}
+		]
+	],
+	"comments": false
 }

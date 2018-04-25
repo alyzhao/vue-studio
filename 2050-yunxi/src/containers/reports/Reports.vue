@@ -24,8 +24,10 @@
 	</div>
 </template>
 <script>
-    import volunteerPcBanner from 'assets/img/cd-banner.png';
-    import volunteerMbBanner from 'assets/img/cd-mb-banner.png';
+    import mediaPcBanner from 'assets/img/cd-banner.png';
+    import mediaMbBanner from 'assets/img/cd-mb-banner.png';
+    import mediaPcBanner_en from 'assets/img/cd-banner_en.png';
+    import mediaMbBanner_en from 'assets/img/cd-mb-banner_en.png';
     const prodUrl = require('constants/config.js').prodUrl;
 
     import Banner from 'components/Banner';
@@ -34,8 +36,8 @@
         data() {
             return {
                 bannerList: [{
-                    pcBanner: volunteerPcBanner,
-                    mbBanner: volunteerMbBanner,
+                    pcBanner: mediaPcBanner,
+                    mbBanner: mediaMbBanner,
                     link: '',
                     router: '/reports'
                 }],
@@ -57,6 +59,15 @@
                 	console.log(resData)
                 	this.reports = resData;
                 })
+
+                if (this.isZh) {
+                    this.bannerList[0].pcBanner = mediaPcBanner;
+                    this.bannerList[0].mbBanner = mediaMbBanner;
+                } else {
+                    this.bannerList[0].pcBanner = mediaPcBanner_en;
+                    this.bannerList[0].mbBanner = mediaMbBanner_en;                    
+                }
+                
         	}
         },
         computed: {

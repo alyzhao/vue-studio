@@ -9,17 +9,17 @@
             </div>
         </div>
         <div class="text convener">
-            <h2>召集人</h2>
-            <div class="produce">
+            <h2>{{content.convener}}</h2>
+            <div class="produce" v-for="item in convenerList">
                 <div class="clear">
                     <div class="produce-img" >
-                        <img :src="staticImg + reuniteDetail.convenerImg">
+                        <img :src="staticImg + item.convenerImg">
                     </div>
                 </div>
                 <div class="produce-detail">
-                    <h2 class="produce-name">{{reuniteDetail.convenerPosition}}<br/>{{reuniteDetail.convenerName}}</h2>
-                    <p class="produce-job">{{reuniteDetail.groupPosition}}</p>
-                    <p>{{reuniteDetail.groupLeadword}}</p>
+                    <h2 class="produce-name">{{item.convenerName}}<br/>{{item.convenerPosition}}</h2>
+                    <p class="produce-job">{{item.groupPosition}}</p>
+                    <p>{{item.groupLeadword}}</p>
                 </div>
             </div>
         </div>
@@ -31,12 +31,15 @@
 </template>
 <script>
     const prodUrl = require('constants/config').prodUrl;
+    import {contentZh, contentEn} from 'constants/reunite.js';
+
     import qs from 'qs';
 
     export default{
         data(){
             return {
                 reuniteDetail:{},
+                convenerList: [],
                 staticImg: prodUrl.imgHost
             }
         },
@@ -53,7 +56,8 @@
                     Language: this.$store.state.lang
                 })).then(response => {
                     let resData = response.data;
-                    this.reuniteDetail = resData;
+                    this.reuniteDetail = resData[0];
+                    this.convenerList = resData;
                 })                
             }
         },
@@ -61,6 +65,10 @@
             isZh() {
                 return this.$store.state.lang == 'zh';
             },
+            content() {
+                return this.isZh ? contentZh : contentEn;
+            }
+
         },
         watch: {
             isZh() {
@@ -104,8 +112,7 @@
                 box-shadow: 0 0 10px #eee;
                 overflow: hidden;
                 padding: 40px;
-                /*display: flex;*/
-                /*justify-content:space-between;*/
+                margin-bottom: 1rem;
                 .produce-img{
                     float: left;
                     width: 180px;

@@ -2,18 +2,18 @@
     <div class="create-detail">
         <div class="left">
             <div>
-                <h4>主讲人</h4>
+                <h4>{{content.speaker}}</h4>
                 <div class="img"><img :src="topicInfo && (staticHost + topicInfo.shareImg)"></div>
-                <h1>{{topicInfo && topicInfo.shareThemeName}}</h1>
+                <h1>{{topicInfo && topicInfo.shareName}}</h1>
                 <span>{{topicInfo && topicInfo.sharePosition}}</span>
-                <p class="intro">{{topicInfo && topicInfo.shareThemeWord}}</p>
+                <p class="intro">{{topicInfo && topicInfo.shareThemeSpecial}}</p>
             </div>
         </div>
         <div class="right">
             <div>
                 <h1>{{topicInfo && topicInfo.shareThemeName}}</h1>
                 <div>
-                    <h3>所属论坛</h3>
+                    <h3>{{content.forumTitle}}</h3>
                     <p>{{topicInfo && topicInfo.froumName}}</p>
                 </div>
 <!--                 <div>
@@ -21,7 +21,7 @@
                     <p>{{topicInfo && (new Date(topicInfo.saddTime)).toLocaleString()}}</p>
                 </div>
  -->                <div>
-                    <h3>内容介绍</h3>
+                    <h3>{{content.contentIntro}}</h3>
                     <p class="forum-con">{{topicInfo && topicInfo.shareThemeWord}}</p>
                 </div>
             </div>
@@ -30,6 +30,7 @@
 </template>
 <script>
     const prodUrl = require('constants/config.js').prodUrl; 
+    import {contentZh, contentEn} from 'constants/forum.js';    
     import qs from 'qs';
     
     export default{
@@ -60,6 +61,9 @@
             isZh() {
                 return this.$store.state.lang == 'zh';
             },
+            content() {
+                return this.isZh ? contentZh : contentEn;
+            }            
         },
         watch: {
             isZh() {

@@ -2,7 +2,7 @@
 <div class="create-detail">
     <div class="left">
         <div>
-            <h4>出品人</h4>
+            <h4>{{content.producer}}</h4>
             <div class="img"><img :src="forumInfo && (staticHost + forumInfo.productsImg)" :alt="forumInfo && forumInfo.productsWord"></div>
             <h1>{{forumInfo && forumInfo.products}}</h1>
             <span>{{forumInfo && forumInfo.productsPosition}}</span>
@@ -25,11 +25,11 @@
                 <p>具体地址</p>
             </div>
 -->                <div>
-                <h3>内容介绍</h3>
+                <h3>{{content.contentIntro}}</h3>
                 <p class="forum-con">{{forumInfo && forumInfo.forumWord}}</p>
             </div>
         </div>
-        <h3>专题speaker</h3>
+        <h3>{{content.topicSpeaker}}</h3>
         <div class="person-content forum-detail">
             <div class="cell ts clearfix">
                 <div class="c-in clearfix">
@@ -39,7 +39,7 @@
                         <div class="peop">
                             <a class="portrait" href="" target="_blank"><img height="60" width="60" :src="staticHost + item.shareImg"></a>
                             <div>
-                                <p class="cp">出品人:  {{item.shareName}}</p>
+                                <p class="cp">{{content.speaker}}:  {{item.shareName}}</p>
                                 <p class="ct overh"><a href="" :title="item.sharePosition">{{item.sharePosition}}</a></p>
                             </div>
                         </div>
@@ -52,6 +52,8 @@
 </template>
 <script>
     const prodUrl = require('constants/config.js').prodUrl;
+    import {contentZh, contentEn} from 'constants/forum.js';
+
     import qs from 'qs';
 
     export default {
@@ -81,7 +83,10 @@
                     this.forumInfo = response.data;
                 })
 
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryShare', params).then(response => {
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryShare', qs.stringify({
+                    froumId: this.id,                    
+                    Language: this.$store.state.lang
+                })).then(response => {
                     this.shareList = response.data;
                 })
             }
@@ -90,6 +95,9 @@
             isZh() {
                 return this.$store.state.lang == 'zh';
             },
+            content() {
+                return this.isZh ? contentZh : contentEn;
+            }
         },
         watch: {
             isZh() {

@@ -78,9 +78,6 @@
                         <li class="mark">
                             <a><img src="../../assets/img/logo18.png"></a>
                         </li>
-                        <li class="mark">
-                            <a><img src="../../assets/img/logo19.png"></a>
-                        </li>
                     </ul>
                 </div>
 
@@ -112,6 +109,8 @@
 <script>
     import volunteerPcBanner from 'assets/img/zy-banner.png';
     import volunteerMbBanner from 'assets/img/zy-mb-banner.png';
+    import volunteerPcBanner_en from 'assets/img/zy-banner_en.png';
+    import volunteerMbBanner_en from 'assets/img/zy-mb-banner_en.png';
     const prodUrl = require('constants/config.js').prodUrl;
 
     import Banner from 'components/Banner';
@@ -160,6 +159,15 @@
                     }
                     this.volunteerNames = data;
                 })
+
+                if (this.isZh) {
+                    this.bannerList[0].pcBanner = volunteerPcBanner;
+                    this.bannerList[0].mbBanner = volunteerMbBanner;
+                } else {
+                    this.bannerList[0].pcBanner = volunteerPcBanner_en;
+                    this.bannerList[0].mbBanner = volunteerMbBanner_en;                    
+                }
+                
             },
             navigate() {
                 let ele_volunteer = this.$refs.volunteer;
@@ -256,7 +264,7 @@
                 margin-top: 20px;
                 .vol-cell {
                     width: 240px;
-                    height: 360px;
+                    height: 450px;
                     border-radius: 3px;
                     padding: 0 20px;
                     margin-bottom: 15px;
@@ -291,14 +299,12 @@
                         color: #6c4bcd;
                         line-height: 28px;
                         margin-top: 5px;
-                        max-height: 56px;
                         overflow: hidden;
                     }
                     .intro {
                         font-size: 14px;
                         text-align: center;
                         margin-top: 10px;
-                        max-height: 81px;
                         overflow: hidden;
                     }
                 }

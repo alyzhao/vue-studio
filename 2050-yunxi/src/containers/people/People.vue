@@ -25,8 +25,10 @@
 	</div>
 </template>
 <script>
-    import volunteerPcBanner from 'assets/img/mk-banner.png';
-    import volunteerMbBanner from 'assets/img/mk-mb-banner.png';
+    import peoplePcBanner from 'assets/img/peo-banner.png';
+    import peopleMbBanner from 'assets/img/peo-mb-banner.png';
+    import peoplePcBanner_en from 'assets/img/peo-banner_en.png';
+    import peopleMbBanner_en from 'assets/img/peo-mb-banner_en.png';
     const prodUrl = require('constants/config.js').prodUrl;
 
     import Banner from 'components/Banner';
@@ -35,8 +37,8 @@
         data() {
             return {
                 bannerList: [{
-                    pcBanner: volunteerPcBanner,
-                    mbBanner: volunteerMbBanner,
+                    pcBanner: peoplePcBanner,
+                    mbBanner: peopleMbBanner,
                     link: '',
                     router: '/people',
                 }],
@@ -66,6 +68,15 @@
                     console.log(data);
                     this.peopleList = data;
                 })
+
+                if (this.isZh) {
+                    this.bannerList[0].pcBanner = peoplePcBanner;
+                    this.bannerList[0].mbBanner = peopleMbBanner;
+                } else {
+                    this.bannerList[0].pcBanner = peoplePcBanner_en;
+                    this.bannerList[0].mbBanner = peopleMbBanner_en;                    
+                }
+                
             }
         },
         computed: {
@@ -170,4 +181,13 @@
             }
 		}
 	}
+    @media (max-width: 768px) {
+        .people .face .con .content .face-cell {
+            margin: 0 10px 10px;
+            width: 100%;
+        }
+        .people .face .con .content .face-cell:nth-child(3n) {
+            margin-right: 10px;
+        }
+    }
 </style>

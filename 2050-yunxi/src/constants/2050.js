@@ -22,6 +22,9 @@ export const navLinks = [{
 }, {
 	name: '沉淀',
 	link: '/reports'	
+}, {
+	name: '指南',
+	link: '/guide'
 }]
 
 export const headInfo = {
