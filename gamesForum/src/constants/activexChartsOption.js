@@ -63,7 +63,7 @@ export const activexChartsOption = {
         },
         itemStyle: {
             normal: {
-                color: "#818488",
+                color: "#1fbcbd",
                 shadowColor: 'rgba(0, 0, 0, 0.5)',
                 shadowBlur: 10
             }
@@ -73,7 +73,7 @@ export const activexChartsOption = {
             offsetCenter: [0, "60%"],
             textStyle: {
                 fontSize: 30,
-                color: "#333"
+                color: "#fff"
             }
         },
         title: {
