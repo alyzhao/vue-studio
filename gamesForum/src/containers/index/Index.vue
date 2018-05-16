@@ -261,16 +261,7 @@
 </template>
 
 <script>
-    import Banner from 'components/Banner';
     // import { prodUrl } from 'constants/config.js';
-    import indexMbBanner from 'assets/img/mb-banner.png';
-    import indexMbBanner_en from 'assets/img/mb-banner-en.png'
-
-    import faqBanner from 'assets/img/faq-banner.png';
-    import faqMbBanner from 'assets/img/faq-mb-banner.png';
-
-    import faqBanner_en from 'assets/img/faq-banner-en.png';
-    import faqMbBanner_en from 'assets/img/faq-mb-banner-en.png';
 
     import {contentZh, contentEn} from 'constants/index.js';
 
@@ -328,34 +319,34 @@
                 this.$router.push({path: `/reunite/${id}`})
             },
             loadData() {
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
-                    pageNumber: 0,
-                    pageSize: 9,
-                    Language: this.$store.state.lang
-                })).then(response => {
-                    let resData = response.data;
-                    this.forumList = resData;
-                })
+                // this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
+                //     pageNumber: 0,
+                //     pageSize: 9,
+                //     Language: this.$store.state.lang
+                // })).then(response => {
+                //     let resData = response.data;
+                //     this.forumList = resData;
+                // })
 
-                this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup', {params: {
-                    Language: this.$store.state.lang
-                }}).then(response => {
-                    let resData = response.data;
-                    this.groupList = resData;
-                })
+                // this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup', {params: {
+                //     Language: this.$store.state.lang
+                // }}).then(response => {
+                //     let resData = response.data;
+                //     this.groupList = resData;
+                // })
 
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', qs.stringify({
-                    Language: this.$store.state.lang
-                })).then(response => {
-                    this.activityList = response.data;
-                })
+                // this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', qs.stringify({
+                //     Language: this.$store.state.lang
+                // })).then(response => {
+                //     this.activityList = response.data;
+                // })
 
-                this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot', {params: {
-                    Language: this.$store.state.lang
-                }}).then(response => {
-                    let resData = response.data;
-                    this.volunteerList = resData;
-                })
+                // this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot', {params: {
+                //     Language: this.$store.state.lang
+                // }}).then(response => {
+                //     let resData = response.data;
+                //     this.volunteerList = resData;
+                // })
 
             }
         },
@@ -371,9 +362,6 @@
             isZh() {
                 this.loadData();
             }
-        },
-        components: {
-            Banner
         }
     }
 </script>

@@ -90,23 +90,25 @@ module.exports = {
 // UglifyJsPlugin 这是内置插件
 if (process.env.NODE_ENV === 'production') {
 	module.exports.output.publicPath = prodUrl.staticHost;
-	module.exports.plugins = (module.exports.plugins || []).concat([
-		new webpack.DefinePlugin({
-			'process.env': {
-				NODE_ENV: '"production"'
-			}
-		}),
-		new webpack.optimize.UglifyJsPlugin({
-            compress: { 
-            	warnings: false,
-            	drop_debugger: true,  
-				drop_console: true
-        	},
-        	output: {
-                comments: false		// 去掉注释
-            }
-        }),
-	])
+	// module.exports.plugins = (module.exports.plugins || []).concat([
+	// 	new webpack.DefinePlugin({
+	// 		'process.env': {
+	// 			NODE_ENV: '"production"'
+	// 		}
+	// 	}),
+	// 	new webpack.optimize.UglifyJsPlugin({
+ //            compress: { 
+ //            	warnings: false,
+ //            	drop_debugger: true,  
+	// 			drop_console: true
+ //        	},
+ //        	output: {
+ //                comments: false		// 去掉注释
+ //            }
+ //        }),
+	// ])
+	module.exports.devtool = 'eval-source-map';
+	module.exports.output.publicPath = '/dist/';
 }
 
 if (process.env.NODE_ENV === 'development') {

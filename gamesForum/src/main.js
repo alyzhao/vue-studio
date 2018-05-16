@@ -6,6 +6,8 @@ import 'font-awesome/scss/font-awesome.scss';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 
+import 'babel-polyfill'
+
 import store from './vuex';
 import axios from 'axios';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
