@@ -11,42 +11,49 @@
                             <i class="fl cpu fa fa-object-group"></i>
                             <div class="fl info">
                                 <div>CPU</div>
-                                <div>i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500</div>
+                                <div>{{hardware.CPU}}</div>
                             </div>
                         </div>
                         <div class="cell clearfix">
                             <i class="fl dashboard fa fa-dashboard"></i>
                             <div class="fl info">
                                 <div>主板</div>
-                                <div>i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500</div>
+                                <div>{{hardware.BaseBoard}}</div>
                             </div>
                         </div>
                         <div class="cell clearfix">
                             <i class="fl raw fa fa-sticky-note"></i>
                             <div class="fl info">
                                 <div>内存</div>
-                                <div>i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500</div>
+                                <div>{{hardware.Ram}} GB</div>
+                            </div>
+                        </div>
+                        <div class="cell clearfix">
+                            <i class="fl raw fa fa-newspaper-o"></i>
+                            <div class="fl info">
+                                <div>显卡</div>
+                                <div>{{hardware.VideoController}}</div>
                             </div>
                         </div>
                         <div class="cell clearfix">
                             <i class="fl fa fa-hdd-o"></i>
                             <div class="fl info">
                                 <div>主硬盘</div>
-                                <div>i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500</div>
+                                <div>unslove</div>
                             </div>
                         </div>
                         <div class="cell clearfix">
                             <i class="fl cpu fa  fa-volume-up"></i>
                             <div class="fl info">
                                 <div>声卡</div>
-                                <div>i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500</div>
+                                <div>unslove</div>
                             </div>
                         </div>
                         <div class="cell clearfix">
                             <i class="fl cpu fa fa-wifi"></i>
                             <div class="fl info">
                                 <div>网卡</div>
-                                <div>i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500i5-6500</div>
+                                <div>unslove</div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +73,8 @@
     export default {
         data() {
             return {
-                supportActiveX: true
+                supportActiveX: true,
+                hardware: {}
             }
         },
         mounted() {
@@ -81,20 +89,8 @@
                 }
             }
             if (this.supportActiveX) {
-                var locator = new ActiveXObject("WbemScripting.SWbemLocator");
-                console.log(locator);
-                var service = locator.ConnectServer(".");
-                var properties = service.ExecQuery("SELECT * FROM Win32_Processor");     
-                var e = new Enumerator(properties); 
-                var info = "";
-
-                for (; !e.atEnd(); e.moveNext ()) {
-                    var p = e.item();
-                    console.log("CPU型号：" + p.Name);
-                    console.log("CPU状态：" + p.CpuStatus);
-                    console.log("CUP Level：" + p.Level);
-
-                }
+                console.log(this.getHardwareInfo());
+                this.hardware = this.getHardwareInfo();
             }
 
         },
@@ -110,18 +106,71 @@
                 activexCharts.setOption(option);
 
             },
-            cpuInfo(service) {
-                var properties = service.ExecQuery("SELECT * FROM Win32_Processor");     
-                var e = new Enumerator (properties); 
-                var info = "";
-                for (; !e.atEnd(); e.moveNext ()) {
-                    let p = e.item;
-                    console.log("CPU型号：" + p.Name + "");
-                    console.log("CPU状态：" + p.CpuStatus + "");
-                    console.log("CUP Level：" + p.Level + "");
+            getHardwareInfo() {
+                let locator = new ActiveXObject("WbemScripting.SWbemLocator");
+                console.log(locator);
+                let service = locator.ConnectServer(".");
 
+                let hardware = {};
+
+                // CPU
+                let properties = service.ExecQuery("SELECT * FROM Win32_Processor");     
+                let e = new Enumerator(properties); 
+                for (; !e.atEnd(); e.moveNext ()) {
+                    let p = e.item();
+                    hardware.CPU = p.Name;
                 }
-            }
+
+                // 主板
+                let properties_BaseBoard = service.ExecQuery("SELECT * FROM Win32_BaseBoard");
+                let e_BaseBoard = new Enumerator(properties_BaseBoard);
+                for (; !e_BaseBoard.atEnd(); e_BaseBoard.moveNext ()) {
+                    let p = e_BaseBoard.item();
+                    console.log(p);
+                    console.log(p.Name);
+                    hardware.BaseBoard = p.Product;
+                }
+
+                // 显卡
+
+                let properties_VideoController = service.ExecQuery("SELECT * FROM Win32_VideoController");
+                let e_VideoController = new Enumerator(properties_VideoController);
+                let video = []
+                for(let i = 0; !e_VideoController.atEnd(); e_VideoController.moveNext()) {
+                    video[i] = e_VideoController.item().Caption;
+                    i++;
+                }
+                hardware.VideoController = video.join(' + ');
+
+                // 内存
+                let system = new Enumerator (service.ExecQuery("SELECT * FROM Win32_ComputerSystem")).item();
+                var physicMenCap = Math.ceil(system.TotalPhysicalMemory/1024/1024);
+                var memory = new Enumerator (service.ExecQuery("SELECT * FROM Win32_PhysicalMemory"));
+                let mem = []
+                for (let i = 0; !memory.atEnd(); memory.moveNext()){   
+                    mem[i++] = {
+                        cap:memory.item().Capacity/1024/1024,
+                        speed:memory.item().Speed
+                    };  
+                }
+                let memDX = 0;
+                for (var mi = 0; mi < mem.length; mi++){  
+                    memDX += mem[mi].cap;
+                }
+
+                hardware.Ram = memDX / 1024;
+
+                return hardware;
+            },
+            baseBoardInfo(service) {
+                let properties = service.ExecQuery("SELECT * FROM Win32_BaseBoard");  
+                let e = new Enumerator(properties);
+                for (; !e.atEnd(); e.moveNext()) {
+                    let p = e.item;
+                    return p.Product;
+                }
+            },
+
         }
     }
 </script>
