@@ -12,7 +12,7 @@ npm run dev
 新建 dist 目录, 作为打包目录
 
 ```
-npm run dev
+npm run build
 ```
 
 ### 目录结构
@@ -37,3 +37,17 @@ npm run dev
 ├── package.json                // 项目包依赖说明
 └── webpackage.config.json      // webpack 配置文件
 ```
+
+### 需求分析
+
+1. 游戏列表
+
+http://game.pcgames.com.cn/
+
+http://0day.ali213.net/
+
+详情页： http://0day.ali213.net/html/2017/29031.html
+
+2. 硬件列表
+
+3. 登录？

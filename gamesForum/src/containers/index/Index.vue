@@ -5,12 +5,24 @@
 			<div class="content">
 				<!-- 新生 -->
 				<div class="cell ts clearfix">
-					<p class="tit"><a href="http://tgonetworks.mikecrm.com/BjHVvZo" target="_blank"><img :src="content.subTitleImg[0]"></a></p>
+					<p class="tit">游戏推荐</p>
 					<p class="sub-tit">
-						{{content.subTitle[0]}}
+						最新, 最热游戏推荐
 					</p>
 					<div class="c-in clearfix">
-						<div class="items" v-for="item in forumList" :key="item.id" @click="goForumDetail(item.id)">
+                        <div class="items" v-for="item in gameList" :key="item.id" @click="goForumDetail(item.id)">
+                            <p class="ctt"><a @click="goForumDetail(item.id)" :title="item.gameName">{{item.gameName}}</a></p>
+                            <p class="ccon"><a :title="item.gameIntro">{{item.gameIntro}}</a></p>
+                            <div class="peop">
+                                <a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.gameImg"></a>
+                                <div class="productor">
+                                    <p class="cp overh">游戏类型:  {{item.gameCategory}}</p>
+                                    <p class="cp overh">游戏语言:  {{item.gameLanguage}}</p>                                    
+                                    <p class="cp overh">制作公司:  {{item.ganmeCompany}}</p>
+                                </div>
+                            </div>
+                        </div>
+<!-- 						<div class="items" v-for="item in forumList" :key="item.id" @click="goForumDetail(item.id)">
 							<p class="ctt"><a @click="goForumDetail(item.id)" :title="item.forumWord">{{item.forumName}}</a></p>
 							<p class="ccon"><a :title="item.forumWord">{{item.forumWord}}</a></p>
 							<div class="peop">
@@ -20,7 +32,7 @@
 									<p class="ct overh"><a :title="item.productsWord">{{item.productsPosition}}</a></p>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="more"><router-link to="/forum" v-show="forumList.length>6">{{content.more}}</router-link></div>
 				</div>
@@ -302,8 +314,17 @@
                 activityList: [],
                 volunteerList: [],
                 volunteerOrgList: [],
-                staticHost: prodUrl.imgHost,
+                staticHost: 'http://127.0.0.1:3000/dist/public/',
 
+                gameList: [{
+                    id: 0,
+                    gameName: "怪物猎人世界",
+                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameImg: "game1.png",
+                    gameLanguage: "英文",
+                    gameCategory: "动作游戏ACT",
+                    ganmeCompany: "Capcom",
+                }]
             }
         },
         mounted: function () {
@@ -319,34 +340,34 @@
                 this.$router.push({path: `/reunite/${id}`})
             },
             loadData() {
-                // this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
-                //     pageNumber: 0,
-                //     pageSize: 9,
-                //     Language: this.$store.state.lang
-                // })).then(response => {
-                //     let resData = response.data;
-                //     this.forumList = resData;
-                // })
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
+                    pageNumber: 0,
+                    pageSize: 9,
+                    Language: this.$store.state.lang
+                })).then(response => {
+                    let resData = response.data;
+                    this.forumList = resData;
+                })
 
-                // this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup', {params: {
-                //     Language: this.$store.state.lang
-                // }}).then(response => {
-                //     let resData = response.data;
-                //     this.groupList = resData;
-                // })
+                this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup', {params: {
+                    Language: this.$store.state.lang
+                }}).then(response => {
+                    let resData = response.data;
+                    this.groupList = resData;
+                })
 
-                // this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', qs.stringify({
-                //     Language: this.$store.state.lang
-                // })).then(response => {
-                //     this.activityList = response.data;
-                // })
+                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', qs.stringify({
+                    Language: this.$store.state.lang
+                })).then(response => {
+                    this.activityList = response.data;
+                })
 
-                // this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot', {params: {
-                //     Language: this.$store.state.lang
-                // }}).then(response => {
-                //     let resData = response.data;
-                //     this.volunteerList = resData;
-                // })
+                this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot', {params: {
+                    Language: this.$store.state.lang
+                }}).then(response => {
+                    let resData = response.data;
+                    this.volunteerList = resData;
+                })
 
             }
         },
@@ -409,6 +430,9 @@
 			margin-top: 80px;			
 			height: 95px;
 			text-align: center;
+            line-height: 95px;
+            font-weight: bold;
+            font-size: 24px;
 			img {
 				height: 75px;
 			}
@@ -417,7 +441,6 @@
 			color: #333;
 			font-size: 20px;
 			text-align: center;
-			margin-top: 30px;
 			.tt {
 				color: #4122a0;
 				font-size: 26px;
@@ -450,23 +473,22 @@
 				}
 				.peop {
 					display: flex;
-					align-items: center;
 					margin-top: 15px;
 					overflow: hidden;
 					.portrait {
 						display: block;
-						width: 60px;
                         min-width: 60px;
-						height: 60px;
-						border-radius: 100%;
 						overflow: hidden;
 						img {
 							display: block;
+                            width: 100px;
+                            height: 132px;
 						}
 					}
 				}
 				.cp {
-					font-size: 18px;
+					font-size: 16px;
+                    margin-bottom: 5px;
 				}
 				.cp, .ct {
 					margin-left: 10px;
@@ -485,7 +507,7 @@
 					color: #333;
 					width: 335px;
 					margin-bottom: 5px;
-					height: 80px;
+					height: 40px;
 					overflow: hidden;
 					cursor: pointer;
 					a {
