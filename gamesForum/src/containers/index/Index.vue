@@ -3,15 +3,15 @@
         <ActiveX />
 		<div class="main-content">
 			<div class="content">
-				<!-- 新生 -->
+				<!-- 游戏 -->
 				<div class="cell ts clearfix">
 					<p class="tit">游戏推荐</p>
 					<p class="sub-tit">
 						最新, 最热游戏推荐
 					</p>
 					<div class="c-in clearfix">
-                        <div class="items" v-for="item in gameList" :key="item.id" @click="goForumDetail(item.id)">
-                            <p class="ctt"><a @click="goForumDetail(item.id)" :title="item.gameName">{{item.gameName}}</a></p>
+                        <div class="items" v-for="item in gameList" :key="item.id" @click="goGameDetail(item.id)">
+                            <p class="ctt"><a @click="goGameDetail(item.id)" :title="item.gameName">{{item.gameName}}</a></p>
                             <p class="ccon"><a :title="item.gameIntro">{{item.gameIntro}}</a></p>
                             <div class="peop">
                                 <a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.gameImg"></a>
@@ -22,8 +22,8 @@
                                 </div>
                             </div>
                         </div>
-<!-- 						<div class="items" v-for="item in forumList" :key="item.id" @click="goForumDetail(item.id)">
-							<p class="ctt"><a @click="goForumDetail(item.id)" :title="item.forumWord">{{item.forumName}}</a></p>
+<!-- 						<div class="items" v-for="item in forumList" :key="item.id" @click="goGameDetail(item.id)">
+							<p class="ctt"><a @click="goGameDetail(item.id)" :title="item.forumWord">{{item.forumName}}</a></p>
 							<p class="ccon"><a :title="item.forumWord">{{item.forumWord}}</a></p>
 							<div class="peop">
 								<a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
@@ -34,7 +34,7 @@
 							</div>
 						</div> -->
 					</div>
-					<div class="more"><router-link to="/forum" v-show="forumList.length>6">{{content.more}}</router-link></div>
+					<div class="more"><router-link to="/game">查看更多</router-link></div>
 				</div>
 			</div>
 
@@ -142,132 +142,6 @@
                 </div>
             </div>
 
-            <div class="content">
-                <div class="cell jg clearfix">
-                    <p class="zyjg">{{content.volOrganization}}</p>
-                    <div class="c-in">
-                        <swiper :options="zySwiperOption" class="zyjg-swiper">
-                            <swiper-slide>
-                                <div class="zy-slide">
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo1.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo2.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo3.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo17.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo4.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo5.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo6.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo7.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo8.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo9.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo10.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo11.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo12.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo13.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo14.png"></a>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="zy-slide">
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo16.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo15.png"></a>
-                                    </div>
-                                    <div class="mark">
-                                        <a><img src="../../assets/img/logo18.png"></a>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <div class="swiper-pagination swpagination" slot="pagination"></div>
-                        </swiper>
-                        <div class="zy-slide mb">
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo1.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo2.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo3.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo4.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo5.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo6.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo7.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo8.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo9.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo10.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo11.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo12.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo13.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo14.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo16.png"></a>
-                            </div>                            
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo15.png"></a>
-                            </div>
-                            <div class="mark">
-                                <a><img src="../../assets/img/logo18.png"></a>
-                            </div>                            
-                        </div>
-                    </div>
-                    <!-- <div class="more"><a target="_blank">查看更多</a></div>					 -->
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -315,6 +189,7 @@
                 volunteerList: [],
                 volunteerOrgList: [],
                 staticHost: 'http://127.0.0.1:3000/dist/public/',
+                content: contentZh,
 
                 gameList: [{
                     id: 0,
@@ -333,8 +208,8 @@
             })
         },
         methods: {
-            goForumDetail(id) {
-                this.$router.push({path: `/forum/${id}`})
+            goGameDetail(id) {
+                this.$router.push({path: `/game/${id}`})
             },
             goReuniteDetail(id) {
                 this.$router.push({path: `/reunite/${id}`})
@@ -372,17 +247,7 @@
             }
         },
         computed: {
-            isZh() {
-                return this.$store.state.lang == 'zh';
-            },
-            content() {
-                return this.isZh ? contentZh : contentEn;
-            }
-        },
-        watch: {
-            isZh() {
-                this.loadData();
-            }
+
         }
     }
 </script>

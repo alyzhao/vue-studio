@@ -34,6 +34,10 @@ import Schedule from './containers/guide/schedule.vue';
 
 import Faq from './containers/faq/Faq.vue';
 
+
+import Game from './containers/game/Game.vue';
+import GameDetail from './containers/game/GameDetail.vue';
+
 const routes = [
     {path: '/', redirect: '/index'},
     {path: '/index', component: Index},
@@ -84,7 +88,17 @@ const routes = [
             component: Schedule
         }]
     },
-    {path: '/faq', component: Faq}
+    {path: '/faq', component: Faq},
+
+    {
+        path: '/game', component: Game,
+        children: [
+            {
+                path: ':id',
+                component: GameDetail
+            }
+        ]
+    }
 ]
 
 export default new Router({
