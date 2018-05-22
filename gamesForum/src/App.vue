@@ -7,8 +7,9 @@
 </template>
 <script>
 	import cloneDeep from 'lodash/cloneDeep';
-	import { navLinks, logo, headInfo, footerInfo} from 'constants/2050.js';
+	import { navLinks, headInfo, footerInfo} from 'constants/2050.js';
 	import { navLinks_en, headInfo_en, footerInfo_en, logo_en} from 'constants/2050_en.js';
+	import logo from 'assets/img/logo.png'
 
 	import Header from 'components/Header';
 	import Footer from 'components/Footer';

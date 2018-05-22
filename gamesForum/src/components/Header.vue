@@ -100,7 +100,7 @@
 				min-height: 40px;
 				flex-grow: 1;
 				img {
-					width: 155px;
+					width: 75px;
 				}
 				.logo-wrap {
 					margin-top: 10px;
