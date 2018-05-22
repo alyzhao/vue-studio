@@ -13,9 +13,9 @@ import Credit from './components/Credit.vue';
 import Activity from './containers/activity/Activity.vue';
 import Reunite from  './containers/reunite/Reunite.vue';
 
-import Forum from './containers/forum/Forum.vue';
-import ForumDetail from './containers/forum/ForumDetail.vue';
-import TopicDetail from './containers/forum/TopicDetail.vue';
+// import Forum from './containers/forum/Forum.vue';
+// import ForumDetail from './containers/forum/ForumDetail.vue';
+// import TopicDetail from './containers/forum/TopicDetail.vue';
 
 import PurchaseTickets from './containers/tickets/PurchaseTickets.vue';
 import ReunitDetail from './containers/reunite/ReuniteDetail.vue';
@@ -41,21 +41,6 @@ import GameDetail from './containers/game/GameDetail.vue';
 const routes = [
     {path: '/', redirect: '/index'},
     {path: '/index', component: Index},
-    {
-        path: '/forum', component: Forum,
-        children: [
-            {
-                path: ':id',
-                component: ForumDetail,
-                props: true
-            },
-            {
-                path: ':forumId/:topicId',
-                component: TopicDetail,
-                props: true
-            }
-        ]
-    },
     {path: '/activity', component: Activity},
     {path: '/explore', component: Explore},
     {path: '/people', component: People},

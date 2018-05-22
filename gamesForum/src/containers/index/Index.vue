@@ -38,110 +38,6 @@
 				</div>
 			</div>
 
-            <!-- 探索 -->
-            <div class="cell tss">
-                <p class="tit"><a href="http://explorerapplication.mikecrm.com/MMfpWv7" target="_blank"><img
-                        :src="content.subTitleImg[1]"></a></p>
-                <p class="sub-tit">{{content.subTitle[1]}}</p>
-                <div class="c-in">
-                    <div class="tss-con">
-                        <p v-for="(item, index) in content.exploreContent" :key="index">{{item}}</p>
-                        <p class="invite">{{content.exploreInvite}}</p>
-                    </div>
-                </div>
-            </div>
-
-			<!-- 团聚 -->
-			<div class="cell tj clearfix">
-				<p class="tit"><a href=" http://cn.mikecrm.com/6hWZ5TL" target="_blank"><img :src="content.subTitleImg[2]"></a></p>
-				<p class="sub-tit">{{content.subTitle[2]}}</p>
-				<div class="c-in">
-					<swiper :options="tjSwiperOption">
-						<!-- v-for="item in reuniteList" -->
-						<swiper-slide v-for="item in groupList">
-							<div class="tjslide">
-								<div class="tj-con clearfix" @click="goReuniteDetail(item.id)">
-									<div class="info">
-										<p class="ra"><a :title="item.groupName">{{item.groupName}}</a></p>
-										<p class="peo">{{content.convener}}</p>
-                                        <p class="team"><a :title="item.convenerName">{{item.convenerName}}</a></p>
-										<p class="team position"><a :title="item.convenerPosition">{{item.convenerPosition}}</a></p>
-										<p class="split"><span></span></p>
-										<div class="intro">
-											<p>{{item.groupWord}}</p>
-										</div>
-									</div>
-									<div class="tj-img">
-										<img :src="staticHost + item.groupImg1">
-									</div>
-								</div>
-							</div>								
-						</swiper-slide>
-					
-						<div class="swiper-pagination-tj" slot="pagination"></div>
-						<!--<div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>-->
-						<!--<div class="swiper-button-next swiper-button-black" slot="button-next"></div>-->
-					</swiper>
-				</div>
-				<div class="more"><router-link :to="'/reunite'" >{{content.more}}</router-link></div>
-			</div>
-
-            <div class="content">
-
-                <!-- 迸发 -->
-                <div class="cell bf clearfix">
-                    <p class="tit"><a target="_blank"><img :src="content.subTitleImg[3]"></a></p>
-                    <p class="sub-tit">
-                        {{content.subTitle[3]}}
-                    </p>
-                    <div class="c-in pt">
-                        <div class="item" v-for="item in activityList" :key="item.id">
-                            <div class="bg"><img :src="staticHost + item.actImg"></div>
-                            <div class="con"><a target="_blank">{{item.actName}}</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="bg"></div>
-                            <div class="bmore">
-                                <router-link :to="'/activity'">{{content.more}} <i class="fa fa-angle-right"></i></router-link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cell zy clearfix">
-                <div class="content">
-                    <p class="tit"><a target="_blank"><img :src="content.subTitleImg[4]"></a></p>
-                    <p class="sub-tit">
-                        {{content.subTitle[4]}}
-                    </p>
-                    <p class="zy-tit">{{content.volPeople}}</p>
-                    <swiper :options="zypSwiperOption">
-                        <swiper-slide v-for="item in volunteerList" :key="item.id">
-                            <div class="zyp-wrap">
-                                <div class="zyp-slide">
-                                    <div class="zyp-img"><a target="_blank"><img
-                                            :src="staticHost + item.votImg"></a></div>
-                                    <a class="intro" :title="item.votWord">
-                                        <p class="vcon">{{item.votWord}}</p>
-                                    </a>
-                                </div>
-                                <p class="vna">{{item.votName}}</p>
-                            </div>
-                        </swiper-slide>
-                    </swiper>
-                    <div class="mb-zy">
-                        <div v-for="item in volunteerList" :key="item.id" class="mb-zy-cell">
-                            <div class="img-wrap">
-                                <a><img :src="staticHost + item.votImg"></a>
-                            </div>
-                            <p class="name">{{item.votName}}</p>
-                            <p class="tro">{{item.votWord}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </template>
@@ -158,40 +54,50 @@
     export default {
         data() {
             return {
-                tjSwiperOption: {
-                    autoplay: true,
-                    // spaceBetween: 20
-                    pagination: {
-                        el: '.swiper-pagination-tj',
-                        clickable: true,
-                        type: 'bullets'
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    }
-                },
-                zySwiperOption: {
-                    autoplay: true,
-                    pagination: {
-                        el: '.swpagination',
-                        clickable: true,
-                        type: 'bullets'
-                    }
-                },
-                zypSwiperOption: {
-                    autoplay: true,
-                    slidesPerView: 5,
-                },
-                forumList: [],
-                groupList: [],
-                activityList: [],
-                volunteerList: [],
-                volunteerOrgList: [],
                 staticHost: 'http://127.0.0.1:3000/dist/public/',
                 content: contentZh,
 
                 gameList: [{
+                    id: 0,
+                    gameName: "怪物猎人世界",
+                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameImg: "game1.png",
+                    gameLanguage: "英文",
+                    gameCategory: "动作游戏ACT",
+                    ganmeCompany: "Capcom",
+                }, {
+                    id: 0,
+                    gameName: "怪物猎人世界",
+                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameImg: "game1.png",
+                    gameLanguage: "英文",
+                    gameCategory: "动作游戏ACT",
+                    ganmeCompany: "Capcom",
+                }, {
+                    id: 0,
+                    gameName: "怪物猎人世界",
+                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameImg: "game1.png",
+                    gameLanguage: "英文",
+                    gameCategory: "动作游戏ACT",
+                    ganmeCompany: "Capcom",
+                }, {
+                    id: 0,
+                    gameName: "怪物猎人世界",
+                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameImg: "game1.png",
+                    gameLanguage: "英文",
+                    gameCategory: "动作游戏ACT",
+                    ganmeCompany: "Capcom",
+                }, {
+                    id: 0,
+                    gameName: "怪物猎人世界",
+                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameImg: "game1.png",
+                    gameLanguage: "英文",
+                    gameCategory: "动作游戏ACT",
+                    ganmeCompany: "Capcom",
+                }, {
                     id: 0,
                     gameName: "怪物猎人世界",
                     gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
@@ -215,34 +121,6 @@
                 this.$router.push({path: `/reunite/${id}`})
             },
             loadData() {
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
-                    pageNumber: 0,
-                    pageSize: 9,
-                    Language: this.$store.state.lang
-                })).then(response => {
-                    let resData = response.data;
-                    this.forumList = resData;
-                })
-
-                this.axios.get(prodUrl.HOST + '/2050webOnline/onLineGroup/queryGroup', {params: {
-                    Language: this.$store.state.lang
-                }}).then(response => {
-                    let resData = response.data;
-                    this.groupList = resData;
-                })
-
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineActivity/queryActivity', qs.stringify({
-                    Language: this.$store.state.lang
-                })).then(response => {
-                    this.activityList = response.data;
-                })
-
-                this.axios.get(prodUrl.HOST + '/2050webOnline/onLinevot/queryVot', {params: {
-                    Language: this.$store.state.lang
-                }}).then(response => {
-                    let resData = response.data;
-                    this.volunteerList = resData;
-                })
 
             }
         },
