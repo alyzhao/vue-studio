@@ -2,52 +2,52 @@
     <div class="create-detail">
         <div class="left">
             <div class="game">
-                <div class="img"><img :src="staticHost + gameInfo.gameImg"></div>
+                <div class="img"><img :src="staticHost + gameInfo.gameimg"></div>
                 <div class="intro">
                     <div class="game-detail">
                         <span class="tit">游戏类型：</span>
-                        <span class="gc">{{gameInfo.gameCategory}}</span>
+                        <span class="gc">{{gameInfo.gamecategory}}</span>
                     </div>
                     <div class="game-detail">
                         <span class="tit">制作公司：</span>
-                        <span class="gc">{{gameInfo.gameCompany}}</span>
+                        <span class="gc">{{gameInfo.productcompany}}</span>
                     </div>
                     <div class="game-detail">
                         <span class="tit">游戏语言：</span>
-                        <span class="gc">{{gameInfo.gameLanguage}}</span>
+                        <span class="gc">{{gameInfo.language}}</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="right">
             <div>
-                <h1>{{gameInfo.gameName}}</h1>
+                <h1>{{gameInfo.gamename}}</h1>
                 <div>
                     <h3>游戏介绍</h3>
-                    <p>{{gameInfo.gameIntro}}</p>
+                    <p>{{gameInfo.introduction}}</p>
                 </div>
                 <div>
                     <h3>最低配置</h3>
                     <div class="configuration">
                         <div class="fig">
                             <span class="fig-name">系统</span>
-                            <span class="fig-con">Windows 7 / 8</span>
+                            <span class="fig-con">{{gameInfo.system}}</span>
                         </div>
                         <div class="fig">
                             <span class="fig-name">CPU</span>
-                            <span class="fig-con">Intel Core i5-4460</span>
+                            <span class="fig-con">{{gameInfo.cpu}}</span>
                         </div>
                         <div class="fig">
                             <span class="fig-name">内存</span>
-                            <span class="fig-con">4 GB</span>
+                            <span class="fig-con">{{gameInfo.ram}}</span>
                         </div>
                         <div class="fig">
                             <span class="fig-name">硬盘</span>
-                            <span class="fig-con">28 GB</span>
+                            <span class="fig-con">{{gameInfo.rom}}</span>
                         </div>
                         <div class="fig">
                             <span class="fig-name">显卡</span>
-                            <span class="fig-con">NVIDIA GeForce GTX 650</span>
+                            <span class="fig-con">{{gameInfo.gpu}}</span>
                         </div>
                     </div>
                 </div>
@@ -55,13 +55,13 @@
                     <h3>网友评价</h3>
                     <div class="forum-con">
                         <div class="comment">
-                            <div class="com">
+                            <div class="com" v-for="comment in commentList">
                                 <div class="user">
-                                    <img :src="staticHost + 'header.png'">
-                                    <span>用户xxx</span>
+                                    <img :src="'http://127.0.0.1:3000/' + 'header.png'">
+                                    <span>{{comment.name}}</span>
                                 </div>
                                 <div class="com-con">
-                                    本作将角色、世界以及战斗系统完美的融合到了一起并使之构成了一趟令人难以忘怀的冒险之旅。
+                                    {{comment.comment}}
                                 </div>
                             </div>
                         </div>
@@ -79,11 +79,11 @@
     export default{
         name:'detail',
         props:{
-            topicId: String
+            gameId: String
         },
         data() {
             return {
-                staticHost: 'http://127.0.0.1:3000/dist/public/',
+                staticHost: prodUrl.staticHost,
                 topicInfo: null,
                 gameInfo: {
                     id: 5,
@@ -93,20 +93,24 @@
                     gameLanguage: "英文",
                     gameCategory: "动作游戏ACT",
                     gameCompany: "Capcom",
-                }
+                },
+                commentList: []
             }
         },
         mounted: function() {
+            console.log(this.gameId);
             this.loadData();
         },
         methods: {
             loadData() {
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryShareById', qs.stringify({
-                    shareId: this.topicId,
-                    Language: this.$store.state.lang
-                })).then(response => {
-                    this.topicInfo = response.data;
-                })                
+                this.axios.get('http://192.168.1.74:8080/game/queryGameById/' + this.gameId).then(response => {
+                    let resData = response.data;
+                    this.gameInfo = resData;
+                })
+                this.axios.get('http://192.168.1.74:8080/game/queryCommentById/' + this.gameId).then(response => {
+                    let resData = response.data;
+                    this.commentList = resData;
+                })              
             }
         },
         computed: {
@@ -188,11 +192,13 @@
                     line-height: 30px;
                     .comment {
                         display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
                         div {
                             margin: 0;
                         }
                         .com {
-                            width: 300px;
+                            width: 370px;
                             display: flex;
                             padding: 15px;
                             border-radius: 5px;
@@ -221,6 +227,8 @@
                                 line-height: 25px;
                                 font-size: 14px;
                                 color: #555;
+                                height: 150px;
+                                overflow: hidden;
                             }
                         }
                     }

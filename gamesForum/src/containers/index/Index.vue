@@ -11,14 +11,14 @@
 					</p>
 					<div class="c-in clearfix">
                         <div class="items" v-for="item in gameList" :key="item.id" @click="goGameDetail(item.id)">
-                            <p class="ctt"><a @click="goGameDetail(item.id)" :title="item.gameName">{{item.gameName}}</a></p>
-                            <p class="ccon"><a :title="item.gameIntro">{{item.gameIntro}}</a></p>
+                            <p class="ctt"><a @click="goGameDetail(item.id)" :title="item.gamename">{{item.gamename}}</a></p>
+                            <p class="ccon"><a :title="item.introduction">{{item.introduction}}</a></p>
                             <div class="peop">
-                                <a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.gameImg"></a>
+                                <a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.gameimg"></a>
                                 <div class="productor">
-                                    <p class="cp overh">游戏类型:  {{item.gameCategory}}</p>
-                                    <p class="cp overh">游戏语言:  {{item.gameLanguage}}</p>                                    
-                                    <p class="cp overh">制作公司:  {{item.ganmeCompany}}</p>
+                                    <p class="cp overh">游戏类型:  {{item.gamecategory}}</p>
+                                    <p class="cp overh">游戏语言:  {{item.language}}</p>             
+                                    <p class="cp overh">制作公司:  {{item.productcompany}}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
     export default {
         data() {
             return {
-                staticHost: 'http://127.0.0.1:3000/dist/public/',
+                staticHost: prodUrl.staticHost,
                 content: contentZh,
 
                 gameList: [{
@@ -121,7 +121,13 @@
                 this.$router.push({path: `/reunite/${id}`})
             },
             loadData() {
+            	this.axios.get('http://192.168.1.74:8080/game/queryGameAll/1/6').then(response => {
+            		let resData = response.data;
 
+            		this.gameList = resData;
+            		console.log(this.gameList);
+
+            	})
             }
         },
         computed: {

@@ -79,8 +79,9 @@ const routes = [
         path: '/game', component: Game,
         children: [
             {
-                path: ':id',
-                component: GameDetail
+                path: ':gameId',
+                component: GameDetail,
+                props: true
             }
         ]
     }

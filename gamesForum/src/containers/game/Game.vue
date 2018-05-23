@@ -23,14 +23,14 @@
                                 </div> -->
                                 <div class="items" v-for="item in gameList" :key="item.id">
                                     <router-link :to="'/game/' + item.id">
-                                        <p class="ctt"><a :title="item.gameName">{{item.gameName}}</a></p>
-                                        <p class="ccon"><a :title="item.gameIntro">{{item.gameIntro}}</a></p>
+                                        <p class="ctt"><a :title="item.gamename">{{item.gamename}}</a></p>
+                                        <p class="ccon"><a :title="item.introduction">{{item.introduction}}</a></p>
                                         <div class="peop">
-                                            <a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.gameImg"></a>
+                                            <a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.gameimg"></a>
                                             <div class="productor">
-                                                <p class="cp overh">游戏类型:  {{item.gameCategory}}</p>
-                                                <p class="cp overh">游戏语言:  {{item.gameLanguage}}</p>
-                                                <p class="cp overh">制作公司:  {{item.ganmeCompany}}</p>
+                                                <p class="cp overh">游戏类型:  {{item.gamecategory}}</p>
+                                                <p class="cp overh">游戏语言:  {{item.language}}</p>
+                                                <p class="cp overh">制作公司:  {{item.productcompany}}</p>
                                             </div>
                                         </div>
                                     </router-link>
@@ -61,63 +61,15 @@
     export default {
         data() {
             return {
-                gameList: [{
-                    id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
-                }, {
-                    id: 1,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
-                }, {
-                    id: 2,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
-                }, {
-                    id: 3,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
-                }, {
-                    id: 4,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
-                }, {
-                    id: 5,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
-                }],
+                gameList: [],
                 forumBannerList: [{
                     pcBanner: forumPcBanner,
                     mbBanner: forumMbBanner,
                     link: 'http://tgonetworks.mikecrm.com/BjHVvZo',
                     router: ''
                 }],
-                staticHost: 'http://127.0.0.1:3000/dist/public/',
-                page: 0,
+                staticHost: prodUrl.staticHost,
+                page: 1,
                 size: 6,
                 loadingData: false,
                 loadAll: false,
@@ -126,7 +78,7 @@
         },
         mounted: function () {
             this.$nextTick(function () {
-                // this.loadData();
+                this.loadData();
                 let scrollElement = this.$refs.scrollElement;
                 let self = this;
                 window.addEventListener('scroll', function() {
@@ -135,7 +87,7 @@
                     let offsetTop = scrollElement.offsetTop;
                     if (winScrollTop + winHeight >= offsetTop + scrollElement.clientHeight) {
                         if (!self.loadAll && !self.loadingData) {
-                            // self.loadData(self.page + 1);                            
+                            self.loadData(self.page + 1);                            
                         }
                     }
                 })
@@ -145,37 +97,16 @@
             loadData(page = this.page, size = this.size) {
                 this.loadingData = true;
 
-                this.axios.post(prodUrl.HOST + '/2050webOnline/onLineFroum/queryFroum', qs.stringify({
-                    pageNumber: page * this.size,
-                    pageSize: size,
-                    Language: this.$store.state.lang
-                })).then(response => {
-                    this.loadingData = false
+                this.axios.get('http://192.168.1.74:8080/game/queryGameAll/' + page + '/' + size).then(response => {
+                    this.loadingData = false;
                     let resData = response.data;
-                    if (resData < this.size) {
+                    if (resData.length < this.size) {
                         this.loadAll = true;
                     }
-                    this.forumList.push(...resData);
+                    this.gameList.push(...resData);
                     this.page = page;
                 })
 
-                if (this.isZh) {
-                    this.forumBannerList[0].pcBanner = forumPcBanner;
-                    this.forumBannerList[0].mbBanner = forumMbBanner;
-                } else {
-                    this.forumBannerList[0].pcBanner = forumPcBanner_en;
-                    this.forumBannerList[0].mbBanner = forumMbBanner_en;                    
-                }
-            },
-            reLoad() {
-                this.forumList = [];
-                this.loadAll = false;
-                this.loadData(0);
-            },
-        },
-        computed: {
-            recordStart() {
-                return this.page * this.size;
             },
         },
         components: {
