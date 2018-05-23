@@ -4,9 +4,6 @@
 			<div class="logo">
 				<router-link to="/" class="logo-wrap"><img :src="logo"></router-link>
 				<div class="info">
-					<p>{{headInfo.time}}</p>
-					<p>{{headInfo.location}}</p>
-					<p>{{headInfo.hotline}}</p>
 				</div>
 			</div>
 			<div class="link">
@@ -111,6 +108,7 @@
 					margin-left: 15px;
 					border-left: 1px solid #333;
 					min-width: 220px;
+					min-height: 68px;
 					p {
 						line-height: 15px;
 						margin-bottom: 6px;
