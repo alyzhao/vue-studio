@@ -15,11 +15,10 @@
 			</div>
 			<div class="purchase">
 				<!-- <router-link class="pur-btn" to="/purchase">{{purchase}}</router-link> -->
-				<a class="pur-btn" href="https://7e.7-event.cn/d/ci/7e/reg/index/9" target="_blank">{{purchase}}</a>
 				<!-- <a class="pur-btn" @click="fff()">立即购票</a> -->
 				<!-- <a class="switch">语言<i class="fa fa-sort-desc"></i></a> -->
-				<button class="lang" :class="{active: lang == 'zh'}" @click="setLang('zh')">中文</button>
-				<button class="lang" :class="{active: lang =='en'}" @click="setLang('en')">ENG</button>
+				<button class="lang active">注册</button>
+				<button class="lang">登录</button>
 				<i class="mb-bar fa fa-bars" @click="showMbNav = !showMbNav"></i>
 			</div>
 		</div>
@@ -41,7 +40,7 @@
 	import { mapState } from 'vuex';
 
 	export default {
-		props: ['logo', 'navLinks', 'headInfo'],
+		props: ['logo', 'navLinks'],
 		data() {
 			return {
 				showMbNav: false,
@@ -86,8 +85,8 @@
 		z-index: 999;
 		.top-nav {
 			height: 80px;
-			width: 100%; 
-			padding: 0 10px;
+			width: 1200px; 
+			margin: 0 auto;
 			display: flex;
 			align-items: center;
 			.logo {
@@ -124,10 +123,10 @@
 			.link {
 				height: 100%;
 				display: flex;
+				flex-grow: .1;
 				align-items: center;
 				justify-content: space-between;
-				flex-grow: .5;
-				margin-right: 10px;
+				margin-right: 100px;
 			}
 			.purchase {
 				display: flex;

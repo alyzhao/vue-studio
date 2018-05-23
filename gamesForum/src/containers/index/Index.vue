@@ -22,17 +22,29 @@
                                 </div>
                             </div>
                         </div>
-<!-- 						<div class="items" v-for="item in forumList" :key="item.id" @click="goGameDetail(item.id)">
-							<p class="ctt"><a @click="goGameDetail(item.id)" :title="item.forumWord">{{item.forumName}}</a></p>
-							<p class="ccon"><a :title="item.forumWord">{{item.forumWord}}</a></p>
-							<div class="peop">
-								<a class="portrait" target="_blank"><img height="60" width="60" :src="staticHost + item.productsImg"></a>
-								<div class="productor">
-									<p class="cp overh">{{content.producer}}:  {{item.products}}</p>
-									<p class="ct overh"><a :title="item.productsWord">{{item.productsPosition}}</a></p>
-								</div>
-							</div>
-						</div> -->
+					</div>
+					<div class="more"><router-link to="/game">查看更多</router-link></div>
+				</div>
+
+				<!-- 硬件 -->
+				<div class="cell ts clearfix">
+					<p class="tit">硬件推荐</p>
+					<p class="sub-tit">
+						最新, 性价比最高硬件推荐
+					</p>
+					<div class="c-in clearfix">
+                        <div class="items" v-for="item in hardWareList" :key="item.id" @click="goHardWareDetail(item.id)">
+                            <p class="ctt"><a @click="goHardWareDetail(item.id)" :title="item.gamename">酷睿i5 8500</a></p>
+                            <p class="ccon"><a :title="item.introduction">酷睿i5 8500是一款性价比极高的配件类产品。由Intel制造，制造工艺精良保证质量和使用寿命，有售后保障且价格公道，是性价比较高的一款选择。</a></p>
+                            <div class="peop">
+                                <a class="portrait" target="_blank"><img height="60" width="60" src=""></a>
+                                <div class="productor">
+                                    <p class="cp overh">游戏类型:  xxxx</p>
+                                    <p class="cp overh">游戏语言:  xxxx</p>             
+                                    <p class="cp overh">制作公司:  xxxx</p>
+                                </div>
+                            </div>
+                        </div>
 					</div>
 					<div class="more"><router-link to="/game">查看更多</router-link></div>
 				</div>
@@ -59,52 +71,56 @@
 
                 gameList: [{
                     id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
+                    gamename: "怪物猎人世界",
+                    introduction: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameimg: "game1.png",
+                    language: "英文",
+                    gamecategory: "动作游戏ACT",
+                    productcompany: "Capcom",
                 }, {
                     id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
+                    gamename: "怪物猎人世界",
+                    introduction: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameimg: "game1.png",
+                    language: "英文",
+                    gamecategory: "动作游戏ACT",
+                    productcompany: "Capcom",
                 }, {
                     id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
+                    gamename: "怪物猎人世界",
+                    introduction: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameimg: "game1.png",
+                    language: "英文",
+                    gamecategory: "动作游戏ACT",
+                    productcompany: "Capcom",
                 }, {
                     id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
+                    gamename: "怪物猎人世界",
+                    introduction: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameimg: "game1.png",
+                    language: "英文",
+                    gamecategory: "动作游戏ACT",
+                    productcompany: "Capcom",
                 }, {
                     id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
+                    gamename: "怪物猎人世界",
+                    introduction: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameimg: "game1.png",
+                    language: "英文",
+                    gamecategory: "动作游戏ACT",
+                    productcompany: "Capcom",
                 }, {
                     id: 0,
-                    gameName: "怪物猎人世界",
-                    gameIntro: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
-                    gameImg: "game1.png",
-                    gameLanguage: "英文",
-                    gameCategory: "动作游戏ACT",
-                    ganmeCompany: "Capcom",
+                    gamename: "怪物猎人世界",
+                    introduction: "《怪物猎人世界（Monster Hunter World）》作为一个无缝连接的开放世界游戏，本作将拥有原汁原味的怪猎水平，游戏将有传统的单人模式，以及联机合作模式。",
+                    gameimg: "game1.png",
+                    language: "英文",
+                    gamecategory: "动作游戏ACT",
+                    productcompany: "Capcom",
+                }],
+
+                hardWareList: [{
+                	id: 1
                 }]
             }
         },
@@ -121,17 +137,17 @@
                 this.$router.push({path: `/reunite/${id}`})
             },
             loadData() {
-            	this.axios.get('http://192.168.1.74:8080/game/queryGameAll/1/6').then(response => {
-            		let resData = response.data;
+            	// this.axios.get('http://192.168.1.74:8080/game/queryGameAll/1/6').then(response => {
+            	// 	let resData = response.data;
 
-            		this.gameList = resData;
-            		console.log(this.gameList);
+            	// 	this.gameList = resData;
+            	// 	console.log(this.gameList);
 
-            	})
+            	// })
+            },
+            goHardWareDetail() {
+            	
             }
-        },
-        computed: {
-
         }
     }
 </script>

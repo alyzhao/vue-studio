@@ -11,6 +11,7 @@
 					<a v-if="item.link" :href="item.link" target="_blank"><img width="100%" :src="item.mbBanner"></a>					
 				</div>
 			</swiper-slide>
+			<div class="swiper-pagination" slot="pagination"></div>
 		</swiper>
 	</div>
 </template>
@@ -32,10 +33,10 @@
 			return {
 				swiperOption: {
 					autoplay: true,
-					// pagination: {
-					// 	el: '.swiper-pagination',
-					// 	type: 'bullets'
-					// }
+					pagination: {
+						el: '.swiper-pagination',
+						type: 'bullets'
+					}
 				},
 				bannerUrl: null,
 				staticHost: prodUrl.imgHost

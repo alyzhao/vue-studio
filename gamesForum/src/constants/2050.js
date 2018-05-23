@@ -2,36 +2,12 @@ export const navLinks = [{
 	name: '首页',
 	link: '/index'
 }, {
-	name: '团聚',
-	link: '/reunite'	
+	name: '游戏',
+	link: '/game'	
 }, {
-	name: '新生',
-	link: '/forum'	
-}, {
-	name: '探索',
-	link: '/explore'
-}, {
-	name: '迸发',
-	link: '/activity'	
-}, {
-	name: '面孔',
-	link: '/people'	
-}, {
-	name: '志愿',
-	link: '/volunteer'	
-}, {
-	name: '沉淀',
-	link: '/reports'	
-}, {
-	name: '指南',
-	link: '/guide'
+	name: '硬件',
+	link: '/hardware'	
 }]
-
-export const headInfo = {
-	time: '时间： 2018.5.25 - 2018.5.27',
-	location: '地址： 杭州云栖小镇',
-	hotline: '热线： +86 18519014746'
-}
 
 export const footerInfo = {
 	intro: [
@@ -70,8 +46,3 @@ export const footerInfo = {
     weChat: '微信公众号',
     weibo: '微博'
 }
-
-
-import logoImg from 'assets/img/logo_2050_nav.png';  
-export const logo = logoImg; 
-

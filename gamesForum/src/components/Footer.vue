@@ -2,71 +2,9 @@
 	<div class="footer">
 		<div class="about">
 			<div class="content">
-				<p v-for="(item, index) in footerInfo.intro" :key="'intro' + index">{{item}}</p>
 			</div>
 		</div>
-		<div class="main">
-			<div class="clearfix">
-				<div class="fr qr">
-					<div style="margin-bottom: 15px;"><img src="../assets/img/logo_2050.png"></div>
-					<div class="qr-img clearfix">
-						<div class="fl"><img width="150" height="150" src="../assets/img/qr-codel.png"><p>{{footerInfo.weChat}}</p></div>
-						<div class="fr"><img width="150" height="150" src="../assets/img/qr-coder.png"><p>{{footerInfo.weibo}}</p></div>		
-					</div>
-				</div>
-				<div class="fl contact">
-					<div class="ic">
-						<div class="cell ">
-							<p class="add">{{footerInfo.contactInfo.address.name}}</p>
-						</div>
-						<div class="cell">
-							<p class="us">{{footerInfo.contactInfo.phones.name}}</p>
-						</div>
-						<div class="cell ">
-							<p class="em">{{footerInfo.contactInfo.tech.name}}</p>
-						</div>
-					</div>
-					<div class="dt">
-						<div class="cell ">
-							<p v-for="item in footerInfo.contactInfo.address.value">{{item}}</p>
-							<p class="email">{{footerInfo.contactInfo.email.name}}</p>
-							<p>{{footerInfo.contactInfo.email.value}}</p>
-						</div>
-						<div class="cell">
-							<p v-for="item in footerInfo.contactInfo.phones.value">
-								{{item}}
-							</p>
-						</div>
-						<div class="cell ">
-							<p>{{footerInfo.contactInfo.tech.value}}</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="min-main">
-				<div class="min-l">
-					<p>{{footerInfo.contactInfo.phones.name}}</p>
-					<ul>
-						<li v-for="item in footerInfo.contactInfo.phones.value">{{item}}</li>
-						<li>
-							<span class="tit">{{footerInfo.contactInfo.address.name}}:</span>
-							<span>{{footerInfo.contactInfo.address.value[0] + footerInfo.contactInfo.address.value[1]}}</span>
-						</li>
-						<li><span class="tit">{{footerInfo.contactInfo.email.name}}:</span><span>{{footerInfo.contactInfo.email.value}}</span></li>
-					</ul>
-				</div>
-				<div class="min-r">
-					<div class="logo"><img src="../assets/img/logo_2050.png"></div>
-					<div class="qr"><img width="150" height="150" src="../assets/img/qr-codel.png"><p>{{footerInfo.weChat}}</p></div>					
-					<div class="qr"><img width="150" height="150" src="../assets/img/qr-coder.png"><p>{{footerInfo.weibo}}</p></div>	
-				</div>
-			</div>
-			<div class="description">
-				<p v-for="item in footerInfo.contactInfo.description">{{item}}</p>
-			</div>
-		</div>
-
-		<p class="copyright">Copyright © 2050云栖 – 浙ICP备18008601号</p>
+		<p class="copyright">Copyright © xxx – 浙ICP备18000000号</p>
 	</div>
 </template>
 <script>
@@ -81,6 +19,7 @@
 			width: 100%;
 			background: #5c40b1 url('../assets/img/footer-bg.png') no-repeat center center;
 			overflow: hidden;
+			height: 240px;
 			.content {
 				margin-top: 25px;
 			}
