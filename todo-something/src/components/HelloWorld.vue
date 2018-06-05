@@ -30,10 +30,26 @@
 </template>
 
 <script>
+import { mapActions, mapMutations } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted() {
+    console.log(this.$store)
+    this.$store.dispatch('setImprove', 'fuck')
+    // this.setImprove('fuck')
+    // this.$store.commit('SET_IMPROVE', 'fuck')
+    // this.SET_IMPROVE('fuck')
+    console.log('test', this.$store.state.test)
+    console.log('repeat', this.$store.state.repeat)
+
+  },
+  methods: {
+    ...mapActions(['setImprove']),
+    ...mapMutations(['SET_IMPROVE'])
   }
 }
 </script>

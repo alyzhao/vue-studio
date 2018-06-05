@@ -1,10 +1,10 @@
 const state = {
-    improve: null
+    improveRepeat: null
 }
 
 const mutations = {
     SET_IMPROVE(state, value) {
-        state.improve = value;
+        state.improveRepeat = value;
     }
 }
 
