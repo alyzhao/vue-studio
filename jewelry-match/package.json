@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0",
-    "build": "NODE_ENV=production webpack --progress"
+    "dev": "set NODE_ENV=development&&webpack-dev-server --inline --hot --host 0.0.0.0",
+    "build": "set NODE_ENV=production&&webpack --progress"
   },
   "keywords": [
     "vue"
@@ -15,7 +15,8 @@
   "dependencies": {
     "element-ui": "^2.4.6",
     "normalize.css": "^8.0.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

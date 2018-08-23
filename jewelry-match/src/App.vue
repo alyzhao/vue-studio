@@ -1,6 +1,6 @@
 <template>
-  <div>
-    
+  <div class="compound">
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -15,3 +15,11 @@
     }
   }
 </script>
+<style lang="scss">
+  .compound {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+</style>

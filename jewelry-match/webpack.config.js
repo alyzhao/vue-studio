@@ -11,7 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
-        bundle: [path.resolve(__dirname, './src/main.js')],
+        bundle: [path.resolve(__dirname, './src/main.js'), path.resolve(__dirname, './src/assets/scss/index.scss')],
     },
     output: {
         path: path.resolve(__dirname + '/dist'),
@@ -24,8 +24,8 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js',
             'assets': path.resolve(__dirname, './src/assets'),
             'components': path.resolve(__dirname, './src/components'),
-            'playerComponents': path.resolve(__dirname, './src/playerComponents'),
             'constants': path.resolve(__dirname, './src/constants'),
+            'views': path.resolve(__dirname, './src/views'),
             'utils': path.resolve(__dirname, './src/utils')
         }
     },
