@@ -10,7 +10,6 @@
       <input type="file" hidden @change="uploadChange" ref="uploadElment">
       <el-button type="primary" :disabled="hasUpload">下一步</el-button>
     </div>
-    <div>{{realImgScale}}</div>
   </div>
 </template>
 <script>
@@ -26,7 +25,7 @@
         realImgEndX: 0,
         realImgEndY: 0,
         realImgScale: 1,
-        realImgInitialScale: 1,
+        realImgInitialScale: 1
       }
     },
     mounted () {
@@ -59,14 +58,11 @@
 
       touch.on(realpicWrap, 'pinch', e => {
         if (typeof e.scale != 'undefined') {
-          // alert(e.scale)
-          let currentScale = e.scale - 1
-          currentScale = this.realImgInitialScale + currentScale
+          let currentScale = this.realImgInitialScale + e.scale - 1
           if (currentScale < 0) {
             return
           }
           this.realImgScale = currentScale
-          // this.realImgScale = e.scale
         }
       })
 
