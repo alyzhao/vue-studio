@@ -4,6 +4,9 @@ import router from './router'
 import "babel-polyfill"
 import 'normalize.css'
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css';
+
 import {
   Input,
   Row,
@@ -11,7 +14,8 @@ import {
   Button,
   Table,
   TableColumn,
-  Progress
+  Progress,
+  Card
 } from 'element-ui'
 
 // Vue.prototype.$ELEMENT = { size: 'mini' }
@@ -22,6 +26,8 @@ Vue.use(Button)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Progress)
+Vue.use(Card)
+Vue.use(VueAwesomeSwiper)
 
 Vue.use(Input)
 new Vue({

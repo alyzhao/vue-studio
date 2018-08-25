@@ -5,10 +5,17 @@
         <img ref="realpic" class="real-pic" :style="{transform: transformStyle}">
       </div>
     </div>
-    <div class="upload-btn-group">
-      <el-button type="primary" @click="uploadImg">上传图片</el-button>
-      <input type="file" hidden @change="uploadChange" ref="uploadElment">
-      <el-button type="primary" :disabled="hasUpload">下一步</el-button>
+    <div class="upload-bottom">
+      <swiper :options="swiperOption">
+        <swiper-slide v-for="item in selectProducts" :key="item.id">
+          <img :src="item.img" class="swiper-product">
+        </swiper-slide>
+      </swiper>
+      <div class="upload-btn-group">
+        <el-button type="primary" @click="uploadImg">上传图片</el-button>
+        <input type="file" hidden @change="uploadChange" ref="uploadElment">
+        <el-button type="primary" :disabled="hasUpload" @click="nextStep">选择商品</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +24,7 @@
   import touch from 'touchjs'
 
   export default {
+    props: ['selectProducts'],
     data () {
       return {
         hasUpload: true,
@@ -25,7 +33,12 @@
         realImgEndX: 0,
         realImgEndY: 0,
         realImgScale: 1,
-        realImgInitialScale: 1
+        realImgInitialScale: 1,
+        swiperOption: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          freeMode: true
+        }
       }
     },
     mounted () {
@@ -33,25 +46,15 @@
       let realpicWrap = this.$refs.realpicWrap
       let realpic = this.$refs.realpic
       touch.on(realpicWrap, 'touchstart', e => {
-        console.log('touchstarttouchstart')
         e.preventDefault()
       })
 
       touch.on(realpicWrap, 'drag', e => {
-        console.log('dragdrag')
-        console.log(this.realImgEndX)
-        console.log(this.realImgEndY)
-        console.log("drag x: ", e.x)
-        console.log("drag y: ", e.y)
         this.realImgTranslateX = this.realImgEndX + e.x
         this.realImgTranslateY = this.realImgEndY + e.y
       })
 
       touch.on(realpicWrap, 'dragend', e => {
-        console.log('dragenddragend')
-        // e.stopPropagation()
-        console.log("dragend x: ", e.x)
-        console.log("dragend y: ", e.y)
         this.realImgEndX += e.x
         this.realImgEndY += e.y
       })
@@ -87,43 +90,9 @@
           realpic.setAttribute('src', imgData)
         }
       },
-      // initTouch: function(element, img) {
-      //   let offx = 0, offy = 0;
-      //   let scale = 1;
-      //   let currScale;
-
-      //   function formatTransform(offx, offy, scale) {
-      //     let translate = 'translate3d(' + (offx + 'px,') + (offy + 'px,') + '0)';
-      //     scale = 'scale(' + scale + ')';
-      //     return translate + ' ' + scale;
-      //   }
-
-      //   touch.on(element, 'touchstart', function (ev) {
-      //     ev.preventDefault();
-      //   });
-
-      //   touch.on(element, 'drag', function(ev) {
-      //     let currOffx = offx + ev.x;
-      //     let currOffy = offy + ev.y;
-      //     img.style.transform = formatTransform(currOffx, currOffy, scale);
-      //   });
-
-      //   touch.on(element, 'dragend', function(ev) {
-      //     offx += ev.x;
-      //     offy += ev.y;
-      //   });
-
-      //   touch.on(element, 'pinch', function(ev) {
-      //     if(typeof ev.scale != 'undefined') {
-      //       currScale = ev.scale - 1 + scale;
-      //       img.style.transform = formatTransform(offx, offy, currScale);
-      //     }
-      //   });
-
-      //   touch.on(element, 'pinchend', function() {
-      //     scale = currScale;
-      //   });
-      // }
+      nextStep () {
+        this.$emit('nextStep')
+      }
     },
     computed: {
       transformStyle () {
@@ -139,10 +108,12 @@
   .upload {
     position: relative;
     height: 100%;
+    padding: 5vw;
+    box-sizing: border-box;
     .upload-wrap {
       min-height: 100%;
       width: 100%;
-      padding-bottom: 100px;
+      padding-bottom: 160px;
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -161,12 +132,23 @@
         }
       }
     }
-    .upload-btn-group {
+    .upload-bottom {
+      padding: 5px 5vw;
       position: absolute;
-      bottom: 0;
+      left: 0;
       width: 100%;
+      box-sizing: border-box;
+      margin-top: -160px;
+      height: 160px;
+    }
+    .upload-btn-group {
       text-align: center;
-      padding: 30px 0;
+      margin-top: 10px;
+    }
+    .swiper-product {
+      display: block;
+      width: 100px;
+      height: 100px;
     }
   }
 </style>
