@@ -2,19 +2,21 @@
   <div class="upload">
     <div class="upload-wrap" ref="uploadWrap">
       <div class="pic-wrap" ref="realpicWrap">
+        <img ref="productPic" v-show="showProductImg" class="product-img" :style="{transform: transformProduct}">
         <img ref="realpic" class="real-pic" :style="{transform: transformStyle}">
       </div>
     </div>
     <div class="upload-bottom">
       <swiper :options="swiperOption">
         <swiper-slide v-for="item in selectProducts" :key="item.id">
-          <img :src="item.img" class="swiper-product">
+          <img :src="item.img" class="swiper-product" :class="{selected: item.matchSelected}" @click="selectMatch(item)">
         </swiper-slide>
       </swiper>
       <div class="upload-btn-group">
         <el-button type="primary" @click="uploadImg">上传图片</el-button>
         <input type="file" hidden @change="uploadChange" ref="uploadElment">
         <el-button type="primary" :disabled="hasUpload" @click="nextStep">选择商品</el-button>
+        <el-button style="margin-left: 0;" type="success" v-if="selectProducts.length > 0" @click="generate">生成图片</el-button>
       </div>
     </div>
   </div>
@@ -38,7 +40,12 @@
           slidesPerView: 3,
           spaceBetween: 10,
           freeMode: true
-        }
+        },
+        productTranslateX: 0,
+        productTranslateY: 0,
+        productEndX: 0,
+        productEndY: 0,
+        dragProduct: false
       }
     },
     mounted () {
@@ -50,13 +57,29 @@
       })
 
       touch.on(realpicWrap, 'drag', e => {
-        this.realImgTranslateX = this.realImgEndX + e.x
-        this.realImgTranslateY = this.realImgEndY + e.y
+        console.log('drag', this.dragProduct)
+        if (e.target.className === 'product-img' && !this.dragProduct) {
+          this.dragProduct = true
+        }
+        if (this.dragProduct) {
+          this.productTranslateX = this.productEndX + e.x
+          this.productTranslateY = this.productEndY + e.y
+        } else {
+          this.realImgTranslateX = this.realImgEndX + e.x
+          this.realImgTranslateY = this.realImgEndY + e.y          
+        }
       })
 
       touch.on(realpicWrap, 'dragend', e => {
-        this.realImgEndX += e.x
-        this.realImgEndY += e.y
+        console.log('dragend', this.dragProduct)
+        if (this.dragProduct) {
+          this.productEndX += e.x
+          this.productEndY += e.y          
+          this.dragProduct = false
+        } else {
+          this.realImgEndX += e.x
+          this.realImgEndY += e.y          
+        }
       })
 
       touch.on(realpicWrap, 'pinch', e => {
@@ -92,11 +115,62 @@
       },
       nextStep () {
         this.$emit('nextStep')
-      }
+      },
+      selectMatch (item) {
+        let lastSelect = this.selectProducts.find(product => product.matchSelected)
+        if (lastSelect !== undefined) {
+          lastSelect.matchSelected = false
+        }
+        item.matchSelected = true
+        let productImg = this.$refs.productPic
+        this.productTranslateX = 0
+        this.productTranslateY = 0
+        this.productEndX = 0
+        this.productEndY = 0
+        productImg.setAttribute('src', item.img)
+      },
+      generate () {
+        // return
+
+        let realpicWrap = this.$refs.realpicWrap
+        let canvas = document.createElement('canvas')
+        canvas.width = realpicWrap.offsetWidth
+        canvas.height = realpicWrap.offsetHeight
+
+        let ctx = canvas.getContext('2d')
+        ctx.fillStyle = '#fff'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+        let realpic = this.$refs.realpic
+        let realpicWidth = realpic.offsetWidth
+        let realpicHeight = realpic.offsetHeight
+        console.log('realpicWidth', realpicWidth)
+        console.log('realpicHeight', realpicHeight)
+
+        let realImgX = this.realImgTranslateX + realpicWidth / 2 * (1 - this.realImgScale)
+
+        let realImgY = this.realImgTranslateY + realpicHeight / 2 * (1 - this.realImgScale)
+
+        ctx.drawImage(realpic, realImgX, realImgY, realpicWidth * this.realImgScale, realpicHeight * this.realImgScale)
+
+        let productImg = this.$refs.productPic
+        ctx.drawImage(productImg, this.productTranslateX, this.productTranslateY, 150, 150)
+
+        let resultData = canvas.toDataURL('image/jpeg')
+        this.$emit('generateImg', resultData)
+      },
+
     },
     computed: {
       transformStyle () {
         return "translateX(" + this.realImgTranslateX + "px) translateY(" + this.realImgTranslateY + "px) scale(" + this.realImgScale + ")"
+      },
+      transformProduct () {
+        return "translateX(" + this.productTranslateX + "px) translateY(" + this.productTranslateY + "px)"
+      },
+      showProductImg () {
+        let selectedMatchProduct = this.selectProducts.find(item => item.matchSelected)
+        return selectedMatchProduct !== undefined
       }
     }
   }
@@ -130,6 +204,14 @@
           display: block;
           position: absolute;
         }
+        .product-img {
+          width: 150px;
+          height: 150px;
+          display: block;
+          position: absolute;
+          transition: all .2s linear;
+          z-index: 999;
+        }
       }
     }
     .upload-bottom {
@@ -149,6 +231,10 @@
       display: block;
       width: 100px;
       height: 100px;
+      border: 1px solid #DCDFE6;
+      &.selected {
+        border-color: #F56C6C;
+      }
     }
   }
 </style>
