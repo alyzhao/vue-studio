@@ -20,35 +20,35 @@
       return {
         productsList: [{
           id: 1,
-          img: '/src/assets/images/p1.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p1.png',
           selected: false
         }, {
           id: 2,
-          img: '/src/assets/images/p2.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p2.png',
           selected: false
         }, {
           id: 3,
-          img: '/src/assets/images/p3.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p3.png',
           selected: false
         }, {
           id: 4,
-          img: '/src/assets/images/p4.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p4.png',
           selected: false
         }, {
           id: 11,
-          img: '/src/assets/images/p1.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p1.png',
           selected: false
         }, {
           id: 22,
-          img: '/src/assets/images/p2.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p2.png',
           selected: false
         }, {
           id: 33,
-          img: '/src/assets/images/p3.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p3.png',
           selected: false
         }, {
           id: 44,
-          img: '/src/assets/images/p4.png',
+          img: 'http://player.alicdn.com/presentation-test/test/images/p4.png',
           selected: false
         }]
       }

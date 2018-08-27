@@ -2,7 +2,7 @@
   <div class="upload">
     <div class="upload-wrap" ref="uploadWrap">
       <div class="pic-wrap" ref="realpicWrap">
-        <img ref="productPic" v-show="showProductImg" class="product-img" :style="{transform: transformProduct}">
+        <img ref="productPic" crossorigin="anonymous" v-show="showProductImg" class="product-img" :style="{transform: transformProduct}">
         <img ref="realpic" class="real-pic" :style="{transform: transformStyle}">
       </div>
     </div>
@@ -13,8 +13,8 @@
         </swiper-slide>
       </swiper>
       <div class="upload-btn-group">
-        <el-button type="primary" @click="uploadImg">上传图片</el-button>
-        <input type="file" hidden @change="uploadChange" ref="uploadElment">
+        <el-button type="primary" @click="uploadImg">上传个人图片</el-button>
+        <input type="file" hidden @change="uploadChange" ref="uploadElment" accept="image/*">
         <el-button type="primary" :disabled="hasUpload" @click="nextStep">选择商品</el-button>
         <el-button style="margin-left: 0;" type="success" v-if="selectProducts.length > 0" @click="generate">生成图片</el-button>
       </div>
@@ -45,7 +45,10 @@
         productTranslateY: 0,
         productEndX: 0,
         productEndY: 0,
-        dragProduct: false
+        dragProduct: false,
+        pinchProduct: false,
+        productScale: 1,
+        productInitialScale: 1
       }
     },
     mounted () {
@@ -84,16 +87,32 @@
 
       touch.on(realpicWrap, 'pinch', e => {
         if (typeof e.scale != 'undefined') {
-          let currentScale = this.realImgInitialScale + e.scale - 1
-          if (currentScale < 0) {
-            return
+          if (e.target.className === 'product-img' && !this.pinchProduct) {
+            this.pinchProduct = true
           }
-          this.realImgScale = currentScale
+          if (this.pinchProduct) {
+            let currentProductScale = this.productInitialScale + e.scale - 1
+            if (currentProductScale < 0) {
+              return
+            }
+            this.productScale = currentProductScale
+          } else {
+            let currentScale = this.realImgInitialScale + e.scale - 1
+            if (currentScale < 0) {
+              return
+            }
+            this.realImgScale = currentScale            
+          }
         }
       })
 
       touch.on(realpicWrap, 'pinchend', e => {
-        this.realImgInitialScale = this.realImgScale
+        if (this.pinchProduct) {
+          this.productInitialScale = this.productScale
+          this.pinchProduct = false
+        } else {
+          this.realImgInitialScale = this.realImgScale          
+        }
       })
 
     },
@@ -154,7 +173,11 @@
         ctx.drawImage(realpic, realImgX, realImgY, realpicWidth * this.realImgScale, realpicHeight * this.realImgScale)
 
         let productImg = this.$refs.productPic
-        ctx.drawImage(productImg, this.productTranslateX, this.productTranslateY, 150, 150)
+        let productImgWidth = productImg.offsetWidth
+        let productImgHeight = productImg.offsetHeight
+        let productX = this.productTranslateX + productImgWidth / 2 * (1 - this.productScale)
+        let productY = this.productTranslateY + productImgHeight / 2 * (1- this.productScale)
+        ctx.drawImage(productImg, productX, productY, productImgWidth * this.productScale, productImgHeight * this.productScale)
 
         let resultData = canvas.toDataURL('image/jpeg')
         this.$emit('generateImg', resultData)
@@ -166,7 +189,7 @@
         return "translateX(" + this.realImgTranslateX + "px) translateY(" + this.realImgTranslateY + "px) scale(" + this.realImgScale + ")"
       },
       transformProduct () {
-        return "translateX(" + this.productTranslateX + "px) translateY(" + this.productTranslateY + "px)"
+        return "translateX(" + this.productTranslateX + "px) translateY(" + this.productTranslateY + "px) scale(" + this.productScale + ")"
       },
       showProductImg () {
         let selectedMatchProduct = this.selectProducts.find(item => item.matchSelected)
