@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development&&webpack-dev-server --inline --hot --host 0.0.0.0",
-    "build": "set NODE_ENV=production&&webpack --progress"
+    "dev": "NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0",
+    "build": "NODE_ENV=production webpack --progress"
   },
   "keywords": [
     "vue"
@@ -13,6 +13,7 @@
   "author": "Allen Zhao",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.4.6",
     "lodash.clonedeep": "^4.5.0",
     "normalize.css": "^8.0.0",

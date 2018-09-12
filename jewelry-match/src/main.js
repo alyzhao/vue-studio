@@ -5,15 +5,23 @@ import 'normalize.css'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css';
+import axios from 'axios'
+
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+Vue.prototype.axios = axios
 
 import {
   Row,
   Col,
   Button,
-  Card
+  Card,
+  Message
 } from 'element-ui'
 
 // Vue.prototype.$ELEMENT = { size: 'mini' }
+
+Vue.prototype.$message = Message
+
 
 Vue.use(Row)
 Vue.use(Col)

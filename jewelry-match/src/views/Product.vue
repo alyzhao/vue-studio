@@ -1,10 +1,11 @@
 <template>
   <div class="products">
     <div class="products-wrap">
+      <el-row v-if="productsList.length <= 0" style="color: #909399;font-size: 14px;text-align: center;margin-top: 50px;">暂无商品...</el-row>
       <el-row :gutter="10" style="margin-left: 0;margin-right: 0;padding-top: 5px;">
-        <el-col :span="8" v-for="product in productsList" :key="product.id" @click.native="selectProduct(product)">
+        <el-col :span="8" v-for="product in productsList" :key="product._id" @click.native="selectProduct(product)">
           <el-card class="product-cell" :class="{selected: product.selected}">
-            <img :src="product.img">
+            <img :src="product.productImg">
           </el-card>
         </el-col>
       </el-row>
@@ -18,43 +19,22 @@
   export default {
     data () {
       return {
-        productsList: [{
-          id: 1,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p1.png',
-          selected: false
-        }, {
-          id: 2,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p2.png',
-          selected: false
-        }, {
-          id: 3,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p3.png',
-          selected: false
-        }, {
-          id: 4,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p4.png',
-          selected: false
-        }, {
-          id: 11,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p1.png',
-          selected: false
-        }, {
-          id: 22,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p2.png',
-          selected: false
-        }, {
-          id: 33,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p3.png',
-          selected: false
-        }, {
-          id: 44,
-          img: 'http://player.alicdn.com/presentation-test/test/images/p4.png',
-          selected: false
-        }]
+        productsList: []
       }
     },
     mounted () {
-      console.log('sgfasdfasdfas')
+      console.log(this.getUrlQueryString('sid'))
+      this.axios.get('/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
+        console.log(res)
+        let list = res.data.list.map(item => {
+          item.selected = false
+          return item
+        })
+        this.productsList = list
+        console.log(this.productsList)
+      }).catch(err => {
+        this.$message.error('获取商品列表失败！')
+      })
     },
     methods: {
       selectProduct (product) {
@@ -64,7 +44,15 @@
         let selectProducts = this.productsList.filter(item => item.selected)
         console.log(selectProducts)
         this.$emit('getSelectProducts', selectProducts)
-      }
+      },
+      getUrlQueryString(name) {
+        let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        let r = window.location.search.substr(1).match(reg);
+        if (r!=null) {
+            return  unescape(r[2]);
+        }
+        return '';
+      },
     },
     computed: {
       hasSelectProduct () {

@@ -7,9 +7,10 @@
       </div>
     </div>
     <div class="upload-bottom">
+      <div v-if="selectedProductName">当前商品名称: {{selectedProductName}}, 型号: {{selectedProductModel}}</div>
       <swiper :options="swiperOption">
         <swiper-slide v-for="item in selectProducts" :key="item.id">
-          <img :src="item.img" class="swiper-product" :class="{selected: item.matchSelected}" @click="selectMatch(item)">
+          <img :src="item.productImg" class="swiper-product" :class="{selected: item.matchSelected}" @click="selectMatch(item)">
         </swiper-slide>
       </swiper>
       <div class="upload-btn-group">
@@ -48,7 +49,9 @@
         dragProduct: false,
         pinchProduct: false,
         productScale: 1,
-        productInitialScale: 1
+        productInitialScale: 1,
+        selectedProductName: '',
+        selectedProductModel: ''
       }
     },
     mounted () {
@@ -140,13 +143,15 @@
         if (lastSelect !== undefined) {
           lastSelect.matchSelected = false
         }
+        this.selectedProductName = item.productName
+        this.selectedProductModel = item.productModel
         item.matchSelected = true
         let productImg = this.$refs.productPic
         this.productTranslateX = 0
         this.productTranslateY = 0
         this.productEndX = 0
         this.productEndY = 0
-        productImg.setAttribute('src', item.img)
+        productImg.setAttribute('src', item.productImg)
       },
       generate () {
         // return
