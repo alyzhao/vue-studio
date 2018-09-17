@@ -6,7 +6,7 @@
         <img ref="realpic" class="real-pic" :style="{transform: transformStyle}">
         <img ref="posterBottom" crossorigin="anonymous" class="poster-bottom" src="../assets/images/pbottom.png">
       </div>
-      <input type="text" class="name-input" v-model="name" ref="nameInput" :style="{top: nameTop, left: nameLeft}">
+      <input type="text" class="name-input" placeholder="输入名字" v-model="name" ref="nameInput" :style="{top: nameTop, left: nameLeft}">
     </div>
     <div class="upload-bottom">
       <div class="upload-btn-group">
@@ -183,8 +183,8 @@
       align-items: center;
       justify-content: center; 
       .pic-wrap {
-        width: 90vw;
-        height: 130vw;
+        width: 80vw;
+        height: 142vw;
         border: 3px solid #4b240d;
         overflow: hidden;
         position: relative;
@@ -285,5 +285,10 @@
     border-radius: 0;
     color: #fff;
     padding: 0;
+    &::-webkit-input-placeholder {
+      font-size: 22px;
+      color: rgba(255, 255, 255, .5);
+    }
   }
+
 </style>
