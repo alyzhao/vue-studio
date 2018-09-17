@@ -99,7 +99,7 @@ module.exports = {
             filename: 'css/style.css'   // 将 css 提取出来
         }),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: 'index/index.html',
             template: './src/index.html',
             inject: 'body',
             hash: true
@@ -117,7 +117,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.output.publicPath = 'http://vod-aliplayer.oss-cn-hangzhou.aliyuncs.com/presentation-test/poster/'
+    module.exports.output.publicPath = '../'
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
