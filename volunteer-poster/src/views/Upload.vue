@@ -183,8 +183,8 @@
       align-items: center;
       justify-content: center; 
       .pic-wrap {
-        width: 80vw;
-        height: 142vw;
+        width: 70vw;
+        height: 125vw;
         border: 3px solid #4b240d;
         overflow: hidden;
         position: relative;

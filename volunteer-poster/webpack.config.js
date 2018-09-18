@@ -99,7 +99,7 @@ module.exports = {
             filename: 'css/style.css'   // 将 css 提取出来
         }),
         new HtmlWebpackPlugin({
-            filename: 'index/index.html',
+            filename: 'index.html',
             template: './src/index.html',
             inject: 'body',
             hash: true
@@ -117,7 +117,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.output.publicPath = '../'
+    module.exports.output.publicPath = 'http://139.224.118.14:3000/poster/'
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
