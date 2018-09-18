@@ -1,8 +1,10 @@
 <template>
   <div class="upload">
     <div class="upload-wrap" ref="uploadWrap">
-      <div class="pic-wrap" ref="realpicWrap">
-        <img :src="generateData" />
+      <div style="border: 3px solid #4b240d;">
+        <div class="pic-wrap" ref="realpicWrap">
+          <img :src="generateData" />
+        </div>
       </div>
     </div>
     <div class="upload-bottom">
