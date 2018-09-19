@@ -91,7 +91,7 @@
       let wrapElement = this.$refs.uploadWrap
       console.log(wrapElement.offsetTop)
       this.nameX = nameX + 15
-      this.nameY = picTop + nameY + 35
+      this.nameY = picTop + nameY + 20
       this.nameLeft = realpicWrap.offsetLeft - wrapElement.offsetLeft + picLeft + nameX + 40 + 'px'
       this.nameTop = realpicWrap.offsetTop - wrapElement.offsetTop + picTop + nameY + 15 + 'px'
 
@@ -274,8 +274,8 @@
     position: absolute;
     bottom: 20%;
     left: 65%;
-    width: 25%;
-    height: 38px;
+    width: 22%;
+    height: 30px;
     line-height: 38px;
     font-size: 28px;
     border: 0px;
