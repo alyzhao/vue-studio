@@ -19,7 +19,7 @@
           <el-button type="primary">选择模特</el-button>
         </el-button-group>
         <input type="file" hidden @change="uploadChange" ref="uploadElment" accept="image/*">
-        <el-button type="warning" :disabled="hasUpload" @click="nextStep">下一步</el-button>
+        <!-- <el-button type="warning" :disabled="hasUpload" @click="nextStep">下一步</el-button> -->
         <el-button style="margin-left: 0;" type="success" v-if="selectProducts.length > 0" @click="generate">生成图片</el-button>
       </div>
     </div>
@@ -48,13 +48,12 @@
         productTranslateY: 0,
         productEndX: 0,
         productEndY: 0,
-        dragProduct: false,
-        pinchProduct: false,
         productScale: 1,
         productInitialScale: 1,
         selectedProductName: '',
         selectedProductModel: '',
-        selectProducts: []    // 商品列表
+        selectProducts: [],    // 商品列表
+        operateModel: true    // 操作上传的头像还是商品
       }
     },
     created () {
@@ -69,11 +68,8 @@
       })
 
       touch.on(realpicWrap, 'drag', e => {
-        console.log('drag', this.dragProduct)
-        if (e.target.className === 'product-img' && !this.dragProduct) {
-          this.dragProduct = true
-        }
-        if (this.dragProduct) {
+        // 如果操作的是上传图
+        if (!this.operateModel) {
           this.productTranslateX = this.productEndX + e.x
           this.productTranslateY = this.productEndY + e.y
         } else {
@@ -83,11 +79,9 @@
       })
 
       touch.on(realpicWrap, 'dragend', e => {
-        console.log('dragend', this.dragProduct)
-        if (this.dragProduct) {
+        if (!this.operateModel) {
           this.productEndX += e.x
           this.productEndY += e.y          
-          this.dragProduct = false
         } else {
           this.realImgEndX += e.x
           this.realImgEndY += e.y          
@@ -96,10 +90,7 @@
 
       touch.on(realpicWrap, 'pinch', e => {
         if (typeof e.scale != 'undefined') {
-          if (e.target.className === 'product-img' && !this.pinchProduct) {
-            this.pinchProduct = true
-          }
-          if (this.pinchProduct) {
+          if (!this.operateModel) {
             let currentProductScale = this.productInitialScale + e.scale - 1
             if (currentProductScale < 0) {
               return
@@ -116,9 +107,8 @@
       })
 
       touch.on(realpicWrap, 'pinchend', e => {
-        if (this.pinchProduct) {
+        if (!this.operateModel) {
           this.productInitialScale = this.productScale
-          this.pinchProduct = false
         } else {
           this.realImgInitialScale = this.realImgScale          
         }
@@ -140,10 +130,15 @@
           let imgData = this.result
           realpic.setAttribute('src', imgData)
         }
+        this.changeModel()    // 选择model之后触发事件
       },
-      nextStep () {
-        this.$emit('nextStep')
+      changeModel () {
+        this.$message.warning({message: '调整人物照片, 选择商品后无法调整!'})
+        this.loadData()
       },
+      // nextStep () {
+      //   this.$emit('nextStep')
+      // },
       selectMatch (item) {
         let lastSelect = this.selectProducts.find(product => product.matchSelected)
         if (lastSelect !== undefined) {
@@ -194,12 +189,31 @@
         this.$emit('generateImg', resultData)
       },
       loadData () {
-        this.axios.get('http://139.224.118.14:3000/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
-          let list = res.data.list
-          this.selectProducts = list
-        }).catch(err => {
-          this.$message.error('获取商品列表失败！')
-        })
+        // this.axios.get('http://139.224.118.14:3000/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
+        // let list = res.data.list.map(item => {
+        //   item.selected = false
+        //   return item
+        // })
+        //   this.selectProducts = list
+        // }).catch(err => {
+        //   this.$message.error('获取商品列表失败！')
+        // })
+        this.selectProducts = [{
+          selected: false,
+          productImg: '/public/1.png'
+        }, {
+          selected: false,
+          productImg: '/public/2.png'
+        }, {
+          selected: false,
+          productImg: '/public/3.png'
+        }, {
+          selected: false,
+          productImg: '/public/4.png'
+        }, {
+          selected: false,
+          productImg: '/public/5.png'
+        }]
       },
       getUrlQueryString(name) {
         let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -288,5 +302,9 @@
         border-color: #F56C6C;
       }
     }
+  }
+  .el-message.el-message--warning {
+    width: 100%;
+    min-width: 0;
   }
 </style>
