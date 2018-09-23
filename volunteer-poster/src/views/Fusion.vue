@@ -3,7 +3,7 @@
     <div class="upload-wrap" ref="uploadWrap">
       <div style="border: 3px solid #4b240d;">
         <div class="pic-wrap" ref="realpicWrap">
-          <img :src="generateData" />
+          <img style="width: 100%;height: 100%;" :src="generateData" />
         </div>
       </div>
     </div>

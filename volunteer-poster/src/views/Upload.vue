@@ -124,6 +124,8 @@
         canvas.width = realpicWrap.offsetWidth
         canvas.height = realpicWrap.offsetHeight
 
+        let pr = this.getPixelRatio(canvas)
+
         let ctx = canvas.getContext('2d')
         ctx.fillStyle = '#fff'
         ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -138,13 +140,13 @@
 
         let realImgY = this.realImgTranslateY + realpicHeight / 2 * (1 - this.realImgScale)
 
-        ctx.drawImage(realpic, realImgX, realImgY, realpicWidth * this.realImgScale, realpicHeight * this.realImgScale)
+        ctx.drawImage(realpic, realImgX * pr, realImgY * pr, realpicWidth * this.realImgScale * pr, realpicHeight * this.realImgScale * pr)
 
         // 把海报加上去
         let posterTop = this.$refs.posterTop
         let posterBottom = this.$refs.posterBottom
-        ctx.drawImage(posterTop, 0, 0, posterTop.offsetWidth, posterTop.offsetHeight)
-        ctx.drawImage(posterBottom, 0, realpicWrap.offsetHeight - posterBottom.offsetHeight, posterBottom.offsetWidth, posterBottom.offsetHeight)
+        ctx.drawImage(posterTop, 0, 0, posterTop.offsetWidth * pr, posterTop.offsetHeight * pr)
+        ctx.drawImage(posterBottom, 0, (realpicWrap.offsetHeight - posterBottom.offsetHeight) * pr, posterBottom.offsetWidth * pr, posterBottom.offsetHeight * pr)
 
         // 文字
         ctx.font = "28px Microsoft YaHei"
@@ -158,8 +160,17 @@
         let resultData = canvas.toDataURL('image/jpeg')
         this.$emit('generateImg', resultData)
       },
-
+      getPixelRatio (context) {
+        var backingStore = context.backingStorePixelRatio ||
+          context.webkitBackingStorePixelRatio ||
+          context.mozBackingStorePixelRatio ||
+          context.msBackingStorePixelRatio ||
+          context.oBackingStorePixelRatio ||
+          context.backingStorePixelRatio || 1;
+         return (window.devicePixelRatio || 1) / backingStore;
+      }
     },
+
     computed: {
       transformStyle () {
         return "translateX(" + this.realImgTranslateX + "px) translateY(" + this.realImgTranslateY + "px) scale(" + this.realImgScale + ")"

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import "babel-polyfill"
 import 'normalize.css'
+import 'hidpi-canvas/dist/hidpi-canvas.min.js'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css';

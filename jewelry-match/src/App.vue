@@ -1,12 +1,14 @@
 <template>
   <div class="compound">
+<!--     
     <transition name="el-zoom-in-bottom">
       <Product v-show="showProduct" :class="{show: showProduct}"  @getSelectProducts="setSelectProduct" />
     </transition>
+ -->    
     <transition name="el-zoom-in-bottom">
       <Fusion v-if="showGenerate" :class="{show: showGenerate}" :generateData="generateData" />
     </transition>    
-    <Upload :selectProducts="selectProducts" @nextStep="nextStep"  @generateImg="generateImg"/>
+    <Upload @nextStep="nextStep"  @generateImg="generateImg"/>
   </div>
 </template>
 <script>
@@ -18,7 +20,7 @@
   export default {
     data () {
       return {
-        showProduct: false,
+        // showProduct: false,
         showGenerate: false,
         generateData: '',
         selectProducts: []
@@ -26,7 +28,7 @@
     },
     methods: {
       nextStep () {
-        this.showProduct = true
+        // this.showProduct = true
       },
       setSelectProduct (products) {
         // this.selectProducts = products
@@ -34,7 +36,7 @@
         selectProducts.map(item => item.matchSelected = false)
         this.selectProducts = selectProducts
         console.log(this.selectProducts)
-        this.showProduct = false
+        // this.showProduct = false
       },
       generateImg (data) {
         this.generateData = data

@@ -5,7 +5,7 @@
       <el-row :gutter="10" style="margin-left: 0;margin-right: 0;padding-top: 5px;">
         <el-col :span="8" v-for="product in productsList" :key="product._id" @click.native="selectProduct(product)">
           <el-card class="product-cell" :class="{selected: product.selected}">
-            <img :src="product.productImg">
+            <img :src="'http://139.224.118.14:3000' + product.productImg">
           </el-card>
         </el-col>
       </el-row>
@@ -24,7 +24,7 @@
     },
     mounted () {
       console.log(this.getUrlQueryString('sid'))
-      this.axios.get('/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
+      this.axios.get('http://139.224.118.14:3000/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
         console.log(res)
         let list = res.data.list.map(item => {
           item.selected = false

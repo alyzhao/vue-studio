@@ -27,7 +27,6 @@
   import touch from 'touchjs'
 
   export default {
-    props: ['selectProducts'],
     data () {
       return {
         hasUpload: true,
@@ -51,8 +50,12 @@
         productScale: 1,
         productInitialScale: 1,
         selectedProductName: '',
-        selectedProductModel: ''
+        selectedProductModel: '',
+        selectProducts: []    // 商品列表
       }
+    },
+    created () {
+      // this.loadData()
     },
     mounted () {
       // this.initTouch(this.$refs.realpicWrap, this.$refs.realpic)
@@ -187,7 +190,22 @@
         let resultData = canvas.toDataURL('image/jpeg')
         this.$emit('generateImg', resultData)
       },
-
+      loadData () {
+        this.axios.get('http://139.224.118.14:3000/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
+          let list = res.data.list
+          this.selectProducts = list
+        }).catch(err => {
+          this.$message.error('获取商品列表失败！')
+        })
+      },
+      getUrlQueryString(name) {
+        let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        let r = window.location.search.substr(1).match(reg);
+        if (r!=null) {
+            return  unescape(r[2]);
+        }
+        return '';
+      }
     },
     computed: {
       transformStyle () {

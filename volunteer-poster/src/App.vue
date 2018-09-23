@@ -50,7 +50,7 @@
 <style lang="scss">
   .compound {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     box-sizing: border-box;
     background: url(./assets/images/bg.png) repeat;
     .products.show + .upload {

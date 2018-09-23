@@ -23,6 +23,7 @@
   "homepage": "https://github.com/alyzhao/vue-studio#readme",
   "dependencies": {
     "element-ui": "^2.4.6",
+    "hidpi-canvas": "^1.0.10",
     "lodash.clonedeep": "^4.5.0",
     "normalize.css": "^8.0.0",
     "touchjs": "^0.2.14",
