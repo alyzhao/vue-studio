@@ -15,7 +15,8 @@ import {
   Col,
   Button,
   Card,
-  Message
+  Message,
+  ButtonGroup
 } from 'element-ui'
 
 // Vue.prototype.$ELEMENT = { size: 'mini' }
@@ -28,6 +29,7 @@ Vue.use(Col)
 Vue.use(Button)
 Vue.use(Card)
 Vue.use(VueAwesomeSwiper)
+Vue.use(ButtonGroup)
 
 new Vue({
   el: '#app',
