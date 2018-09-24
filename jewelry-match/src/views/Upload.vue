@@ -15,11 +15,11 @@
       </swiper>
       <div class="upload-btn-group">
         <el-button-group>
-          <el-button type="primary" @click="uploadImg">上传个人图片</el-button>
-          <el-button type="primary">选择模特</el-button>
+          <el-button type="primary" @click="uploadImg">上传个人照片</el-button>
+          <el-button type="primary">选择模特照片</el-button>
         </el-button-group>
         <input type="file" hidden @change="uploadChange" ref="uploadElment" accept="image/*">
-        <!-- <el-button type="warning" :disabled="hasUpload" @click="nextStep">下一步</el-button> -->
+        <el-button type="warning" :disabled="hasUpload" @click="nextStep">下一步</el-button>
         <el-button style="margin-left: 0;" type="success" v-if="selectProducts.length > 0" @click="generate">生成图片</el-button>
       </div>
     </div>
@@ -290,7 +290,8 @@
       text-align: center;
       margin-top: 10px;
       .el-button {
-        padding: 10px 15px;
+        padding: 10px 8px;
+        vertical-align: middle;
       }
     }
     .swiper-product {
