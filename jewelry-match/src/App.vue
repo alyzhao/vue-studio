@@ -1,14 +1,14 @@
 <template>
   <div class="compound">
-<!--     
+    
     <transition name="el-zoom-in-bottom">
-      <Product v-show="showProduct" :class="{show: showProduct}"  @getSelectProducts="setSelectProduct" />
+      <Product v-show="showModel" :class="{show: showModel}"  @chooseModel="chooseModel" />
     </transition>
- -->    
+    
     <transition name="el-zoom-in-bottom">
       <Fusion v-if="showGenerate" :class="{show: showGenerate}" :generateData="generateData" />
     </transition>    
-    <Upload @nextStep="nextStep"  @generateImg="generateImg"/>
+    <Upload ref="upload" @selectModel="selectModel" @generateImg="generateImg"/>
   </div>
 </template>
 <script>
@@ -20,23 +20,40 @@
   export default {
     data () {
       return {
-        // showProduct: false,
+        showModel: false,
         showGenerate: false,
         generateData: '',
         selectProducts: []
       }
     },
+    created () {
+      function onBridgeReady(){
+        WeixinJSBridge.call('hideToolbar');
+      }
+
+      if (typeof WeixinJSBridge == "undefined"){
+        if( document.addEventListener ){
+          document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent){
+          document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+          document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+      }else{
+        onBridgeReady();
+      }
+    },
     methods: {
-      nextStep () {
-        // this.showProduct = true
+      selectModel () {
+        this.showModel = true
       },
-      setSelectProduct (products) {
-        // this.selectProducts = products
-        let selectProducts = cloneDeep(products)
-        selectProducts.map(item => item.matchSelected = false)
-        this.selectProducts = selectProducts
-        console.log(this.selectProducts)
-        // this.showProduct = false
+      chooseModel (model) {
+        console.log(model)
+        let uploadComponent = this.$refs.upload
+        uploadComponent.$refs.realpic.setAttribute('src', model)
+        this.showModel = false
+        uploadComponent.initialModel()
+        uploadComponent.changeModel()
+        uploadComponent.hasUpload = false
       },
       generateImg (data) {
         this.generateData = data

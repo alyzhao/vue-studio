@@ -7,20 +7,21 @@
       </div>
     </div>
     <div class="upload-bottom">
-      <div v-if="selectedProductName">当前商品名称: {{selectedProductName}}, 型号: {{selectedProductModel}}</div>
+      <div v-if="selectedProductName" style="color: #333;font-size: 12px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{selectedProductName}}, 型号: {{selectedProductModel}}</div>
       <swiper :options="swiperOption">
         <swiper-slide v-for="item in selectProducts" :key="item.id">
           <img :src="item.productImg" class="swiper-product" :class="{selected: item.matchSelected}" @click="selectMatch(item)">
         </swiper-slide>
       </swiper>
       <div class="upload-btn-group">
-        <el-button-group>
+        <el-button-group v-show="operateModel">
           <el-button type="primary" @click="uploadImg">上传个人照片</el-button>
-          <el-button type="primary">选择模特照片</el-button>
+          <el-button type="primary" @click="selectModel">选择模特照片</el-button>
         </el-button-group>
         <input type="file" hidden @change="uploadChange" ref="uploadElment" accept="image/*">
-        <el-button type="warning" :disabled="hasUpload" @click="nextStep">下一步</el-button>
-        <el-button style="margin-left: 0;" type="success" v-if="selectProducts.length > 0" @click="generate">生成图片</el-button>
+        <el-button type="warning" v-if="operateModel" :disabled="hasUpload" @click="nextStep">下一步</el-button>
+        <el-button type="danger" v-if="!operateModel" @click="reload">上一步</el-button>
+        <el-button style="margin-left: 0;" type="success" v-if="!operateModel" @click="generate">生成图片</el-button>
       </div>
     </div>
   </div>
@@ -116,6 +117,12 @@
 
     },
     methods: {
+      reload () {
+        window.location.reload()
+      },
+      selectModel () {
+        this.$emit('selectModel')
+      },
       uploadImg () {
         this.$refs.uploadElment.click()
       },
@@ -126,19 +133,33 @@
         let reader = new FileReader() 
         reader.readAsDataURL(file)
         let realpic = this.$refs.realpic
+        let self = this
         reader.onload = function () {
+          self.initialModel()
           let imgData = this.result
           realpic.setAttribute('src', imgData)
         }
         this.changeModel()    // 选择model之后触发事件
       },
+      // 初始化模特图的信息
+      initialModel () {
+        this.realImgTranslateX = 0
+        this.realImgTranslateY = 0
+        this.realImgEndX = 0
+        this.realImgEndY = 0
+        this.realImgScale = 1
+        this.realImgInitialScale = 1
+      },
+      // 选择模特图或者上传个人图之后给个提示
       changeModel () {
-        this.$message.warning({message: '调整人物照片, 选择商品后无法调整!'})
+        this.$message.warning({message: '调整人物照片, 点击下一步后无法调整!'})
+        // this.loadData()
+      },
+      nextStep () {
+        // this.$emit('nextStep')
+        this.operateModel = false
         this.loadData()
       },
-      // nextStep () {
-      //   this.$emit('nextStep')
-      // },
       selectMatch (item) {
         let lastSelect = this.selectProducts.find(product => product.matchSelected)
         if (lastSelect !== undefined) {
@@ -152,6 +173,8 @@
         this.productTranslateY = 0
         this.productEndX = 0
         this.productEndY = 0
+        this.productScale = 1
+        this.productInitialScale = 1
         productImg.setAttribute('src', item.productImg)
       },
       generate () {
@@ -189,31 +212,47 @@
         this.$emit('generateImg', resultData)
       },
       loadData () {
-        // this.axios.get('http://139.224.118.14:3000/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
-        // let list = res.data.list.map(item => {
-        //   item.selected = false
-        //   return item
-        // })
-        //   this.selectProducts = list
-        // }).catch(err => {
-        //   this.$message.error('获取商品列表失败！')
-        // })
-        this.selectProducts = [{
+        this.axios.get('/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
+          let list = res.data.list.map(item => {
+            item.matchSelected = false
+            return item
+          })
+          this.selectProducts = list
+        }).catch(err => {
+          this.$message.error('获取商品列表失败！')
+        })
+        /** 本地测试方法
+        let list = [{
           selected: false,
-          productImg: '/public/1.png'
+          productImg: '/public/1.png',
+          productName: '1',
+          productModel: '1'
         }, {
           selected: false,
-          productImg: '/public/2.png'
+          productImg: '/public/2.png',
+          productName: '2',
+          productModel: '2'
         }, {
           selected: false,
-          productImg: '/public/3.png'
+          productImg: '/public/3.png',
+          productName: '3',
+          productModel: '3'
         }, {
           selected: false,
-          productImg: '/public/4.png'
+          productImg: '/public/4.png',
+          productName: '4',
+          productModel: '4'
         }, {
           selected: false,
-          productImg: '/public/5.png'
+          productImg: '/public/5.png',
+          productName: '5',
+          productModel: '5'
         }]
+        this.selectProducts = list.map(item => {
+          item.matchSelected = false
+          return item
+        })
+        **/
       },
       getUrlQueryString(name) {
         let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -245,19 +284,19 @@
   .upload {
     position: relative;
     height: 100%;
-    padding: 5vw;
+    padding: 1.5vw;
     box-sizing: border-box;
     .upload-wrap {
       min-height: 100%;
       width: 100%;
-      padding-bottom: 160px;
+      padding-bottom: 200px;
       box-sizing: border-box;
       display: flex;
       align-items: center;
       justify-content: center; 
       .pic-wrap {
-        width: 90vw;
-        height: 118vw;
+        width: 75vw;
+        height: 100vw;
         border: 1px solid #DCDFE6;
         overflow: hidden;
         position: relative;
@@ -283,8 +322,8 @@
       left: 0;
       width: 100%;
       box-sizing: border-box;
-      margin-top: -160px;
-      height: 160px;
+      margin-top: -200px;
+      height: 200px;
     }
     .upload-btn-group {
       text-align: center;
