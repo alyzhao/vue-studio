@@ -1,0 +1,59 @@
+{
+  "name": "mint",
+  "version": "1.0.0",
+  "description": "use mint-ui",
+  "main": "test.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0",
+    "dev_win": "set NODE_ENV=development&&webpack-dev-server --inline --hot --host 0.0.0.0",
+    "build": "NODE_ENV=production webpack --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyzhao/vue-studio.git"
+  },
+  "keywords": [
+    "vue",
+    "mint-ui"
+  ],
+  "author": "Allen Zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/io/mint/issues"
+  },
+  "homepage": "https://github.com/io/mint#readme",
+  "dependencies": {
+    "mint-ui": "^2.2.13",
+    "normalize.css": "^8.0.0",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "url-loader": "^1.1.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2",
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-hot-middleware": "^2.24.2"
+  }
+}
