@@ -10,11 +10,20 @@
       </div>
       <p class="start-time center-text">开幕时间：2018年11月15日</p>
       <div class="chanel clearfix">
-        <mt-button type="primary" size="large">点击进入</mt-button>
+        <mt-button type="primary" size="large" @click="goEntrance">点击进入</mt-button>
       </div>
     </div>
   </div>
 </template>
+<script>
+  export default {
+    methods: {
+      goEntrance () {
+        this.$router.push('/entrance')
+      }
+    }
+  }
+</script>
 <style lang="scss">
   .home {
     background: transparent url('../../assets/images/homebg.png') 100% 100%;

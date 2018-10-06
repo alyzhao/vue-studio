@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from 'views/Home'
+import Home from 'views/home'
+
+import Entrance from 'views/entrance'
 
 Vue.use(Router)
 
@@ -11,6 +13,9 @@ const routes = [{
 }, {
   path: '/index',
   component: Home
+}, {
+  path: '/entrance',
+  component: Entrance
 }]
 
 export default new Router({
