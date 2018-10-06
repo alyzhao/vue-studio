@@ -3,8 +3,14 @@
     <mt-tab-container v-model="selected">
       <mt-tab-container-item id="forum">
         <div class="tab-con-wrap">
-          
-          forum
+          <h3 class="center-text">同期活动</h3>
+
+          <div class="schedule">
+            <p class="title">11月14日（星期三）</p>
+            <div class="main-content">
+              <mt-cell title="08:00-22:00" value="全天注册报到（红林大酒店大堂）"></mt-cell>
+            </div>
+          </div>
         </div>
       </mt-tab-container-item>
       <mt-tab-container-item id="charges">
@@ -26,7 +32,7 @@
         论坛报名
       </mt-tab-item>
     </mt-tabbar>
-  </div>
+  </div>  
 </template>
 <script>
   export default {
@@ -53,6 +59,36 @@
     }
     .tab-con-wrap {
       padding: 0 15px;
+      overflow: hidden;
+    }
+    .tab-con-wrap h3 {
+      color: #26a2ff;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 22px 0;
+    }
+    .schedule {
+      .title {
+
+      }
+      .main-content {
+        .mint-cell-wrapper {
+          padding: 0;
+        }
+        .mint-cell-title {
+          -webkit-box-flex: unset;
+          -ms-flex: unset;
+          flex: unset;
+          font-size: 14px;
+          margin-right: 15px;
+          white-space: nowrap;
+          color: #888;
+        }
+        .mint-cell-value {
+          color: #333;
+          font-size: 16px;
+        }
+      }
     }
   }
 </style>
