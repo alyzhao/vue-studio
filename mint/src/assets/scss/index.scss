@@ -24,3 +24,25 @@ p, h1 {
   text-align: center;
   vertical-align: middle;
 }
+
+.center-table {
+  width: 100%;
+  border-top: 1px solid #ebeef5;
+  border-left: 1px solid #ebeef5;
+  border-collapse: separate;
+  td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 5px;
+    word-break: break-all;
+    border-right: 1px solid #ebeef5;
+    border-bottom: 1px solid #ebeef5;
+  }
+  .tb-title {
+    font-weight: bold;
+    background-color: #ecf5ff;
+  }
+  .td-title {
+    background-color: oldlace;
+  }
+}

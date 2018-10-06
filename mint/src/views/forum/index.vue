@@ -83,6 +83,12 @@
       font-weight: bold;
       margin: 22px 0;
     }
+    .tab-con-wrap h4 {
+      color: #2b7ae8;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;      
+    }
     .bt-tab {
       background: #ccc;
       color: #fff;
