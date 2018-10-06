@@ -5,6 +5,8 @@ import Home from 'views/home'
 
 import Entrance from 'views/entrance'
 
+import Forum from 'views/forum'
+
 Vue.use(Router)
 
 const routes = [{
@@ -16,6 +18,9 @@ const routes = [{
 }, {
   path: '/entrance',
   component: Entrance
+}, {
+  path: '/forum',
+  component: Forum
 }]
 
 export default new Router({

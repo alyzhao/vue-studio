@@ -29,19 +29,19 @@
     </div>
     <div class="classify flex-center">
       <div class="item">
-        <mt-button>
+        <mt-button @click="goRouter('/forum')">
           <i class="iconfont icon-luntan"></i>
           <span>论坛</span>
         </mt-button>        
       </div>
       <div class="item">
-        <mt-button>
+        <mt-button @click="goRouter('/exhibition')">
           <i class="iconfont icon-zhanhui"></i>
           <span>展会概况</span>
         </mt-button>        
       </div>
       <div class="item">
-        <mt-button>
+        <mt-button @click="goRouter('/news')">
           <i class="iconfont icon-xinwenzixun"></i>
           <span>新闻资讯</span>
         </mt-button>        
