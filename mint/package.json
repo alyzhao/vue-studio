@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/io/mint#readme",
   "dependencies": {
+    "lodash.clonedeep": "^4.5.0",
     "mint-ui": "^2.2.13",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.17",
