@@ -62,14 +62,14 @@
       overflow: hidden;
     }
     .tab-con-wrap h3 {
-      color: ##3777d0;
+      color: #2b7ae8;
       font-size: 22px;
       font-weight: bold;
       margin: 22px 0;
     }
     .schedule {
       .title {
-        color: #26a2ff;
+        color: #539bff;
         font-size: 16px;
         font-weight: bold;
         margin-bottom: 10px;
