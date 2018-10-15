@@ -1,0 +1,64 @@
+export const entrance = [{
+  label: '开幕式分论坛',
+  router: '/forum'
+}, {
+  label: '展会概况',
+  router: '/exhibition'
+}, {
+  label: '新闻资讯',
+  router: '/news'
+}, {
+  label: '展馆导航',
+  router: ''
+}, {
+  label: '参展申请',
+  router: ''
+}, {
+  label: '采购商登记',
+  router: ''
+}, {
+  label: '采购商洽谈会',
+  router: ''
+}, {
+  label: '线上展厅',
+  router: ''
+}, {
+  label: '广告招商',
+  router: ''
+}, {
+  label: '观众报名',
+  router: ''
+}, {
+  label: '论坛直播',
+  router: ''
+}, {
+  label: '展会服务',
+  router: ''
+}, {
+  label: '主场服务',
+  router: ''
+}, {
+  label: 'VIP CLUB',
+  router: ''
+}, {
+  label: '项目对接平台',
+  router: ''
+}, {
+  label: '赛事报名',
+  router: ''
+}, {
+  label: '评选活动',
+  router: ''
+}, {
+  label: '参展攻略',
+  router: ''
+}, {
+  label: '下载专区',
+  router: ''
+}, {
+  label: '志愿者专区',
+  router: ''
+}, {
+  label: '我的',
+  router: ''
+}]

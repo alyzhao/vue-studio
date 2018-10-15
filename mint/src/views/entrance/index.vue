@@ -28,27 +28,38 @@
       </mt-swipe>
     </div>
     <div class="classify flex-center">
-      <div class="item">
-        <mt-button @click="goRouter('/forum')">
-          <i class="iconfont icon-luntan"></i>
-          <span>论坛</span>
+      <div class="item" v-for="item in entrance" :key="item.label">
+        <mt-button @click="goRouter(item.router)">
+          <i></i>
+          <span>{{item.label}}</span>
         </mt-button>        
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <mt-button @click="goRouter('/exhibition')">
-          <i class="iconfont icon-zhanhui"></i>
+          <i></i>
           <span>展会概况</span>
         </mt-button>        
       </div>
       <div class="item">
         <mt-button @click="goRouter('/news')">
-          <i class="iconfont icon-xinwenzixun"></i>
+          <i></i>
           <span>新闻资讯</span>
         </mt-button>        
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
+<script>
+  import { entrance } from 'constants/entrance'
+
+  export default {
+    data () {
+      return {
+        entrance
+      }      
+    }
+  }
+</script>
 <style lang="scss">
   .entrance {
     padding: 10px 15px;
@@ -58,8 +69,9 @@
       .item {
         width: 30%;
         position: relative;
+        margin-bottom: 20px;
         &:after {
-          padding-bottom: 100%;
+          padding-bottom: 80%;
           content: "";
           display: block;
         }
@@ -74,13 +86,26 @@
             width: 100%;
             display: inline-block;
             i {
-              font-size: 30px;
-              font-weight: bold;
-              color: #409EFF;
+              // font-size: 30px;
+              // font-weight: bold;
+              // color: #409EFF;
+              background-repeat: no-repeat;
+              background-size: auto 100%;
+              background-position: center;
+              height: 30px;
               margin-bottom: 10px;
             }
             i, span {
               display: block;
+              font-size: 14px;
+            }
+          }
+        }
+        @for $i from 1 to 22 {
+          &:nth-child(#{$i}) {
+            color: #000;
+            label i {
+              background-image: url('../../assets/images/navimgs/nav#{$i}.png');
             }
           }
         }

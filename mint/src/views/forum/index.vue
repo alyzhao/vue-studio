@@ -76,6 +76,7 @@
     .mint-tab-container {
       height: 100%;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
     }
     .tab-con-wrap h3 {
       color: #2b7ae8;
