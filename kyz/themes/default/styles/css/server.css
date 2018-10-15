@@ -1,0 +1,89 @@
+.server_nav ul {
+  width: 100%;
+  padding: 0px 0.375rem; }
+
+.server_nav ul li {
+  float: left;
+  width: 33.333333%;
+  text-align: center;
+  margin-bottom: 0.7rem; }
+
+.server_nav ul li img {
+  width: 80%; }
+
+.server_hotFQ {
+  width: 100%; }
+
+.server_hotFQ .tup img {
+  margin-top: 0.5rem;
+  width: 100%; }
+
+.server_hotFQ .hotlist {
+  font-family: Microsoft YaHei;
+  padding: 0.25rem 0 0.25rem 2.75rem; }
+
+.server_hotFQ .hotlist ul li {
+  float: left;
+  width: 100%;
+  font-size: 0.5rem;
+  line-height: 1rem; }
+
+.server_hotFQ .hotlist ul li a {
+  color: #313131;
+  display: block; }
+
+.server_hotFQ .hotlist a:hover {
+  color: #cc0000;
+  text-decoration: underline; }
+
+.server_top img {
+  width: 100%; }
+
+.server_hotFQ > .hotlist > ul > li:before {
+  content: "";
+  background: url("../images/squre.png") no-repeat;
+  width: 0.1rem;
+  height: 0.1rem;
+  float: left;
+  margin: 0.45rem 0.25rem 0.2rem 0.125rem; }
+
+.genD {
+  width: 4.525rem;
+  height: 1.325rem;
+  line-height: 1.325rem;
+  font-size: 0.625rem;
+  color: #7d7d7d;
+  border-radius: 0.2rem;
+  border: 1px #7d7d7d solid;
+  display: block;
+  text-align: center;
+  margin: 0.625rem 0;
+  float: left; }
+
+.genD:hover {
+  border: 1px #cc0000 solid;
+  text-decoration: underline; }
+
+.clear {
+  clear: both; }
+
+HR {
+  margin: 1.25rem 0.725rem;
+  color: #dddddd; }
+
+.server_kf .tup img {
+  width: 100%; }
+
+.server_info {
+  float: left;
+  font-family: Microsoft YaHei;
+  padding: 0.25rem 0 0.25rem 2.75rem;
+  margin-bottom: 5.45rem; }
+
+.server_info p {
+  float: left;
+  width: 100%;
+  font-size: 0.5rem;
+  line-height: 1rem; }
+
+/*# sourceMappingURL=server.css.map */
