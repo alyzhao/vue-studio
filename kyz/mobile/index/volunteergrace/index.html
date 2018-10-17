@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+<meta charset="UTF-8">
+<title>志愿者风采 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta content="" name="keywords" />
+<meta content="" name="description" />
+<!-- CSS -->
+<link rel="stylesheet" href="/Application/Mobile/Static/css/amazeui.min.css"/>
+<!-- JS -->
+<script src="/Application/Mobile/Static/js/jquery.min.js"></script>
+<script src="/Application/Mobile/Static/js/amazeui.js"></script>
+
+<script src="/Application/Mobile/Static/js/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="/Application/Mobile/Static/css/sweetalert2.min.css">
+
+<!--用于加载顶部css和js-->
+
+<style>
+
+body{max-width: 540px;margin: 0 auto}
+</style>
+<script>
+    //全局内容的定义
+    
+</script>
+    </head>
+    <body>
+        <!-- 头部 -->
+    <!--      -->
+        <!-- /头部 -->
+
+        <!-- 主体 -->
+        
+ <style type="text/css">
+  ul,li{margin: 0;padding: 0;list-style: none;}
+  p,h3{margin: 0;padding: 0;font-weight: normal;}
+  .clear{clear: both;height: 1rem;background: #f2f2f2}
+  /* 底部 */
+  .bfair_fixed {display: flex;display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex;position: fixed;bottom: 0;z-index: 99;width:100%;height:45px;background: #000;opacity: 0.85;filter: alpha(opacity=85);-moz-opacity: 0.85;max-width: 540px;margin: 0 auto}
+  .bfair-top{display: block;position: relative;max-height: 100%; height: 45px;padding: 0 0.1rem;line-height: 45px;text-align: center;color: #154da0;background: #EABB00;opacity: 0.85;filter:alpha(opacity=85);-moz-opacity:0.85;font-size: 1.4rem;width: 25%}
+  .bfair-top:after{content: "";position: absolute;right: -0.7rem;top: 15px;border-top: 0.7rem solid transparent;border-left: 0.875rem solid #EABB00;border-bottom: 0.7rem solid transparent;}
+  .fixed_ul {height: 45px;overflow-x: auto;flex: 1;}
+  .bfair_footer{height: 45px;overflow-x:auto;}
+  .bfair_footer li{float: left;padding:0 0.1rem;height: 100%;line-height: 45px;width: 33.33%}
+  .bfair_footer li a{display: block; width: 100%; max-height: 100%; font-size: 1.4rem; color: #fff;text-align: center;line-height: 45px}
+
+/* 生成海报 */
+  .am-grtop {padding:1rem;overflow: hidden;}
+  .am-grtop .grtop-l{float: left;width: 40%;padding-right: 1rem;}
+  .am-grtop .grtop-l img{width: 100%}
+  .am-grtop .grtop-r{float: left;width: 60%}
+  .am-grtop .grtop-r p{margin-bottom: 0.6rem;color: #111;font-size: 1.6rem}
+  .am-grtop .grtop-r p:nth-child(1){font-size:2rem;}
+  .am-grtop .grtop-r p:nth-child(2){}
+  .am-grtop .grtop-r a{color: #154da0;border: solid 1px #154da0;display: block;line-height: 32px;border-radius: 0.3rem;text-align: center;margin-top: 1.3rem;width: 100%}
+  /* 预览查看大图 */
+  .kdt{position: fixed;top:0;left: 0;z-index: 2222;margin: 0 auto;width: 100%;height: 100%;background: rgba(0,0,0,0.8);padding: 1.5rem 1.5rem;display: none;}
+  .kdt .img1{display:block;margin:0 auto;width: 100%;height: 100%}
+  .kdt .gb{position: fixed;top: 10px;right:10px;width:28px}
+/* 志愿者风采 */
+  .am-grace{clear: both;padding-top: 1rem;}
+  .am-grace h3{line-height: 40px;color: #111;margin-left: 1rem}
+  .am-lit{padding:0 1rem}
+  .am-lit li{width: 30%;float: left;display: block;margin-right:5%;margin-bottom: 1.5rem}
+  .am-lit li a{margin: 0; display: block;}
+  .am-lit li img{width: 100%;display: block;margin: 0 auto;}
+  .am-lit li p{text-align: center;color: #1f1f1f;font-size: 1.4rem;margin-top: 0.5rem;}
+  .am-lit li:nth-child(3n){margin-right: 0;}
+
+    /* 轮播图 */
+  .am-slider-c2{/* padding: 5px 10px; */border: none;-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0);box-shadow: 0 1px 4px rgba(0,0,0,0);}
+  .am-slider .am-slides img{/* border-radius: 8px; */overflow: hidden;}
+  .am-slider-c2 .am-slider-desc {background-color: rgba(0,0,0,.78);position: absolute; bottom: 0;padding:5px 60px 5px 5px; width: 100%;color: #fff;display: block;word-wrap: normal;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;/* border-bottom-right-radius: 8px;border-bottom-left-radius: 8px; */font-size: 14px;}
+  .am-slider-c2 .am-control-nav { position: absolute;bottom: 15px;/* right: 12px; */height: 6px;text-align: center;font-size: 0;line-height: 0;}
+  .am-slider-c2 .am-control-nav li a {width: 8px;height: 8px;display: block;background-color: rgba(255,255,255,1);cursor: pointer; text-indent: -9999px;border-radius:10px }
+  .am-slider-c2 .am-control-nav li a.am-active{background-color: #3265ae}
+ </style>
+
+
+
+<div id="mob-main-container" class="container">
+   
+<!-- 头部图片 -->
+<!-- <div class="ma-top" style="border-bottom: solid 1px #ddd;">
+  <img src="/Application/Mobile/Static/images/zyzfc.jpg" width="100%">
+</div> -->
+
+<!-- 轮播图 -->
+<div data-am-widget="slider" class="am-slider am-slider-c2" data-am-slider='{"directionNav":false}' >
+  <ul class="am-slides">
+       <li>
+        <a href="">
+          <img src="/Uploads/Picture/2018-08-13/5b714fbd29542.jpg" height="150">
+          <div class="am-slider-desc" ></div>
+        </a>
+      </li>  </ul>
+</div>
+
+ <!-- 预览查看大图 -->
+<div class="kdt">
+  <!-- <img src="/Uploads/Download/code/.png" class="img1"/>   -->
+  <!-- 海报大图 -->
+  <img src="/Application/Mobile/Static/images/gb2.png" class="gb" >  <!-- 关闭按钮 -->
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $(".race").click(function(){
+      $(".kdt").fadeIn("slow");//淡入淡出效果 显示div
+    });
+    $(".gb").click(function(){
+      $(".kdt").fadeOut("slow");//淡入淡出效果 隐藏div
+    })
+  });
+</script>
+
+
+
+<div class="am-grace">
+  <!-- <h3>志愿者风采</h3>
+  <div style="clear: both;height: 1px"></div> -->
+  <ul class="am-lit">
+  <li>
+      <img src="/Uploads/Download/code/112.png">
+    </li><li>
+      <img src="/Uploads/Download/code/105.png">
+    </li>  </ul>
+</div>
+
+
+
+<div style="clear: both;height: 60px"></div>
+
+
+  <!-- footer -->
+  <div class="bfair_fixed">
+    <a href="/mobile/index/volunteergrace" class="bfair-top" >志愿者风采</a>
+    <div class="fixed_ul">
+      <ul class="bfair_footer br_li">
+        <li><a href="/mobile/index/note.html" >志愿者报名</a></li>
+        <li><a href="/mobile/index/volunteerwelfare.html">志愿者福利</a></li>
+      <!--   <li><a href="/mobile/index/volunteerrequire.html">志愿者论坛</a></li>   -->    
+         <li><a href="/mobile/index/forum.html">志愿者论坛</a></li> 
+      </ul>
+    </div>
+  </div>
+
+
+
+<style type="text/css">
+.home a {background: url(/Application/Mobile/Static/images/01.png) no-repeat center center;width: 3.8rem; height:3.8rem; display: block;margin: 0 0 0 auto; background-size: cover;}
+.home {position: fixed;bottom: 5rem; right:3.5rem;z-index: 99;width:4rem;max-width: 16rem;opacity: 0.85;text-align: right;}
+</style>
+<div class="home"><a href="/"></a></div>
+<div style="height:90px;clear:both;"></div>
+
+
+
+</div>
+
+
+
+        <!-- /主体 -->
+
+        <!-- 底部 -->
+        
+<style type="text/css">
+.home a {background: url(/Application/Mobile/Static/images/home.png) no-repeat center center;width: 3.8rem; height:3.8rem; display: block;margin: 0 0 0 auto; background-size: cover;}
+.home {position: fixed;bottom: 5rem; right:3.5rem;z-index: 99;width:4rem;max-width: 16rem;opacity: 0.85;text-align: right;}
+</style>
+
+<div class="home"><a href="/"></a></div>
+
+<div style="height:70px;clear:both; "></div>
+
+<footer style="width: 100%;clear:both;background-color:#154da0; height:1.8rem; text-align:center; font-size:1.2rem; color:#fff;line-height:1.8rem">技术支持：杭州拼格文化创意有限公司</footer>
+        <!-- /底部 -->
+    </body>
+</html>

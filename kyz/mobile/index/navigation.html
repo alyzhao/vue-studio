@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+<meta charset="UTF-8">
+<title>展馆导航 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta content="" name="keywords" />
+<meta content="" name="description" />
+<!-- CSS -->
+<link rel="stylesheet" href="/Application/Mobile/Static/css/amazeui.min.css"/>
+<!-- JS -->
+<script src="/Application/Mobile/Static/js/jquery.min.js"></script>
+<script src="/Application/Mobile/Static/js/amazeui.js"></script>
+
+<script src="/Application/Mobile/Static/js/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="/Application/Mobile/Static/css/sweetalert2.min.css">
+
+<!--用于加载顶部css和js-->
+
+<style>
+
+body{max-width: 540px;margin: 0 auto}
+</style>
+<script>
+    //全局内容的定义
+    
+</script>
+    </head>
+    <body>
+        <!-- 头部 -->
+    <!--      -->
+        <!-- /头部 -->
+
+        <!-- 主体 -->
+        
+  <style>
+
+  .fil{fill: #ff6e00;stroke: #ff6e00;stroke-width: 0;}
+  #ATxt .fil4{fill: #fff;font-size: 1.8rem}
+  </style>
+
+
+<div id="mob-main-container" class="container">
+   
+
+  <div class="topbar">
+   <img src="/Application/Mobile/Static/images/navx.jpg" width="100%">
+  </div>
+
+<div style="height: 20px;clear: both;"></div>
+<svg  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" preserveAspectRatio="xMinYMin slice" viewBox="0 0 750 1171">
+  <defs ></defs>
+  <g class="g_drag">
+    <g id="background" class="">
+       <image x="0" y="0" width="750" height="1081" xlink:href="/Application/Mobile/Static/images/zwall1.jpg"></image> 
+    </g>
+    <g id="b2">
+     <a xlink:href="/mobile/index/hallone/B/B2.html">
+        <polygon class="fil" points="211,85 305,157 533,76 441,9"></polygon>
+        <polygon class="fil" points="211,84.5 211,90 305,157"></polygon>
+        <polygon class="fil" points="305,157 533,75.5 533,80"></polygon>
+        <g id="ATxt"> 
+          <text x="385" y="85" class="fil4">B2</text>
+          <text x="407" y="85" class="fil4">展</text>
+          <text x="425" y="85" class="fil4">厅</text>
+        </g>
+      </a>
+    </g>
+    <g id="b1">
+     <a xlink:href="/mobile/index/hallone/B/B1.html">
+       <polygon  class="fil" points="181,251 266,314 541,223 455,161"></polygon>
+       <polygon  class="fil" points="266,313.5 267.5,318 541,227 541,222.5"></polygon>
+        <g id="ATxt">
+          <text x="333" y="242" class="fil4">B1</text>
+          <text x="355" y="242" class="fil4">展</text>
+          <text x="372" y="242" class="fil4">厅</text>
+        </g>
+      </a>
+    </g>
+  </g>
+</svg>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(function(){ 
+      $("#b1 .fil").attr("style","opacity:0;");
+      $("#b1 text").attr("style","opacity:0;");
+      $("#b2 .fil").attr("style","opacity:0;"); 
+      $("#b2 text").attr("style","opacity:0;"); 
+      $("#b1 .fil").click(function(){
+        $("#b2 .fil").attr("style","opacity:0;");
+        $("#b2 text").attr("style","opacity:0;");
+        $("#b1 .fil").attr("style","fill: #ee6905;stroke:#ee6905;");
+        $("#b1 text").attr("style","fill: #fff;");
+        });
+      $("#b2 .fil").click(function(){
+        $("#b1 .fil").attr("style","opacity:0;");
+        $("#b1 text").attr("style","opacity:0;");
+        $("#b2 .fil").attr("style","fill: #ee6905;stroke:#ee6905;");
+        $("#b2 text").attr("style","fill: #fff");
+        });
+     });
+  </script>
+
+
+
+
+</div>
+
+
+
+        <!-- /主体 -->
+
+        <!-- 底部 -->
+        
+<style type="text/css">
+.home a {background: url(/Application/Mobile/Static/images/home.png) no-repeat center center;width: 3.8rem; height:3.8rem; display: block;margin: 0 0 0 auto; background-size: cover;}
+.home {position: fixed;bottom: 5rem; right:3.5rem;z-index: 99;width:4rem;max-width: 16rem;opacity: 0.85;text-align: right;}
+</style>
+
+<div class="home"><a href="http://m.dmkyz.com"></a></div>
+
+<div style="height:70px;clear:both; "></div>
+
+<footer style="width: 100%;clear:both;background-color:#154da0; height:1.8rem; text-align:center; font-size:1.2rem; color:#fff;line-height:1.8rem">技术支持：杭州拼格文化创意有限公司</footer>
+        <!-- /底部 -->
+    </body>
+</html>
