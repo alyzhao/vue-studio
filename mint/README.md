@@ -3,7 +3,7 @@
 *appID wx68c3be5e29193fdb*
 
 *appsecret 775f05364013161799978bbc5935b9b7*
-*token 14_A8-X9X-LcH26p3x3EGamXeS-VoiELNkB5glRPCpr-Gm63743G2MSbDFZYHRm_bmB1i2H7Mjdsf50uk0Qo8JMNrEtzagaX03KkWTRWbypcLNO9Pd7FaO-Q72ZH_XV48L7ww3Kj_uoJEUdCUtZKFAeABAQLG*
+*token 14_iiPQemuVWXZ6JXe3cSc3q469cdwvHrYCJ1AbJflfyFNjZd4syfKO1GZAkeLHKzJh0xzKxRGYFejglQJtZ7Xl-CqVrnazEbOn42eEwAOPKzKrN74-Rr_vW5cr0vgIHEdnaxTk7p_3yq-eFiXnBIPbAEASZG*
 
 1. [公众号测试账号](https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index)
 

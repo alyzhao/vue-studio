@@ -4,30 +4,44 @@
     "name":"展会信息",
     "sub_button": [
       {
-          "type": "pic_photo_or_album", 
-          "name": "拍照或者相册发图", 
-          "key": "rselfmenu_1_1",
-          "sub_button": []
+        "type":"view",
+        "name":"展会概况",
+        "url":"http://www.pingic.tech:8083/page/zhgk/index.html"
       },
       {
         "type":"view",
-        "name":"github",
-        "url":"https://github.com/alyzhao"
+        "name":"展会架构",
+        "url":"http://www.pingic.tech:8083"
+      },
+      {
+        "type":"view",
+        "name":"新闻资讯",
+        "url":"http://www.pingic.tech:8083"
+      },
+      {
+        "type":"view",
+        "name":"联系我们",
+        "url":"http://www.pingic.tech:8083"
       }
     ]    
   },
   {
     "type":"view",
      "name":"2018矿业展",
-     "url":"http://139.224.118.14:3000/mint/"    
+     "url":"http://www.pingic.tech:8083/countdownone.html"    
   },
   {    
     "name":"参展动态",
     "sub_button": [
       {
-        "name": "发送位置", 
-        "type": "location_select", 
-        "key": "rselfmenu_2_0"
+        "type":"view",
+        "name":"参展企业",
+        "url":"http://www.pingic.tech:8083"
+      },
+      {
+        "type":"view",
+        "name":"发现宝物",
+        "url":"http://www.pingic.tech:8083"
       }
     ]    
   }
