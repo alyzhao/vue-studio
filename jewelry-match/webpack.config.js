@@ -117,7 +117,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.output.publicPath = 'http://139.224.118.14:3000/match/'
+    module.exports.output.publicPath = 'https://www.x-pingic.com/match/'
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')

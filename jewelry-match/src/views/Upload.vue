@@ -212,9 +212,10 @@
         this.$emit('generateImg', resultData)
       },
       loadData () {
-        this.axios.get('/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
+        this.axios.get('http://139.224.118.14:3000/client/list?_id=' + this.getUrlQueryString('sid')).then(res => {
           let list = res.data.list.map(item => {
             item.matchSelected = false
+            item.productImg = 'http://139.224.118.14:3000' + item.productImg
             return item
           })
           this.selectProducts = list
