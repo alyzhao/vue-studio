@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<title>展会矩阵</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/public.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/style.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/quill.bubble.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/quill.core.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/quill.snow.css">
+<script type="text/javascript" src="/themes/default/styles/js/touchslide.1.1.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/public.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/hotcss.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/jquery-3.0.0.min.js"></script>
+<style type="text/css">
+  .structor {
+    padding: .5rem;
+  }
+  .article {
+    font-size: 16px; 
+  }
+</style>
+
+</head>
+<body style="background-color: rgba(245, 245, 245, 0.95)">
+<div style="width: 100%;height: 3.66rem;background: url('/themes/default/styles/images/guide.png') center center no-repeat;background-size: cover;overflow: hidden;"></div>
+<div class="structor" id="app">
+  <div class="ql-snow">
+    <div class="article ql-editor" v-html="content">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      content: ''
+    },
+    created: function () {
+      this.loadData()
+    },
+    methods: {
+      loadData: function () {
+        $.get('https://www.x-pingic.com/ASEAN_Mining/onLineGuide/queryGuideList', {}, function (data) {
+          console.log(data)
+          app.content = data.guideContent
+        }, 'json')
+      }
+    }
+  })
+</script>
+<div class="home"><a href="/"></a></div>
+<div style=" clear:both;background-color:#154da0; height:0.8rem; text-align:center; font-size:0.5rem; color:#fff; margin-top:1rem; line-height:0.8rem"><a href="" target="_blank" style="color:#fff">技术支持：杭州拼格文化创意有限公司</a></div>
+</body>
+</html>

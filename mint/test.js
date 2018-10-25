@@ -11,17 +11,17 @@
       {
         "type":"view",
         "name":"展会架构",
-        "url":"https://www.x-pingic.com"
+        "url":"https://www.x-pingic.com/page/structure"
       },
       {
         "type":"view",
         "name":"新闻资讯",
-        "url":"https://www.x-pingic.com"
+        "url":"https://www.x-pingic.com/post/index/"
       },
       {
         "type":"view",
         "name":"联系我们",
-        "url":"https://www.x-pingic.com"
+        "url":"https://www.x-pingic.com/page/lxwm/"
       }
     ]    
   },
@@ -36,7 +36,7 @@
       {
         "type":"view",
         "name":"参展企业",
-        "url":"https://www.x-pingic.com"
+        "url":"https://www.x-pingic.com/mobile/index/navigation.html"
       },
       {
         "type":"view",

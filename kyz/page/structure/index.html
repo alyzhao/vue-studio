@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<title>展会矩阵</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/public.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/style.css">
+<script type="text/javascript" src="/themes/default/styles/js/touchslide.1.1.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/public.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/hotcss.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/jquery-3.0.0.min.js"></script>
+<style type="text/css">
+  .structor {
+    padding: .3rem;
+  }
+  .structor-main {
+    border: .3rem solid #154da0;
+  }
+  .image-cell {
+    padding: .8rem .5rem;
+    border-bottom: 1px dashed #999;
+  }
+  .image-cell h4 {
+    color: #154da0;
+    border-left: 5px solid #154da0;
+    line-height: 100%;
+    margin: .6rem 0;
+  }
+  .image-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .image-item {
+    width: 33.33%;
+    height: 15vw;
+    box-sizing: border-box;
+    padding: .15rem;
+  }
+  .image-item .image-wrap {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-item .image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+</style>
+
+</head>
+<body>
+<div class="structor" id="app">
+  <div class="structor-main">
+    <div class="image-cell">
+      <h4>&nbsp;&nbsp;主办单位</h4>
+      <div class="image-content">
+        <div class="image-item" v-for="item in organizer" :key="item.unitId">
+          <div class="image-wrap">
+            <img :src="item.unitImg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-cell">
+      <h4>&nbsp;&nbsp;主办单位</h4>
+      <div class="image-content">
+        <div class="image-item" v-for="item in coOrganiser" :key="item.unitId">
+          <div class="image-wrap">
+            <img :src="item.unitImg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      organizer: [],
+      coOrganiser: []
+    },
+    created: function () {
+      this.loadData()
+    },
+    methods: {
+      loadData: function () {
+        $.get('https://www.x-pingic.com/ASEAN_Mining/onLineUnit/queryUnitList', {}, function (data) {
+          console.log(data)
+          data.forEach(function(item) {
+            item.unitImg = 'https://www.x-pingic.com/ASEAN_Mining/img/' + item.unitImg
+          })
+          app.organizer = data.filter(function (item) {return item.unitType == "主办单位"})
+          app.coOrganiser = data.filter(function (item) {return item.unitType == "协办单位"})
+        }, 'json')
+      }
+    }
+  })
+</script>
+<div class="home"><a href="/"></a></div>
+<div style=" clear:both;background-color:#154da0; height:0.8rem; text-align:center; font-size:0.5rem; color:#fff; margin-top:1rem; line-height:0.8rem"><a href="" target="_blank" style="color:#fff">技术支持：杭州拼格文化创意有限公司</a></div>
+</body>
+</html>

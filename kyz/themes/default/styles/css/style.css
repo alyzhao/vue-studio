@@ -60,7 +60,7 @@ body{width: 16rem;margin: 0 auto; padding: 0;}
 .superslider .slideBox .bd li .tit{ display:block;position:absolute; bottom:0; width:100%; text-indent:0.5rem; height:1.075rem; line-height:1.075rem;border-bottom-left-radius: 0.25rem;border-bottom-right-radius: 0.25rem; font-size: 0.55rem; background:#000; opacity: 0.78;filter:alpha(opacity=78);-moz-opacity:0.78; color:#fff;   }
 /*nav*/
 .nav{width: 100%;height: auto;overflow: hidden;}
-.nav li{position: relative;float: left;width: 4.25rem;height: 4.6rem;margin-right: 0.75rem;margin-top: 0.775rem;border-radius: 0.25rem;border:0.025rem #bbb solid;text-align: center;background: #f6f6f6;overflow: hidden;}
+.nav li{position: relative;float: left;width: 4.25rem;height: 3.35rem;margin-right: 0.75rem;margin-top: 0.775rem;border-radius: 0.25rem;border:0.025rem #bbb solid;text-align: center;background: #f6f6f6;overflow: hidden;}
 .nav li:nth-child(3n){margin-right: 0;}
 .nav li i{position: absolute;top: 0.5rem;left: 0;right: 0;width: 1.625rem;height: 1.25rem;margin: 0 auto;background-position: center center;background-size: cover;background-repeat: no-repeat;}
 .nav li:first-child i{background-image: url("../images/nav1.png");}

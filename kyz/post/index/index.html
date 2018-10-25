@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<title>东盟矿业展</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/public.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/styles/css/style.css">
+<script type="text/javascript" src="/themes/default/styles/js/touchslide.1.1.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/public.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/hotcss.js"></script>
+<script type="text/javascript" src="/themes/default/styles/js/jquery-3.0.0.min.js"></script>
+<style type="text/css">
+.yiiPager li {list-style: none;
+    float: left;
+    margin-left: 10px;
+    font-size: 0.7em;
+	}
+	.page.selected a{
+		color: #F56C6C;
+	}
+</style>
+
+</head>
+<body>
+		<div class="superslider" style="height: 4.125rem;">
+			<div id="slideBox" class="slideBox">
+				<div class="bd">
+					<ul>
+					
+						<li>
+							<a class="pic" href="#"><img src="/themes/default/styles/images/xinwen3.png" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="/themes/default/styles/images/xinwen1.jpg" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="/themes/default/styles/images/xinwen2.jpg" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="/themes/default/styles/images/xinwen4.jpg" /></a>
+						</li>
+					</ul>
+				</div>
+				<div class="hd" style="display:none;">
+					<ul></ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				TouchSlide({ 
+					slideCell:"#slideBox",
+					titCell:".hd ul",
+					mainCell:".bd ul", 
+					effect:"leftLoop", 
+					autoPlay:true,
+					autoPage:true,
+					enabled : false
+				});
+			</script>
+		</div>
+		<div id="news" class="news_main" style="padding-top: 1.025rem;">
+			<!-- 栏目 -->
+			<ul class="news_nav">
+				<li :class="{on: type == 1}" @click="loadType(1)"><a>2018矿业展</a></li>
+				<li :class="{on: type == 2}" @click="loadType(2)"><a>行业资讯</a></li>
+				<li :class="{on: type == 3}" @click="loadType(3)"><a>秘书处公告</a></li>
+				<li :class="{on: type == 4}" @click="loadType(4)"><a>展会回顾</a></li>
+			</ul>
+			<!-- 列表 -->
+			<ul class="news_con">
+				<li  v-for="item in list" :key="item.id">
+					<a :href="item.newsURL">
+						<h4>{{item.newsName}}</h4>
+						<!--<p></p>-->
+						<span>发布日期：{{item.newsDate}}</span>&nbsp;&nbsp;
+						<span>信息来源：{{item.newsSource}}</span>
+					</a>
+				</li>
+
+			</ul>
+			<!-- 加载更多 -->
+			<div id="page" v-show="list.length > 0">
+				<ul id="yw0" class="yiiPager"><li class="first hidden"><a href="/post/index/cat_18/">首页</a></li>
+					<li v-show="page > 1" class="prev_page hidden"><a @click="loadData(1)"><<</a></li>
+					<li class="page" v-for="item in pageCount" :key="item" :class="{selected: item == page }" >
+						<a @click="loadData(item)">{{item}}</a>
+					</li>
+					<li v-show="page <= pageCount" class="next_page"><a @click="loadData(page + 1)">>></a></li>
+					<li class="last"><a @click="loadData(pageCount)">末页</a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="/themes/default/styles/js/jquery-3.0.0.min.js"></script>
+<script>
+ $(function () {
+    var isPageHide = false; 
+    window.addEventListener('pageshow', function () { 
+        if (isPageHide) {
+            window.location.reload(); 
+        } 
+    }); 
+    window.addEventListener('pagehide', function () { 
+        isPageHide = true; 
+    }); 
+});
+
+  var app = new Vue({
+  	el: '#news',
+  	data: {
+  		type: 1,
+  		page: 1,
+  		pageSize: 5,
+  		totalCount: 0,
+  		list: []
+  	},
+  	created: function () {
+  		this.loadData(this.page)
+  	},
+  	methods: {
+  		loadData (page) {
+  			this.page = page
+  			$.get('https://www.x-pingic.com/ASEAN_Mining/onLineNews/query2018List', {
+  				type: this.type,
+  				pageIndex: (page - 1) * this.pageSize,
+  				pageSize: this.pageSize
+  			}, function (data) {
+  				app.list = data.news
+  				app.totalCount = data.totalCount
+  			}, 'json')
+  		},
+  		loadType (type) {
+  			this.type = type
+  			this.loadData(1)
+  		}
+  	},
+  	computed: {
+  		pageCount () {
+  			return Math.ceil(this.totalCount / this.pageSize)
+  		}
+  	}
+  })
+
+</script>
+<div class="home"><a href="/"></a></div>
+<div style=" clear:both;background-color:#154da0; height:0.8rem; text-align:center; font-size:0.5rem; color:#fff; margin-top:1rem; line-height:0.8rem"><a href="" target="_blank" style="color:#fff">技术支持：杭州拼格文化创意有限公司</a></div>
+</body>
+</html>
