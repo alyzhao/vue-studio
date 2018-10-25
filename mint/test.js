@@ -6,29 +6,29 @@
       {
         "type":"view",
         "name":"展会概况",
-        "url":"http://www.pingic.tech:8083/page/zhgk/index.html"
+        "url":"https://www.x-pingic.com/page/zhgk/index.html"
       },
       {
         "type":"view",
         "name":"展会架构",
-        "url":"http://www.pingic.tech:8083"
+        "url":"https://www.x-pingic.com"
       },
       {
         "type":"view",
         "name":"新闻资讯",
-        "url":"http://www.pingic.tech:8083"
+        "url":"https://www.x-pingic.com"
       },
       {
         "type":"view",
         "name":"联系我们",
-        "url":"http://www.pingic.tech:8083"
+        "url":"https://www.x-pingic.com"
       }
     ]    
   },
   {
     "type":"view",
      "name":"2018矿业展",
-     "url":"http://www.pingic.tech:8083/countdownone.html"    
+     "url":"https://www.x-pingic.com/countdownone.html"    
   },
   {    
     "name":"参展动态",
@@ -36,12 +36,12 @@
       {
         "type":"view",
         "name":"参展企业",
-        "url":"http://www.pingic.tech:8083"
+        "url":"https://www.x-pingic.com"
       },
       {
         "type":"view",
         "name":"发现宝物",
-        "url":"http://www.pingic.tech:8083"
+        "url":"https://www.x-pingic.com"
       }
     ]    
   }

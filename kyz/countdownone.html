@@ -17,5 +17,15 @@
 </head>
 <body>
 
-<a href="/"><div class="policy_bg" style="width: 16rem; height: 27.66rem;background: url(/themes/default/styles/images/c1.jpg) center center no-repeat;background-size: cover;"><div style="width: 16rem;text-align: center;margin-top: 66%;"><span style="color: #eecc75;
+<a href="/"><div class="policy_bg" style="width: 16rem; height: 27.66rem;background: url(/themes/default/styles/images/c1.jpg) center center no-repeat;background-size: cover;"><div style="width: 16rem;text-align: center;margin-top: 66%;"><span id="time" style="color: #eecc75;
     font-size: 4em;">30</span></div></div></a>
+<script type="text/javascript">
+  var date_end = new Date('2018-11-15')
+  var date_now = Date.now()
+  var differ = date_end.getTime() - date_now
+  differ = differ / 3600 / 1000 / 24
+  differ = Math.ceil(differ)
+  document.getElementById('time').innerText = differ
+</script>
+</body>
+</html>
