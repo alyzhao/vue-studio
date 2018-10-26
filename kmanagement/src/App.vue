@@ -4,10 +4,17 @@
       <div class="z-management-title"><i class="el-icon-goods"></i>矿业展后台管理系统</div>
       <el-menu style="height: 100%;padding-top: 56px;box-sizing: border-box;" :default-active="activeIndex" router background-color="#324157"
       text-color="#bfcbd9">
-        <el-menu-item v-for="item in menu" :key="item.route" :index="item.route" :route="{path: '/' + item.route}">
-          <i :class="item.icon"></i>
-          <span slot="title">{{item.label}}</span>
-        </el-menu-item>
+        <el-submenu index="1" :default-openeds="['1','2','3','4', '5']">
+          <template slot="title"><i class="el-icon-star-on"></i>参会指南</template>
+          <el-menu-item v-for="item in menu" :key="item.route" :index="item.route" :route="{path: '/' + item.route}">
+            <!-- <i :class="item.icon"></i> -->
+            <span slot="title">{{item.label}}</span>
+          </el-menu-item>
+          <el-menu-item index="pdf" :route="{path: 'pdf'}">
+            <!-- <i :class="item.icon"></i> -->
+            <span slot="title">上传pdf</span>
+          </el-menu-item>
+        </el-submenu>
       </el-menu>
     </el-aside>
     <el-container>
@@ -56,8 +63,8 @@
         this.activeIndex = 'products'
       } else if (fullPath.match(/\/index/)) {
         this.activeIndex = 'index'
-      } else if (fullPath.match(/\/shops/)) {
-        this.activeIndex = 'shops'
+      } else if (fullPath.match(/\/pdf/)) {
+        this.activeIndex = 'pdf'
       }
     },
     methods: {

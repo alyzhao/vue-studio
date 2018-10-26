@@ -9,6 +9,7 @@ import EditUserInfo from 'containers/merchant/EditUserInfo'
 import ShopProducts from 'containers/shops/ShopProducts'
 
 import Guide from 'containers/guide/Index'
+import Pdf from 'containers/pdf/Index'
 
 Vue.use(Router)
 
@@ -18,6 +19,9 @@ const routes = [{
 }, {
   path: '/index',
   component: Guide,
+}, {
+  path: '/pdf',
+  component: Pdf
 }, {
   name: 'products',
   path: '/products',
@@ -54,7 +58,7 @@ const routes = [{
 }]
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes,
   linkActiveClass: 'is-active'
 })
