@@ -53,7 +53,11 @@
         this.axios.post(url, formData)
           .then(({data}) => {
             console.log(data)
-            this.$message.success('上传成功!')
+            if (data) {
+              this.$message.success('上传成功!')
+            } else {
+              this.$message.error('文件太大!请更换文件!')
+            }
           })
           .catch(err => {
             this.$message.error('网络错误, 请稍后重试!')
