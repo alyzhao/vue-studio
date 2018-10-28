@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Products from 'containers/products/Index'
 import EditProducts from 'containers/products/EditProducts'
 import Shops from 'containers/shops/Index'
@@ -10,6 +11,8 @@ import ShopProducts from 'containers/shops/ShopProducts'
 
 import Guide from 'containers/guide/Index'
 import Pdf from 'containers/pdf/Index'
+import Structure from 'containers/structure/Index'
+import News from 'containers/news/Index'
 
 Vue.use(Router)
 
@@ -17,11 +20,21 @@ const routes = [{
   path: '/',
   redirect: '/index'
 }, {
+  name: 'index',
   path: '/index',
   component: Guide,
 }, {
+  name: 'pdf',
   path: '/pdf',
   component: Pdf
+}, {
+  name: 'structure',
+  path: '/structure',
+  component: Structure
+}, {
+  name: 'news',
+  path: '/news',
+  component: News
 }, {
   name: 'products',
   path: '/products',

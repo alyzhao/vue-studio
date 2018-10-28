@@ -1,6 +1,6 @@
 ### note
 
-1. 部署地址: https://www.pingic.tech/
+1. 部署地址: https://www.x-pingic.com/
 
 2. copy 地址: http://m.dmkyz.com/countdownone
 

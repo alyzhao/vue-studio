@@ -17,7 +17,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button :disabled="!confirmDisabled" type="primary" size="small" @click="submitForm()">提交</el-button>
+        <el-button :loading="loading" :disabled="!confirmDisabled" type="primary" size="small" @click="submitForm()">提交</el-button>
       </el-form-item>   
     </el-form>
   </div>
@@ -29,7 +29,8 @@
       return {
         fileName: '',
         file: '',
-        title: ''     
+        title: '',
+        loading: false  
       }
     },
     create() {
@@ -41,6 +42,7 @@
     },
     methods: {
       submitForm () {
+        this.loading = loading
         let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineGuide/addPDF'
         // let params = {
         //   znName: this.title,
@@ -61,6 +63,9 @@
           })
           .catch(err => {
             this.$message.error('网络错误, 请稍后重试!')
+          })
+          .finally(() => {
+            this.loading = false
           })
       },
       selectFile () {

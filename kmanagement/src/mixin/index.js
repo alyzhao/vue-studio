@@ -9,7 +9,7 @@ const successHandle = function (res, smessage, cb, errCb) {
 }
 
 const errorHandle = function (err) {
-  this.$message.error(err.response.data.message || err.response)
+  this.$message.error('出错啦, 请重试!')
 }
 
 export default {

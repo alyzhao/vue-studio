@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0",
     "dev_win": "set NODE_ENV=development&&webpack-dev-server --inline --hot --host 0.0.0.0",
-    "build": "NODE_ENV=production webpack --progress"
+    "build": "NODE_ENV=production webpack --progress",
+    "build_win": "set NODE_ENV=production&&webpack --progress"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,7 @@
     "element-ui": "^2.4.8",
     "normalize.css": "^8.0.0",
     "qs": "^6.5.2",
-    "vue": "^2.5.17", 
+    "vue": "^2.5.17",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

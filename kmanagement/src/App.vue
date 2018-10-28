@@ -2,17 +2,28 @@
   <el-container class="z-management">
     <el-aside width="250px" style="position: relative;">
       <div class="z-management-title"><i class="el-icon-goods"></i>矿业展后台管理系统</div>
-      <el-menu style="height: 100%;padding-top: 56px;box-sizing: border-box;" :default-active="activeIndex" router background-color="#324157"
-      text-color="#bfcbd9">
-        <el-submenu index="1" :default-openeds="['1','2','3','4', '5']">
+      <el-menu 
+        style="height: 100%;padding-top: 56px;box-sizing: border-box;" 
+        :default-openeds="['1','2','3','4', '5']"
+        :default-active="activeIndex" router 
+        background-color="#324157"
+        text-color="#bfcbd9">
+        <el-submenu index="1">
           <template slot="title"><i class="el-icon-star-on"></i>参会指南</template>
-          <el-menu-item v-for="item in menu" :key="item.route" :index="item.route" :route="{path: '/' + item.route}">
-            <!-- <i :class="item.icon"></i> -->
-            <span slot="title">{{item.label}}</span>
+          <el-menu-item index="index" :router="{path: '/index'}">
+            <span slot="title">参会指南</span>            
           </el-menu-item>
-          <el-menu-item index="pdf" :route="{path: 'pdf'}">
-            <!-- <i :class="item.icon"></i> -->
+          <el-menu-item index="pdf" :route="{path: '/pdf'}">
             <span slot="title">上传pdf</span>
+          </el-menu-item>
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title"><i class="el-icon-info"></i>参会信息</template>
+          <el-menu-item index="structure" :route="{path: '/structure'}">
+            <span slot="title">展会架构</span>
+          </el-menu-item>
+          <el-menu-item index="news" :route="{path: '/news'}">
+            <span slot="title">新闻资讯</span>
           </el-menu-item>
         </el-submenu>
       </el-menu>
@@ -58,14 +69,8 @@
       //   console.info(err.response)
       // })
 
-      let fullPath = this.$router.currentRoute.fullPath
-      if (fullPath.match(/\/products/)) {
-        this.activeIndex = 'products'
-      } else if (fullPath.match(/\/index/)) {
-        this.activeIndex = 'index'
-      } else if (fullPath.match(/\/pdf/)) {
-        this.activeIndex = 'pdf'
-      }
+      this.activeIndex = this.$router.currentRoute.name
+
     },
     methods: {
       signout () {

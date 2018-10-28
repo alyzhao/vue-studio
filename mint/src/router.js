@@ -9,11 +9,16 @@ import Forum from 'views/forum'
 
 import Exhibition from 'views/exhibition'
 
+import Mine from 'views/mine'
+
 Vue.use(Router)
 
 const routes = [{
   path: '*',
   redirect: '/index'
+}, {
+  path: '/mine',
+  component: Mine
 }, {
   path: '/index',
   component: Home
