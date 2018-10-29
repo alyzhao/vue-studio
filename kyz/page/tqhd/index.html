@@ -13,18 +13,26 @@
 <script type="text/javascript" src="/themes/default/styles/js/touchslide.1.1.js"></script>
 <script type="text/javascript" src="/themes/default/styles/js/public.js"></script>
 <script type="text/javascript" src="/themes/default/styles/js/hotcss.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <style>
 .p1{width: 23%;}
 .p2{width: 15%;}
 .p3{width: 58%}
+.layout_table tr:first-child td {
+  font-size: 0.55rem !important;
+}
+.theader td {
+  font-size: .6rem !important; 
+}
 </style>
 </head>
 <body>
   <div style="width: 100%;height: 3.66rem;background: url('/themes/default/styles/images/tqhd.jpg') center center no-repeat;background-size: cover;overflow: hidden;"></div>
-  <div style="padding: 0.5rem 0rem;line-height: 1.2rem;font-size: 0.55rem;color: #393939;font-family:'Microsoft YaHei'; text-align:center">
+  <div style="padding: 0.5rem 0rem;line-height: 1.2rem;font-size: 0.55rem;color: #393939;font-family:'Microsoft YaHei'; text-align:center" id="app">
   <table class="layout_table">
   <tbody>
-    <tr>
+    <tr class="theader">
       <td class="p1" style="background:#ddd;color:#211f1f;">
         日期
       </td>
@@ -35,6 +43,21 @@
         活动
       </td>
     </tr>
+  </tbody>
+  <tbody v-for="item in activity" :key="item.date">
+    <tr v-for="(activityItem, index) in item.list">
+      <td v-if="index === 0" style="background:#ddd;color:#211f1f;" :rowspan="item.list.length">
+        {{activityItem.opData}}
+      </td>
+      <td style="background:#f4f4f4;color:#211f1f;">
+        {{activityItem.opTime}}
+      </td>
+      <td style="background:#f4f4f4;color:#211f1f;font-size:0.55rem;text-align:left;">
+        {{activityItem.opDetail}}
+      </td>
+    </tr>
+  </tbody>
+  <!-- <tbody>
     <tr>
       <td style="background:#ddd;color:#211f1f;" rowspan="3">
         11月14日（星期三）
@@ -238,7 +261,7 @@
         绿色矿山建设、岩溶与滨海地貌实地研讨（具体时间见项目调研日程表）
       </td>
     </tr>
-  </tbody>
+  </tbody> -->
 </table>  </div>
   <div class="bfair_fixed">
     <a href="/page/tqhd/" class="bfair-top">开幕式分论坛</a>
@@ -264,6 +287,45 @@
     }); 
 });
 </script>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      activity: []
+    },
+    created: function () {
+      this.loadData()
+    },
+    methods: {
+      loadData: function () {
+        var url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/queryForumList'
+        $.get(url, {}, function (data) {
+          console.log(data)
+          var date = data.map(function (item) {
+            return item.opData
+          })
+          for (var i = 0; i < date.length; i ++) {
+            if (date[i] === date[i + 1]) {
+              date.splice(i, 1)
+              i -= 1
+            }
+          }
+          let activity = date.map(function (item) {
+            var activityItem = data.filter(function (act) {
+              return act.opData === item
+            })
+            return {
+              date: item,
+              list: activityItem
+            }
+          })
+          app.activity = activity
+          console.log(activity)
+          // app.content = data.guideContent
+        }, 'json')
+      }
+    }
+  })</script>
 <div class="home"><a href="/"></a></div>
 <div style=" clear:both;background-color:#154da0; height:0.8rem; text-align:center; font-size:0.5rem; color:#fff; margin-top:1rem; line-height:0.8rem"><a href="" target="_blank" style="color:#fff">技术支持：杭州拼格文化创意有限公司</a></div>
 </body>

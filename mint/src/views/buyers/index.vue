@@ -16,16 +16,16 @@
       <mt-field label="手机" placeholder="请填写手机" v-model="formData.bPhone"></mt-field>
 
       <mt-field label="国家/地区" class="card-type">
-        <mt-picker :slots="countrySlots" :visibleItemCount="3" valueKey="cn" @change="onValuesChange">
+        <mt-picker :slots="countrySlots" :visibleItemCount="3" valueKey="cn" @change="countryValuesChange">
         </mt-picker>
       </mt-field>
 
       <!-- <mt-field label="照片" placeholder="请填写手机" v-model="formData.bPhone"></mt-field> -->
 
-      <mt-field label="感兴趣产品" placeholder="请输入感兴趣的产品类别" v-model="formData.bLikeProduct"></mt-field>
+      <mt-field label="感兴趣产品" placeholder="请输入感兴趣的产品" v-model="formData.bLikeProduct"></mt-field>
 
       <mt-field label="公司业务性质" class="card-type">
-        <mt-picker :slots="businessSlots" :visibleItemCount="3" valueKey="cn" @change="onValuesChange">
+        <mt-picker :slots="businessSlots" :visibleItemCount="3" valueKey="cn" @change="businessValuesChange">
         </mt-picker>
       </mt-field>
       <div class="commom-buttom-wrap">
@@ -74,9 +74,17 @@
     methods: {
       onValuesChange (picker, values) {
         // picker.setSlotValue(1, values[0]);
+        console.log(values)
+        this.formData.bCountry = values[0]
+      },
+      countryValuesChange (picker, values) {
+        this.formData.bCountry = values[0].cn
+      },
+      businessValuesChange (picker, values) {
+        this.formData.bCompanyType = values[0]
       },
       submit () {
-
+        console.log(this.formData)
       },
       defaultCardIndex (val) {
         this.slots[0].defaultIndex = this.slots[0].values.findIndex(item => item === val)
