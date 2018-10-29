@@ -11,6 +11,10 @@ import Exhibition from 'views/exhibition'
 
 import Mine from 'views/mine'
 
+import Participate from 'views/participate'
+
+import Buyers from 'views/buyers'
+
 Vue.use(Router)
 
 const routes = [{
@@ -19,6 +23,12 @@ const routes = [{
 }, {
   path: '/mine',
   component: Mine
+}, {
+  path: '/participate',
+  component: Participate
+}, {
+  path: '/buyers',
+  component: Buyers
 }, {
   path: '/index',
   component: Home
