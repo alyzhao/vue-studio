@@ -12,9 +12,9 @@
         :options="options">
       </mt-radio>
       <mt-field label="标准展位" placeholder="请输入数字" type="number" v-model="formData.boothNumber"></mt-field>
-      <mt-field label="参展说明" :rows="5" type="textarea" placeholder="请输入参展说明" v-model="formData.introduction"></mt-field>
+      <mt-field label="参展说明" rows="5" type="textarea" placeholder="请输入参展说明" v-model="formData.introduction"></mt-field>
     </div>
-    <div class="submit-btn-wrap">
+    <div class="commom-buttom-wrap">
       <mt-button class="submit-btn" type="primary" size="normal">提交</mt-button>
     </div>
   </div>
@@ -43,6 +43,14 @@
         {
           label: '室外净地',
           value: '2'
+        },
+        {
+          label: '标准展位+室内净地',
+          value: '3'
+        },
+        {
+          label: '标准展位+室外净地',
+          value: '4'
         }]
       }
     }
