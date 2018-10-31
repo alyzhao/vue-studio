@@ -395,3 +395,6 @@ body{width: 16rem;margin: 0 auto; padding: 0;}
 
 .home{position: fixed;bottom:2rem;right:1.5rem;z-index: 999999;width: 1.6rem;max-width: 16rem;height: 1.925rem;opacity: 0.85; text-align:right}
 .home a{background:url(../images/home.png) no-repeat center center;width:1.6rem; height:1.6rem; display:block;margin:0 0 0 auto;    background-size: cover;}
+[v-cloak] {
+    display: none;
+}

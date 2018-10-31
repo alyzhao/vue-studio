@@ -33,7 +33,7 @@
         <mt-picker :slots="businessSlots" :visibleItemCount="3" valueKey="cn" @change="businessValuesChange">
         </mt-picker>
       </mt-field>
-      <div class="commom-buttom-wrap" v-if="exist">
+      <div class="commom-buttom-wrap" v-if="!exist">
         <mt-button :disabled="confirmDisabled" class="submit-btn" type="primary" size="normal" @click="submit">提交</mt-button>
       </div>
     </div>
@@ -102,16 +102,20 @@
       // this.formData.openid = this.getOpenId()
       // oPs9h0YFTx3JEdySKNVOWdHS0asg
 
-      // this.getOpenId().then(({data}) => {
-      //   console.log('openid', data)
-      //   let openid = data.openid
-      //   this.formData.openid = openid
-      //   this.loadData(openid)
-      // })
-      // .catch(this.serviceError)
+      this.getOpenId().then(({data}) => {
+        console.log('openid', data)
+        let openid = data.openid
+        this.formData.openid = openid
+        this.loadData(openid)
+      })
+      .catch((err) => {
+        this.MessageBox.alert('请在微信中打开!').then(action => {
+          window.location.href = '/'
+        })
+      })
 
-      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg10'
-      this.loadData(this.formData.openid)
+      // this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg10'
+      // this.loadData(this.formData.openid)
     },
     methods: {
       setFile (file) {
@@ -126,7 +130,7 @@
           } else if (key === 'bCompanyType') {
             this.defaultBusinessIndex(data.bCompanyType)
           } else if (key === 'bImg') {
-            this.$refs.uploadImg.bgImg = data[key]
+            this.$refs.uploadImg.bgImg = 'https://www.x-pingic.com/ASEAN_Mining/img/buyer/' + data[key]
           }
           this.formData[key] = data[key]
         })
@@ -137,10 +141,10 @@
         .then(({data}) => {
           console.log('loadData', data)
           if (data.buyer) {
-            this.exist = false
+            this.exist = true
             this.setData(data.buyer)
           } else {
-            this.exist = true
+            this.exist = false
           }
         })
         .catch(this.serviceError)
