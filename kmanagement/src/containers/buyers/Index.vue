@@ -1,17 +1,10 @@
 <template>
   <div class="news">
     <el-row class="operate-container">
-      <el-col :span="12">
-        新闻类别:
-        <el-select style="margin-left: 5px;" v-model="selectedType" placeholder="选择类别" @change="loadData()">
-          <el-option v-for="item in typeOptions" :key="item.type" :label="item.label" :value="item.type"></el-option>
-        </el-select>
-      </el-col>
-      
-      <el-col :span="12" style="text-align: right;">
+      <el-col :span="24" style="text-align: right;">
         <el-button-group>
-          <el-button type="warning" icon="el-icon-circle-plus-outline" @click="addShop">添加</el-button>
-          <el-button type="danger" icon="el-icon-delete" @click="deleteBatchShop">删除</el-button>          
+          <!-- <el-button type="warning" icon="el-icon-circle-plus-outline" @click="addShop">添加</el-button> -->
+          <el-button type="danger" icon="el-icon-delete" @click="deleteBatch">删除</el-button>          
         </el-button-group>          
       </el-col>
     </el-row>
@@ -23,22 +16,44 @@
       <el-table-column prop="id" label="id" width="80">
       </el-table-column>
 
-      <el-table-column prop="newsDate" label="发布日期">
+      <el-table-column prop="bName" label="姓名">
       </el-table-column>
 
-      <el-table-column prop="newsName" label="新闻标题">
-      </el-table-column>
-
-      <el-table-column prop="newsSource" label="信息来源">
-      </el-table-column>
-
-      <el-table-column prop="newsSource" label="新闻链接">
+      <el-table-column label="照片">
         <template slot-scope="scope">
-          <a :href="scope.row.newsURL" target="_blank">{{scope.row.newsURL}}</a>
+          <img class="product-img" :src="scope.row.bImg" />
         </template>
       </el-table-column>
 
-      <el-table-column label="操作" width="260px">
+
+      <el-table-column prop="bCardType" label="证件类型">
+      </el-table-column>
+
+      <el-table-column prop="bCardNum" label="证件号码">
+      </el-table-column>
+
+      <el-table-column prop="bCountry" label="国家">
+      </el-table-column>
+
+      <el-table-column prop="bAdress" label="地址">
+      </el-table-column>
+
+      <el-table-column prop="bPhone" label="电话">
+      </el-table-column>
+
+      <el-table-column prop="bCompany" label="公司">
+      </el-table-column>
+
+      <el-table-column prop="bCompanyType" label="公司业务性质">
+      </el-table-column>
+
+      <el-table-column prop="bPost" label="职务">
+      </el-table-column>
+
+      <el-table-column prop="bLikeProduct" label="感兴趣的产品类别">
+      </el-table-column>
+
+      <el-table-column label="操作" width="200px">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="edit(scope.row.unitId)">编辑</el-button>
           <!-- <el-button type="warning" size="mini" style="margin-left: 3px;" @click="showProducts(scope.row.unitId)">查看商品</el-button> -->
@@ -67,21 +82,20 @@
   export default {
     data () {
       return {
-        list: [],
-        typeOptions: [{
-          type: 1,
-          label: '2018矿业展'
-        }, {
-          type: 2,
-          label: '行业资讯'          
-        }, {
-          type: 3,
-          label: '秘书处公告'          
-        }, {
-          type: 4,
-          label: '展会回顾'          
+        list: [{
+          // bName: 1,//个人姓名
+          // bImg: 1,//证件照
+          // bCardType: 1,//证件类型
+          // bCardNum: 1,//证件号码
+          // bCountry: 1,//国家
+          // bAdress: 1,//地址
+          // bPhone: 1,//电话
+          // bCompany: 1,//公司
+          // bCompanyType: 1,//公司业务性质 
+          // bPost: 1,//职务 
+          // bLikeProduct: 1,//感兴趣的产品类别
+          // Openid: 1
         }],
-        selectedType: 1,
         page: 1,
         size: 5,
         total: 0
@@ -92,13 +106,13 @@
     },
     methods: {
       loadData () {
-        let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineNews/query2018List'
+        let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineApplication/queryAppList'
         let params =  {
-          type: this.selectedType,
           pageIndex: (this.page - 1) * this.size,
           pageSize: this.size
         }
         this.axios.get(url, {params}).then(({data}) => {
+          console.log(data)
           this.list = data.news
           this.total = Number(data.totalCount)
         }).catch(this.errorHandle)
@@ -106,7 +120,7 @@
       addShop () {
 
       },
-      deleteBatchShop () {
+      deleteBatch () {
 
       },
       edit (id) {

@@ -26,6 +26,12 @@
             <span slot="title">新闻资讯</span>
           </el-menu-item>
         </el-submenu>
+        <el-submenu index="3">
+          <template slot="title"><i class="el-icon-news"></i>报名管理</template>
+          <el-menu-item index="buyers" :route="{path: '/buyers'}">
+            <span slot="title">采购商管理</span>
+          </el-menu-item>          
+        </el-submenu>
       </el-menu>
     </el-aside>
     <el-container>

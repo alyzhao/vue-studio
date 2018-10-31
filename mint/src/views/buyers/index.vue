@@ -43,6 +43,7 @@
   import {country} from 'constants/country' 
   import cloneDeep from 'lodash.clonedeep'
   import UploadImg from 'components/UploadImg'
+  import { Indicator } from 'mint-ui'
   import qs from 'qs'
   // bName;//个人姓名
   // bImg;//证件照
@@ -73,7 +74,7 @@
           bCompanyType: '生产商',
           openid: ''
         },
-        exist: false,
+        exist: true,
         slots: [{
           flex: 1,
           values: [ '身份证', '护照', '港澳居民来往内地通行证', '台湾居民来往大陆通行证'],
@@ -102,20 +103,20 @@
       // this.formData.openid = this.getOpenId()
       // oPs9h0YFTx3JEdySKNVOWdHS0asg
 
-      this.getOpenId().then(({data}) => {
-        console.log('openid', data)
-        let openid = data.openid
-        this.formData.openid = openid
-        this.loadData(openid)
-      })
-      .catch((err) => {
-        this.MessageBox.alert('请在微信中打开!').then(action => {
-          window.location.href = '/'
-        })
-      })
+      // this.getOpenId().then(({data}) => {
+      //   console.log('openid', data)
+      //   let openid = data.openid
+      //   this.formData.openid = openid
+      //   this.loadData(openid)
+      // })
+      // .catch((err) => {
+      //   this.MessageBox.alert('请在微信中打开!').then(action => {
+      //     window.location.href = '/'
+      //   })
+      // })
 
-      // this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg10'
-      // this.loadData(this.formData.openid)
+      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg'
+      this.loadData(this.formData.openid)
     },
     methods: {
       setFile (file) {
@@ -136,6 +137,7 @@
         })
       },
       loadData (openId) {
+        Indicator.open()
         let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineBuyer/queryBuyerById'
         this.axios.get(url, {params: {openid: openId}})
         .then(({data}) => {
@@ -148,6 +150,9 @@
           }
         })
         .catch(this.serviceError)
+        .finally(() => {
+          Indicator.close()
+        })
       },
       onValuesChange (picker, values) {
         // picker.setSlotValue(1, values[0]);
@@ -169,6 +174,7 @@
           if (data) {
             this.MessageBox.alert('操作成功').then(action => {
               console.log('success', data)
+              window.location.href = '/'
             })
             .catch(err => console.log(err))            
           } else {
