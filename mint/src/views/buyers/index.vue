@@ -24,7 +24,7 @@
 
       <!-- <mt-field label="照片" placeholder="请填写手机" v-model="formData.bPhone"></mt-field> -->
       <mt-field label="照片" class="card-type">
-        <UploadImg @file-change="setFile" class="field-upload" icon="icon-add" />
+        <UploadImg ref="uploadImg" @file-change="setFile" class="field-upload" icon="icon-add" />
       </mt-field>
 
       <mt-field label="感兴趣产品" placeholder="请输入感兴趣的产品" v-model="formData.bLikeProduct"></mt-field>
@@ -110,7 +110,7 @@
       // })
       // .catch(this.serviceError)
 
-      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg3'
+      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg10'
       this.loadData(this.formData.openid)
     },
     methods: {
@@ -123,8 +123,10 @@
             this.defaultCardIndex(data.bCardType)
           } else if (key === 'bCountry') {
             this.defaultCountryIndex(data.bCountry)
-          } else if (key === 'bLikeProduct') {
-            this.defaultBusinessIndex(data.bLikeProduct)
+          } else if (key === 'bCompanyType') {
+            this.defaultBusinessIndex(data.bCompanyType)
+          } else if (key === 'bImg') {
+            this.$refs.uploadImg.bgImg = data[key]
           }
           this.formData[key] = data[key]
         })
@@ -146,7 +148,7 @@
       onValuesChange (picker, values) {
         // picker.setSlotValue(1, values[0]);
         console.log(values)
-        this.formData.bCountry = values[0]
+        this.formData.bCardType = values[0]
       },
       countryValuesChange (picker, values) {
         this.formData.bCountry = values[0].cn
@@ -159,10 +161,15 @@
         let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineBuyer/addBuyer'
         this.axios.post(url, this.getFormData(this.formData))
         .then(({data}) => {
-          this.MessageBox.alert('操作成功').then(action => {
-            console.log('success', data)
-          })
-          .catch(err => console.log(err))
+          console.log(typeof data)
+          if (data) {
+            this.MessageBox.alert('操作成功').then(action => {
+              console.log('success', data)
+            })
+            .catch(err => console.log(err))            
+          } else {
+            this.serviceError()
+          }
         })
         .catch(this.serviceError)
       },
