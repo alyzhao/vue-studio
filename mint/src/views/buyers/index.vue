@@ -33,7 +33,7 @@
         <mt-picker :slots="businessSlots" :visibleItemCount="3" valueKey="cn" @change="businessValuesChange">
         </mt-picker>
       </mt-field>
-      <div class="commom-buttom-wrap">
+      <div class="commom-buttom-wrap" v-if="exist">
         <mt-button :disabled="confirmDisabled" class="submit-btn" type="primary" size="normal" @click="submit">提交</mt-button>
       </div>
     </div>
@@ -73,16 +73,20 @@
           bCompanyType: '生产商',
           openid: ''
         },
+        exist: false,
         slots: [{
           flex: 1,
           values: [ '身份证', '护照', '港澳居民来往内地通行证', '台湾居民来往大陆通行证'],
+          defaultIndex: 0
         }],
         cardIndex: 0,
         countrySlots: [{
-          values: cloneDeep(country)
+          values: cloneDeep(country),
+          defaultIndex: 0
         }],
         countryIndex: 0,
         businessSlots: [{
+          defaultIndex: 0,
           values: ['生产商', '批发商', '代理商', '商场/超市', '行业协会', '零售商', '进出口商', '电商/网商/微商', '媒体', '政府', '其它（请列明）']
         }],
         businessIndex: 0,
@@ -106,18 +110,36 @@
       // })
       // .catch(this.serviceError)
 
-      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg2'
+      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg3'
       this.loadData(this.formData.openid)
     },
     methods: {
       setFile (file) {
         this.formData.bImg = file
       },
+      setData (data) {
+        Object.keys(this.formData).forEach(key => {
+          if (key === 'bCardType') {
+            this.defaultCardIndex(data.bCardType)
+          } else if (key === 'bCountry') {
+            this.defaultCountryIndex(data.bCountry)
+          } else if (key === 'bLikeProduct') {
+            this.defaultBusinessIndex(data.bLikeProduct)
+          }
+          this.formData[key] = data[key]
+        })
+      },
       loadData (openId) {
         let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineBuyer/queryBuyerById'
         this.axios.get(url, {params: {openid: openId}})
         .then(({data}) => {
           console.log('loadData', data)
+          if (data.buyer) {
+            this.exist = false
+            this.setData(data.buyer)
+          } else {
+            this.exist = true
+          }
         })
         .catch(this.serviceError)
       },
@@ -149,6 +171,7 @@
       },
       defaultCountryIndex (val) {
         this.countrySlots[0].defaultIndex = this.countrySlots[0].values.findIndex(item => item.cn === val)
+        console.log(this.countrySlots[0].defaultIndex)
       },
       defaultBusinessIndex (val) {
         this.businessSlots[0].defaultIndex = this.businessSlots[0].values.findIndex(item => item === val)
