@@ -36,13 +36,15 @@
       uploadChange (e) {
         console.log(e)
         this.file = e.target.files[0]
-        this.$emit('file-change', this.file)
         console.log(this.file instanceof File)
         let reader = new FileReader()
         reader.onload = (rd) => {
           this.bgImg = rd.target.result
+          this.$emit('file-change', this.file)
         }
-        reader.readAsDataURL(e.target.files[0])
+        if (e.target.files[0]) {
+          reader.readAsDataURL(e.target.files[0])          
+        }
       },
     },
     computed: {

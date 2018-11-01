@@ -31,6 +31,9 @@
           <el-menu-item index="buyers" :route="{path: '/buyers'}">
             <span slot="title">采购商管理</span>
           </el-menu-item>          
+          <el-menu-item index="participate" :route="{path: '/participate'}">
+            <span slot="title">参展申请管理</span>
+          </el-menu-item>          
         </el-submenu>
       </el-menu>
     </el-aside>

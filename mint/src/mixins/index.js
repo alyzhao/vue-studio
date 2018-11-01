@@ -9,6 +9,11 @@ export default {
       return this.axios.get(url, {params: {wxcode: code}})     
       // 获取openApi
     },
+    getOpenIdError () {
+      this.MessageBox.alert('请在微信中打开!').then(action => {
+        window.location.href = '/'
+      })
+    },
     getUrlQueryString(name) {
       let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
       let r = window.location.search.substr(1).match(reg);

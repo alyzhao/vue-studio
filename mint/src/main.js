@@ -8,7 +8,6 @@ import router from './router'
 import mixins from './mixins'
 import Header from 'components/Header'
 import UploadImg from 'components/UploadImg'
-console.log(mixins)
 import axios from 'axios'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'

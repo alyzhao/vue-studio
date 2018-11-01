@@ -14,6 +14,7 @@ import Pdf from 'containers/pdf/Index'
 import Structure from 'containers/structure/Index'
 import News from 'containers/news/Index'
 import Buyers from 'containers/buyers/Index'
+import Participate from 'containers/participate/Index'
 
 Vue.use(Router)
 
@@ -40,6 +41,10 @@ const routes = [{
   name: 'buyers',
   path: '/buyers',
   component: Buyers
+}, {
+  name: 'participate',
+  path: '/participate',
+  component: Participate
 }, {
   name: 'products',
   path: '/products',

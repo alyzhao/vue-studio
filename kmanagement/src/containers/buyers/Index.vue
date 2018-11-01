@@ -113,7 +113,7 @@
         }
         this.axios.get(url, {params}).then(({data}) => {
           console.log(data)
-          this.list = data.news
+          this.list = data.application
           this.total = Number(data.totalCount)
         }).catch(this.errorHandle)
       },

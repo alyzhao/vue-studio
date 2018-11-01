@@ -59,7 +59,6 @@
 <script>
   import {schedule} from 'constants'
   import cloneDeep from 'lodash.clonedeep'
-  console.log(schedule)
   export default {
     data () {
       return {

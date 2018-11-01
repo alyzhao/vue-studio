@@ -20,6 +20,24 @@ export const aAreaOptions = [{
 }]
 
 export const aTypeOptions = [{
-  label: '类别1',
-  value: '类别2'
+  label: '丝路国家展区（A区）',
+  value: 1001
+}, {
+  label: '金属矿业展区（B区）',
+  value: 1002
+}, {
+  label: '矿业综合展区（C区）',
+  value: 1003
+}, {
+  label: '矿业综合展区（D区）',
+  value: 1004
+}, {
+  label: '矿物标本精品展区（E、F区）',
+  value: 1005
+}, {
+  label: '矿山新技术、矿山机械展区、非金属矿产展区（G区）',
+  value: 1006
+}, {
+  label: '矿业高校人才交流展区、矿业形象及地质展区（H区）',
+  value: 1007
 }]
