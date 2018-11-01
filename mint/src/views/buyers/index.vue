@@ -93,15 +93,6 @@
       }
     },
     created () {
-      // .setValues('台湾居民来往大陆通行证')
-      // this.cardIndex = this.defaultCardIndex('港澳居民来往内地通行证')
-        // if (this.getOpenId()) {
-          
-        // }
-      // alert(this.getOpenId())
-      // this.formData.openid = this.getOpenId()
-      // oPs9h0YFTx3JEdySKNVOWdHS0asg
-
       this.getOpenId().then(({data}) => {
         console.log('openid', data)
         let openid = data.openid
