@@ -42,9 +42,7 @@
 <script>
   import {country} from 'constants/country' 
   import cloneDeep from 'lodash.clonedeep'
-  import UploadImg from 'components/UploadImg'
   import { Indicator } from 'mint-ui'
-  import qs from 'qs'
   // bName;//个人姓名
   // bImg;//证件照
   // bCardType;//证件类型
@@ -191,9 +189,6 @@
         validate = Boolean(validate)
         return !validate
       }
-    },
-    components: {
-      UploadImg
     }
   }
 </script>

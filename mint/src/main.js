@@ -7,6 +7,7 @@ import 'mint-ui/lib/style.css'
 import router from './router'
 import mixins from './mixins'
 import Header from 'components/Header'
+import UploadImg from 'components/UploadImg'
 console.log(mixins)
 import axios from 'axios'
 
@@ -19,6 +20,7 @@ Vue.prototype.MessageBox = MessageBox
 Vue.mixin(mixins)
 
 Vue.component('Header', Header)
+Vue.component('UploadImg', UploadImg)
 
 new Vue({
   el: '#app',
