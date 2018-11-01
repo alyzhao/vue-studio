@@ -13,6 +13,7 @@ import Guide from 'containers/guide/Index'
 import Pdf from 'containers/pdf/Index'
 import Structure from 'containers/structure/Index'
 import News from 'containers/news/Index'
+import Buyers from 'containers/buyers/Index'
 
 Vue.use(Router)
 
@@ -35,6 +36,10 @@ const routes = [{
   name: 'news',
   path: '/news',
   component: News
+}, {
+  name: 'buyers',
+  path: '/buyers',
+  component: Buyers
 }, {
   name: 'products',
   path: '/products',

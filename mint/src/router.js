@@ -15,6 +15,10 @@ import Participate from 'views/participate'
 
 import Buyers from 'views/buyers'
 
+import Paperwork from 'views/paperwork'
+
+import Account from 'views/account'
+
 Vue.use(Router)
 
 const routes = [{
@@ -29,6 +33,12 @@ const routes = [{
 }, {
   path: '/buyers',
   component: Buyers
+}, {
+  path: '/paperwork',
+  component: Paperwork
+}, {
+  path: '/account',
+  component: Account
 }, {
   path: '/index',
   component: Home

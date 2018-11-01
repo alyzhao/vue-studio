@@ -1,5 +1,6 @@
 <template>
   <div class="participate mine">
+    <Header title="参展申请"></Header>
     <div class="main">
       <mt-field label="国家" placeholder="请输入国家" v-model="formData.country"></mt-field>
       <mt-field label="申请单位" placeholder="请输入申请单位" v-model="formData.companyName"></mt-field>
