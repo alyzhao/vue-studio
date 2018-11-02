@@ -117,7 +117,7 @@ PINgic2016 密码
 
 1. https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
 
-1. https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx3b62f31b43c8f76a&redirect_uri=https://www.x-pingic.com/mint/%23/participate/&response_type=code&scope=snsapi_base#wechat_redirect
+1. https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx3b62f31b43c8f76a&redirect_uri=https://www.x-pingic.com/mint/%23/forumapply/&response_type=code&scope=snsapi_base#wechat_redirect
 
 #### 获取 openid
 

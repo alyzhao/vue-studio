@@ -19,6 +19,8 @@ import Paperwork from 'views/paperwork'
 
 import Account from 'views/account'
 
+import ForumApply from 'views/forumapply'
+
 Vue.use(Router)
 
 const routes = [{
@@ -39,6 +41,9 @@ const routes = [{
 }, {
   path: '/account',
   component: Account
+}, {
+  path: '/forumapply',
+  component: ForumApply
 }, {
   path: '/index',
   component: Home
