@@ -33,6 +33,9 @@
           </el-menu-item>          
           <el-menu-item index="participate" :route="{path: '/participate'}">
             <span slot="title">参展申请管理</span>
+          </el-menu-item>
+          <el-menu-item index="forumapply" :route="{path: '/forumapply'}">
+            <span slot="title">论坛报名管理</span>
           </el-menu-item>          
         </el-submenu>
       </el-menu>

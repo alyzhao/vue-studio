@@ -15,6 +15,8 @@ import Structure from 'containers/structure/Index'
 import News from 'containers/news/Index'
 import Buyers from 'containers/buyers/Index'
 import Participate from 'containers/participate/Index'
+import ForumApply from 'containers/forumapply/Index'
+
 
 Vue.use(Router)
 
@@ -45,6 +47,10 @@ const routes = [{
   name: 'participate',
   path: '/participate',
   component: Participate
+}, {
+  name: 'forumapply',
+  path: '/forumapply',
+  component: ForumApply
 }, {
   name: 'products',
   path: '/products',
