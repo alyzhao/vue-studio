@@ -18,6 +18,8 @@
 <script src="/Application/Mobile/Static/js/amazeui.js"></script>
 
 <script src="/Application/Mobile/Static/js/sweetalert2.min.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <link rel="stylesheet" href="/Application/Mobile/Static/css/sweetalert2.min.css">
 
 <!--用于加载顶部css和js-->
@@ -100,18 +102,24 @@ body{max-width: 540px;margin: 0 auto}
       </div>
   </div>
 
-
-
-
-  
-
- 
-
 <!-- 弹窗1 -->
 <div class="am-modal-actions" id="my-actions" style="background: #fff;padding: 0;margin: 0;">
   <div class="am-modal-actions-group" style="margin: 0">
-    
     <ul class="am-lis">
+      <h3>B1展厅</h3>
+      <li class="am-modal-actions-header" v-for="item in B1list" :key="item.eName">
+        <a href="/mobile/index/areatwo/B/B1.html" style="">
+          <div class="list-l">
+            <img :src="'https://www.x-pingic.com/ASEAN_Mining/img/exhibit/' + item.eImg">
+          </div>
+          <div class="list-r">
+            <div class="p1">{{item.eName}}</div>
+            <span>企业：{{item.eCompanyCount}}家</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <!-- <ul class="am-lis">
       <h3>B1展厅</h3>
        <li class="am-modal-actions-header">
      <a href="/mobile/index/areatwo/B/B1.html" style="">
@@ -213,15 +221,29 @@ body{max-width: 540px;margin: 0 auto}
             <span>企业：115家</span>
           </div>
         </a>
-      </li>    </ul>
+      </li>
+    </ul> -->
   </div>
 </div>
 
 <!-- 弹窗2 -->
 <div class="am-modal-actions" id="my-actb" style="background: #fff;padding: 0;margin: 0;">
   <div class="am-modal-actions-group" style="margin: 0">
-    
     <ul class="am-lis">
+      <h3>B2展厅</h3>
+      <li class="am-modal-actions-header" v-for="item in B2list" :key="item.eName">
+        <a href="/mobile/index/areatwo/B/B1.html" style="">
+          <div class="list-l">
+            <img :src="'https://www.x-pingic.com/ASEAN_Mining/img/exhibit/' + item.eImg">
+          </div>
+          <div class="list-r">
+            <div class="p1">{{item.eName}}</div>
+            <span>企业：{{item.eCompanyCount}}家</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+   <!--  <ul class="am-lis">
       <h3>B2展厅</h3>
       <li class="am-modal-actions-header">
      <a href="/mobile/index/areatwo/B/B2.html" style="">
@@ -303,7 +325,8 @@ body{max-width: 540px;margin: 0 auto}
             <span>企业：4家</span>
           </div>
         </a>
-      </li>    </ul>
+      </li>    
+    </ul> -->
   </div>
 </div>
 
@@ -312,11 +335,29 @@ body{max-width: 540px;margin: 0 auto}
 
 </div>
 
-
-
-        <!-- /主体 -->
-
-        <!-- 底部 -->
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#mob-main-container',
+    data: {
+      B1list: [],
+      B2list: []
+    },
+    created: function () {
+      this.loadData()
+    },
+    methods: {
+      loadData: function () {
+        var url = 'https://www.x-pingic.com/ASEAN_Mining/onLineEx/queryExList'
+        $.get(url, {}, function (data) {
+          console.log(data)
+          app.B1list = data.filter(item => item.eRegion == 'B1')
+          app.B2list = data.filter(item => item.eRegion == 'B2')
+          // app.content = data.guideContent
+        }, 'json')
+      }
+    }
+  })
+</script>
         
 <style type="text/css">
 .home a {background: url(/Application/Mobile/Static/images/home.png) no-repeat center center;width: 3.8rem; height:3.8rem; display: block;margin: 0 0 0 auto; background-size: cover;}
