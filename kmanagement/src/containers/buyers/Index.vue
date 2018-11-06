@@ -13,7 +13,7 @@
       <el-table-column type="selection" width="55">
       </el-table-column>
 
-      <el-table-column prop="id" label="id" width="80">
+      <el-table-column prop="aId" label="id" width="80">
       </el-table-column>
 
       <el-table-column prop="bName" label="姓名">
@@ -115,7 +115,8 @@
           console.log(data)
           this.list = data.application
           this.total = Number(data.totalCount)
-        }).catch(this.errorHandle)
+        })
+        .catch(this.errorHandle)
       },
       addShop () {
 

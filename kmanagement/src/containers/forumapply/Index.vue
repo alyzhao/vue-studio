@@ -17,39 +17,18 @@
           </el-button-group>
         </el-col>
       </el-row>
-      <el-table :data="list" style="width: 100%" class="product-table center-tb" @selection-change="handleSelectionChange">
+      <el-table :data="list" style="width: 100%" class="product-table center-tb" @selection-change="handleSelectionChange" v-loading="loading">
         <el-table-column type="selection" width="55">
         </el-table-column>
 
-        <el-table-column prop="aCompany" label="申请单位"></el-table-column>
+        <el-table-column prop="fName" label="姓名"></el-table-column>
 
-        <el-table-column prop="aAdress" label="单位地址"></el-table-column>
-        <el-table-column prop="aWeb" label="单位主页"></el-table-column>
-        <el-table-column prop="aWX" label="微信公众号"></el-table-column>
-        <el-table-column prop="aParty" label="是否党组织"></el-table-column>
-        <el-table-column prop="aProduct" label="供应产品"></el-table-column>
-        <el-table-column prop="aAdress" label="单位地址"></el-table-column>
-
-        <el-table-column label="营业执照">
+        <el-table-column prop="fPhone" label="手机号码"></el-table-column>
+        <el-table-column prop="fPack" label="套餐">
           <template slot-scope="scope">
-            <img class="product-img" :src="'https://www.x-pingic.com/ASEAN_Mining/img/Appliction/' + scope.row.aBusiness">
+            <el-tag class="pack-tag" v-for="item in computedPack(scope.row.fPack)" :key="item">{{item}}</el-tag>
           </template>
         </el-table-column>
-
-        <el-table-column prop="aEmail" label="邮箱"></el-table-column>
-
-        <el-table-column prop="aContacts" label="参展联系人"></el-table-column>
-
-        <el-table-column prop="aPhone" label="手机号码"></el-table-column>
-
-        <el-table-column prop="aType" label="参展类别">
-          <template slot-scope="scope">{{computedType(scope.row.aType)}}</template>
-        </el-table-column>
-
-        <el-table-column prop="aArea" label="展位">
-          <template slot-scope="scope">{{computedArea(scope.row.aArea)}}</template>
-        </el-table-column>
-
         <el-table-column label="操作" width="150px">
           <template slot-scope="scope">
             <el-button type="primary" size="mini" @click="editProduct(scope.row.aId)">编辑</el-button>
@@ -84,7 +63,8 @@
         keywordValue: '',
         page: 1,
         size: 5,
-        total: 0
+        total: 0,
+        loading: false
       }
     },
     created () {
@@ -112,6 +92,7 @@
         // this.$router.push(`/products/add`)
       },
       loadData (params = {}) {
+        this.loading = true
         console.log('page: ', this.page)
         console.log('size: ', this.size)
         params.pageSize = this.size
@@ -119,9 +100,13 @@
         let url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/queryForumAllList'
         this.axios.get(url, {params: params}).then(res => {
           let data = res.data
-          this.list = data.application
+          this.list = data.forum_FormList
           this.total = Number(data.totalCount) 
-        }).catch(this.errorHandle)
+        })
+        .catch(this.errorHandle)
+        .finally(() => {
+          this.loading = false
+        })
       },
       handleSelectionChange (val) {
         this.multipleSelection = val
@@ -159,18 +144,19 @@
         this.size = val
         this.loadData()
       },
-      handleCurrentChange(val) {
+      handleCurrentChange (val) {
         this.page = val
         this.loadData()
       },
-      computedType (val) {
-        let result = aTypeOptions.find(item => item.value == val)
-        return result ? result.label : val
-      },
-      computedArea (val) {
-        let result = aAreaOptions.find(item => item.value == val)
-        return result ? result.label : val
-      },
+      computedPack (val) {
+        let arr = val.split(',')
+        let packResult = {
+          '01': '注册费',
+          '02': '套餐1服务',
+          '03': '套餐2服务'
+        }
+        return arr.map(item => packResult[item])
+      }
     }
   }
 </script>
@@ -201,4 +187,7 @@
     border-bottom: 1px solid #DCDFE6;
     margin-bottom: 15px;
   }
+  .pack-tag + .pack-tag {
+    margin-left: 5px;
+  } 
 </style>
