@@ -1,12 +1,12 @@
 <template>
   <div class="paperwork">
-    <Header title="证件办理"></Header>
+    <Header title="证件办理" :exist="exist"></Header>
     <mt-field label="证件类型" class="card-type" ref="cardPicker">
       <mt-picker :slots="slots" :visibleItemCount="3" @change="onValuesChange">
       </mt-picker>
     </mt-field>
-    <mt-field label="姓名" placeholder="请输入姓名" v-model="formData.cardName"></mt-field>
-    <mt-field label="单位名称" placeholder="请输入单位名称" v-model="formData.cardCompany"></mt-field>
+    <mt-field :disabled="exist" label="姓名" placeholder="请输入姓名" v-model="formData.cardName"></mt-field>
+    <mt-field :disabled="exist" label="单位名称" placeholder="请输入单位名称" v-model="formData.cardCompany"></mt-field>
     <div class="commom-buttom-wrap" v-if="!exist">
       <mt-button :disabled="confirmDisabled" class="submit-btn" type="primary" size="normal" @click="submit">提交</mt-button>
     </div>

@@ -1,25 +1,25 @@
 <template>
   <div class="participate mine">
     <!-- <div style="font-size: 1rem;color: #000;line-height: 2rem;">{{formData.openid}}</div> -->
-    <Header title="参展申请"></Header>
+    <Header title="参展申请" :exist="exist"></Header>
     <div class="main">
-      <mt-field label="申请单位" placeholder="请输入申请单位" v-model="formData.aCompany"></mt-field>
-      <mt-field label="单位地址" placeholder="请输入单位地址" v-model="formData.aAdress"></mt-field>
-      <mt-field label="单位主页" placeholder="若有单位主页请填写" v-model="formData.aWeb"></mt-field>
-      <mt-field label="微信公众号" placeholder="若有公众号请填写" v-model="formData.aWX"></mt-field>
+      <mt-field :disabled="exist" label="申请单位" placeholder="请输入申请单位" v-model="formData.aCompany"></mt-field>
+      <mt-field :disabled="exist" label="单位地址" placeholder="请输入单位地址" v-model="formData.aAdress"></mt-field>
+      <mt-field :disabled="exist" label="单位主页" placeholder="若有单位主页请填写" v-model="formData.aWeb"></mt-field>
+      <mt-field :disabled="exist" label="微信公众号" placeholder="若有公众号请填写" v-model="formData.aWX"></mt-field>
       <mt-radio
         title="有无加入党组织"
         v-model="formData.aParty"
         :options="aPartyOptions">
       </mt-radio>
-      <mt-field label="供应产品" placeholder="请输入供应产品" v-model="formData.aProduct"></mt-field>
-      <mt-field label="营业执照" class="card-type">
+      <mt-field :disabled="exist" label="供应产品" placeholder="请输入供应产品" v-model="formData.aProduct"></mt-field>
+      <mt-field :disabled="exist" label="营业执照" class="card-type">
         <UploadImg ref="uploadImg" @file-change="setFile" class="field-upload" icon="icon-add" />
       </mt-field>
-      <mt-field label="电子邮箱" type="email" placeholder="请输入电子邮箱" v-model="formData.aEmail"></mt-field>
-      <mt-field label="参展联系人" placeholder="请输入参展联系人" v-model="formData.aContacts"></mt-field>
-      <mt-field label="手机号码" placeholder="请输入手机号码" v-model="formData.aPhone"></mt-field>
-      <mt-field label="参展类别" class="card-type big">
+      <mt-field :disabled="exist" label="电子邮箱" type="email" placeholder="请输入电子邮箱" v-model="formData.aEmail"></mt-field>
+      <mt-field :disabled="exist" label="参展联系人" placeholder="请输入参展联系人" v-model="formData.aContacts"></mt-field>
+      <mt-field :disabled="exist" label="手机号码" placeholder="请输入手机号码" v-model="formData.aPhone"></mt-field>
+      <mt-field :disabled="exist" label="参展类别" class="card-type big">
         <mt-picker :slots="aTypeSlots" :visibleItemCount="3" valueKey="label" @change="onValuesChange">
         </mt-picker>
       </mt-field>      

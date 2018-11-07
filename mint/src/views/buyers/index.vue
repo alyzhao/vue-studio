@@ -1,35 +1,35 @@
 <template>
   <div class="buyers">
     <!-- <div style="font-size: 1rem;color: #000;line-height: 2rem;">{{openId}}</div> -->
-    <Header title="采购商登记"></Header>
+    <Header title="采购商登记" :exist="exist"></Header>
     <div class="main">
-      <mt-field label="姓名" placeholder="请输入姓名" v-model="formData.bName"></mt-field>
-      <mt-field label="单位名称" placeholder="请输入单位名称" v-model="formData.bCompany"></mt-field>
-      <mt-field label="证件类型" class="card-type" ref="cardPicker">
+      <mt-field :disabled="exist" label="姓名" placeholder="请输入姓名" v-model="formData.bName"></mt-field>
+      <mt-field :disabled="exist" label="单位名称" placeholder="请输入单位名称" v-model="formData.bCompany"></mt-field>
+      <mt-field :disabled="exist" label="证件类型" class="card-type" ref="cardPicker">
         <mt-picker :slots="slots" :visibleItemCount="3" @change="onValuesChange">
         </mt-picker>
       </mt-field>
-      <mt-field label="证件号码" placeholder="根据选择的证件类型输入" v-model="formData.bCardNum"></mt-field>
+      <mt-field :disabled="exist" label="证件号码" placeholder="根据选择的证件类型输入" v-model="formData.bCardNum"></mt-field>
 
-      <mt-field label="职务" placeholder="请填写职务" v-model="formData.bPost"></mt-field>
+      <mt-field :disabled="exist" label="职务" placeholder="请填写职务" v-model="formData.bPost"></mt-field>
 
-      <mt-field label="地址" placeholder="请填写地址" v-model="formData.bAdress"></mt-field>
+      <mt-field :disabled="exist" label="地址" placeholder="请填写地址" v-model="formData.bAdress"></mt-field>
 
-      <mt-field label="手机号" placeholder="请填写手机号" v-model="formData.bPhone"></mt-field>
+      <mt-field :disabled="exist" label="手机号" placeholder="请填写手机号" v-model="formData.bPhone"></mt-field>
 
-      <mt-field label="国家/地区" class="card-type">
+      <mt-field :disabled="exist" label="国家/地区" class="card-type">
         <mt-picker :slots="countrySlots" :visibleItemCount="3" valueKey="cn" @change="countryValuesChange">
         </mt-picker>
       </mt-field>
 
-      <!-- <mt-field label="照片" placeholder="请填写手机" v-model="formData.bPhone"></mt-field> -->
-      <mt-field label="照片" class="card-type">
+      <!-- <mt-field :disabled="exist" label="照片" placeholder="请填写手机" v-model="formData.bPhone"></mt-field> -->
+      <mt-field :disabled="exist" label="照片" class="card-type">
         <UploadImg ref="uploadImg" @file-change="setFile" class="field-upload" icon="icon-add" />
       </mt-field>
 
-      <mt-field label="感兴趣产品" placeholder="请输入感兴趣的产品" v-model="formData.bLikeProduct"></mt-field>
+      <mt-field :disabled="exist" label="感兴趣产品" placeholder="请输入感兴趣的产品" v-model="formData.bLikeProduct"></mt-field>
 
-      <mt-field label="公司业务性质" class="card-type">
+      <mt-field :disabled="exist" label="公司业务性质" class="card-type">
         <mt-picker :slots="businessSlots" :visibleItemCount="3" valueKey="cn" @change="businessValuesChange">
         </mt-picker>
       </mt-field>
@@ -199,6 +199,9 @@
     }
     .mint-field-other {
       width: 100%;
+    }
+    .mint-checklist-title {
+      display: none;
     }
   }
   .field-upload {
