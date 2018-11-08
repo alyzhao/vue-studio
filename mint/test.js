@@ -30,20 +30,10 @@
      "name":"2018矿业展",
      "url":"https://www.x-pingic.com/countdownone.html"    
   },
-  {    
-    "name":"参展动态",
-    "sub_button": [
-      {
-        "type":"view",
-        "name":"参展企业",
-        "url":"https://www.x-pingic.com/mobile/index/navigation.html"
-      },
-      {
-        "type":"view",
-        "name":"发现宝物",
-        "url":"https://www.x-pingic.com"
-      }
-    ]    
+  {
+    "type":"view",
+     "name":"地球脉动",
+     "url":"https://www.bagevent.com/event/2014459"    
   }
   ]
 }

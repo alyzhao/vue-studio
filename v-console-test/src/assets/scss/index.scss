@@ -1,0 +1,55 @@
+@import "./icon.scss"; 
+
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-size: 14px;
+}
+
+p, h1 {
+  margin: 0;
+}
+
+.clearfix:before, .clearfix:after{content:"";display:table;line-height:0;}
+.clearfix:after{clear:both;} 
+.clearfix{*zoom:1;}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.center-text {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.center-table {
+  width: 100%;
+  border-top: 1px solid #ebeef5;
+  border-left: 1px solid #ebeef5;
+  border-collapse: separate;
+  td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 5px;
+    word-break: break-all;
+    border-right: 1px solid #ebeef5;
+    border-bottom: 1px solid #ebeef5;
+  }
+  .tb-title {
+    font-weight: bold;
+    background-color: #ecf5ff;
+  }
+  .td-title {
+    background-color: oldlace;
+  }
+}
+.commom-buttom-wrap {
+  padding: 10px;
+}
+
+.main-padding {
+  padding: 10px 15px;
+}
