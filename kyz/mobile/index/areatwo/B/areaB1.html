@@ -34,14 +34,36 @@ body{max-width: 540px;margin: 0 auto}
 </script>
 </head>
 <body>
-        <!-- 头部 -->
-    <!--      -->
-        <!-- /头部 -->
-
-        <!-- 主体 -->
 <style type="text/css">
+  .am-tabs-d2 .am-tabs-nav{background: #fff}
+  .am-tabs-d2 .am-tabs-nav li{height: 50px}
+  .am-tabs-d2 .am-tabs-nav  a{font-size: 1.7rem;height: 50px;line-height: 50px}
+  .am-tabs-d2 .am-tabs-nav>.am-active{border-bottom:2px solid #154da0;background-color:#fff;}
+  .am-tabs-d2 .am-tabs-nav>.am-active a{line-height: 50px;height: 50px;color: #154da0}
+  .am-tabs-d2 .am-tabs-nav>.am-active:after{border-bottom-color:rgba(0,0,0,0);}
+
+  p,h3{margin: 0;padding: 0;font-weight: normal;}
+  ul,li{margin: 0;padding: 0;list-style: none;}
+  .am-modal-actions-header{padding: 1rem 0.7rem}
+  .am-modal-actions-group h3{text-align: left;padding:8px;border-bottom: solid 1px #ddd;}
+  .am-modal-actions-group h3 img{float: right;width: 20px}
+  .am-list{min-height:200px;overflow-y:auto;max-height:300px;}
+  .am-list .sp1{float:left;padding:3px 6px;background:#cfcd96;color:#fff;border-radius:0.3rem;line-height:20px}
+  .am-modal-actions-group .am-list>li>a{text-align: left;padding: 0 8px;width: 77%;float: left;display: block;margin: 0;color: #787878;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height: 26px}
+  .am-list .am-checkbox{float: right;margin: 0;padding-left: 10px;}
+  .am-list li{border-bottom: solid 1px #ddd;}
+  .am-modal-actions-group .am-list>li:nth-of-type(2n){background: #f8f8f8}
+  .am-modal-actions-group .am-list>li:last-child{border-bottom: solid 1px #ddd;}
+  .am-modal-actions-group .am-list li:nth-of-type(2n) .sp1{background: #4dbecf}
+
   .area.J polygon {
     fill: #cfe9c2;
+  }
+  .area.K polygon {
+    fill: #ffc200;
+  }
+  .area.Q polygon {
+    fill: #fffa58;
   }
   .area-name {
     fill: #1f1f1f;
@@ -63,6 +85,9 @@ body{max-width: 540px;margin: 0 auto}
   }
   .detail .reserve polygon {
     fill: #dde0e2;
+  }
+  .am-active {
+    display: block;
   }
 </style>
 <div id="mob-main-container" class="container">
@@ -102,18 +127,19 @@ body{max-width: 540px;margin: 0 auto}
       </div>  
     </div>
   </div>
+  <div class="am-modal-actions" :class="{'am-modal-active': mask}" style="background: #fff;padding: 0;margin: 0;">
+    <div class="am-modal-actions-group" style="margin: 0">
+      <h3>参展企业<img class="imgs" src="/Application/Mobile/Static/images/arrow.png"></h3>
+      <ul class="am-list">
+         <li class="am-modal-actions-header">
+          <span class="sp1">N101</span>
+          <a href="/mobile/index/areadetailone/id/13.html">预定</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="am-dimmer" :class="{'am-active': mask}" @click="maskClear"></div>
 </div>
-<script type="text/javascript">
-  $(document).ready(function(e) {
-    //$(".mask").hide();
-    $(".mask").click(function(){
-      $(".mask").attr("style","opacity:1");
-      $(".detail").hide();
-      $(this).attr("style","opacity:0");
-    $(this).next().show();
-    });
-  });
-</script>
 <script type="text/javascript" src="./areaData.js"></script>
 <script type="text/javascript">
   Vue.component('area-cell', {
@@ -140,21 +166,28 @@ body{max-width: 540px;margin: 0 auto}
     el: '#mob-main-container',
     data: {
       activity: [],
-      zoneData1: zoneDataB1
+      zoneData1: zoneDataB1,
+      mask: false
     },
     created: function () {
       console.log(this.zoneData1)
     },
     methods: {
+      maskClear () {
+        this.mask = false
+      },
       showZoonB1 (zoneLetter, zoneIndex) {
+        this.mask = true
         console.log(zoneLetter, zoneIndex)
         let index = this.zoneData1.findIndex(function (item) {
-          return item.zoneLetter == zoneLetter
+          return item.active
         })
         if (index > -1) {
           this.zoneData1[index].active = false
+          this.zoneData1.splice(index, 1, this.zoneData1[index])
         }
         this.zoneData1[zoneIndex].active = true
+        this.zoneData1.splice(zoneIndex, 1, this.zoneData1[zoneIndex])
       },
       loadData: function () {
         var url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/queryForumList'
