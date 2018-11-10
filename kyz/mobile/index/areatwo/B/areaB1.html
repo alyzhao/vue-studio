@@ -65,6 +65,21 @@ body{max-width: 540px;margin: 0 auto}
   .area.Q polygon {
     fill: #fffa58;
   }
+  .area.A polygon {
+    fill: #7ac49f;
+  }
+  .area.H polygon {
+    fill: #b6ddc8;
+  }
+  .area.G polygon {
+    fill: #fbcfb6;
+  }
+  .area.BCD polygon {
+    fill: #ef9a49;
+  }
+  .area.EF polygon {
+    fill: #f8c301;
+  }
   .area-name {
     fill: #1f1f1f;
     font-size: 10rem;
@@ -100,12 +115,12 @@ body{max-width: 540px;margin: 0 auto}
 
   <div data-am-widget="tabs" class="am-tabs am-tabs-d2" style="width: 100%;margin: 0 auto;border-top: solid 1px #ddd;">
     <ul class="am-tabs-nav am-cf">
-      <li class="am-active"><a href="[data-tab-panel-0]">B1展厅</a></li>
-      <li class=""><a href="[data-tab-panel-1]">B2展厅</a></li>
+      <li :class="{'am-active': area == 1}"><a href="[data-tab-panel-0]">B1展厅</a></li>
+      <li :class="{'am-active': area == 2}"><a href="[data-tab-panel-1]">B2展厅</a></li>
     </ul>
     <div class="am-tabs-bd" style="border: none;z-index: 0">
-      <div data-tab-panel-0 class="am-tab-panel am-active" style="padding: 0;">
-         <!--begin-->
+      <!-- B1 -->
+      <div data-tab-panel-0 class="am-tab-panel" :class="{'am-active': area == 1}" style="padding: 0;">
         <div style="height: 30px"></div>
         <svg  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" preserveAspectRatio="xMinYMin slice" viewBox="0 0 4320 4595">
           <g id="background">
@@ -123,17 +138,36 @@ body{max-width: 540px;margin: 0 auto}
           </g>
 
         </svg>
-        <!--end-->
-      </div>  
+      </div>
+      <!-- B2 -->
+      <div data-tab-panel-1 class="am-tab-panel" :class="{'am-active': area == 2}" style="padding: 0;">
+        <div style="height: 30px"></div>
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" preserveAspectRatio="xMinYMin slice" viewBox="0 0 4320 6400">
+          <g id="background">
+             <image x="0" y="0" width="4320" height="6400" xlink:href="/Application/Mobile/Static/images/areaB2.jpg"></image> 
+          </g>
+
+          <g class="areaGroup" v-for="(item, zoneIndex) in zoneData2" :key="item.zoneName">
+            <g :class="['area', item.zoneLetter, {active: item.active}]" @click="showZoonB2(item.zoneLetter, zoneIndex)">
+              <polygon :points="item.zonePoints"></polygon>
+              <text class="area-name" :x="item.zoneNameX" :y="item.zoneNameY">{{item.zoneName}}</text>
+            </g>
+            <g class="detail">
+              <ir-cell :class="{reserve: cell.reserve}" v-for="cell in item.cellList" :points-custom="cell.pointsCustom" :key="cell.areaNo" :coor="cell.coor" :area-no="cell.areaNo" :width="cell.width" :height="cell.height" :text-position="cell.textPosition"></ir-cell>
+            </g>
+          </g>
+
+        </svg>
+      </div>
     </div>
   </div>
   <div class="am-modal-actions" :class="{'am-modal-active': mask}" style="background: #fff;padding: 0;margin: 0;">
     <div class="am-modal-actions-group" style="margin: 0">
       <h3>参展企业<img class="imgs" src="/Application/Mobile/Static/images/arrow.png"></h3>
       <ul class="am-list">
-         <li class="am-modal-actions-header">
-          <span class="sp1">N101</span>
-          <a href="/mobile/index/areadetailone/id/13.html">预定</a>
+         <li class="am-modal-actions-header" v-for="item in cellList" :key="item.areaNo">
+          <span class="sp1">{{item.areaNo}}</span>
+          <a href="javascript:">{{item.reserve ? item.aCompany : '预定'}}</a>
         </li>
       </ul>
     </div>
@@ -143,7 +177,7 @@ body{max-width: 540px;margin: 0 auto}
 <script type="text/javascript" src="./areaData.js"></script>
 <script type="text/javascript">
   Vue.component('area-cell', {
-    props: ['coor', 'areaNo'],
+    props: ['coor', 'areaNo', 'resverse'],
     methods: {
       polygonPoints: function () {
         var x = this.coor[0]
@@ -158,7 +192,44 @@ body{max-width: 540px;margin: 0 auto}
         }
       }
     },
-    template: '<g><polygon class="sav" :points="polygonPoints().points"></polygon><text :x="polygonPoints().textX" :y="polygonPoints().textY" class="area-text" fill="black" style="font-size: 3rem;">{{areaNo}}</text></g>'
+    template: '<g><polygon :points="polygonPoints().points"></polygon><text :x="polygonPoints().textX" :y="polygonPoints().textY" class="area-text" fill="black" style="font-size: 3rem">{{areaNo}}</text></g>'
+  })
+  /* 根据 width height 设置不规则的 polygon 的 points, textPosition [x, y, fontSize] 设置字体的位置和大小 */
+  Vue.component('ir-cell', {
+    props: ['coor', 'areaNo', 'resverse', 'width', 'height', 'textPosition', 'pointsCustom'],
+    methods: {
+      polygonPoints: function () {
+        var x = this.coor[0]
+        var y = this.coor[1]
+        var width = this.width || 105 
+        var height = this.height || 105
+        var points = x + ',' + y + ' ' + x + ',' + (y + height) + ' ' + (x + width) + ',' + (y + height) + ' ' + (x + width) + ',' + y
+        if (this.pointsCustom) {
+          points = this.pointsCustom
+        }
+        var textX, textY;
+        var fontSize = '3.8rem';
+        if (this.textPosition) {
+          textX = this.textPosition[0] + x
+          textY = this.textPosition[1] + y
+          if (this.textPosition[2]) {
+            fontSize = this.textPosition[2] + 'rem'
+          }
+        } else {
+          var textX = x + 12
+          var textY = y + 65          
+        }
+        return {
+          points: points,
+          textX: textX,
+          textY: textY,
+          fontSize: {
+            fontSize: fontSize
+          }
+        }
+      }
+    },
+    template: '<g><polygon :points="polygonPoints().points"></polygon><text :x="polygonPoints().textX" :y="polygonPoints().textY" class="area-text" fill="black" :style="polygonPoints().fontSize">{{areaNo}}</text></g>'
   })
 
 
@@ -166,17 +237,49 @@ body{max-width: 540px;margin: 0 auto}
     el: '#mob-main-container',
     data: {
       activity: [],
-      zoneData1: zoneDataB1,
-      mask: false
+      zoneData1: [],
+      zoneData2: [],
+      mask: false,
+      cellList: [],
+      loadDataCount: 0,
+      area: 1,
+      loadDataCount2: 0
     },
     created: function () {
-      console.log(this.zoneData1)
+      var area = this.getUrlQueryString('area')
+      if (area == 2) {
+        this.area = 2
+      }
+      function loadAllData () {
+        app.loadDataCount += 1
+        if (app.loadDataCount == 3) {
+          app.zoneData1 = zoneDataB1
+        }
+      }
+      function loadAllData2 () {
+        app.loadDataCount2 += 1
+        if (app.loadDataCount2 == 5) {
+          app.zoneData2 = zoneDataB2
+          console.log(app.zoneData2)
+        }
+      }
+      this.loadData('1006', loadAllData)
+      this.loadData('1007', loadAllData)
+      this.loadData('1008', loadAllData)
+
+      this.loadData2('1001', loadAllData2)
+      this.loadData2('1002', loadAllData2)
+      this.loadData2('1003', loadAllData2)
+      this.loadData2('1004', loadAllData2)
+      this.loadData2('1005', loadAllData2)
+
     },
     methods: {
       maskClear () {
         this.mask = false
       },
       showZoonB1 (zoneLetter, zoneIndex) {
+        this.cellList = this.zoneData1[zoneIndex].cellList
         this.mask = true
         console.log(zoneLetter, zoneIndex)
         let index = this.zoneData1.findIndex(function (item) {
@@ -189,32 +292,71 @@ body{max-width: 540px;margin: 0 auto}
         this.zoneData1[zoneIndex].active = true
         this.zoneData1.splice(zoneIndex, 1, this.zoneData1[zoneIndex])
       },
-      loadData: function () {
-        var url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/queryForumList'
-        $.get(url, {}, function (data) {
+      showZoonB2 (zoneLetter, zoneIndex) {
+        this.cellList = this.zoneData2[zoneIndex].cellList
+        this.mask = true
+        console.log(zoneLetter, zoneIndex)
+        let index = this.zoneData2.findIndex(function (item) {
+          return item.active
+        })
+        if (index > -1) {
+          this.zoneData2[index].active = false
+          this.zoneData2.splice(index, 1, this.zoneData2[index])
+        }
+        this.zoneData2[zoneIndex].active = true
+        this.zoneData2.splice(zoneIndex, 1, this.zoneData2[zoneIndex])
+      },
+      loadData: function (aPlan, callback) {
+        var url = 'https://www.x-pingic.com/ASEAN_Mining/onLineEx/queryExByName'
+        $.get(url, {aPlan: aPlan}, function (data) {
           console.log(data)
-          var date = data.map(function (item) {
-            return item.opData
+          var zone = zoneDataB1.find(function (item) {
+            return item.aPlan == aPlan
           })
-          for (var i = 0; i < date.length; i ++) {
-            if (date[i] === date[i + 1]) {
-              date.splice(i, 1)
-              i -= 1
-            }
-          }
-          let activity = date.map(function (item) {
-            var activityItem = data.filter(function (act) {
-              return act.opData === item
+          var cellList = zone.cellList
+          data.forEach(function (dataItem) {
+            var cell = cellList.find(function (cellItem) {
+              return cellItem.areaNo == dataItem.aNum
             })
-            return {
-              date: item,
-              list: activityItem
+            if (cell) {
+              cell.reserve = true
+              cell.aCompany = dataItem.aCompany
             }
           })
-          app.activity = activity
-          console.log(activity)
+          callback && callback();
           // app.content = data.guideContent
         }, 'json')
+      },
+      loadData2: function (aPlan, callback) {
+        var url = 'https://www.x-pingic.com/ASEAN_Mining/onLineEx/queryExByName'
+        $.get(url, {aPlan: aPlan}, function (data) {
+          console.log(data)
+          var zone = zoneDataB2.find(function (item) {
+            return item.aPlan == aPlan
+          })
+          console.log('zone', zone)
+          var cellList = zone.cellList
+          data.forEach(function (dataItem) {
+            var cell = cellList.find(function (cellItem) {
+              return cellItem.areaNo == dataItem.aNum
+            })
+            if (cell) {
+              console.log('cell', cell)
+              cell.reserve = true
+              cell.aCompany = dataItem.aCompany
+            }
+          })
+          callback && callback();
+          // app.content = data.guideContent
+        }, 'json')
+      },
+      getUrlQueryString (name) {
+        let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        let r = window.location.search.substr(1).match(reg);
+        if (r!=null) {
+          return  unescape(r[2]);
+        }
+        return null;
       }
     }
   })
