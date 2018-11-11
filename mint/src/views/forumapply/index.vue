@@ -21,6 +21,7 @@
           <mt-button v-if="!exist" type="danger" size="small" @click="deleteApply(item.uuid)"><i class="iconfont icon-delete"></i>删除</mt-button>
         </div>
         <mt-field :disabled="exist" label="姓名" placeholder="请输入姓名" v-model="item.fName"></mt-field>
+        <mt-field :disabled="exist" label="身份证号" placeholder="请输入身份证号" v-model="item.fCard"></mt-field>
         <mt-field label="性别" class="card-type">
           <mt-radio
             class="in-cell-radio"
@@ -93,6 +94,7 @@
         applyList: [{
           uuid: this.uuid(),
           fName: '',
+          fCard: '',
           fSex: '男',
           fPack: ['01'],
           fPost: '',
@@ -111,26 +113,27 @@
       }
     },
     created () {
-      this.getOpenId().then(({data}) => {
-        console.log('openid', data)
-        let openid = data.openid
-        if (openid) {
-          this.formData.openid = openid
-          this.loadData(openid)
-        } else {
-          this.getOpenIdError()
-        }
-      })
-      .catch(this.getOpenIdError)
+      // this.getOpenId().then(({data}) => {
+      //   console.log('openid', data)
+      //   let openid = data.openid
+      //   if (openid) {
+      //     this.formData.openid = openid
+      //     this.loadData(openid)
+      //   } else {
+      //     this.getOpenIdError()
+      //   }
+      // })
+      // .catch(this.getOpenIdError)
 
-      // this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg10'
-      // this.loadData(this.formData.openid)
+      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg18'
+      this.loadData(this.formData.openid)
     },
     methods: {
       addApply () {
         this.applyList.push({
           uuid: this.uuid(),
           fName: '',
+          fCard: '',
           fSex: '男',
           fPack: ['01'],
           fPost: '',
@@ -167,6 +170,7 @@
           return {
             uuid: this.uuid(),
             fName: item.fName,
+            fCard: item.fCard,
             fSex: item.fSex,
             fPack: item.fPack.split(','),
             fPost: item.fPost,
@@ -187,6 +191,7 @@
             let fPack = item.fPack.join(',')
             return {
               fPack,
+              fCard: item.fCard,
               fName: item.fName,
               fSex: item.fSex,
               fPost: item.fPost,
@@ -217,9 +222,10 @@
       },
       checkApplyList () {
         let validate = true
+        console.log(this.applyList)
         for (let i = 0, length = this.applyList.length; i < length; i++) {
           let item = this.applyList[i]
-          let validateItem = item.fName && item.fSex && item.fPost && item.fPack.length && item.fPhone
+          let validateItem = item.fName && item.fCard && item.fSex && item.fPost && item.fPack.length && item.fPhone;
           if (!Boolean(validateItem)) {
             validate = false
             break
