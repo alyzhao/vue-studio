@@ -1,6 +1,6 @@
 
 
-let JCellList = [
+var JCellList = [
   {
     "coor": [
       1895,
@@ -882,7 +882,7 @@ let JCellList = [
     "reserve": false
   }
 ]
-let KCellList = [
+var KCellList = [
   {
     "coor": [
       2402,
@@ -1236,7 +1236,7 @@ let KCellList = [
     "reserve": false
   }
 ]
-let QCellList = [
+var QCellList = [
   {
     "coor": [
       1222,
@@ -1967,115 +1967,6 @@ let QCellList = [
   }
 ]
 
-
-
-
-/**
- * coor 左上角坐标
- * xMax x轴的个数(存在的)
- * yMax y轴的个数(存在的)
- * emptyX 空的 x 总个数 index
- * emptyY 空的 y 总个数 index
- * emptyCell 空的格子 []
- */
-function generateCell (coor, xMax, yMax, emptyX, emptyY, emptyCell) {
-  let coor1 = coor[0]
-  let coor2 = coor[1]
-  let result1 = []
-  for (let x = 0, xCount = 0; x < xMax; x ++, xCount ++) {
-    if (emptyX.indexOf(xCount) !== -1) {
-      x --
-      continue
-    }
-    for (let y = 0, yCount = 0; y < yMax; y ++, yCount ++) {
-      if (emptyY.indexOf(yCount) !== -1) {
-        y --
-        continue
-      }
-      let emptyIndex = emptyCell.findIndex(item => item[0] == xCount && item[1] == yCount)
-      if (emptyIndex !== -1) {
-        continue
-      }
-      let coor = [coor1 + xCount * 84, coor2 + yCount * 84]
-      let areaNo = null
-      if (x >= 4) {
-        areaNo = 'J' + (x + 2) + (y + 1 >= 10 ? y + 1 : '0' + (y + 1))
-      } else {
-        areaNo = 'J' + (x + 1) + (y + 1 >= 10 ? y + 1 : '0' + (y + 1))
-      }
-      let reserve = false
-      result1.push({
-        coor, areaNo, reserve
-      })
-    }
-  }
-  return result1
-}
-
-function generateCellK (coor, xMax, yMax, emptyX, emptyY, emptyCell) {
-  let coor1 = coor[0]
-  let coor2 = coor[1]
-  let result1 = []
-  for (let x = 0, xCount = 0; x < xMax; x ++, xCount ++) {
-    if (emptyX.indexOf(xCount) !== -1) {
-      x --
-      continue
-    }
-    for (let y = 0, yCount = 0; y < yMax; y ++, yCount ++) {
-      if (emptyY.indexOf(yCount) !== -1) {
-        y --
-        continue
-      }
-      let emptyIndex = emptyCell.findIndex(item => item[0] == xCount && item[1] == yCount)
-      if (emptyIndex !== -1) {
-        continue
-      }
-      let coor = [coor1 + xCount * 84, coor2 + yCount * 84]
-      let areaNo = null
-      areaNo = 'K' + (x + 1) + (y + 8 >= 10 ? y + 8 : '0' + (y + 8))
-      let reserve = false
-      result1.push({
-        coor, areaNo, reserve
-      })
-    }
-  }
-  return result1
-}
-
-function generateCellQ (coor, xMax, yMax, emptyX, emptyY, emptyCell) {
-  let coor1 = coor[0]
-  let coor2 = coor[1]
-  let result1 = []
-  for (let x = 0, xCount = 0; x < xMax; x ++, xCount ++) {
-    if (emptyX.indexOf(xCount) !== -1) {
-      x --
-      continue
-    }
-    for (let y = 0, yCount = 0; y < yMax; y ++, yCount ++) {
-      if (emptyY.indexOf(yCount) !== -1) {
-        y --
-        continue
-      }
-      let emptyIndex = emptyCell.findIndex(item => item[0] == xCount && item[1] == yCount)
-      if (emptyIndex !== -1) {
-        continue
-      }
-      let coor = [coor1 + xCount * 84, coor2 + yCount * 84]
-      let areaNo = null
-      if (x >= 4) {
-        areaNo = 'Q' + (x + 2) + (y + 1 >= 10 ? y + 1 : '0' + (y + 1))
-      } else {
-        areaNo = 'Q' + (x + 1) + (y + 1 >= 10 ? y + 1 : '0' + (y + 1))
-      }
-      let reserve = false
-      result1.push({
-        coor, areaNo, reserve
-      })
-    }
-  }
-  return result1
-}
-
 var zoneDataB1 = [{
   aPlan: '1006',
   zonePoints: '1220,187 1220,1950 2160,1950 2160,187',
@@ -2083,6 +1974,13 @@ var zoneDataB1 = [{
   zoneNameX: 1654,
   zoneNameY: 1055,
   zoneLetter: 'J',
+  title: '珠宝玉石首饰综合展区',
+  titleX: 1240,
+  titleY: 1230,
+  titleStyle: {
+    fontSize: '9rem',
+    fontWeight: 'bold'
+  },
   active: false,
   cellList: JCellList
 }, {
@@ -2091,6 +1989,9 @@ var zoneDataB1 = [{
   zoneName: 'K区',
   zoneNameX: 2805,
   zoneNameY: 1500,
+  title: '珠宝品牌展区',
+  titleX: 2605,
+  titleY: 1700,
   zoneLetter: 'K',
   active: false,
   cellList: KCellList
@@ -2100,6 +2001,13 @@ var zoneDataB1 = [{
   zoneName: 'Q区',
   zoneNameX: 1563,
   zoneNameY: 2700,
+  title: '矿物奇石/陶瓷综合展区',
+  titleX: 1230,
+  titleY: 2890,
+  titleStyle: {
+    fontSize: '8.5rem',
+    fontWeight: 'bold'
+  },
   zoneLetter: 'Q',
   active: false,
   cellList: QCellList
@@ -4745,6 +4653,9 @@ var zoneDataB2 = [{
   zoneNameX: 1550,
   zoneNameY: 1050,
   zoneLetter: 'A',
+  title: '丝路国家展区',
+  titleX: 1300,
+  titleY: 1180,
   active: false,
   cellList: ACellList
 }, {
@@ -4752,8 +4663,11 @@ var zoneDataB2 = [{
   zonePoints: '2408,534 2408,1627 3701,1627 3701,534',
   zoneName: 'H区',
   zoneNameX: 2949,
-  zoneNameY: 700,
+  zoneNameY: 1000,
   zoneLetter: 'H',
+  title: '矿业形象及地质展区',
+  titleX: 2600,
+  titleY: 1180,
   active: false,
   cellList: HCellList
 }, {
@@ -4761,16 +4675,16 @@ var zoneDataB2 = [{
   zonePoints: '2411,1956 2411,4210 3701,4210 3701,1956',
   zoneName: 'G区',
   zoneNameX: 3029,
-  zoneNameY: 2521,
+  zoneNameY: 3230,
   zoneLetter: 'G',
   active: false,
   cellList: GCellList
 }, {
   aPlan: '1002',
   zonePoints: '941,1947 941,5400 2189,5400 2189,1947',
-  zoneName: 'B、C、D区',
-  zoneNameX: 1300,
-  zoneNameY: 3700,
+  zoneName: 'B、C区',
+  zoneNameX: 1400,
+  zoneNameY: 3000,
   zoneLetter: 'BCD',
   active: false,
   cellList: BCDCellList
@@ -4780,39 +4694,10 @@ var zoneDataB2 = [{
   zoneName: 'E、F区',
   zoneNameX: 2900,
   zoneNameY: 5000,
+  title: '矿物标本综合展区',
+  titleX: 2700,
+  titleY: 5200,
   zoneLetter: 'EF',
   active: false,
   cellList: EFCellList
 }]
-
-// [{
-//   "coor": [
-//     1007,
-//     547
-//   ],
-//   "areaNo": "A101",
-//   width: 105,
-//   height: 105,
-//   textPosition: [12, 65, 3.8],
-//   "reserve": false
-// }]
-
-// {
-//   "coor": [
-//     2407,
-//     762
-//   ],
-//   "areaNo": "H102",
-//   width: 642,
-//   height: 428,
-//   textPosition: [218, 182, 8],
-//   "reserve": false
-// }
-
-// if (typeof window === 'undefined') {
-//   module.exports = {
-//     generateCell
-//   }
-// }
-
-// let jCell = generateCell([])
