@@ -21,6 +21,8 @@ import Account from 'views/account'
 
 import ForumApply from 'views/forumapply'
 
+import Exhibit from 'views/exhibit'
+
 Vue.use(Router)
 
 const routes = [{
@@ -56,6 +58,9 @@ const routes = [{
 }, {
   path: '/exhibition',
   component: Exhibition
+}, {
+  path: 'exhibit',
+  component: Exhibit
 }]
 
 export default new Router({

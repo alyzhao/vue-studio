@@ -11,7 +11,7 @@
       {
         "type":"view",
         "name":"展会架构",
-        "url":"https://www.x-pingic.com/page/structure"
+        "url":"https://www.x-pingic.com/page/structure/index.html"
       },
       {
         "type":"view",

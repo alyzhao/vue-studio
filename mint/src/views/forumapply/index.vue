@@ -113,20 +113,20 @@
       }
     },
     created () {
-      // this.getOpenId().then(({data}) => {
-      //   console.log('openid', data)
-      //   let openid = data.openid
-      //   if (openid) {
-      //     this.formData.openid = openid
-      //     this.loadData(openid)
-      //   } else {
-      //     this.getOpenIdError()
-      //   }
-      // })
-      // .catch(this.getOpenIdError)
+      this.getOpenId().then(({data}) => {
+        console.log('openid', data)
+        let openid = data.openid
+        if (openid) {
+          this.formData.openid = openid
+          this.loadData(openid)
+        } else {
+          this.getOpenIdError()
+        }
+      })
+      .catch(this.getOpenIdError)
 
-      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg18'
-      this.loadData(this.formData.openid)
+      // this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg19'
+      // this.loadData(this.formData.openid)
     },
     methods: {
       addApply () {

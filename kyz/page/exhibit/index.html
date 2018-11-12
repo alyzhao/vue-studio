@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+<meta charset="UTF-8">
+<title>demo test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta content="" name="keywords" />
+<meta content="" name="description" />
+<!-- CSS -->
+<link rel="stylesheet" href="/Application/Mobile/Static/css/amazeui.min.css"/>
+<!-- JS -->
+<script src="/Application/Mobile/Static/js/jquery.min.js"></script>
+<script src="/Application/Mobile/Static/js/amazeui.js"></script>
+
+<script src="/Application/Mobile/Static/js/sweetalert2.min.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="/Application/Mobile/Static/css/sweetalert2.min.css">
+<style type="text/css">
+  .header-mint-custom {
+    position: relative
+  }
+
+  .header-mint-custom .header-mint-img {
+    display: block;
+    width: 100%
+  }
+
+  .header-mint-custom .header-mint-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #3963af;
+    font-size: 2.5rem;
+  }
+  .first-class {
+    margin: 10px;
+    padding: 5px 0 10px;
+    border: 1px solid #3265ae;
+    border-radius: 3px;
+  }
+  .first-class-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1c68ca;
+  }
+  .am-accordion-content {
+    padding: 0;
+  }
+  .am-accordion-content .third-class {
+    padding: .8rem 1rem;
+  }
+  .am-accordion-content .third-class + .third-class {
+    border-top: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+<div id="mob-main-container" class="container">
+<!--   <div class="header-mint-custom">
+    <img src="https://www.x-pingic.com/mint/images/header-png.9cb4b4b.png" class="header-mint-img">
+    <div class="header-mint-title">展商展品</div>
+  </div>
+ --> 
+  <div class="main">
+    <div class="first-class">
+      <div class="first-class-title">xxx</div>
+      <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'>
+        <dl class="am-accordion-item">
+          <dt class="am-accordion-title">
+            就这样恣意的活着
+          </dt>
+          <dd class="am-accordion-bd am-collapse">
+            <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+            <div class="am-accordion-content">
+              <div class="third-class">
+                置身人群中 <br/> 你只需要被淹没 享受 沉默 <br/> 退到人群后 <br/> 你只需给予双手 微笑 等候
+              </div>
+              <div class="third-class">
+                置身人群中 <br/> 你只需要被淹没 享受 沉默 <br/> 退到人群后 <br/> 你只需给予双手 微笑 等候
+              </div>
+            </div>
+          </dd>
+        </dl>
+      </section>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  
+  var app = new Vue({
+    el: '#mob-main-container',
+    data: {
+
+    },
+    created: function () {
+      this.loadData()
+    },
+    methods: {
+      loadData () {
+        var url = 'https://www.x-pingic.com/ASEAN_Mining/onLineProduct/queryProductList'
+        $.get(url, {}, function (data) {
+          console.log(data)
+          var firstClass = data.map(function(item) {
+            return item.pNumOne
+          })
+          // firstClass = this.unique(firstClass)
+
+          var secondClass = firstClass.map(function (first) {
+            var secondItem = data.filter
+          })
+        }, 'json')
+      },
+      unique (arr) {
+        var res = [];
+        var obj = {};
+        for(var i = 0; i < arr.length; i++){
+            if( !obj[arr[i]] ){
+            obj[arr[i]] = 1;
+            res.push(arr[i]);
+          }
+        } 
+       return res;
+      }
+    }
+  })
+</script>
+<style type="text/css">
+.home a {background: url(/Application/Mobile/Static/images/home.png) no-repeat center center;width: 3.8rem; height:3.8rem; display: block;margin: 0 0 0 auto; background-size: cover;}
+.home {position: fixed;bottom: 5rem; right:3.5rem;z-index: 99;width:4rem;max-width: 16rem;opacity: 0.85;text-align: right;}
+</style>
+
+<!-- <div class="home"><a href="/"></a></div> -->
+
+<div style="height:70px;clear:both; "></div>
+
+<!-- <footer style="width: 100%;clear:both;background-color:#154da0; height:1.8rem; text-align:center; font-size:1.2rem; color:#fff;line-height:1.8rem">技术支持：杭州拼格文化创意有限公司</footer> -->
+        <!-- /底部 -->
+    </body>
+</html>

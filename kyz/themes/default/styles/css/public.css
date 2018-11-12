@@ -13,3 +13,6 @@ table{border-spacing:0;border-collapse:collapse}
 :link,:visited{text-decoration:none}
 a:active,a:hover{outline:0}
 .clearfix:after{display:block;clear:both;height:0;font-size:0;content:''}
+[v-cloak] {
+    display: none;
+}
