@@ -1,14 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from 'views/home'
-
-import Entrance from 'views/entrance'
-
-import Forum from 'views/forum'
-
-import Exhibition from 'views/exhibition'
-
 import Mine from 'views/mine'
 
 import Participate from 'views/participate'
@@ -16,6 +8,8 @@ import Participate from 'views/participate'
 import Buyers from 'views/buyers'
 
 import Paperwork from 'views/paperwork'
+
+import MyPaperwork from 'views/mypaperwork'
 
 import Account from 'views/account'
 
@@ -25,7 +19,7 @@ Vue.use(Router)
 
 const routes = [{
   path: '*',
-  redirect: '/index'
+  redirect: '/mine'
 }, {
   path: '/mine',
   component: Mine
@@ -39,23 +33,14 @@ const routes = [{
   path: '/paperwork',
   component: Paperwork
 }, {
+  path: '/mypaperwork',
+  component: MyPaperwork  
+}, {
   path: '/account',
   component: Account
 }, {
   path: '/forumapply',
   component: ForumApply
-}, {
-  path: '/index',
-  component: Home
-}, {
-  path: '/entrance',
-  component: Entrance
-}, {
-  path: '/forum',
-  component: Forum
-}, {
-  path: '/exhibition',
-  component: Exhibition
 }]
 
 export default new Router({

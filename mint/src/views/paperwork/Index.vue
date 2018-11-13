@@ -87,20 +87,20 @@
       }
     },
     created () {
-      // this.getOpenId().then(({data}) => {
-      //   console.log('openid', data)
-      //   let openid = data.openid
-      //   this.formData.openid = openid
-      //   this.loadData(openid)
-      // })
-      // .catch((err) => {
-      //   this.MessageBox.alert('请在微信中打开!').then(action => {
-      //     this.$router.push('/account')
-      //   })
-      // })
+      this.getOpenId().then(({data}) => {
+        console.log('openid', data)
+        let openid = data.openid
+        this.formData.openid = openid
+        this.loadData(openid)
+      })
+      .catch((err) => {
+        this.MessageBox.alert('请在微信中打开!').then(action => {
+          this.$router.push('/account')
+        })
+      })
 
-      this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg19'
-      this.loadData(this.formData.openid)
+      // this.formData.openid = 'oPs9h0YFTx3JEdySKNVOWdHS0asg23'
+      // this.loadData(this.formData.openid)
     },
     methods: {
       addCard () {
@@ -119,19 +119,6 @@
         console.log(index)
         if (index != -1) {
           this.moreCardList.splice(index, 1)        
-        }
-      },
-      setData (data) {
-        Object.keys(this.formData).forEach(key => {
-          if (key === 'cardType') {
-            this.defaultCardIndex(data.cardType)
-          }
-          this.formData[key] = data[key]
-        })
-        if (data.cardType == "参展商") {
-          Object.keys(this.partFormData).forEach(key => {
-            this.partFormData[key] = data[key]
-          })
         }
       },
       loadData (openid) {
@@ -160,6 +147,9 @@
         this.slots[0].defaultIndex = this.slots[0].values.findIndex(item => item === val)
       },
       checkCardList () {
+        if (this.formData.cardType !== '参展商') {
+          return true
+        }
         if (this.moreCardList.length === 0) {
           return false
         }
