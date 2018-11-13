@@ -5,7 +5,7 @@
       <a class="item" href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx3b62f31b43c8f76a&redirect_uri=https://www.x-pingic.com/mint/%23/paperwork/&response_type=code&scope=snsapi_base#wechat_redirect">
         <mt-button>
           <i class="iconfont icon-zhengjian"></i>
-          <span>证件办理</span>
+          <span>我的证件</span>
         </mt-button>          
       </a>
     </div>
