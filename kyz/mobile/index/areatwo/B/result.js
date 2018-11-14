@@ -114,12 +114,12 @@ function generateBCell (coor, letter, x1, y1, xMax, yMax) {
 }
 
 function generateA () {
-  let cellList = generateBCell([1330,1300], 'A', 1, 6, 3, 9)
+  let cellList = generateBCell([1007,1300], 'A', 1, 6, 3, 9)
   console.log(cellList)
   let content = JSON.stringify(cellList, null, 2) + '\n'
-  writeFile('ACell3', content)
+  writeFile('ACell4', content)
 }
-// generateA()
+generateA()
 
 function generateH () {
   let cellList = generateBCell([2950,3888], 'G', 2, 10, 3, 13)
@@ -240,5 +240,30 @@ function generateD () {
   let content = JSON.stringify(cellList, null, 2) + '\n'
   writeFile('ECell3', content)
 }
-generateD()
+// generateD()
+function generateK2 () {
+  let result = []
+  for (let x = 1, i = 0; x < 10; x ++, i ++ ) {
+    if ([3, 7].indexOf(i) !== -1) {
+      x --
+      continue
+    }
+    for (let y = 14, j = 0; y > 9; y --, j ++) {
+      if ([2, 5].indexOf(j) !== -1) {
+        y ++
+        continue
+      }
+      let coor = [2398 + i * 84, 2183 + j * 84]
+      let areaNo = null
+      areaNo = 'K' + x + y
+      let reserve = false
+      result.push({
+        coor, areaNo, reserve
+      })
+    }
+  }
+  let content = JSON.stringify(result, null, 2) + '\n'
+  writeFile('KCell02', content)  
+}
+// generateK2()
 

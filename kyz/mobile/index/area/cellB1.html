@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+<meta charset="UTF-8">
+<title>暂无公司预约</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta content="" name="keywords" />
+<meta content="" name="description" />
+<!-- CSS -->
+<link rel="stylesheet" href="/Application/Mobile/Static/css/amazeui.min.css"/>
+<!-- JS -->
+<script src="/Application/Mobile/Static/js/jquery.min.js"></script>
+<script src="/Application/Mobile/Static/js/amazeui.js"></script>
+
+<script src="/Application/Mobile/Static/js/sweetalert2.min.js"></script>
+<!-- <script type="text/javascript" src="/themes/default/styles/js/vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="/Application/Mobile/Static/css/sweetalert2.min.css">
+
+<!--用于加载顶部css和js-->
+
+<style>
+
+body{max-width: 540px;margin: 0 auto}
+</style>
+<script>
+    //全局内容的定义
+    
+</script>
+</head>
+<body>
+<style type="text/css">
+  .am-tabs-d2 .am-tabs-nav{background: #fff}
+  .am-tabs-d2 .am-tabs-nav li{height: 50px}
+  .am-tabs-d2 .am-tabs-nav  a{font-size: 1.7rem;height: 50px;line-height: 50px}
+  .am-tabs-d2 .am-tabs-nav>.am-active{border-bottom:2px solid #154da0;background-color:#fff;}
+  .am-tabs-d2 .am-tabs-nav>.am-active a{line-height: 50px;height: 50px;color: #154da0}
+  .am-tabs-d2 .am-tabs-nav>.am-active:after{border-bottom-color:rgba(0,0,0,0);}
+
+  p,h3{margin: 0;padding: 0;font-weight: normal;}
+  ul,li{margin: 0;padding: 0;list-style: none;}
+  .am-modal-actions-header{padding: 1rem 0.7rem}
+  .am-modal-actions-group h3{text-align: left;padding:8px;border-bottom: solid 1px #ddd;}
+  .am-modal-actions-group h3 img{float: right;width: 20px}
+  .am-list{min-height:200px;overflow-y:auto;max-height:300px;}
+  .am-list .sp1{float:left;padding:3px 6px;background:#cfcd96;color:#fff;border-radius:0.3rem;line-height:20px}
+  .am-modal-actions-group .am-list>li>a{text-align: left;padding: 0 8px;width: 77%;float: left;display: block;margin: 0;color: #787878;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height: 26px}
+  .am-list .am-checkbox{float: right;margin: 0;padding-left: 10px;}
+  .am-list li{border-bottom: solid 1px #ddd;}
+  .am-modal-actions-group .am-list>li:nth-of-type(2n){background: #f8f8f8}
+  .am-modal-actions-group .am-list>li:last-child{border-bottom: solid 1px #ddd;}
+  .am-modal-actions-group .am-list li:nth-of-type(2n) .sp1{background: #4dbecf}
+  .am-modal-actions-group .am-list {
+    -webkit-overflow-scrolling: touch;
+  }
+  .area.J polygon {
+    fill: #cfe9c2;
+  }
+  .area.K polygon {
+    fill: #ffc200;
+  }
+  .area.Q polygon {
+    fill: #fffa58;
+  }
+  .area.A polygon {
+    fill: #7ac49f;
+  }
+  .area.H polygon {
+    fill: #b6ddc8;
+  }
+  .area.G polygon {
+    fill: #fbcfb6;
+  }
+  .area.BCD polygon {
+    fill: #ef9a49;
+  }
+  .area.EF polygon {
+    fill: #f8c301;
+  }
+  .area-name {
+    fill: #1f1f1f;
+    font-size: 10rem;
+  }
+  .area.active {
+    opacity: 0;
+  }
+  .detail {
+    display: none;
+  }
+  .area.active + .detail {
+    display: inline;
+  }
+  .detail polygon {
+    stroke: #999;
+    fill: #3efaca;
+    stroke-width: .1rem;
+  }
+  .detail .reserve polygon {
+    fill: #dde0e2;
+  }
+  .am-active {
+    display: block;
+  }
+  .topbar-company {
+    height: 8rem;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    position: relative;
+    background: url(./topbar2.jpg) no-repeat;
+  }
+  .company-name {
+    font-weight: 400;
+    color: #fff;
+    font-size: 1.8rem;
+    margin-top: 1.2rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .cell-tag {
+    margin: auto;
+    margin-top: .2rem;
+    color: #d00101;
+    font-size: .7rem;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    height: 2rem;
+    background: #fff;
+    width: 10rem;
+    -webkit-border-radius: 100px;
+  }
+  .bd-title {
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+    position: relative;
+  }
+  .bd-title span {
+    display: inline-block;
+    padding: .8rem .5rem;
+    color: #030303;
+    font-size: 1.6rem;
+    border-left: .25rem solid #c60b08;
+  }
+  .bd-item {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 1rem;
+    background: #fff;
+    margin-bottom: .2rem;
+  }
+  .bd-item .bdi-tit {
+    font-size: 1.6rem;
+    color: #ce0303;
+  }
+</style>
+<div id="mob-main-container" class="container">
+   
+
+  <div class="topbar-company">
+   <div class="company-name">{{companyName}}</div>
+   <p class="cell-tag">展位：{{areaName}}</p>
+  </div>
+
+  <div data-am-widget="tabs" class="am-tabs am-tabs-d2" style="width: 100%;margin: 0 auto;border-top: solid 1px #ddd;">
+    <div class="am-tabs-bd" style="border: none;z-index: 0">
+      <!-- B1 -->
+      <div data-tab-panel-0 class="am-tab-panel am-active" style="padding: 0;">
+        <div style="height: 30px"></div>
+        <svg  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" preserveAspectRatio="xMinYMin slice" viewBox="0 0 4320 4595">
+          <g id="background">
+             <image x="0" y="0" width="4320" height="4595" xlink:href="/Application/Mobile/Static/images/areaB1.jpg"></image> 
+          </g>
+          <g v-if="points">
+            <polygon fill="red" :points="points"></polygon>
+            <image :x="imageX" :y="imageY" width="144" height="184" xlink:href="./marks.png"></image>
+          </g>
+        </svg>
+      </div>
+      <!-- B2 -->
+    </div>
+  </div>
+  <div class="hnfc-buss-desc">
+    <div class="bd-title"><span>企业介绍</span></div>
+    <div class="bd-item"><div class="bdi-tit"><span class="">企业展位号</span></div> <div class="bdi-con">{{areaName}}</div></div>
+  </div>
+</div>
+<script type="text/javascript" src="./areaData.js"></script>
+<script type="text/javascript">
+  
+  var app = new Vue({
+    el: '#mob-main-container',
+    data: {
+      companyName: '暂无公司预约',
+      points: '',
+      areaName: '',
+      imageX: '',
+      imageY: ''
+    },
+    created: function () {
+      this.companyName = this.getUrlQueryString('cn')
+      document.title = this.companyName
+      var points = this.getUrlQueryString('p')
+      this.points = points
+      if (points) {
+        var pointsArr = points.split(' ')
+        var pointsTopLeft = pointsArr[0].split(',')
+        var pointsBottomRight = pointsArr[2].split(',')
+        var pointsCenterX = parseInt(Number(pointsBottomRight[0]) - Number(pointsTopLeft[0])) / 2 + Number(pointsTopLeft[0])
+        var pointsCenterY = parseInt(Number(pointsBottomRight[1]) - Number(pointsTopLeft[1])) / 2 + Number(pointsTopLeft[1])
+        this.imageX = pointsCenterX - 72
+        this.imageY = pointsCenterY - 184
+      }
+      this.areaName = this.getUrlQueryString('an')
+      console.log(this.points)
+    },
+    methods: {
+      getUrlQueryString (name) {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) {
+          return  decodeURI(r[2]);
+        }
+        return null;
+      }
+    }
+  })
+</script>
+<style type="text/css">
+.home a {background: url(/Application/Mobile/Static/images/home.png) no-repeat center center;width: 3.8rem; height:3.8rem; display: block;margin: 0 0 0 auto; background-size: cover;}
+.home {position: fixed;bottom: 5rem; right:3.5rem;z-index: 99;width:4rem;max-width: 16rem;opacity: 0.85;text-align: right;}
+</style>
+
+<div class="home"><a href="/"></a></div>
+
+<div style="height:70px;clear:both; "></div>
+
+<footer style="width: 100%;clear:both;background-color:#154da0; height:1.8rem; text-align:center; font-size:1.2rem; color:#fff;line-height:1.8rem">技术支持：杭州拼格文化创意有限公司</footer>
+        <!-- /底部 -->
+    </body>
+</html>
