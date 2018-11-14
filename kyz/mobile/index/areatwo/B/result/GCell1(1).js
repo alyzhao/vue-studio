@@ -1,7 +1,7 @@
-let GCellList = [
+[
   {
     "coor": [
-      3165,
+      3379,
       1955
     ],
     "areaNo": "G301",
@@ -9,7 +9,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2276
     ],
     "areaNo": "G302",
@@ -17,7 +17,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2383
     ],
     "areaNo": "G303",
@@ -25,7 +25,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2597
     ],
     "areaNo": "G304",
@@ -33,7 +33,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2704
     ],
     "areaNo": "G305",
@@ -41,7 +41,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3239
     ],
     "areaNo": "G306",
@@ -49,7 +49,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3346
     ],
     "areaNo": "G307",
@@ -57,7 +57,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3560
     ],
     "areaNo": "G308",
@@ -65,7 +65,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3667
     ],
     "areaNo": "G309",
@@ -73,7 +73,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3988
     ],
     "areaNo": "G310",
@@ -81,7 +81,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       4095
     ],
     "areaNo": "G311",
@@ -89,7 +89,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       1955
     ],
     "areaNo": "G401",
@@ -97,7 +97,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2062
     ],
     "areaNo": "G402",
@@ -105,7 +105,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2276
     ],
     "areaNo": "G403",
@@ -113,7 +113,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2383
     ],
     "areaNo": "G404",
@@ -121,7 +121,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2597
     ],
     "areaNo": "G405",
@@ -129,7 +129,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2704
     ],
     "areaNo": "G406",
@@ -137,7 +137,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2918
     ],
     "areaNo": "G407",
@@ -145,7 +145,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3025
     ],
     "areaNo": "G408",
@@ -153,7 +153,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3239
     ],
     "areaNo": "G409",
@@ -161,7 +161,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3346
     ],
     "areaNo": "G410",
@@ -169,7 +169,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3560
     ],
     "areaNo": "G411",
@@ -177,7 +177,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3667
     ],
     "areaNo": "G412",
@@ -185,7 +185,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3881
     ],
     "areaNo": "G413",
@@ -193,7 +193,7 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3988
     ],
     "areaNo": "G414",
@@ -201,12 +201,10 @@ let GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       4095
     ],
     "areaNo": "G415",
     "reserve": false
   }
 ]
-
-module.exports = GCellList

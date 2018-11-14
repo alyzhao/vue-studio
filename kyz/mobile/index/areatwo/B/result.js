@@ -119,7 +119,7 @@ function generateA () {
   let content = JSON.stringify(cellList, null, 2) + '\n'
   writeFile('ACell4', content)
 }
-generateA()
+// generateA()
 
 function generateH () {
   let cellList = generateBCell([2950,3888], 'G', 2, 10, 3, 13)
@@ -267,3 +267,94 @@ function generateK2 () {
 }
 // generateK2()
 
+function generateB () {
+  // 212 321 / 1 4 6
+  // 212 213 / 2 3 5
+  // 105 x间隔
+  // 1
+  let result = []
+  let x1 = 1651
+  let x2 = 1974
+
+  for (let i = 1; i <= 2; i ++) {
+    let h = 1955
+    for (let j = 1; j <= 4; j ++) {
+      let height = 321
+      let textPosition = [17, 174, 8]
+      if (j == 1) {
+        height = 213
+        textPosition = [17, 130, 8]
+      }
+      let width = 212
+      let x = i == 1 ? 1651 : 1974
+      let areaNo = 'B' + i + '0' + j
+      if (j == 4) {
+        areaNo = 'C' + (4 + i) + '02'
+      }
+      let y = h
+      result.push({
+        coor: [x, h],
+        areaNo,
+        width,
+        height,
+        textPosition,
+        reserve: false
+      })
+      h += 105 + 2 + height
+    }
+  }  
+
+  let content = JSON.stringify(result, null, 2) + '\n'
+  console.log(content)
+  writeFile('BCell3', content)
+}
+// generateB()
+
+// const GCell1 = require('./result/GCell1.js')
+// console.log(GCell1)
+
+// GCell1.forEach(item => {
+//   item.coor[0] = item.coor[0] + 107 * 2 
+// })
+// writeFile('GCell1(1)', JSON.stringify(GCell1, null, 2))
+// let result = []
+// let m = [['b', 'e', 'f'], ['a', 'b', 'c']]
+// for (let i = 0; i < 2; i++) {
+//   let x0 = 2931
+//   let y0 = 3456
+//   console.log('i', i)
+//   for (let j = 0; j < 3; j ++) {
+//     let x = x0 + i * 107
+//     let y = y0 + j * 107
+//     console.log("j", j)
+//     result.push({
+//       coor: [x, y],
+//       areaNo: 'G206' + m[i][j],
+//       reserve: false,
+//       textPosition: [0, 65, 3.5]
+//     })
+//   }
+// }
+// console.log(result)
+// writeFile('GCell7', JSON.stringify(result, null, 2))
+
+// let result = []
+// for (let i = 0; i < 6; i ++) {
+//   let x = 2638 + i * 107
+//   let y = 5276
+//   result.push({
+//     coor: [x, y],
+//     areaNo: 'E10' + (i + 2),
+//     reserves: false
+//   })
+// }
+// writeFile('ECell4', JSON.stringify(result, null, 2))
+
+const fcell = require('./result/ECell5.js')
+console.log(fcell)
+
+fcell.forEach(item => {
+  item.coor[0] = item.coor[0] - 98
+  item.coor[1] = item.coor[1] - 8
+})
+writeFile('ECell5(1)', JSON.stringify(fcell, null, 2))

@@ -2752,7 +2752,7 @@ var GCellList = [
   // 自定义
   {
     "coor": [
-      3165,
+      3379,
       1955
     ],
     "areaNo": "G301",
@@ -2760,7 +2760,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2276
     ],
     "areaNo": "G302",
@@ -2768,7 +2768,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2383
     ],
     "areaNo": "G303",
@@ -2776,7 +2776,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2597
     ],
     "areaNo": "G304",
@@ -2784,7 +2784,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       2704
     ],
     "areaNo": "G305",
@@ -2792,7 +2792,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3239
     ],
     "areaNo": "G306",
@@ -2800,7 +2800,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3346
     ],
     "areaNo": "G307",
@@ -2808,7 +2808,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3560
     ],
     "areaNo": "G308",
@@ -2816,7 +2816,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3667
     ],
     "areaNo": "G309",
@@ -2824,7 +2824,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       3988
     ],
     "areaNo": "G310",
@@ -2832,7 +2832,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3165,
+      3379,
       4095
     ],
     "areaNo": "G311",
@@ -2840,7 +2840,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       1955
     ],
     "areaNo": "G401",
@@ -2848,7 +2848,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2062
     ],
     "areaNo": "G402",
@@ -2856,7 +2856,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2276
     ],
     "areaNo": "G403",
@@ -2864,7 +2864,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2383
     ],
     "areaNo": "G404",
@@ -2872,7 +2872,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2597
     ],
     "areaNo": "G405",
@@ -2880,7 +2880,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2704
     ],
     "areaNo": "G406",
@@ -2888,7 +2888,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       2918
     ],
     "areaNo": "G407",
@@ -2896,7 +2896,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3025
     ],
     "areaNo": "G408",
@@ -2904,7 +2904,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3239
     ],
     "areaNo": "G409",
@@ -2912,7 +2912,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3346
     ],
     "areaNo": "G410",
@@ -2920,7 +2920,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3560
     ],
     "areaNo": "G411",
@@ -2928,7 +2928,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3667
     ],
     "areaNo": "G412",
@@ -2936,7 +2936,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3881
     ],
     "areaNo": "G413",
@@ -2944,7 +2944,7 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       3988
     ],
     "areaNo": "G414",
@@ -2952,306 +2952,46 @@ var GCellList = [
   },
   {
     "coor": [
-      3272,
+      3486,
       4095
     ],
     "areaNo": "G415",
     "reserve": false
   },
 
-
   {
     "coor": [
-      3486,
-      1955
-    ],
-    "areaNo": "G501",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      2062
-    ],
-    "areaNo": "G502",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      2276
-    ],
-    "areaNo": "G503",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      2383
-    ],
-    "areaNo": "G504",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      2597
-    ],
-    "areaNo": "G505",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      2704
-    ],
-    "areaNo": "G506",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      2918
-    ],
-    "areaNo": "G507",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3025
-    ],
-    "areaNo": "G508",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3239
-    ],
-    "areaNo": "G511",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3346
-    ],
-    "areaNo": "G512",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3560
-    ],
-    "areaNo": "G514",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3667
-    ],
-    "areaNo": "G515",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3881
-    ],
-    "areaNo": "G516",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      3988
-    ],
-    "areaNo": "G517",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3486,
-      4095
-    ],
-    "areaNo": "G518",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      1955
-    ],
-    "areaNo": "G601",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      2062
-    ],
-    "areaNo": "G602",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      2276
-    ],
-    "areaNo": "G603",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      2383
-    ],
-    "areaNo": "G604",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      2597
-    ],
-    "areaNo": "G605",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      2704
-    ],
-    "areaNo": "G606",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      2918
-    ],
-    "areaNo": "G607",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3025
-    ],
-    "areaNo": "G608",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3239
-    ],
-    "areaNo": "G611",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3346
-    ],
-    "areaNo": "G612",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3560
-    ],
-    "areaNo": "G614",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3667
-    ],
-    "areaNo": "G615",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3881
-    ],
-    "areaNo": "G616",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      3988
-    ],
-    "areaNo": "G617",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3593,
-      4095
-    ],
-    "areaNo": "G618",
-    "reserve": false
-  },
-
-  {
-    "coor": [
-      2842,
-      3888
+      2931,
+      3885
     ],
     "areaNo": "G207",
     "reserve": false
   },
   {
     "coor": [
-      2842,
-      3995
+      2931,
+      3990
     ],
     "areaNo": "G208",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2842,
-      4102
+    "width": 212,
+    "height": 213,
+    "textPosition": [
+      17,
+      130,
+      8
     ],
-    "areaNo": "G209",
     "reserve": false
   },
 
 
   {
     "coor": [
-      2950,
-      3888
+      3038,
+      3885
     ],
     "areaNo": "G210",
     "reserve": false
   },
-  {
-    "coor": [
-      2950,
-      3995
-    ],
-    "areaNo": "G211",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2950,
-      4102
-    ],
-    "areaNo": "G212",
-    "reserve": false
-  },
-
 
   {
     "coor": [
@@ -3347,7 +3087,7 @@ var GCellList = [
 
   {
     "coor": [
-      2842,
+      2928,
       1955
     ],
     "areaNo": "G201",
@@ -3362,23 +3102,8 @@ var GCellList = [
   },
   {
     "coor": [
-      2842,
-      2278
-    ],
-    "areaNo": "G202",
-    "width": 212,
-    "height": 213,
-    "textPosition": [
-      17,
-      130,
-      8
-    ],
-    "reserve": false
-  },
-  {
-    "coor": [
-      2842,
-      2600
+      2928,
+      2385
     ],
     "areaNo": "G203",
     "width": 212,
@@ -3392,8 +3117,8 @@ var GCellList = [
   },
   {
     "coor": [
-      2842,
-      2815
+      2928,
+      2708
     ],
     "areaNo": "G204",
     "width": 212,
@@ -3407,8 +3132,8 @@ var GCellList = [
   },
   {
     "coor": [
-      2842,
-      3245
+      2928,
+      3136
     ],
     "areaNo": "G205",
     "width": 212,
@@ -3422,26 +3147,90 @@ var GCellList = [
   },
   {
     "coor": [
-      2842,
-      3460
+      2931,
+      3456
     ],
-    "areaNo": "G206",
-    "width": 212,
-    "height": 321,
+    "areaNo": "G206d",
+    "reserve": false,
     "textPosition": [
-      17,
-      174,
-      8
+      0,
+      65,
+      3.5
+    ]
+  },
+  {
+    "coor": [
+      2931,
+      3563
     ],
-    "reserve": false
+    "areaNo": "G206e",
+    "reserve": false,
+    "textPosition": [
+      0,
+      65,
+      3.5
+    ]
+  },
+  {
+    "coor": [
+      2931,
+      3670
+    ],
+    "areaNo": "G206f",
+    "reserve": false,
+    "textPosition": [
+      0,
+      65,
+      3.5
+    ]
+  },
+  {
+    "coor": [
+      3038,
+      3456
+    ],
+    "areaNo": "G206a",
+    "reserve": false,
+    "textPosition": [
+      0,
+      65,
+      3.5
+    ]
+  },
+  {
+    "coor": [
+      3038,
+      3563
+    ],
+    "areaNo": "G206b",
+    "reserve": false,
+    "textPosition": [
+      0,
+      65,
+      3.5
+    ]
+  },
+  {
+    "coor": [
+      3038,
+      3670
+    ],
+    "areaNo": "G206c",
+    "reserve": false,
+    "textPosition": [
+      0,
+      65,
+      3.5
+    ]
   }
 ]
 
 var BCDCellList = [
+  // b 
   {
     "coor": [
       1651,
-      1956
+      1955
     ],
     "areaNo": "B101",
     "width": 212,
@@ -3456,7 +3245,7 @@ var BCDCellList = [
   {
     "coor": [
       1651,
-      2171
+      2275
     ],
     "areaNo": "B102",
     "width": 212,
@@ -3471,7 +3260,7 @@ var BCDCellList = [
   {
     "coor": [
       1651,
-      2601
+      2703
     ],
     "areaNo": "B103",
     "width": 212,
@@ -3486,23 +3275,22 @@ var BCDCellList = [
   {
     "coor": [
       1651,
-      2924
+      3131
     ],
-    "areaNo": "B104",
+    "areaNo": "C502",
     "width": 212,
-    "height": 213,
+    "height": 321,
     "textPosition": [
       17,
-      130,
+      174,
       8
     ],
     "reserve": false
   },
-
   {
     "coor": [
       1974,
-      1956
+      1955
     ],
     "areaNo": "B201",
     "width": 212,
@@ -3517,7 +3305,7 @@ var BCDCellList = [
   {
     "coor": [
       1974,
-      2171
+      2275
     ],
     "areaNo": "B202",
     "width": 212,
@@ -3532,7 +3320,7 @@ var BCDCellList = [
   {
     "coor": [
       1974,
-      2601
+      2703
     ],
     "areaNo": "B203",
     "width": 212,
@@ -3547,14 +3335,14 @@ var BCDCellList = [
   {
     "coor": [
       1974,
-      2924
+      3131
     ],
-    "areaNo": "B204",
+    "areaNo": "C602",
     "width": 212,
-    "height": 213,
+    "height": 321,
     "textPosition": [
       17,
-      130,
+      174,
       8
     ],
     "reserve": false
@@ -3819,62 +3607,14 @@ var BCDCellList = [
   {
     "coor": [
       1651,
-      3888
+      3568
     ],
     "areaNo": "C503",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1651,
-      3995
-    ],
-    "areaNo": "C504",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1651,
-      4102
-    ],
-    "areaNo": "C505",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1758,
-      3888
-    ],
-    "areaNo": "C603",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1758,
-      3995
-    ],
-    "areaNo": "C604",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1758,
-      4102
-    ],
-    "areaNo": "C605",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1651,
-      3244
-    ],
-    "areaNo": "C501",
-    "width": 212,
-    "height": 213,
+    "width": 536,
+    "height": 426,
     "textPosition": [
-      17,
-      130,
+      159,
+      198,
       8
     ],
     "reserve": false
@@ -3882,48 +3622,19 @@ var BCDCellList = [
   {
     "coor": [
       1651,
-      3459
-    ],
-    "areaNo": "C502",
-    "width": 212,
-    "height": 321,
-    "textPosition": [
-      17,
-      174,
-      8
-    ],
-    "reserve": false
-  },
-  {
-    "coor": [
-      1975,
-      3244
+      3996
     ],
     "areaNo": "C601",
-    "width": 212,
-    "height": 213,
+    "width": 320,
+    "height": 212,
     "textPosition": [
-      17,
-      130,
+      58,
+      85,
       8
     ],
     "reserve": false
   },
-  {
-    "coor": [
-      1975,
-      3459
-    ],
-    "areaNo": "C602",
-    "width": 212,
-    "height": 321,
-    "textPosition": [
-      17,
-      174,
-      8
-    ],
-    "reserve": false
-  },
+
   {
     "coor": [
       1975,
@@ -3941,155 +3652,10 @@ var BCDCellList = [
   },
 
   // D
-  {
-    "coor": [
-      1007,
-      4582
-    ],
-    "areaNo": "D101",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1007,
-      4689
-    ],
-    "areaNo": "D102",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1007,
-      4903
-    ],
-    "areaNo": "D103",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1007,
-      5010
-    ],
-    "areaNo": "D104",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1007,
-      5117
-    ],
-    "areaNo": "D105",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1114,
-      4582
-    ],
-    "areaNo": "D201",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1114,
-      4689
-    ],
-    "areaNo": "D202",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1114,
-      4903
-    ],
-    "areaNo": "D203",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1114,
-      5010
-    ],
-    "areaNo": "D204",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1114,
-      5117
-    ],
-    "areaNo": "D205",
-    "reserve": false
-  },
 
   {
     "coor": [
-      1331,
-      4582
-    ],
-    "areaNo": "D301",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1331,
-      4903
-    ],
-    "areaNo": "D302",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1331,
-      5010
-    ],
-    "areaNo": "D303",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1331,
-      5117
-    ],
-    "areaNo": "D304",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1438,
-      4582
-    ],
-    "areaNo": "D401",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1438,
-      4903
-    ],
-    "areaNo": "D402",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1438,
-      5010
-    ],
-    "areaNo": "D403",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1438,
-      5117
-    ],
-    "areaNo": "D404",
-    "reserve": false
-  },
-
-  {
-    "coor": [
-      1654,
+      1436,
       4582
     ],
     "areaNo": "D501",
@@ -4097,7 +3663,7 @@ var BCDCellList = [
   },
   {
     "coor": [
-      1654,
+      1436,
       4689
     ],
     "areaNo": "D502",
@@ -4105,31 +3671,7 @@ var BCDCellList = [
   },
   {
     "coor": [
-      1654,
-      4903
-    ],
-    "areaNo": "D503",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1654,
-      5010
-    ],
-    "areaNo": "D504",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1654,
-      5117
-    ],
-    "areaNo": "D505",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1761,
+      1543,
       4582
     ],
     "areaNo": "D601",
@@ -4137,7 +3679,7 @@ var BCDCellList = [
   },
   {
     "coor": [
-      1761,
+      1543,
       4689
     ],
     "areaNo": "D602",
@@ -4145,55 +3687,23 @@ var BCDCellList = [
   },
   {
     "coor": [
-      1005,
-      5280
+      1758,
+      4800
     ],
-    "areaNo": "D106",
+    "areaNo": "D704",
     "reserve": false
   },
   {
     "coor": [
-      1112,
-      5280
+      1865,
+      4800
     ],
-    "areaNo": "D206",
+    "areaNo": "D703",
     "reserve": false
   },
   {
     "coor": [
-      1219,
-      5280
-    ],
-    "areaNo": "D305",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1326,
-      5280
-    ],
-    "areaNo": "D405",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1540,
-      5280
-    ],
-    "areaNo": "D506",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1647,
-      5280
-    ],
-    "areaNo": "D606",
-    "reserve": false
-  },
-  {
-    "coor": [
-      1974,
+      1760,
       4584
     ],
     "areaNo": "D701",
@@ -4208,12 +3718,12 @@ var BCDCellList = [
   },
   {
     "coor": [
-      1759,
-      4906
+      1436,
+      5014
     ],
     "areaNo": "D702",
-    "width": 430,
-    "height": 482,
+    "width": 534,
+    "height": 382,
     "textPosition": [
       131,
       222,
@@ -4226,240 +3736,144 @@ var BCDCellList = [
 var EFCellList = [
   {
     "coor": [
-      2842,
-      4532
-    ],
-    "areaNo": "F201",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2842,
-      4639
-    ],
-    "areaNo": "F202",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2842,
-      4853
-    ],
-    "areaNo": "F203",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2842,
-      4960
-    ],
-    "areaNo": "E201",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2842,
-      5067
-    ],
-    "areaNo": "E202",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2949,
-      4532
-    ],
-    "areaNo": "F301",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2949,
-      4639
-    ],
-    "areaNo": "F302",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2949,
-      4853
-    ],
-    "areaNo": "F303",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2949,
-      4960
-    ],
-    "areaNo": "E301",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2949,
-      5067
-    ],
-    "areaNo": "E302",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3163,
-      4532
+      3065,
+      4524
     ],
     "areaNo": "F401",
     "reserve": false
   },
   {
     "coor": [
-      3163,
-      4639
+      3065,
+      4845
     ],
     "areaNo": "F402",
     "reserve": false
   },
   {
     "coor": [
-      3163,
-      4853
-    ],
-    "areaNo": "F403",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3163,
-      4960
+      3065,
+      4952
     ],
     "areaNo": "E401",
     "reserve": false
   },
   {
     "coor": [
-      3163,
-      5067
+      3065,
+      5059
     ],
     "areaNo": "E402",
     "reserve": false
   },
   {
     "coor": [
-      3270,
-      4532
+      3172,
+      4524
     ],
     "areaNo": "F501",
     "reserve": false
   },
   {
     "coor": [
-      3270,
-      4639
+      3172,
+      4845
     ],
     "areaNo": "F502",
     "reserve": false
   },
   {
     "coor": [
-      3270,
-      4853
-    ],
-    "areaNo": "F503",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3270,
-      4960
+      3172,
+      4952
     ],
     "areaNo": "E501",
     "reserve": false
   },
   {
     "coor": [
-      3270,
-      5067
+      3172,
+      5059
     ],
     "areaNo": "E502",
     "reserve": false
   },
   {
     "coor": [
-      3484,
-      4532
+      3386,
+      4524
     ],
     "areaNo": "F601",
     "reserve": false
   },
   {
     "coor": [
-      3484,
-      4639
+      3386,
+      4631
     ],
     "areaNo": "F602",
     "reserve": false
   },
   {
     "coor": [
-      3484,
-      4853
+      3386,
+      4845
     ],
     "areaNo": "F603",
     "reserve": false
   },
   {
     "coor": [
-      3484,
-      4960
+      3386,
+      4952
     ],
     "areaNo": "E601",
     "reserve": false
   },
   {
     "coor": [
-      3484,
-      5067
+      3386,
+      5059
     ],
     "areaNo": "E602",
     "reserve": false
   },
   {
     "coor": [
-      3591,
-      4532
+      3493,
+      4524
     ],
     "areaNo": "F701",
     "reserve": false
   },
   {
     "coor": [
-      3591,
-      4639
+      3493,
+      4631
     ],
     "areaNo": "F702",
     "reserve": false
   },
   {
     "coor": [
-      3591,
-      4853
+      3493,
+      4845
     ],
     "areaNo": "F703",
     "reserve": false
   },
   {
     "coor": [
-      3591,
-      4960
+      3493,
+      4952
     ],
     "areaNo": "E701",
     "reserve": false
   },
   {
     "coor": [
-      3591,
-      5067
+      3493,
+      5059
     ],
     "areaNo": "E702",
     "reserve": false
@@ -4467,120 +3881,80 @@ var EFCellList = [
 
   {
     "coor": [
-      2413,
-      5282
+      2638,
+      5276
     ],
     "areaNo": "E102",
-    "reserve": false
+    "reserves": false
   },
   {
     "coor": [
-      2520,
-      5282
+      2745,
+      5276
     ],
     "areaNo": "E103",
-    "reserve": false
+    "reserves": false
   },
   {
     "coor": [
-      2627,
-      5282
+      2852,
+      5276
     ],
     "areaNo": "E104",
-    "reserve": false
+    "reserves": false
   },
   {
     "coor": [
-      2734,
-      5282
-    ],
-    "areaNo": "E105",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2841,
-      5282
-    ],
-    "areaNo": "E106",
-    "reserve": false
-  },
-  {
-    "coor": [
-      2948,
-      5282
-    ],
-    "areaNo": "E203",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3055,
-      5282
-    ],
-    "areaNo": "E303",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3269,
-      5282
+      2959,
+      5276
     ],
     "areaNo": "E403",
-    "reserve": false
+    "reserves": false
   },
   {
     "coor": [
-      3376,
-      5282
+      3066,
+      5276
     ],
     "areaNo": "E503",
-    "reserve": false
+    "reserves": false
   },
   {
     "coor": [
-      3483,
-      5282
+      3173,
+      5276
     ],
     "areaNo": "E603",
-    "reserve": false
-  },
-  {
-    "coor": [
-      3590,
-      5282
-    ],
-    "areaNo": "E703",
-    "reserve": false
+    "reserves": false
   },
 
   {
     "coor": [
-      2413,
-      4852
+      2638,
+      4846
     ],
     "areaNo": "F102",
     "reserve": false
   },
   {
     "coor": [
-      2520,
-      4852
+      2745,
+      4846
     ],
     "areaNo": "F103",
     "reserve": false
   },
   {
     "coor": [
-      2627,
-      4852
+      2852,
+      4846
     ],
     "areaNo": "F104",
     "reserve": false
   },
   {
     "coor": [
-      2407,
+      2633,
       4520
     ],
     "areaNo": "F101",
@@ -4595,8 +3969,8 @@ var EFCellList = [
   },
   {
     "coor": [
-      2413,
-      4957
+      2638,
+      4951
     ],
     "areaNo": "E101",
     "width": 321,
@@ -4655,7 +4029,7 @@ var zoneDataB2 = [{
   cellList: BCDCellList
 }, {
   aPlan: '1003',
-  zonePoints: '2407,4520 2407,5404 3702,5404 3702,4520',
+  zonePoints: '2630,4520 2630,5404 3600,5404 3600,4520',
   zoneName: 'E、F区',
   zoneNameX: 2900,
   zoneNameY: 5000,

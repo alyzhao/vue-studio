@@ -188,7 +188,7 @@ body{max-width: 540px;margin: 0 auto}
             <g :class="['area', item.zoneLetter, {active: item.active}]" @click="showZoonB2(item.zoneLetter, zoneIndex)">
               <polygon :points="item.zonePoints"></polygon>
               <!-- BCD区 -->
-              <polygon v-if="item.aPlan == 1002" style="fill: #bab3d5;" points="941,4527 941,5400 2189,5400 2189,4527" fill="#bab3d5"></polygon>
+              <polygon v-if="item.aPlan == 1002" style="fill: #bab3d5;" points="941,4527 941,5400 1970,5400 1970,4527" fill="#bab3d5"></polygon>
               <text v-if="item.aPlan == 1002" class="area-name" x="1150" y="5000">D区 矿业综合展区</text>
               <polygon v-if="item.aPlan == 1002" style="fill: #feff7f;" points="941,1947 941,2964 2189,2964 2189,1947" fill="#bab3d5"></polygon>
               <text v-if="item.aPlan == 1002" class="area-name" x="1250" y="2500">金属矿业展区</text>
