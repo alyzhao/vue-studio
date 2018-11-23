@@ -20,25 +20,30 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-    }
+      'components': path.resolve(__dirname, './src/components')
+    },
   },
   module: {
     rules: [{
       test: /\.js$/,
       use: 'babel-loader'
     }, {
-      test: /\.vue$/,
-      use: {
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            css: ExtractTextPlugin.extract({
-              use: ['css-loader'],
-              fallback: 'style-loader'
-            })
-          }
+        test: /\.vue$/,
+        use: {
+            loader: 'vue-loader',
+            options: {
+                loaders: {
+                    css: ExtractTextPlugin.extract({
+                        use: ['css-loader', 'sass-loader'],
+                        fallback: 'style-loader'
+                    }),
+                    scss: ExtractTextPlugin.extract({
+                        use: ['css-loader', 'sass-loader'],
+                        fallback: 'style-loader'
+                    })
+                }
+            }
         }
-      }
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       use: {
@@ -67,11 +72,11 @@ module.exports = {
         }
       }]
     }, {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        use: ['css-loader'],
-        fallback: 'style-loader'
-      })
+        test: /\.s?css$/,
+        use: ExtractTextPlugin.extract({
+            use: ['css-loader', 'sass-loader'],
+            fallback: 'style-loader'
+        })
     }]
   },
   devServer: {
