@@ -1,0 +1,114 @@
+<template>
+  <div>
+    <div class="container">
+      <div class="box easeBox" data-timing="sineInOut"></div>
+      <div class="box easeBox" data-timing="backInOut"></div>
+      <div class="box easeBox" data-timing="circIn"></div>
+      <div class="box easeBox" data-timing="quintOut"></div>
+      <div class="box easeBox" data-timing="expoIn"></div>
+    </div>
+
+    <div class="container">
+      <div class="box rotateBox">rotate</div>
+      <div class="box fadeBox">fade</div>
+    </div>
+  </div>
+</template>
+<script>
+  import * as basicScroll from 'basicscroll'
+
+  console.log(basicScroll)
+
+  export default {
+    mounted () {
+      const easeBoxes = []
+
+      // Create an animation for each ease box. Each with a different timing.
+      document.querySelectorAll('.easeBox').forEach((elem, i) => {
+
+        // Get the timing from the data attribute.
+        // You can also hard-code the timing, but for the demo it's easier this way.
+        const timing = elem.getAttribute('data-timing')
+
+        // Crate an instance for the current element and store the instance in an array.
+        // We start the animation later using the instances from the array.
+        easeBoxes.push(basicScroll.create({
+          elem: elem,
+          from: 'middle-bottom',
+          to: 'bottom-top',
+          direct: true,
+          props: {
+            '--ty': {
+              from: '0',
+              to: '100px',
+              timing: timing
+            }
+          }
+        }))
+
+      })
+
+      const rotateBox = basicScroll.create({
+        elem: document.querySelector('.rotateBox'),
+        from: 'top-middle',
+        to: 'top-top',
+        props: {
+          '--r': {
+            from: '0',
+            to: '1turn'
+          }
+        }
+      })
+
+      const fadeBox = basicScroll.create({
+        elem: document.querySelector('.fadeBox'),
+        from: 'bottom-bottom',
+        to: 'top-middle',
+        inside: (instance, percentage) => console.log('fadeBox is animating'),
+        outside: (instance, percentage) => console.log('fadeBox is not animating'),
+        props: {
+          '--o': {
+            from: .01,
+            to: .99
+          }
+        }
+      })
+
+      rotateBox.start()
+      fadeBox.start()
+      easeBoxes.forEach((easeBox) => easeBox.start())
+    }
+  }
+
+</script>
+<style lang="scss">
+  body {
+    width: 100%;
+    height: 300vh;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .container:nth-child(1) { height: 200vh; }
+  .container:nth-child(2) { height: 0; }
+
+  .box {
+    padding: 1em 2em;
+    margin: 0 .5em;
+    background: #ddd;
+    will-change: transform;
+  }
+
+  .box::before {
+    content: attr(data-timing);
+  }
+
+  .easeBox { transform: translateY(var(--ty)); }
+  .rotateBox { transform: rotate(var(--r)); }
+  .fadeBox { opacity: var(--o); }
+</style>
