@@ -4,7 +4,6 @@
       <div class="z-management-title"><i class="el-icon-goods"></i>矿业展后台管理系统</div>
       <el-menu 
         style="height: 100%;padding-top: 56px;box-sizing: border-box;" 
-        :default-openeds="['1','2','3','4', '5']"
         :default-active="activeIndex" router 
         background-color="#324157"
         text-color="#bfcbd9">

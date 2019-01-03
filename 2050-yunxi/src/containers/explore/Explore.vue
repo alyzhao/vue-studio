@@ -32,11 +32,11 @@
 		data() {
 			return {
 				exploreBannerList: [{
-	                mbBanner: exploreMbBanner,
-	                router: '/explore',
-	                pcBanner: explorePcBanner				
+          mbBanner: exploreMbBanner,
+          router: '/explore',
+          pcBanner: explorePcBanner				
 				}],
-                staticImg: prodUrl.imgHost,				
+        staticImg: prodUrl.imgHost,				
 				exploreList: []
 			}
 		},
