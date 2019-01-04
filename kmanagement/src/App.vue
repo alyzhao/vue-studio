@@ -1,7 +1,7 @@
 <template>
   <el-container class="z-management">
     <el-aside width="250px" style="position: relative;">
-      <div class="z-management-title"><i class="el-icon-goods"></i>矿业展后台管理系统</div>
+      <div class="z-management-title">东盟矿业论坛服务中心管理平台</div>
       <el-menu 
         style="height: 100%;padding-top: 56px;box-sizing: border-box;" 
         :default-active="activeIndex" router 
@@ -16,6 +16,7 @@
             <span slot="title">上传pdf</span>
           </el-menu-item>
         </el-submenu>
+
         <el-submenu index="2">
           <template slot="title"><i class="el-icon-info"></i>参会信息</template>
           <el-menu-item index="structure" :route="{path: '/structure'}">
@@ -24,7 +25,12 @@
           <el-menu-item index="news" :route="{path: '/news'}">
             <span slot="title">新闻资讯</span>
           </el-menu-item>
+
+          <el-menu-item index="forum" :route="{path: '/forum'}">
+            <span slot="title">论坛时间</span>
+          </el-menu-item>
         </el-submenu>
+
         <el-submenu index="3">
           <template slot="title"><i class="el-icon-news"></i>报名管理</template>
           <el-menu-item index="buyers" :route="{path: '/buyers'}">
@@ -135,14 +141,13 @@
     height: 100%;
     .z-management-title {
       line-height: 56px;
-      text-align: left;
+      text-align: center;
       position: absolute;
       top: 0;
       color: #fff;
       font-size: 16px;
       font-weight: bold;
       z-index: 9;
-      padding-left: 20px;
       width: 100%;
       box-sizing: border-box;
       background: #242f42;
