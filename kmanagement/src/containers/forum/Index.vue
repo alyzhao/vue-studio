@@ -142,7 +142,10 @@
         }
         this.confirmLoading = true
         let url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/' + (this.isModify ? 'upDateF' : 'webaddFrom')
-        let options = qs.stringify({ forumList: [ params ] })
+        let formData = new FormData()
+        formData.append('forumList', JSON.stringify([params]))
+        // let options = qs.stringify({ forumList: [ params ] })
+        let options = formData
         if (this.isModify) {
           params.opId = form.opId
           options = qs.stringify(params)
