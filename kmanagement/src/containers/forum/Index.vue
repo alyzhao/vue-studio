@@ -124,26 +124,37 @@
       delete (id) {
         let url = ''
       },
-      edit (newsInfo) {
+      edit (item) {
         this.isModify = true
-        this.form = cloneDeep(newsInfo)
+        this.form = cloneDeep(item)
+        let [ startTime, endTime ] = this.form.opTime.split('-')
+        this.form.startTime = startTime
+        this.form.endTime = endTime        
         this.dialogVisible = true
       },
       confirm() {
         console.log(this.form)
+        let form = this.form
         let params = {
           opData: form.opData,
           opTime: form.startTime + '-' + form.endTime,
           opDetail: form.opDetail
         }
         this.confirmLoading = true
-        let url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/' + (this.isModify ? 'upDateNews' : 'webaddFrom')
-        this.axios.post(url, qs.stringify({ forumList: [ params ] }))
+        let url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/' + (this.isModify ? 'upDateF' : 'webaddFrom')
+        let options = qs.stringify({ forumList: [ params ] })
+        if (this.isModify) {
+          params.opId = form.opId
+          options = qs.stringify(params)
+        }
+        this.axios.post(url, options)
           .then(({data}) => {
             console.log(data)
             this.$message.success('提交成功!')
             this.loadData()
-            // this.dialogVisible = false
+            if (this.isModify) {
+              this.dialogVisible = false
+            }
             this.form = {}
           })
           .catch(this.errorHandle)
@@ -159,7 +170,7 @@
           pageSize: this.size
         }
         this.axios.get(url, {params}).then(({data}) => {
-          this.list = data
+          this.list = data.openf
           this.total = Number(data.totalCount)
         }).catch(this.errorHandle)
       },
