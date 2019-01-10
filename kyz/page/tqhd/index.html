@@ -301,7 +301,7 @@
         var url = 'https://www.x-pingic.com/ASEAN_Mining/onLine_Opening_Forum/queryForumList'
         $.get(url, {}, function (data) {
           console.log(data)
-          var date = data.map(function (item) {
+          var date = data.openf.map(function (item) {
             return item.opData
           })
           for (var i = 0; i < date.length; i ++) {
@@ -311,7 +311,7 @@
             }
           }
           let activity = date.map(function (item) {
-            var activityItem = data.filter(function (act) {
+            var activityItem = data.openf.filter(function (act) {
               return act.opData === item
             })
             return {

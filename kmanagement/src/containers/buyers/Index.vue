@@ -106,7 +106,7 @@
     },
     methods: {
       loadData () {
-        let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineApplication/queryAppList'
+        let url = 'https://www.x-pingic.com/ASEAN_Mining/onLineBuyer/queryBuyerList'
         let params =  {
           pageIndex: (this.page - 1) * this.size,
           pageSize: this.size
