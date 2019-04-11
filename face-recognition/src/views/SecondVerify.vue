@@ -1,9 +1,6 @@
 <template>
   <div class="second-verify">
-    <div class="page-title">
-      <i class="iconfont icon-arrow-left"></i>
-      二次验证
-    </div>
+    <BackNav text="二次验证"/>
     <div class="verify-input">
       <div>
         <div class="pass-avartar-wrap">
@@ -29,20 +26,20 @@
 <script>
   import Numerickeypad from '@/components/Numerickeypad'
   import PasswordInput from '@/components/PasswordInput'
+  import BackNav from '@/components/BackNav'
 
   export default {
     components: {
       Numerickeypad,
       PasswordInput,
+      BackNav,
     },
     data() {
       return {
         keyNumber: ''
       }
     },
-    methods: {
-
-    }
+    
   }
 </script>
 <style lang="scss">
@@ -52,20 +49,7 @@
     height: 100%;
     position: relative;
     .page-title {
-      position: absolute;
-      top: 60px;
-      left: 65px;
-      font-size: 24px;
-      font-family: SourceHanSansCN-Medium;
-      font-weight: 500;
       color: rgba(0, 0, 0, 0.3);
-      line-height: 36px;
-      i {
-        font-size: 26px;
-        color: #000;
-        display: inline-block;
-        padding: 0 20px;
-      }
     }
     .verify-input {
       height: 55%;

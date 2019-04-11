@@ -7,24 +7,7 @@ import axios from 'axios'
 import 'normalize.css'
 import '@/assets/scss/index.scss'
 
-import {
-  Message,
-  Dialog,
-  Row,
-  Col,
-  Button,
-  Input,
-  Loading
-} from 'element-ui'
-
-Vue.use(Dialog)
-Vue.use(Loading.directive)
-Vue.use(Row)
-Vue.use(Col)
-Vue.use(Button)
-Vue.use(Input)
-Vue.prototype.$message = Message
-
+import './plugins/element.js'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.axios = axios
