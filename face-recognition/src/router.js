@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import SecondVerify from './views/SecondVerify'
 import Signup from './views/Signup'
 import Form from './components/InfoForm'
+import Prompt from './components/Prompt'
 
 Vue.use(Router)
 
@@ -13,6 +14,10 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/prompt',
+      component: Prompt
     },
     {
       path: '/form',

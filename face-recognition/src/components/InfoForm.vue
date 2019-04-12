@@ -1,13 +1,14 @@
 <template>
   <el-form class="info-form" :model="form" label-width="150px" label-position="left">
     <el-form-item label="姓名">
-        <el-input v-model="form.name"></el-input>
+      <el-input v-model="form.name"></el-input>
     </el-form-item>
 
     <el-form-item label="手机号">
-        <el-input v-model="form.phone"></el-input>
+      <el-input v-model="form.phone"></el-input>
     </el-form-item>
 
+    <el-button type="primary">提交</el-button>
   </el-form>
 </template>
 <script>
@@ -38,6 +39,23 @@
       border-right: none;
       border-radius: 0;
       font-size:24px;
-    }   
+      background-color: #F4F5F7;
+      &:focus {
+        border-color: rgba(116,190,240,1);
+      }
+    }
+    .el-button--primary {
+      background: rgba(116, 190, 240, 1);
+      border-color: rgba(116, 190, 240, 1);
+    }
+    .el-button--primary:focus, .el-button--primary:hover {
+      background: rgba(116, 190, 240, .8);
+      border-color: rgba(116, 190, 240, .8);
+    }
+    .el-button {
+      width: 100%;
+      font-size: 30px;
+      margin-top: 20px;
+    }
   }
 </style>
