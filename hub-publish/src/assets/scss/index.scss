@@ -1,0 +1,70 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+body {
+  font-family: "PingFang SC", "Lantinghei SC", "Microsoft YaHei", "HanHei SC", "Helvetica Neue", "Open Sans", Arial, "Hiragino Sans GB", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-size: 20px;
+  color: #676E73;
+  line-height: 28px;
+}
+
+.headline {
+  font-family: SourceHanSansCN-Bold;
+  font-size: 46px;
+  color: #676E73;
+  letter-spacing: 0;
+  line-height: 54px;
+}
+
+.subtitle {
+  font-family: SourceHanSansCN-Bold;
+  font-size: 30px;
+  color: #676E73;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 38px;
+}
+
+.text-small {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #242B35;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.explanation {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #9DA2A6;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.s-content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearfix:before, .clearfix:after{content:"";display:table;line-height:0;}
+.clearfix:after{clear:both;} 
+.clearfix{*zoom:1;}
+
+.nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
