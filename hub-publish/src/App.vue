@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
   .hub {
     .header {
-      padding: 0 10.5%;
+      padding: 0 10.5% 20px;
     }
   }
 </style>
